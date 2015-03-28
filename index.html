@@ -39,8 +39,8 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href="#overview">Overview</a></li>
-            <li><a href="#demo">Demo</a></li>
-            <li><a href="#about">About</a></li>
+            <li><a href="#setup">Setup</a></li>
+            <li><a href="#tryit">Try It!</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a target="_blank" href="https://github.com/faizulbari/nf.io">Github</a></li>
@@ -53,18 +53,23 @@
 
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
-        <h1>Overview</h1>
-        <p>nf.io provides a file system abstraction for VNF management and Orchesration</p>
-        <h1>Demo</h1>
-	<iframe style="background-color: White;" width=700px height=350px scrolling=no src=http://104.131.117.100:8080/></iframe>
-	<br /><br /><br /><br /><br /><br /><br />
-	<br /><br /><br /><br /><br /><br /><br />
-	<br /><br /><br /><br /><br /><br /><br />
-	<br /><br /><br /><br /><br /><br /><br />
-	<br /><br /><br /><br /><br /><br /><br />
-	<br /><br /><br /><br /><br /><br /><br />
-	<br /><br /><br /><br /><br /><br /><br />
-	<br /><br /><br /><br /><br /><br /><br />
+        <a name="overview"></a>
+        <h2>Overview</h2>
+        <p align="justify">nf.io provides a file system abstraction for Virtual Network Function (VNF) management and Orchesration. It exposes the Linux file system interface as the northbound API, enabling user to manage and orchestrate VNF service chains by performing simple file and directory manipulation operations. In this demonstration a sample VNF chain is deployed. The terminal below can be used to collect information about individual VNFs as well as for the entire chain.</p>
+        <br />
+
+        <div style="top:-250px"><a name="setup"></a></div>
+        <h2>Setup</h2>
+        <p align="justify">The VNF chain <code>Firewall -- IDS -- Proxy</code> is deployed. The proxy is serving a dummy page that can be accessed <a href="">here</a>. Some sample commands to monitor the chain are given below:</p>
+        <br />
+
+        <a name="tryit"></a>
+        <h2>Try It!</h2>
+        <div align="center">
+        <br />
+	<iframe style="background-color: White;" width="80%" height="450px" scrolling=no src=http://104.131.117.100:8080/></iframe>
+	</div>
+        <br /><br /><br /><br /><br /><br /><br />
       </div>
 
     </div> <!-- /container -->
