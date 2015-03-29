@@ -61,6 +61,22 @@
         <div style="top:-250px"><a name="setup"></a></div>
         <h2>Setup</h2>
         <p align="justify">The VNF chain <code>Firewall -- IDS -- Proxy</code> is deployed. The proxy is serving a dummy page that can be accessed <a href="">here</a>. Some sample commands to monitor the chain are given below:</p>
+
+	Total number of packet drops along a chain:
+	<br />
+	<pre>find /nfio/chns/chain-a pkt_drop | xargs cat | awk `{total += $1} END {print total}'</pre>
+
+	List of all VNF instances deployed on a physical machine with IP address 10.0.0.17:
+	<br />
+	<pre>grep -R `10.0.0.17' /nfio/nf-types</pre>
+
+	List of all chains a VNF instance is part of:
+	<br />
+	<pre>find /nfio/chns -lname /nfio/nf-types/fw-ufw/fw-a</pre>
+	Total number of active connections to the web proxy (from the logs of a Bro IDS):
+	<br />
+	<pre>tail -n +8 /nfio/chns/chain-a/ids-a/ids-a/rfs/logs/current/conn.log | awk `{print $8}' | grep -c `http'}</pre>
+
         <br />
 
         <a name="tryit"></a>
