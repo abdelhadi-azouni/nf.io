@@ -66,7 +66,7 @@
 
 	Total number of packet drops along a chain:
 	<br />
-	<pre>find /nfio/chns/chain-alpha -name pkt_drops | xargs cat | awk 'BEGIN {total=0;} {total += $1} END {print total}'</pre>
+	<pre>find -L /nfio/chns/chain-alpha -name pkt_drops ! -path "*/next/*" ! -path "*/start/*" | xargs cat | awk '{total += $1} END {print total}'</pre>
 
 	List of all VNF instances deployed on a physical machine with IP address 10.0.0.17:
 	<br />
@@ -74,7 +74,7 @@
 
 	List of all chains a VNF instance is part of:
 	<br />
-	<pre>find /nfio/chns -lname /nfio/nf-types/fw-ufw/fw-a</pre>
+	<pre>find /nfio/chns -lname /nfio/nf-types/firewall/fw-alpha</pre>
 	Total number of active connections to the web proxy (from the logs of a Bro IDS):
 	<br />
 	<pre>tail -n +8 /nfio/chns/chain-a/ids-a/ids-a/rfs/logs/current/conn.log | awk '{print $8}' | grep -c 'http'}</pre>
