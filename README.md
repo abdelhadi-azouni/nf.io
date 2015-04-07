@@ -1,6 +1,5 @@
 # nf.io
-## A File System Abstraction for VNF Orchestrator
-=================================================
+### A File System Abstraction for VNF Orchestration
 
 ### Installation Instructions
 
@@ -10,13 +9,13 @@
 
 ### Run
 
-`mkdir /vnfsroot`
-`mkdir -p /vnfsroot/nf-types/fw`
-`mkdir -p /vnfsroot/nf-types/proxy`
-`mkdir -p /vnfsroot/nf-types/ids`
- mkdir -p /vnfsroot/chns`
-`chown -R <username>:<username> /vnfsroot`
-`mkdir /nfio`
-`chown <username>:<username> /vnfsroot`
-`python nfio.py /vnfsroot /nfio`
+  `mkdir /vnfsroot`
+  `mkdir -p /vnfsroot/nf-types/fw`
+  `mkdir -p /vnfsroot/nf-types/proxy`
+  `mkdir -p /vnfsroot/nf-types/ids`
+  `mkdir -p /vnfsroot/chns`
+  `chown -R <username>:<username> /vnfsroot`
+  `mkdir /nfio`
+  `chown <username>:<username> /vnfsroot`
+  `python nfio.py /vnfsroot /nfio`
 
