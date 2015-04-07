@@ -21,4 +21,4 @@
   python nfio.py /vnfsroot /nfio
 ```
 
-An online demonstration is available at http://faizulbari.github.io/nf.io/
+An online demonstration is available at <a href="http://faizulbari.github.io/nf.io/" target="_blank">http://faizulbari.github.io/nf.io/</a>
