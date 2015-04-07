@@ -1,5 +1,5 @@
 # nf.io
-### A File System Abstraction for VNF Orchestration
+### A File System Abstraction for NFV Orchestration
 
 ### Installation Instructions
 
