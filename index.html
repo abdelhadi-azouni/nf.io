@@ -81,7 +81,7 @@
 	<pre>find /nfio/chns -lname /nfio/nf-types/firewall/fw-alpha</pre>
 	Total number of active connections to the web proxy (from the logs of a Bro IDS):
 	<br />
-	<pre>tail -n +8 /nfio/nf-types/ids/ids-alpha/rfs/spool/bro/conn.log | awk '{print $8}' | grep -c 'http'</pre>
+	<pre>tail -n +8 /nfio/nf-types/ids/ids-alpha/rfs/conn.log | awk '{print $8}' | grep -c 'http'</pre>
 
 	Access log of web proxy:
 	<br />
