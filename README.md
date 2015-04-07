@@ -8,6 +8,7 @@
 * Logout and login again to update user group
 
 ### Run
+```bash
   mkdir /vnfsroot
   mkdir -p /vnfsroot/nf-types/fw
   mkdir -p /vnfsroot/nf-types/proxy
@@ -17,4 +18,4 @@
   mkdir /nfio
   chown <username>:<username> /vnfsroot
   python nfio.py /vnfsroot /nfio
-
+```
