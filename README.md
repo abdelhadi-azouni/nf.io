@@ -8,7 +8,6 @@
 * Logout and login again to update user group
 
 ### Run
-
   mkdir /vnfsroot
   mkdir -p /vnfsroot/nf-types/fw
   mkdir -p /vnfsroot/nf-types/proxy
