@@ -7,8 +7,9 @@
 * Add your username to the group fuse `sudo addgroup <username> fuse`
 * Logout and login again to update user group
 
-### Run
+### To Run
 
+```bash
   mkdir /vnfsroot
   mkdir -p /vnfsroot/nf-types/fw
   mkdir -p /vnfsroot/nf-types/proxy
@@ -18,4 +19,6 @@
   mkdir /nfio
   chown <username>:<username> /vnfsroot
   python nfio.py /vnfsroot /nfio
+```
 
+An online demonstration is available at http://faizulbari.github.io/nf.io/
