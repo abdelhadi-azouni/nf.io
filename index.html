@@ -68,10 +68,6 @@
 	<br />
 	<pre>find -L /nfio/chns/chain-alpha -name pkt_drops ! -path "*/next/*" ! -path "*/start/*" | xargs cat | awk '{total += $1} END {print total}'</pre>
 
-	Total transmitted bytes along a chain:
-	<br />
-	<pre>find -L /nfio/chns/chain-alpha -name tx_bytes ! -path "*/next/*" ! -path "*/start/*" | xargs cat | awk '{total += $1} END {print total}'</pre>
-
 	List of all VNF instances deployed on a physical machine with IP address 10.0.0.17:
 	<br />
 	<pre>grep -R '172.17.42.1' /nfio/nf-types</pre>
