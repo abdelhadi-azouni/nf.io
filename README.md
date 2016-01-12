@@ -18,7 +18,7 @@
   chown -R <username>:<username> /vnfsroot
   mkdir /nfio
   chown <username>:<username> /vnfsroot
-  python nfio.py /vnfsroot /nfio
+  python nfio.py --root /vnfsroot --mountpoint /nfio
 ```
 
 An online demonstration is available at <a href="http://faizulbari.github.io/nf.io/" target="_blank">nf.io Demo</a>.
