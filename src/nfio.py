@@ -2,7 +2,6 @@
 
 from __future__ import with_statement
 
-# fuse imports
 import os
 import sys
 import errno
@@ -11,7 +10,6 @@ from fuse import FUSE, FuseOSError, Operations
 from hyp import hyp_factory
 from vnfs_operations import VNFSOperations
 
-# nf.io imports
 import getpass
 import re
 import importlib
