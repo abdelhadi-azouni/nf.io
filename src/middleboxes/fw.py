@@ -3,18 +3,19 @@ from hyp import vnfs_docker
 import os
 
 special_files = ['rx_bytes', 'tx_bytes', 'pkt_drops', 'status']
+action_files = ['action']
 
 def full_path(root, partial_path):
     if partial_path.startswith("/"):
         partial_path = partial_path[1:]
     return os.path.join(root, partial_path)
 
-def mkdir(root, path, mode):
+def _mkdir(root, path, mode):
     vnfs_ops = VNFSOperations(root)
     result = vnfs_ops.vnfs_create_vnf_instance(path, mode)
     return result
 
-def getattribute(root, path, fh=None):
+def _getattr(root, path, fh=None):
     vnfs_ops = VNFSOperations(root)
     f_path = full_path(root, path)
     st = os.lstat(f_path)
@@ -32,7 +33,7 @@ def getattribute(root, path, fh=None):
         return_dictionary['st_size'] = 1000
     return return_dictionary    
 
-def read(root, path, length, offset, fh):
+def _read(root, path, length, offset, fh):
     f_path = full_path(root, path)
     vnfs_ops = VNFSOperations(root)
     file_name = vnfs_ops.vnfs_get_file_name(f_path)
@@ -62,3 +63,15 @@ def read(root, path, length, offset, fh):
         ret_str = os.read(fh, length)
     return ret_str
 
+def _write(root, path, buf, offset, fh):
+    f_path = full_path(root, path)
+    vnfs_ops = VNFSOperations(root)
+    filename = vnfs_ops.vnfs_get_file_name(f_path)
+    if file_name == "action" and buf == "activate":
+        path_tokens = f_path.split("/")
+        nf_path = "/".join(path_tokens[0:path_tokens.index("nf-type") + 2])
+        vnfs_ops.vnfs_deploy_nf(nf_path)
+        return 0
+    else:
+        os.lseek(fh, offset, os.SEEK_SET)
+        return os.write(fh, buf)

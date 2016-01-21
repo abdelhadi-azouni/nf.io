@@ -53,7 +53,6 @@ class VNFSOperations:
         os.open(full_path + "/stats/pkt_drops", os.O_WRONLY | os.O_CREAT,
                 default_file_mode)
 
-        os.mkdir(full_path + "/rfs", mode)
         return result
     
     def vnfs_get_opcode(self, path):
@@ -124,33 +123,16 @@ class VNFSOperations:
     def vnfs_deploy_nf(self, nf_path):
         nf_instance_name, nf_type, ip_address = self.vnfs_get_instance_configuration(nf_path)
         print "Starting " + nf_instance_name + " of type " + nf_type + " at " + ip_address
-        cont_id, ret_code, ret_msg = self._hypervisor.deploy(ip_address,
+        cont_id, deploy_ret_code, deploy_ret_msg = self._hypervisor.deploy(ip_address,
                                                              getpass.getuser(),
                                                              nf_type, nf_instance_name)
-        print cont_id, ret_code, ret_msg
-        if ret_code == hrc.SUCCESS:
-          response, ret_code, ret_msg = self._hypervisor.start(ip_address, cont_id)
-          if ret_code == hrc.SUCCESS:
-            time.sleep(30)
-            command = " ".join(['sshfs',
-                                'root@' + getpass.getuser() + '-' + nf_instance_name + ':/',
-                                nf_path + '/rfs'])
-            print command
-            out = Popen(['ping',
-                         '-c', '1',
-                         getpass.getuser() + '-' + nf_instance_name], stdout = PIPE)
-            print out.stdout.read()
-
-            out = Popen(['sshfs',
-                         '-o', 'sshfs_debug',
-                         '-p', '22',
-                         'root@' + getpass.getuser() + '-' + nf_instance_name + ':/',
-                         nf_path + '/rfs'], stderr = PIPE)
-            print out.stderr.read()
-          print response
+        print cont_id, deploy_ret_code, deploy_ret_msg
+        if deploy_ret_code == hrc.SUCCESS:
+          start_response, start_ret_code, start_ret_msg = self._hypervisor.start(ip_address, cont_id)
+          return start_ret_code
         else:
           print 'nf deployment failed'
-        return 0
+          return deploy_ret_code
 
     def vnfs_get_rx_bytes(self, nf_path):
         nf_instance_name, nf_type, ip_address = self.vnfs_get_instance_configuration(nf_path)
