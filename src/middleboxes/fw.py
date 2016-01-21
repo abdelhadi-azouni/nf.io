@@ -66,12 +66,15 @@ def _read(root, path, length, offset, fh):
 def _write(root, path, buf, offset, fh):
     f_path = full_path(root, path)
     vnfs_ops = VNFSOperations(root)
-    filename = vnfs_ops.vnfs_get_file_name(f_path)
-    if file_name == "action" and buf == "activate":
+    file_name = vnfs_ops.vnfs_get_file_name(f_path)
+    if file_name == "action":
         path_tokens = f_path.split("/")
-        nf_path = "/".join(path_tokens[0:path_tokens.index("nf-type") + 2])
-        vnfs_ops.vnfs_deploy_nf(nf_path)
-        return 0
+        nf_path = "/".join(path_tokens[0:path_tokens.index("nf-types") + 3])
+        if buf == "activate":
+            vnfs_ops.vnfs_deploy_nf(nf_path)
+        elif buf == "stop":
+            vnfs_ops.vnfs_stop_vnf(nf_path)
+        return len(buf)
     else:
         os.lseek(fh, offset, os.SEEK_SET)
         return os.write(fh, buf)

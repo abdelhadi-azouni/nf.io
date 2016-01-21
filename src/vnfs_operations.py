@@ -133,6 +133,13 @@ class VNFSOperations:
         else:
           print 'nf deployment failed'
           return deploy_ret_code
+    
+    def vnfs_stop_vnf(self, nf_path):
+        nf_instance_name, nf_type, ip_address = self.vnfs_get_instance_configuration(nf_path)
+        print "Stopping " + nf_instance_name
+        cont_id, ret_code = self._hypervisor.get_id(ip_address, getpass.getuser(), nf_type, nf_instance_name)
+        response, ret_code, ret_message = self._hypervisor.stop(ip_address, cont_id)
+        return response
 
     def vnfs_get_rx_bytes(self, nf_path):
         nf_instance_name, nf_type, ip_address = self.vnfs_get_instance_configuration(nf_path)

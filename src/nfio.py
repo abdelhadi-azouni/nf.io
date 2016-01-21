@@ -149,7 +149,7 @@ class Nfio(Operations):
         if opcode == VNFSOperations.OP_NF:
             nf_type = self.vnfs_ops.vnfs_get_nf_type(full_path)
             mbox_module = importlib.import_module("middleboxes." + nf_type)
-            return mbox_module._write(self.root, f_path, buf, offset, fh)
+            return mbox_module._write(self.root, path, buf, offset, fh)
 
         os.lseek(fh, offset, os.SEEK_SET)
         return os.write(fh, buf)

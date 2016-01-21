@@ -6,7 +6,7 @@ def full_path(root, partial):
         partial = partial[1:]
     return os.path.join(root, partial)
 
-def mkdir(root, path, mode):
+def _mkdir(root, path, mode):
     f_path = full_path(root, path)
     result = os.mkdir(f_path)
     file_names = ['alpha', 'beta', 'gamma', 'kappa', 'omega', 'theta']
@@ -14,7 +14,7 @@ def mkdir(root, path, mode):
             file_name in file_names]
     return result
 
-def getattribute(root, path, fh = None):
+def _getattr(root, path, fh = None):
     st = os.lstat(full_path(root, path))
     return_dictionary = dict()
     return_dictionary['st_atime'] = st.st_atime
@@ -27,6 +27,10 @@ def getattribute(root, path, fh = None):
     return_dictionary['st_uid'] = st.st_uid  
     return return_dictionary
 
-def read(root, path, length, offset, fh):
+def _read(root, path, length, offset, fh):
     os.lseek(fh, offset, os.SEEK_SET)
     return os.read(fh, length)
+
+def _write(root, path, buf, offset, fh):
+    os.lseek(fh, offset, os.SEEK_SET)
+    return os.write(fh, buf)
