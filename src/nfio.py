@@ -54,7 +54,7 @@ class Nfio(Operations):
             nf_type = self.vnfs_ops.vnfs_get_nf_type(path)
             if len(nf_type) > 0:
                 mbox_module = importlib.import_module("middleboxes." + nf_type)
-                return mbox_module.getattribute(self.root, path, fh)
+                return mbox_module._getattr(self.root, path, fh)
         full_path = self._full_path(path)
         st = os.lstat(full_path)
         file_name = self.vnfs_ops.vnfs_get_file_name(full_path)
@@ -92,7 +92,7 @@ class Nfio(Operations):
             if path_tokens.index("nf-types") == len(path_tokens) - 2:
                 return os.mkdir(self._full_path(path), mode)
             mbox_module = importlib.import_module("middleboxes." + nf_type)
-            result = mbox_module.mkdir(self.root, path, mode)
+            result = mbox_module._mkdir(self.root, path, mode)
         elif opcode == VNFSOperations.OP_CHAIN:
             result = self.vnfs_ops.vnfs_create_chain(path, mode)
         elif opcode == VNFSOperations.OP_UNDEFINED:
@@ -157,7 +157,7 @@ class Nfio(Operations):
         if opcode == self.vnfs_ops.OP_NF:
             nf_type = self.vnfs_ops.vnfs_get_nf_type(path)
             mbox_module = importlib.import_module("middleboxes." + nf_type)
-            ret_str = mbox_module.read(self.root, path, length, offset, fh)
+            ret_str = mbox_module._read(self.root, path, length, offset, fh)
         elif opcode == self.vnfs_ops.OP_CHAIN:
             tokens = full_path.encode('ascii').split("/")
             last_index = len(tokens) - 1
@@ -167,7 +167,7 @@ class Nfio(Operations):
                 1:last_index]))
             nf_type = self.vnfs_ops.vnfs_get_nf_type(f_path)
             mbox_module = importlib.import_module("middleboxes." + nf_type)
-            ret_str = mbox_module.read(self.root, f_path, length, offset, fh)
+            ret_str = mbox_module._read(self.root, f_path, length, offset, fh)
         return ret_str
 
     def write(self, path, buf, offset, fh):
