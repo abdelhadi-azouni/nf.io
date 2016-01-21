@@ -174,11 +174,11 @@ class Nfio(Operations):
         opcode = self.vnfs_ops.vnfs_get_opcode(path)
         full_path = self._full_path(path)
         file_name = self.vnfs_ops.vnfs_get_file_name(path)
-        if opcode == VNFSOperations.OP_CHAIN:
-            if file_name == "action" and buf == "activate":
-                # activate a chain of vnfs.
-                chain_directory = "/".join(full_path.split("/")[:-1])
-                self.vnfs_ops.vnfs_deploy_nf_chain(chain_directory)
+        if opcode == VNFSOperations.OP_NF:
+            nf_type = self.vnfs_ops.vnfs_get_nf_type(full_path)
+            mbox_module = importlib.import_module("middleboxes." + nf_type)
+            return mbox_module._write(self.root, f_path, buf, offset, fh)
+
         os.lseek(fh, offset, os.SEEK_SET)
         return os.write(fh, buf)
 
