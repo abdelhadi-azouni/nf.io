@@ -16,11 +16,12 @@ import importlib
 import argparse
 
 class Nfio(Operations):
-    def __init__(self, root, mountpoint, hypervisor):
+    def __init__(self, root, mountpoint, hypervisor, module_root):
         self.root = root
         self.mountpoint = mountpoint
         self.hypervisor = hypervisor
         self.vnfs_ops = VNFSOperations(root)
+        self.module_root = module_root
 
     # Helpers
     # =======
@@ -53,7 +54,7 @@ class Nfio(Operations):
         if opcode == VNFSOperations.OP_NF:
             nf_type = self.vnfs_ops.vnfs_get_nf_type(path)
             if len(nf_type) > 0:
-                mbox_module = importlib.import_module("middleboxes." + nf_type)
+                mbox_module = importlib.import_module(self.module_root + "." + nf_type)
                 return mbox_module._getattr(self.root, path, fh)
         full_path = self._full_path(path)
         st = os.lstat(full_path)
@@ -91,7 +92,7 @@ class Nfio(Operations):
             path_tokens = path.split("/")
             if path_tokens.index("nf-types") == len(path_tokens) - 2:
                 return os.mkdir(self._full_path(path), mode)
-            mbox_module = importlib.import_module("middleboxes." + nf_type)
+            mbox_module = importlib.import_module(self.module_root + "." + nf_type)
             result = mbox_module._mkdir(self.root, path, mode)
         elif opcode == VNFSOperations.OP_UNDEFINED:
             result = errno.EPERM
@@ -137,7 +138,7 @@ class Nfio(Operations):
         file_name = self.vnfs_ops.vnfs_get_file_name(full_path)
         if opcode == self.vnfs_ops.OP_NF:
             nf_type = self.vnfs_ops.vnfs_get_nf_type(path)
-            mbox_module = importlib.import_module("middleboxes." + nf_type)
+            mbox_module = importlib.import_module(self.module_root + "." + nf_type)
             return mbox_module._read(self.root, path, length, offset, fh)
         os.lseek(fh, offset, os.SEEK_SET)
         return os.read(fh, length)
@@ -148,7 +149,7 @@ class Nfio(Operations):
         file_name = self.vnfs_ops.vnfs_get_file_name(path)
         if opcode == VNFSOperations.OP_NF:
             nf_type = self.vnfs_ops.vnfs_get_nf_type(full_path)
-            mbox_module = importlib.import_module("middleboxes." + nf_type)
+            mbox_module = importlib.import_module(self.module_root + "." + nf_type)
             return mbox_module._write(self.root, path, buf, offset, fh)
 
         os.lseek(fh, offset, os.SEEK_SET)
@@ -184,12 +185,18 @@ def nfio_main():
             '--hypervisor',
             help='Hypervisor to use for VNF deployment (Docker/Libvirt)',
             default="Docker")
+    arg_parser.add_argument(
+            '--middlebox_module_root',
+            help='Module directory inside the source tree containing middlebox specific implementation of system calls',
+            default='middleboxes')
+
     args = arg_parser.parse_args()
     root = args.root
     mountpoint = args.mountpoint
     hypervisor = args.hypervisor
     hypervisor_factory = hypervisor_factory.HypervisorFactory(hypervisor)
-    FUSE(Nfio(root, mountpoint, hypervisor), mountpoint, foreground=True)
+    module_root = args.middlebox_module_root
+    FUSE(Nfio(root, mountpoint, hypervisor, module_root), mountpoint, foreground=True)
 
 if __name__ == '__main__':
     nfio_main()
