@@ -4,15 +4,18 @@ import os
 special_files = ['rx_bytes', 'tx_bytes', 'pkt_drops', 'status']
 action_files = ['action']
 
+
 def full_path(root, partial_path):
     if partial_path.startswith("/"):
         partial_path = partial_path[1:]
     return os.path.join(root, partial_path)
 
+
 def _mkdir(root, path, mode):
     vnfs_ops = VNFSOperations(root)
     result = vnfs_ops.vnfs_create_vnf_instance(path, mode)
     return result
+
 
 def _getattr(root, path, fh=None):
     vnfs_ops = VNFSOperations(root)
@@ -30,7 +33,8 @@ def _getattr(root, path, fh=None):
     return_dictionary['st_uid'] = st.st_uid
     if file_name in special_files:
         return_dictionary['st_size'] = 1000
-    return return_dictionary    
+    return return_dictionary
+
 
 def _read(root, path, length, offset, fh):
     f_path = full_path(root, path)
@@ -61,6 +65,7 @@ def _read(root, path, length, offset, fh):
         os.lseek(fh, offset, os.SEEK_SET)
         ret_str = os.read(fh, length)
     return ret_str
+
 
 def _write(root, path, buf, offset, fh):
     f_path = full_path(root, path)
