@@ -21,4 +21,4 @@
   python nfio.py --root /vnfsroot --mountpoint /nfio
 ```
 
-An online demonstration is available at <a href="http://faizulbari.github.io/nf.io/" target="_blank">nf.io Demo</a>.
+An online demonstration is available at <a href="http://watnfv.github.io/nf.io/" target="_blank">nf.io Demo</a>.
