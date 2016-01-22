@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
-    <title>nf.io Demonstration</title>
+    <title>nf.io: A File System Abstraction for NFV Orchestration</title>
 
     <!-- Bootstrap core CSS -->
     <link href="bootstrap.min.css" rel="stylesheet">
@@ -44,14 +44,15 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">nf.io</a>
+          <a class="navbar-brand" href="index.html">nf.io</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="#overview">Overview</a></li>
-            <li><a href="#publications">Publications</a></li>
-            <li><a href="#setup">Setup</a></li>
-            <li><a href="#tryit">Try It!</a></li>
+            <li><a href="demo.html">Demo</a></li>
+            <li><a href="get_started.html">Get Started</a></li>
+            <li><a href="downloads.html">Downloads</a></li>
+            <li><a href="developers.html">Developers</a></li>
+            <li><a href="credits.html">Credits</a><li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a target="_blank" href="https://github.com/faizulbari/nf.io">Github</a></li>
@@ -64,55 +65,23 @@
 
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
-        <a class="anchor" name="overview"></a>
-        <h2>Overview</h2>
-        <p align="justify">nf.io provides a file system abstraction for Virtual Network Function (VNF) management and Orchestration. It exposes the Linux file system interface as the northbound API, enabling user to manage and orchestrate VNF service chains by performing simple file and directory manipulation operations. In this demonstration a sample VNF chain is deployed. The terminal below can be used to collect information about individual VNFs as well as for the entire chain.</p>
         <br />
-	
-        <a class="anchor" name="publications"></a>
+        <h2>Overview</h2>
+        <div class="text-justify"><big>nf.io provides a file system abstraction for Virtual Network Function (VNF) management and Orchestration. It exposes the Linux file system interface as the northbound API, enabling user to manage and orchestrate VNFs by performing simple file and directory manipulation operations.</big></div>
+        <br /><br />
+        <h2>Architecture</h2>
+        <img src="architecture.png" class="img-responsive img-rounded center-block" alt="nf.io Architecture" width="40%" height="auto">
+        <br />
+        <div class="text-justify"><big>A high-level view of the nf.io architecture is shown the above figure. The nf.io File System is a virtual file system that runs on top of the traditional OS file system. VNF operations are triggered when a user writes a operation string in the action files. nf.io performs these operations by using three resource drivers: (i) Hypervisor Driver, (ii) Network Driver, and (iii) Chain Driver. The hypervisor and network drivers manage the compute and network resources, respectively. The chain driver manages VNF chains by configuring traffic forwarding rules between VNFs.</big></div>
+        <br /><br />
         <h2>Publications</h2>
         <ul>
-        	<li><em>Md. Faizul Bari, Shihabur Rahman Chowdhury, Reaz Ahmed, and Raouf Boutaba</em>, <strong>nf.io: A File System Abstraction for NFV Orchestration</strong>, <i>IEEE Conference on Network Function Virtualization & Software Defined Networks (NFV-SDN)</i>, San Francisco, USA, 18-21 November, 2015. &nbsp; <a target="_blank" href="http://faizulbari.com/files/conferences/2015/Bari15.NFVSDN.pdf">pdf</a> &nbsp; <a target="_blank" href="http://faizulbari.com/files/conferences/2015/Bari15.NFVSDN.Slides.pdf">ppt</a></li>
-        	<li><em>Md. Faizul Bari, Shihabur Rahman Chowdhury, Reaz Ahmed, and Raouf Boutaba</em>, <strong>nf.io: A File System Abstraction for NFV Orchestration</strong>, <i>ACM SIGCOMM 2015</i>, London, UK, August 17-21, 2015: 361-362. &nbsp; <a target="_blank" href="http://faizulbari.com/files/demos/2015/Bari15.SIGCOMM.pdf">pdf</a></li>
+      	  <li><em>Md. Faizul Bari, Shihabur Rahman Chowdhury, Reaz Ahmed, and Raouf Boutaba</em>, <strong><big>nf.io: A File System Abstraction for NFV Orchestration</big></strong>, <i><big>IEEE NFV-SDN 2015</big></i>, San Francisco, USA, 18-21 November, 2015. &nbsp; <a target="_blank" href="http://faizulbari.com/files/conferences/2015/Bari15.NFVSDN.pdf">pdf</a> &nbsp; <a target="_blank" href="http://faizulbari.com/files/conferences/2015/Bari15.NFVSDN.Slides.pdf">ppt</a></li>
+          <li><em>Md. Faizul Bari, Shihabur Rahman Chowdhury, Reaz Ahmed, and Raouf Boutaba</em>, <strong><big>nf.io: A File System Abstraction for NFV Orchestration</big></strong>, <i><big>ACM SIGCOMM 2015</big></i>, London, UK, August 17-21, 2015: 361-362. &nbsp; <a target="_blank" href="http://faizulbari.com/files/demos/2015/Bari15.SIGCOMM.pdf">pdf</a></li>
         </ul>
-        <br />
-
-	<a class="anchor" name="setup"></a>
-        <h2>Setup</h2>
-        <p align="justify">The VNF chain <code>Firewall -- IDS -- Proxy</code> is deployed. The proxy is serving this same page, and can be accessed at this <a target="_blank" href="http://104.131.117.100/">link</a>. Some sample commands to monitor the chain are given below:</p>
-
-	Total number of packet drops along a chain:
-	<br />
-	<pre>find -L /nfio/chns/chain-alpha -name pkt_drops ! -path "*/next/*" ! -path "*/start/*" | xargs cat | awk '{total += $1} END {print total}'</pre>
-
-	List of all VNF instances deployed on a physical machine with IP address 10.0.0.17:
-	<br />
-	<pre>grep -R '172.17.42.1' /nfio/nf-types</pre>
-
-	List of all chains a VNF instance is part of:
-	<br />
-	<pre>find /nfio/chns -lname /nfio/nf-types/firewall/fw-alpha</pre>
-	Total number of connections to the web proxy seen by the Bro IDS:
-	<br />
-	<pre>tail -n +9 /nfio/nf-types/ids/ids-alpha/rfs/conn.log | awk '{print $6}' | grep -c 80</pre>
-
-	Access log of web proxy:
-	<br />
-	<pre>tail -f /nfio/nf-types/proxy/proxy-alpha/rfs/access.log</pre>
-
-        <br />
-
-        <a class="anchor" name="tryit"></a>
-        <h2>Try It!</h2>
-        <a href="http://104.131.117.100:8080/" target="_blank">Click here</a> to open a web based terminal in a new tab/window. Then you can login with the username: <code>nfio-demo</code> and password: <code>nfio-demo</code>. On Chrome you can use <code>Ctrl + Shift + V</code> to paste the commands. However, it does not work on Firefox, so you need to type in the commands. Do not use <code>Ctrl + C</code> to break out of commands. It will stop the terminal. You can use <code>Ctrl + Z</code> instead.
-        <!--<div align="center">
-        <br />
-	<iframe style="background-color: White;" width="80%" height="450px" scrolling=no src=http://104.131.117.100:8080/></iframe>
-	</div>-->
         <br /><br />
-        In case you face problems using the web based terminal, you can directly ssh to <code>104.131.117.100:22001</code> with the above username and password.
-        <br /><br />
-        <p>The source code is available at <a target="_blank" href="https://github.com/faizulbari/nf.io">https://github.com/faizulbari/nf.io</a></p>
+        <h2>Source Code</h2>
+        <big>The source code is available at <a target="_blank" href="https://github.com/faizulbari/nf.io">https://github.com/faizulbari/nf.io</a></big>
         <br /><br /><br />
       </div>
 
