@@ -1,5 +1,4 @@
 from vnfs_operations import VNFSOperations
-from hyp import vnfs_docker
 import os
 
 special_files = ['rx_bytes', 'tx_bytes', 'pkt_drops', 'status']

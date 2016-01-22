@@ -10,8 +10,8 @@ import time
 
 import getpass
 import re
-from hyp import hyp_factory
-from hyp import hypreturncodes as hrc
+from hypervisor import hypervisor_factory
+from hypervisor import hypervisor_return_codes as hrc
 
 class VNFSOperations:
     OP_UNDEFINED = 0xFF
@@ -19,7 +19,7 @@ class VNFSOperations:
     OP_CHAIN = 101
     def __init__(self, vnfs_root):
         self.vnfs_root = vnfs_root
-        self._hypervisor = hyp_factory.HypervisorFactory.get_hypervisor_instance()
+        self._hypervisor = hypervisor_factory.HypervisorFactory.get_hypervisor_instance()
 
     def _full_path(self, partial):
         if partial.startswith("/"):

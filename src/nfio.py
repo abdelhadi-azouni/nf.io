@@ -7,7 +7,7 @@ import sys
 import errno
 
 from fuse import FUSE, FuseOSError, Operations
-from hyp import hyp_factory
+from hypervisor import hypervisor_factory
 from vnfs_operations import VNFSOperations
 
 import getpass
@@ -188,7 +188,7 @@ def nfio_main():
     root = args.root
     mountpoint = args.mountpoint
     hypervisor = args.hypervisor
-    hypervisor_factory = hyp_factory.HypervisorFactory(hypervisor)
+    hypervisor_factory = hypervisor_factory.HypervisorFactory(hypervisor)
     FUSE(Nfio(root, mountpoint, hypervisor), mountpoint, foreground=True)
 
 if __name__ == '__main__':
