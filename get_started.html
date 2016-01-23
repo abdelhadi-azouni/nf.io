@@ -14,6 +14,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="modern-business.css" rel="stylesheet">
     <style>
       a.anchor {display: block; position: relative; top: -45px; visibility: hidden;}
     </style>
@@ -35,7 +36,7 @@
   <body>
 
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -70,7 +71,50 @@
         <big>There are two ways to get started with nf.io.</big>
         <ul>
           <li><strong>Option 1:&nbsp;</strong>Download a pre-packaged VM for nf.io.</li>
-          <li><strong>Option 2:&nbsp;</strong>Install from source</li>
+          <li><strong>Option 2:&nbsp;</strong>Install from source
+            <ul>
+              <li>Step 1: Install the following tools/utilities: 
+                  <ul>
+                    <li>git</li>
+                    <li>wget</li>
+                    <li>python-pip</li>
+                  </ul>
+                  <code>sudo apt-get install git wget python-pip</code>
+              </li>
+              <li>Step 2: Install FUSE. Follow the instructions on <a href="https://github.com/libfuse/libfuse" target="_blank">github.com: libfuse</a>
+              </li>
+              <li>Step 3: Add your username to the group fuse<br />
+                  <code>sudo addgroup &lt;username&gt; fuse</code><br />
+                  Log out of the machine and back in for this to take effect!
+              </li>
+              <li>Step 4: Install Docker. Follow the instruction on <a href="https://docs.docker.com/linux/step_one/" target="_blank">docker.com: Install Docker</a>. Add your user to the "docker" group<br />
+              <code> sudo addgroup &lt;username&gt; docker</code><br />
+              Log out of the machine again and back in for this to take effect!
+              </li>
+              <li>Step 5: Install the <a href="https://github.com/docker/docker-py" target="_blank">docker-py</a> client<br />
+              <code>sudo pip install docker-py</code><br />
+              Run the following command to allow remote API calls<br />
+              <code>sudo sed -i 's@.*DOCKER_OPTS=.*@DOCKER_OPTS="-H unix:///var/run/docker.sock -H tcp://0.0.0.0:4444"@g' /etc/default/docker</code><br />
+              Restart the Docker daemon<br />
+              <code>sudo service docker restart</code>
+              </li>
+              <li>Step 6: Clone the nf.io Git repository<br />
+                  <code>git clone https://github.com/WatNFV/nf.io.git</code>
+              </li>
+              <li>Step 7: Create the initial directories for nf.io<br />
+                  <code>sudo mkdir /vnfsroot</code><br />
+                  <code>sudo mkdir -p /vnfsroot/nf-types/fw</code><br />
+                  <code>sudo chown -R &lt;username&gt;:&lt;username&gt; /vnfsroot</code><br />
+                  <code>sudo mkdir /nfio</code><br />
+                  <code>sudo chown -R &lt;username&gt;:&lt;username&gt; /nfio</code><br />
+              </li>
+              <li>Step 8: Run nf.io<br />
+                  Go to the <code>nf.io/src</code> directory and run the following command<br />
+                  <code>python nfio.py --root /vnfsroot --mountpoint /nfio</code>
+              </li>
+            </ul>
+          </li>
+        </ul>
         <br /><br />
       </div>
 
