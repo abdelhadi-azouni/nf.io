@@ -17,7 +17,7 @@ class HypervisorBase(object):
       Returns:
         Hypervisor specific ID for a VM or container.
       """
-        pass
+      pass
 
     @abstractmethod
     def deploy(self):
@@ -29,7 +29,7 @@ class HypervisorBase(object):
       Returns:
         Hypervisor specific return code.
       """ 
-        pass
+      pass
 
     @abstractmethod
     def pause(self):
@@ -41,7 +41,7 @@ class HypervisorBase(object):
       Returns:
         Hypervisor specific return code.
       """ 
-        pass
+      pass
 
     @abstractmethod
     def destroy(self):
@@ -53,7 +53,7 @@ class HypervisorBase(object):
       Returns:
         Hypervisor specific return code.
       """ 
-        pass
+      pass
 
     @abstractmethod
     def execute_in_guest(self):
@@ -65,7 +65,7 @@ class HypervisorBase(object):
       Returns:
         Hypervisor specific return code.
       """ 
-        pass
+      pass
 
     @abstractmethod
     def guest_status(self):
@@ -77,4 +77,4 @@ class HypervisorBase(object):
       Returns:
         Current status of a VM or container.
       """ 
-        pass
+      pass
