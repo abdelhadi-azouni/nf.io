@@ -40,15 +40,13 @@ class Docker(HypervisorBase):
         inspect_data = dcx.inspect_container(container=name)
         return inspect_data['Id'], return_data
 
-    def deploy(self, host, user, vnf_type, vnf_name):
+    def deploy(self, host, user, image_name, vnf_name):
         return_data = {'code': SUCCESS, 'message': ""}
         with self._error_handling(return_data):
             dcx = self._get_client(host)
             name = user + "-" + vnf_name
             container = dcx.create_container(
-                image=self.__image_prefix +
-                '-' +
-                vnf_type,
+                image=image_name,
                 hostname=name,
                 name=name)
             if container['Warnings']:

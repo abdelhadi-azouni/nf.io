@@ -49,6 +49,8 @@ class VNFSOperations:
                 default_file_mode)
         os.open(full_path + "/machine/vm.memory", os.O_WRONLY | os.O_CREAT,
                 default_file_mode)
+        os.open(full_path + "/machine/vm.image", os.O_WRONLY | os.O_CREAT,
+                default_file_mode)
         os.open(full_path + "/action", os.O_WRONLY | os.O_CREAT,
                 default_file_mode)
 
@@ -128,14 +130,17 @@ class VNFSOperations:
         print nf_path + '/machine/ip'
         with open(nf_path + '/machine/ip') as ip_fd:
             ip_address = ip_fd.readline().rstrip('\n')
-        return nf_instance_name, nf_type, ip_address
+        image_name = ''
+        with open(nf_path + '/machine/vm.image') as img_fd:
+            image_name = img_fd.readline().rstrip('\n')
+        return nf_instance_name, nf_type, ip_address, image_name
 
     def vnfs_deploy_nf(self, nf_path):
-        nf_instance_name, nf_type, ip_address = self.vnfs_get_instance_configuration(
+        nf_instance_name, nf_type, ip_address, image_name = self.vnfs_get_instance_configuration(
             nf_path)
-        print "Starting " + nf_instance_name + " of type " + nf_type + " at " + ip_address
+        print "Starting " + nf_instance_name + " of type " + nf_type + " at " + ip_address + " with image " + image_name
         cont_id, deploy_ret_code, deploy_ret_msg = self._hypervisor.deploy(
-            ip_address, getpass.getuser(), nf_type, nf_instance_name)
+            ip_address, getpass.getuser(), image_name, nf_instance_name)
         print cont_id, deploy_ret_code, deploy_ret_msg
         if deploy_ret_code == hrc.SUCCESS:
             start_response, start_ret_code, start_ret_msg = self._hypervisor.start(
