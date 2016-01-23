@@ -151,7 +151,7 @@ class VNFSOperations:
             return deploy_ret_code
 
     def vnfs_stop_vnf(self, nf_path):
-        nf_instance_name, nf_type, ip_address = self.vnfs_get_instance_configuration(
+        nf_instance_name, nf_type, ip_address, image_name= self.vnfs_get_instance_configuration(
             nf_path)
         print "Stopping " + nf_instance_name
         cont_id, ret_code = self._hypervisor.get_id(
@@ -161,7 +161,7 @@ class VNFSOperations:
         return response
 
     def vnfs_get_rx_bytes(self, nf_path):
-        nf_instance_name, nf_type, ip_address = self.vnfs_get_instance_configuration(
+        nf_instance_name, nf_type, ip_address, image_name = self.vnfs_get_instance_configuration(
             nf_path)
         cont_id, ret_code = self._hypervisor.get_id(ip_address,
                                                     getpass.getuser(),
@@ -174,7 +174,7 @@ class VNFSOperations:
         return response
 
     def vnfs_get_tx_bytes(self, nf_path):
-        nf_instance_name, nf_type, ip_address = self.vnfs_get_instance_configuration(
+        nf_instance_name, nf_type, ip_address, image_name = self.vnfs_get_instance_configuration(
             nf_path)
         cont_id, ret_code = self._hypervisor.get_id(ip_address,
                                                     getpass.getuser(),
@@ -187,7 +187,7 @@ class VNFSOperations:
         return response
 
     def vnfs_get_pkt_drops(self, nf_path):
-        nf_instance_name, nf_type, ip_address = self.vnfs_get_instance_configuration(
+        nf_instance_name, nf_type, ip_address, image_name = self.vnfs_get_instance_configuration(
             nf_path)
         cont_id, ret_code = self._hypervisor.get_id(ip_address,
                                                     getpass.getuser(),
@@ -200,7 +200,7 @@ class VNFSOperations:
         return response
 
     def vnfs_get_status(self, nf_path):
-        nf_instance_name, nf_type, ip_address = self.vnfs_get_instance_configuration(
+        nf_instance_name, nf_type, ip_address, image_name = self.vnfs_get_instance_configuration(
             nf_path)
         cont_id, ret_code = self._hypervisor.get_id(ip_address,
                                                     getpass.getuser(),
