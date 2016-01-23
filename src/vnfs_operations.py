@@ -49,6 +49,8 @@ class VNFSOperations:
                 default_file_mode)
         os.open(full_path + "/machine/vm.memory", os.O_WRONLY | os.O_CREAT,
                 default_file_mode)
+        os.open(full_path + "/action", os.O_WRONLY | os.O_CREAT,
+                default_file_mode)
 
         default_file_mode = 0o444
         os.mkdir(full_path + "/stats", mode)
