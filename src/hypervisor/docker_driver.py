@@ -11,12 +11,12 @@ class Docker(HypervisorBase):
     """Hypervisor driver for Docker. This class provides methods for 
         managing docker containers.
     """
-    
+      
     def __init__(self):
         """Instantiates a Docker object.
-        
+      
         Args:
-            None.
+        None.
           
         Returns:
             None.
@@ -90,6 +90,24 @@ class Docker(HypervisorBase):
 
     def deploy(self, host, user, image_name, vnf_name):
         """Deploys a docker container.
+
+        Args:
+            host: IP address or hostname of the machine where
+            the docker container is to be deployed
+            user: name of the user who owns the VNF
+            image_name: docker image name for the VNF
+            vnf_name: name of the VNF instance
+
+        Returns:
+            If the operation is successful then returns a tuple 
+            consisting of the following values:
+                container_id: docker container id
+                return_code: SUCCESS
+                return_message: EMPTY in this case
+            otherwise returns the error as the following tuple:
+                None as the first value
+                return_code: one of the error codes defined in hypervisor_return_codes
+                return_message: detailed message for the return code
         """
         return_data = {'code': SUCCESS, 'message': ""}
         with self._error_handling(return_data):

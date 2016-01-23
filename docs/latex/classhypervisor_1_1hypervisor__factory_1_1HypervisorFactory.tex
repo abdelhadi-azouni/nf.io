@@ -1,0 +1,69 @@
+\hypertarget{classhypervisor_1_1hypervisor__factory_1_1HypervisorFactory}{\section{hypervisor.\-hypervisor\-\_\-factory.\-Hypervisor\-Factory Class Reference}
+\label{classhypervisor_1_1hypervisor__factory_1_1HypervisorFactory}\index{hypervisor.\-hypervisor\-\_\-factory.\-Hypervisor\-Factory@{hypervisor.\-hypervisor\-\_\-factory.\-Hypervisor\-Factory}}
+}
+
+
+A singletone class for creating hypervisor driver objects.  
+
+
+Inheritance diagram for hypervisor.\-hypervisor\-\_\-factory.\-Hypervisor\-Factory\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classhypervisor_1_1hypervisor__factory_1_1HypervisorFactory}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classhypervisor_1_1hypervisor__factory_1_1HypervisorFactory_ab1691cc3620d76c0a266e0fd469548ad}{\-\_\-\-\_\-init\-\_\-\-\_\-}
+\begin{DoxyCompactList}\small\item\em Instantiates a \hyperlink{classhypervisor_1_1hypervisor__factory_1_1HypervisorFactory}{Hypervisor\-Factory} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classhypervisor_1_1hypervisor__factory_1_1HypervisorFactory_ade4356e4251e644d580f8c1c53fc704e}{get\-\_\-hypervisor\-\_\-instance}
+\begin{DoxyCompactList}\small\item\em Returns the hypervisor driver nstance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A singletone class for creating hypervisor driver objects. 
+
+For an instantiation of nf.\-io there can be exactly one object of only one type of hyperviosr. Hyervisor\-Factory takes care of the creation logic. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classhypervisor_1_1hypervisor__factory_1_1HypervisorFactory_ab1691cc3620d76c0a266e0fd469548ad}{\index{hypervisor\-::hypervisor\-\_\-factory\-::\-Hypervisor\-Factory@{hypervisor\-::hypervisor\-\_\-factory\-::\-Hypervisor\-Factory}!\-\_\-\-\_\-init\-\_\-\-\_\-@{\-\_\-\-\_\-init\-\_\-\-\_\-}}
+\index{\-\_\-\-\_\-init\-\_\-\-\_\-@{\-\_\-\-\_\-init\-\_\-\-\_\-}!hypervisor::hypervisor_factory::HypervisorFactory@{hypervisor\-::hypervisor\-\_\-factory\-::\-Hypervisor\-Factory}}
+\subsubsection[{\-\_\-\-\_\-init\-\_\-\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}def hypervisor.\-hypervisor\-\_\-factory.\-Hypervisor\-Factory.\-\_\-\-\_\-init\-\_\-\-\_\- (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{hypervisor\-\_\-type = {\ttfamily \char`\"{}Docker\char`\"{}}}
+\end{DoxyParamCaption}
+)}}\label{classhypervisor_1_1hypervisor__factory_1_1HypervisorFactory_ab1691cc3620d76c0a266e0fd469548ad}
+
+
+Instantiates a \hyperlink{classhypervisor_1_1hypervisor__factory_1_1HypervisorFactory}{Hypervisor\-Factory} object. 
+
+Args\-: hypervisor\-\_\-type\-: The type of hypervisor object to instantiate. Valid hypervisor types are 'Docker' and 'Libvirt' for the time being.
+
+Returns\-: Nothing. Initializaes the factory object.
+
+Note\-: If this factory class is instantiated multiple times with different types of hypervisor\-\_\-type argument then it raises a Value\-Error.
+
+If this factory class is instantiated with a hypervisor type other than Docker or Libvirt it raises a Type\-Error. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classhypervisor_1_1hypervisor__factory_1_1HypervisorFactory_ade4356e4251e644d580f8c1c53fc704e}{\index{hypervisor\-::hypervisor\-\_\-factory\-::\-Hypervisor\-Factory@{hypervisor\-::hypervisor\-\_\-factory\-::\-Hypervisor\-Factory}!get\-\_\-hypervisor\-\_\-instance@{get\-\_\-hypervisor\-\_\-instance}}
+\index{get\-\_\-hypervisor\-\_\-instance@{get\-\_\-hypervisor\-\_\-instance}!hypervisor::hypervisor_factory::HypervisorFactory@{hypervisor\-::hypervisor\-\_\-factory\-::\-Hypervisor\-Factory}}
+\subsubsection[{get\-\_\-hypervisor\-\_\-instance}]{\setlength{\rightskip}{0pt plus 5cm}def hypervisor.\-hypervisor\-\_\-factory.\-Hypervisor\-Factory.\-get\-\_\-hypervisor\-\_\-instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classhypervisor_1_1hypervisor__factory_1_1HypervisorFactory_ade4356e4251e644d580f8c1c53fc704e}
+
+
+Returns the hypervisor driver nstance. 
+
+If the instance is not initialized then a Runtime\-Error is raised. 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/hypervisor/hypervisor\-\_\-factory.\-py\end{DoxyCompactItemize}
