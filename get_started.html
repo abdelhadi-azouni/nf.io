@@ -64,14 +64,15 @@
       <div class="jumbotron">
         <br />
         <h2>Get Started</h2>
-        <br />
-        <h3>nf.io VNF Abstraction</h3>
-	<iframe id="gsframe" class="center-block" src="https://docs.google.com/presentation/d/1fkNCMb3TrKpDi2ryRRE_RXv46dGo3buZGJuqpXKbaWU/embed?start=false&loop=false&delayms=3000" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-        <br />
-        <h3>Install nf.io</h3>
         <big>There are two ways to get started with nf.io.</big>
         <ul>
-          <li><strong>Option 1:&nbsp;</strong>Download a pre-packaged VirtualBox Applience for nf.io</li>
+          <li><strong>Option 1:&nbsp;</strong>Download a pre-packaged VirtualBox Appliance for nf.io
+            <ul>
+              <li>Download the appliance from here</li>
+              <li>Import the appliance in VirtualBox. Instructions can be <a href="https://www.google.ca/search?q=how+to+import+.ova+files+in+virtualbox" target="_blank">googled</a>
+              <li>username/password: nfuser/nfpass</li>
+            </ul>
+          </li>
           <li><strong>Option 2:&nbsp;</strong>Install from source
             <ul>
               <li>Step 1: Install the following tools/utilities: 
@@ -109,17 +110,63 @@
                   <code>sudo mkdir /nfio</code><br />
                   <code>sudo chown -R &lt;username&gt;:&lt;username&gt; /nfio</code><br />
               </li>
-              <li>Step 8: Run nf.io<br />
-                  Go to the <code>nf.io/src</code> directory and run the following command<br />
-                  <code>python nfio.py --root /vnfsroot --mountpoint /nfio</code>
-              </li>
             </ul>
           </li>
         </ul>
-        <br />
+
+        <h3>Build Docker images for VNFs</h3>
+        <ul>
+          <li>Step 1: Git clone the <a href="https://github.com/WatNFV/nf.io-docker-images" target="_blank">WatNFV/nf.io-docker-images</a> repository<br />
+          <code> git clone https://github.com/WatNFV/nf.io-docker-images.git</code></li>
+          <li>Step 2: <code>cd</code> to a VNF directory, e.g., <code>cd ufw</code> and build the docker image following the provided <a href="https://github.com/WatNFV/nf.io-docker-images/tree/master/ufw" target="_blank">directions</a>. These directions may differ for different VNF types, so, follow the directions provided in each VNF's own directory.
+        </ul>
+
+      	<h3>Running nf.io</h3>
+      	<ul>
+      	  <li>Inside the <code>nf.io/src</code> directory run the following command:<br />
+            <code>python nfio.py --root /vnfsroot --mountpoint /nfio</code>
+          </li>
+        </ul>
+      	
+        <h3>nf.io Abstraction</h3>
+      	<iframe id="gsframe" class="center-block" src="https://docs.google.com/presentation/d/1fkNCMb3TrKpDi2ryRRE_RXv46dGo3buZGJuqpXKbaWU/embed?start=false&loop=false&delayms=3000" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+        
         <h3>Deploy your first VNF using nf.io</h3>
-
-
+        <ul>
+          <li>Run <code>nfio.py</code> as shown above if it is not running already</li>
+          <li>Build the docker image for a VNF, e.g., here we will use ufw as a firewall<br />
+            <code>cd nf.io-docker-images/ufw</code><br />
+            <code>docker build -t firewall .</code><br />
+          </li>
+          <li>Create a directory for firewall<br />
+            <code>cd /nfio/nf-types</code><br />
+            <code>mkdir firewall</code>
+          </li>
+          <li>Create a directory for a VNF instance<br />
+            <code>cd firewall</code><br />
+            <code>mkdir edge-ufw-1</code><br />
+            The files and directories representing a firewall will be automatically created under the directory <code>edge-ufw-1</code>
+          </li>
+          <li>Provide the configurations required for deployment<br />
+            <code>cd edge-ufw-1</code><br />
+            <code>echo -n '127.0.0.1' &gt; machine/ip</code><br /> 
+            <code>echo -n 'firewall' &gt; machine/vm.image</code>
+          </li>
+          <li>Deploy and start the VNF<br />
+            <code>echo -n 'activate' &gt; action</code>
+          </li>
+        </ul>
+        
+        <h3>Multi-host deployment</h3>
+        <ul>
+          <li>nf.io can be deployed on multiple hosts. One host will run the nfio.py program (nf.io-master) and the other hosts will run docker containers (nf.io-minions).</li>
+          <li>On each minion it is required to active Docker repote API call by the following commands:<br />
+            <code>sudo sed -i 's@.*DOCKER_OPTS=.*@DOCKER_OPTS="-H unix:///var/run/docker.sock -H tcp://0.0.0.0:4444"@g' /etc/default/docker</code><br />
+            Then restart the Docker daemon<br />
+            <code>sudo service docker restart</code>
+          </li>
+          <li>nf.io-master can also serve as a nf.io-minion</li>
+        </ul>
       </div>
 
     </div> <!-- /container -->
