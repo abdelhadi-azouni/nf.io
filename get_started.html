@@ -68,9 +68,15 @@
         <ul>
           <li><strong>Option 1:&nbsp;</strong>Download a pre-packaged VirtualBox Appliance for nf.io
             <ul>
-              <li>Download the appliance from here</li>
-              <li>Import the appliance in VirtualBox. Instructions can be <a href="https://www.google.ca/search?q=how+to+import+.ova+files+in+virtualbox" target="_blank">googled</a>
+              <li>Download the appliance from <a href="http://nsm1.cs.uwaterloo.ca/nf.io/nfio-vbox-image.ova" target="_blank">here</a></li>
+              <li>Import the appliance in VirtualBox. Instructions can be found <a href="https://www.google.ca/search?q=how+to+import+.ova+files+in+virtualbox" target="_blank">here</a>
               <li>username/password: nfuser/nfpass</li>
+              <li>update the nf.io git repository<br />
+                <code>cd ~/nf.io && git pull</code>
+              </li>
+              <li>update the nf.io-docker-images git repository<br />
+                <code>cd ~/nf.io-docker-images && git pull</code>
+              </li> 
             </ul>
           </li>
           <li><strong>Option 2:&nbsp;</strong>Install from source
