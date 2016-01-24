@@ -54,9 +54,6 @@
             <li><a href="developers.html">Developers</a></li>
             <li><a href="credits.html">Credits</a><li>
           </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a target="_blank" href="https://github.com/faizulbari/nf.io">Github</a></li>
-          </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
@@ -69,6 +66,7 @@
         <h2>Get Started</h2>
         <br />
         <h3>nf.io VNF Abstraction</h3>
+	<iframe id="gsframe" class="center-block" src="https://docs.google.com/presentation/d/1fkNCMb3TrKpDi2ryRRE_RXv46dGo3buZGJuqpXKbaWU/embed?start=false&loop=false&delayms=3000" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
         <br />
         <h3>Install nf.io</h3>
         <big>There are two ways to get started with nf.io.</big>
@@ -134,6 +132,19 @@
     <script src="../../dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script>
+      function update_gsframe_size() {
+        var gsframe_width = Math.min($('.container').width()*0.9, 600);
+        $('#gsframe').css('width', gsframe_width);
+        $('#gsframe').css('height', 0.6*gsframe_width);
+      }
+      $( window ).resize(function() {
+        update_gsframe_size();
+      });
+      $( document ).ready(function() {
+        update_gsframe_size();
+      });
+    </script>
   </body>
 </html>
 
