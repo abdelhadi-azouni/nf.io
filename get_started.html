@@ -40,7 +40,7 @@
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar">sds</span>
+            <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
@@ -103,7 +103,8 @@
                   <code>sudo addgroup &lt;username&gt; fuse</code><br />
                   Log out of the machine and back in for this to take effect!
               </li>
-              <li>Step 4: Install Docker. Follow the instruction on <a href="https://docs.docker.com/linux/step_one/" target="_blank">docker.com: Install Docker</a>. Add your user to the "docker" group<br />
+              <li>Step 4: Install Docker. Follow the instruction on <a href="https://docs.docker.com/linux/step_one/" target="_blank">docker.com: Install Docker</a><br />
+              Add your user to the "docker" group<br />
               <code> sudo addgroup &lt;username&gt; docker</code><br />
               Log out of the machine again and back in for this to take effect!
               </li>
@@ -190,9 +191,9 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="ie10-viewport-bug-workaround.js"></script>
     <script>
       function update_gsframe_size() {
         var gsframe_width = Math.min($('.container').width()*0.9, 600);
