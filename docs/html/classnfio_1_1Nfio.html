@@ -61,7 +61,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
       <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
-      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -69,7 +68,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -98,14 +97,13 @@ Inheritance diagram for nfio.Nfio:</div>
  <div class="center">
   <img src="classnfio_1_1Nfio.png" usemap="#nfio.Nfio_map" alt=""/>
   <map id="nfio.Nfio_map" name="nfio.Nfio_map">
-<area href="classfuse_1_1Operations.html" title="This class should be subclassed and passed as an argument to FUSE on initialization. " alt="fuse.Operations" shape="rect" coords="0,56,102,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a37d06beb4658927077f41fdfd237c2b1"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnfio_1_1Nfio.html#a37d06beb4658927077f41fdfd237c2b1">__init__</a></td></tr>
-<tr class="memdesc:a37d06beb4658927077f41fdfd237c2b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiates a <a class="el" href="classnfio_1_1Nfio.html">Nfio</a> object.  <a href="#a37d06beb4658927077f41fdfd237c2b1">More...</a><br/></td></tr>
+<tr class="memitem:a37d06beb4658927077f41fdfd237c2b1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a37d06beb4658927077f41fdfd237c2b1"></a>
+def&#160;</td><td class="memItemRight" valign="bottom"><b>__init__</b></td></tr>
 <tr class="separator:a37d06beb4658927077f41fdfd237c2b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a73f04474e4c327027cc36e9a27d8d37d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a73f04474e4c327027cc36e9a27d8d37d"></a>
 def&#160;</td><td class="memItemRight" valign="bottom"><b>access</b></td></tr>
@@ -116,8 +114,8 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>chmod</b></td></tr>
 <tr class="memitem:a69cc0d977007fc2057f167acfd484293"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a69cc0d977007fc2057f167acfd484293"></a>
 def&#160;</td><td class="memItemRight" valign="bottom"><b>chown</b></td></tr>
 <tr class="separator:a69cc0d977007fc2057f167acfd484293"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46d186e9d92c1fea58a01ffc08ebb5dc"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnfio_1_1Nfio.html#a46d186e9d92c1fea58a01ffc08ebb5dc">getattr</a></td></tr>
-<tr class="memdesc:a46d186e9d92c1fea58a01ffc08ebb5dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the file attributes of the file specified by path Args: path: Path of the file fh: Open file handle to the file Returns: A dictionary containing file attributes.  <a href="#a46d186e9d92c1fea58a01ffc08ebb5dc">More...</a><br/></td></tr>
+<tr class="memitem:a46d186e9d92c1fea58a01ffc08ebb5dc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a46d186e9d92c1fea58a01ffc08ebb5dc"></a>
+def&#160;</td><td class="memItemRight" valign="bottom"><b>getattr</b></td></tr>
 <tr class="separator:a46d186e9d92c1fea58a01ffc08ebb5dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a648947134659a41ad9b2b68d1aa7edfe"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a648947134659a41ad9b2b68d1aa7edfe"></a>
 def&#160;</td><td class="memItemRight" valign="bottom"><b>readdir</b></td></tr>
@@ -131,8 +129,8 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>mknod</b></td></tr>
 <tr class="memitem:afb377c76425223681e5aa703d75fc6ac"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afb377c76425223681e5aa703d75fc6ac"></a>
 def&#160;</td><td class="memItemRight" valign="bottom"><b>rmdir</b></td></tr>
 <tr class="separator:afb377c76425223681e5aa703d75fc6ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03f752db91f0335cf0f29d81bda84b66"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnfio_1_1Nfio.html#a03f752db91f0335cf0f29d81bda84b66">mkdir</a></td></tr>
-<tr class="memdesc:a03f752db91f0335cf0f29d81bda84b66"><td class="mdescLeft">&#160;</td><td class="mdescRight">The semantics have been redefined to create a new VNF instance when a directory is created under a specific type of VNF directory.  <a href="#a03f752db91f0335cf0f29d81bda84b66">More...</a><br/></td></tr>
+<tr class="memitem:a03f752db91f0335cf0f29d81bda84b66"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a03f752db91f0335cf0f29d81bda84b66"></a>
+def&#160;</td><td class="memItemRight" valign="bottom"><b>mkdir</b></td></tr>
 <tr class="separator:a03f752db91f0335cf0f29d81bda84b66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65835e246a89861440548951f75278a8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a65835e246a89861440548951f75278a8"></a>
 def&#160;</td><td class="memItemRight" valign="bottom"><b>statfs</b></td></tr>
@@ -158,11 +156,11 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>open</b></td></tr>
 <tr class="memitem:a157f53007ef2e2afb63ee80e84f52eff"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a157f53007ef2e2afb63ee80e84f52eff"></a>
 def&#160;</td><td class="memItemRight" valign="bottom"><b>create</b></td></tr>
 <tr class="separator:a157f53007ef2e2afb63ee80e84f52eff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa96de630c8da283fe30851e8d7b378a3"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnfio_1_1Nfio.html#aa96de630c8da283fe30851e8d7b378a3">read</a></td></tr>
-<tr class="memdesc:aa96de630c8da283fe30851e8d7b378a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads an open file.  <a href="#aa96de630c8da283fe30851e8d7b378a3">More...</a><br/></td></tr>
+<tr class="memitem:aa96de630c8da283fe30851e8d7b378a3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa96de630c8da283fe30851e8d7b378a3"></a>
+def&#160;</td><td class="memItemRight" valign="bottom"><b>read</b></td></tr>
 <tr class="separator:aa96de630c8da283fe30851e8d7b378a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05cc0184ab93ef65958275c46e322137"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnfio_1_1Nfio.html#a05cc0184ab93ef65958275c46e322137">write</a></td></tr>
-<tr class="memdesc:a05cc0184ab93ef65958275c46e322137"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write to an open file.  <a href="#a05cc0184ab93ef65958275c46e322137">More...</a><br/></td></tr>
+<tr class="memitem:a05cc0184ab93ef65958275c46e322137"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a05cc0184ab93ef65958275c46e322137"></a>
+def&#160;</td><td class="memItemRight" valign="bottom"><b>write</b></td></tr>
 <tr class="separator:a05cc0184ab93ef65958275c46e322137"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8802c658b4df260e1c630aa9856011c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae8802c658b4df260e1c630aa9856011c"></a>
 def&#160;</td><td class="memItemRight" valign="bottom"><b>truncate</b></td></tr>
@@ -176,106 +174,6 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>release</b></td></tr>
 <tr class="memitem:a9839b74eb4091fcfaf5a7d35ad20ec25"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9839b74eb4091fcfaf5a7d35ad20ec25"></a>
 def&#160;</td><td class="memItemRight" valign="bottom"><b>fsync</b></td></tr>
 <tr class="separator:a9839b74eb4091fcfaf5a7d35ad20ec25"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_classfuse_1_1Operations"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classfuse_1_1Operations')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classfuse_1_1Operations.html">fuse.Operations</a></td></tr>
-<tr class="memitem:a09eca05c3940153e47449257c4dae57f inherit pub_methods_classfuse_1_1Operations"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a09eca05c3940153e47449257c4dae57f"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>__call__</b></td></tr>
-<tr class="separator:a09eca05c3940153e47449257c4dae57f inherit pub_methods_classfuse_1_1Operations"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac862a7abcf88d4815a9e609066674636 inherit pub_methods_classfuse_1_1Operations"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac862a7abcf88d4815a9e609066674636"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>access</b></td></tr>
-<tr class="separator:ac862a7abcf88d4815a9e609066674636 inherit pub_methods_classfuse_1_1Operations"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4bd3c5c23254d40aa5b50ece912d8cb inherit pub_methods_classfuse_1_1Operations"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac4bd3c5c23254d40aa5b50ece912d8cb"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>chmod</b></td></tr>
-<tr class="separator:ac4bd3c5c23254d40aa5b50ece912d8cb inherit pub_methods_classfuse_1_1Operations"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa1ee7eb284c6b01a0462f59dd892821d inherit pub_methods_classfuse_1_1Operations"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa1ee7eb284c6b01a0462f59dd892821d"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>chown</b></td></tr>
-<tr class="separator:aa1ee7eb284c6b01a0462f59dd892821d inherit pub_methods_classfuse_1_1Operations"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1b3f0e9731fc8b85187b162a1179b17 inherit pub_methods_classfuse_1_1Operations"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfuse_1_1Operations.html#ab1b3f0e9731fc8b85187b162a1179b17">create</a></td></tr>
-<tr class="memdesc:ab1b3f0e9731fc8b85187b162a1179b17 inherit pub_methods_classfuse_1_1Operations"><td class="mdescLeft">&#160;</td><td class="mdescRight">When raw_fi is False (default case), fi is None and create should return a numerical file handle.  <a href="#ab1b3f0e9731fc8b85187b162a1179b17">More...</a><br/></td></tr>
-<tr class="separator:ab1b3f0e9731fc8b85187b162a1179b17 inherit pub_methods_classfuse_1_1Operations"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf7a979f2cde97c44bc28feaac9a9794 inherit pub_methods_classfuse_1_1Operations"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adf7a979f2cde97c44bc28feaac9a9794"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b></td></tr>
-<tr class="separator:adf7a979f2cde97c44bc28feaac9a9794 inherit pub_methods_classfuse_1_1Operations"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4362f7fcb3a3d6ace06c7bc113cfbf0c inherit pub_methods_classfuse_1_1Operations"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4362f7fcb3a3d6ace06c7bc113cfbf0c"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>flush</b></td></tr>
-<tr class="separator:a4362f7fcb3a3d6ace06c7bc113cfbf0c inherit pub_methods_classfuse_1_1Operations"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2b5a8b82cf35642cbe966346f335ef9 inherit pub_methods_classfuse_1_1Operations"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa2b5a8b82cf35642cbe966346f335ef9"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>fsync</b></td></tr>
-<tr class="separator:aa2b5a8b82cf35642cbe966346f335ef9 inherit pub_methods_classfuse_1_1Operations"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0cc7a9f54e713e2650dff734eb91a550 inherit pub_methods_classfuse_1_1Operations"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0cc7a9f54e713e2650dff734eb91a550"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>fsyncdir</b></td></tr>
-<tr class="separator:a0cc7a9f54e713e2650dff734eb91a550 inherit pub_methods_classfuse_1_1Operations"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60cb99a093a1e504232d5c92ca5459ee inherit pub_methods_classfuse_1_1Operations"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfuse_1_1Operations.html#a60cb99a093a1e504232d5c92ca5459ee">getattr</a></td></tr>
-<tr class="memdesc:a60cb99a093a1e504232d5c92ca5459ee inherit pub_methods_classfuse_1_1Operations"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a dictionary with keys identical to the stat C structure of stat(2).  <a href="#a60cb99a093a1e504232d5c92ca5459ee">More...</a><br/></td></tr>
-<tr class="separator:a60cb99a093a1e504232d5c92ca5459ee inherit pub_methods_classfuse_1_1Operations"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b043b97d65d9d297f8bbc9d79e96ec6 inherit pub_methods_classfuse_1_1Operations"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4b043b97d65d9d297f8bbc9d79e96ec6"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>getxattr</b></td></tr>
-<tr class="separator:a4b043b97d65d9d297f8bbc9d79e96ec6 inherit pub_methods_classfuse_1_1Operations"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa1201952b200806c3e34a805e370cb29 inherit pub_methods_classfuse_1_1Operations"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfuse_1_1Operations.html#aa1201952b200806c3e34a805e370cb29">init</a></td></tr>
-<tr class="memdesc:aa1201952b200806c3e34a805e370cb29 inherit pub_methods_classfuse_1_1Operations"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called on filesystem initialization.  <a href="#aa1201952b200806c3e34a805e370cb29">More...</a><br/></td></tr>
-<tr class="separator:aa1201952b200806c3e34a805e370cb29 inherit pub_methods_classfuse_1_1Operations"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f80314da4bc5daf92ced6745685b47e inherit pub_methods_classfuse_1_1Operations"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7f80314da4bc5daf92ced6745685b47e"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>link</b></td></tr>
-<tr class="separator:a7f80314da4bc5daf92ced6745685b47e inherit pub_methods_classfuse_1_1Operations"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5c8da7b1b2e501dcf6779acb7674427 inherit pub_methods_classfuse_1_1Operations"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae5c8da7b1b2e501dcf6779acb7674427"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>listxattr</b></td></tr>
-<tr class="separator:ae5c8da7b1b2e501dcf6779acb7674427 inherit pub_methods_classfuse_1_1Operations"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac996124e74a27657f7d290ba4df70bcb inherit pub_methods_classfuse_1_1Operations"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac996124e74a27657f7d290ba4df70bcb"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>mkdir</b></td></tr>
-<tr class="separator:ac996124e74a27657f7d290ba4df70bcb inherit pub_methods_classfuse_1_1Operations"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a62c63194cb89b7994d57caf237a08d44 inherit pub_methods_classfuse_1_1Operations"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a62c63194cb89b7994d57caf237a08d44"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>mknod</b></td></tr>
-<tr class="separator:a62c63194cb89b7994d57caf237a08d44 inherit pub_methods_classfuse_1_1Operations"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac14964908cb9f44dd6bb78d22205cd17 inherit pub_methods_classfuse_1_1Operations"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfuse_1_1Operations.html#ac14964908cb9f44dd6bb78d22205cd17">open</a></td></tr>
-<tr class="memdesc:ac14964908cb9f44dd6bb78d22205cd17 inherit pub_methods_classfuse_1_1Operations"><td class="mdescLeft">&#160;</td><td class="mdescRight">When raw_fi is False (default case), open should return a numerical file handle.  <a href="#ac14964908cb9f44dd6bb78d22205cd17">More...</a><br/></td></tr>
-<tr class="separator:ac14964908cb9f44dd6bb78d22205cd17 inherit pub_methods_classfuse_1_1Operations"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37e30fe9a2a0ae964f3c4d420979ce14 inherit pub_methods_classfuse_1_1Operations"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a37e30fe9a2a0ae964f3c4d420979ce14"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>opendir</b></td></tr>
-<tr class="separator:a37e30fe9a2a0ae964f3c4d420979ce14 inherit pub_methods_classfuse_1_1Operations"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15aa5b6291d1892e288c0dc7760b5396 inherit pub_methods_classfuse_1_1Operations"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a15aa5b6291d1892e288c0dc7760b5396"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>read</b></td></tr>
-<tr class="separator:a15aa5b6291d1892e288c0dc7760b5396 inherit pub_methods_classfuse_1_1Operations"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad88fad4a9a1f81c483dce93cc9924e20 inherit pub_methods_classfuse_1_1Operations"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfuse_1_1Operations.html#ad88fad4a9a1f81c483dce93cc9924e20">readdir</a></td></tr>
-<tr class="memdesc:ad88fad4a9a1f81c483dce93cc9924e20 inherit pub_methods_classfuse_1_1Operations"><td class="mdescLeft">&#160;</td><td class="mdescRight">Can return either a list of names, or a list of (name, attrs, offset) tuples.  <a href="#ad88fad4a9a1f81c483dce93cc9924e20">More...</a><br/></td></tr>
-<tr class="separator:ad88fad4a9a1f81c483dce93cc9924e20 inherit pub_methods_classfuse_1_1Operations"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ea6a7f9d55481cbc7d0866e8911fa45 inherit pub_methods_classfuse_1_1Operations"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9ea6a7f9d55481cbc7d0866e8911fa45"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>readlink</b></td></tr>
-<tr class="separator:a9ea6a7f9d55481cbc7d0866e8911fa45 inherit pub_methods_classfuse_1_1Operations"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44d7d97f3a549e56b107b47d0833a96a inherit pub_methods_classfuse_1_1Operations"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a44d7d97f3a549e56b107b47d0833a96a"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>release</b></td></tr>
-<tr class="separator:a44d7d97f3a549e56b107b47d0833a96a inherit pub_methods_classfuse_1_1Operations"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36891761f9ef8942c72d1e7bec2e678d inherit pub_methods_classfuse_1_1Operations"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a36891761f9ef8942c72d1e7bec2e678d"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>releasedir</b></td></tr>
-<tr class="separator:a36891761f9ef8942c72d1e7bec2e678d inherit pub_methods_classfuse_1_1Operations"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad1d3efbbb3e100b08893e3ec04c20730 inherit pub_methods_classfuse_1_1Operations"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad1d3efbbb3e100b08893e3ec04c20730"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>removexattr</b></td></tr>
-<tr class="separator:ad1d3efbbb3e100b08893e3ec04c20730 inherit pub_methods_classfuse_1_1Operations"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0dbeced6cf9f9c9c43853b75abb04a75 inherit pub_methods_classfuse_1_1Operations"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0dbeced6cf9f9c9c43853b75abb04a75"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>rename</b></td></tr>
-<tr class="separator:a0dbeced6cf9f9c9c43853b75abb04a75 inherit pub_methods_classfuse_1_1Operations"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee30625a18d61f6ea862250a711e2b77 inherit pub_methods_classfuse_1_1Operations"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aee30625a18d61f6ea862250a711e2b77"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>rmdir</b></td></tr>
-<tr class="separator:aee30625a18d61f6ea862250a711e2b77 inherit pub_methods_classfuse_1_1Operations"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a649711b4f7e579f792a044d5ecf55284 inherit pub_methods_classfuse_1_1Operations"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a649711b4f7e579f792a044d5ecf55284"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>setxattr</b></td></tr>
-<tr class="separator:a649711b4f7e579f792a044d5ecf55284 inherit pub_methods_classfuse_1_1Operations"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a078245db67fbd0b7ff6073db68e8e215 inherit pub_methods_classfuse_1_1Operations"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfuse_1_1Operations.html#a078245db67fbd0b7ff6073db68e8e215">statfs</a></td></tr>
-<tr class="memdesc:a078245db67fbd0b7ff6073db68e8e215 inherit pub_methods_classfuse_1_1Operations"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a dictionary with keys identical to the statvfs C structure of statvfs(3).  <a href="#a078245db67fbd0b7ff6073db68e8e215">More...</a><br/></td></tr>
-<tr class="separator:a078245db67fbd0b7ff6073db68e8e215 inherit pub_methods_classfuse_1_1Operations"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41af9d6668eaf2677bba960a22db3e8e inherit pub_methods_classfuse_1_1Operations"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a41af9d6668eaf2677bba960a22db3e8e"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>symlink</b></td></tr>
-<tr class="separator:a41af9d6668eaf2677bba960a22db3e8e inherit pub_methods_classfuse_1_1Operations"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad06ab5c8ef730d111b429f1687ac3846 inherit pub_methods_classfuse_1_1Operations"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad06ab5c8ef730d111b429f1687ac3846"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>truncate</b></td></tr>
-<tr class="separator:ad06ab5c8ef730d111b429f1687ac3846 inherit pub_methods_classfuse_1_1Operations"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab439c4c1af908aab40491b100acd0119 inherit pub_methods_classfuse_1_1Operations"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab439c4c1af908aab40491b100acd0119"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>unlink</b></td></tr>
-<tr class="separator:ab439c4c1af908aab40491b100acd0119 inherit pub_methods_classfuse_1_1Operations"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45405970e34873591b129e78fe5d7779 inherit pub_methods_classfuse_1_1Operations"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a45405970e34873591b129e78fe5d7779"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>utimens</b></td></tr>
-<tr class="separator:a45405970e34873591b129e78fe5d7779 inherit pub_methods_classfuse_1_1Operations"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a09b2c8fb77204c808233dc74eb9bb0a6 inherit pub_methods_classfuse_1_1Operations"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a09b2c8fb77204c808233dc74eb9bb0a6"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>write</b></td></tr>
-<tr class="separator:a09b2c8fb77204c808233dc74eb9bb0a6 inherit pub_methods_classfuse_1_1Operations"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -294,243 +192,14 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a7f13fbcef42434fff50bbe6f3f301e83"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7f13fbcef42434fff50bbe6f3f301e83"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>module_root</b></td></tr>
 <tr class="separator:a7f13fbcef42434fff50bbe6f3f301e83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pub_static_attribs_classfuse_1_1Operations"><td colspan="2" onclick="javascript:toggleInherit('pub_static_attribs_classfuse_1_1Operations')"><img src="closed.png" alt="-"/>&#160;Static Public Attributes inherited from <a class="el" href="classfuse_1_1Operations.html">fuse.Operations</a></td></tr>
-<tr class="memitem:ad12b01b16aea9506d94407500d4f0e8e inherit pub_static_attribs_classfuse_1_1Operations"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad12b01b16aea9506d94407500d4f0e8e"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>bmap</b> = None</td></tr>
-<tr class="separator:ad12b01b16aea9506d94407500d4f0e8e inherit pub_static_attribs_classfuse_1_1Operations"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad9e4abc84ae5f2def22429bf54a0dba inherit pub_static_attribs_classfuse_1_1Operations"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aad9e4abc84ae5f2def22429bf54a0dba"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>lock</b> = None</td></tr>
-<tr class="separator:aad9e4abc84ae5f2def22429bf54a0dba inherit pub_static_attribs_classfuse_1_1Operations"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a37d06beb4658927077f41fdfd237c2b1"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">def nfio.Nfio.__init__ </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>self</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>root</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>mountpoint</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>hypervisor</em> = <code>'Docker'</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>module_root</em> = <code>'middleboxes'</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Instantiates a <a class="el" href="classnfio_1_1Nfio.html">Nfio</a> object. </p>
-<p>Args: root: The root directory of nfio file system. The root directory stores persistent state about the system. mountpoint: The mountpoint of nfio file system. The mountpoint is required to intercept the file system calls via fuse. All the file system calls for fuse mounted files/directories are intercepted by libfuse and our provided implementation is executed. hypervisor: The type of hypervisor to use for deploying VNFs. The default is to use Docker containers. However, we also plan to add support for Libvirt. module_root: Root directory of the middlebox modules. Each middlebox provides it's own implementation of certain system calls in a separate module. module_root points to the root of that module. If nothing is provided a default of 'middleboxes' will be assumed. Returns: Nothing. Mounts nf.io file system at the specified mountpoint and creates a loop to act upon different file system calls. </p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a46d186e9d92c1fea58a01ffc08ebb5dc"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">def nfio.Nfio.getattr </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>self</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>path</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>fh</em> = <code>None</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns the file attributes of the file specified by path Args: path: Path of the file fh: Open file handle to the file Returns: A dictionary containing file attributes. </p>
-<p>The dictionary contains the following keys: st_atime: Last access time st_ctime: File creation time st_gid: Group id of the owner group st_mode: File access mode st_mtime: Last modification time st_nlink: Number of symbolic links to the file st_size: Size of the file in bytes st_uid: User id of the file owner Note: For special placeholder files for VNFs, st_size is set to a constant 1000. This is to make sure read utilities such as cat work for these special placeholder files. </p>
-
-</div>
-</div>
-<a class="anchor" id="a03f752db91f0335cf0f29d81bda84b66"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">def nfio.Nfio.mkdir </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>self</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>path</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>mode</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>The semantics have been redefined to create a new VNF instance when a directory is created under a specific type of VNF directory. </p>
-<p>Args: path: path of the directory to create. The path also represents the name of the new VNF instance to be created. mode: File access mode for the new directory. Returns: If path does not correspond to a directory under a specific VNF type directory then errno.EPERM is returned. Otherwise the return code is same as os.mkdir()'s return code. </p>
-
-</div>
-</div>
-<a class="anchor" id="aa96de630c8da283fe30851e8d7b378a3"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">def nfio.Nfio.read </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>self</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>path</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>length</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>offset</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>fh</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Reads an open file. </p>
-<p>This nfio specific implementation parses path to see if the read is from any VNF or not. In case the read is from a VNF, the corresponding VNF module is loaded and the module's _read function is invoked to complete the read system call.</p>
-<p>Args: path: path represents the path of the file to read from length: number of bytes to read from the file offset: byte offset indicating the starting byte to read from fh: file descriptor of the open file represented by path</p>
-<p>Returns: length bytes from offset byte of the file represented by fh and path</p>
-<p>Notes: VNFs can have special files which are placeholders for statistics such as number of received/sent bytes etc. VNFs provide their own implementation of read and handle reading of these special placeholder files. </p>
-
-</div>
-</div>
-<a class="anchor" id="a05cc0184ab93ef65958275c46e322137"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">def nfio.Nfio.write </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>self</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>path</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>buf</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>offset</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>fh</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Write to an open file. </p>
-<p>In this nfio specific implementation the path is parsed to see if the write is for any specific VNF or not. If the write is for any file under a VNF directory then the corresponding VNF module is loaded and the module's _write function is invoked.</p>
-<p>Args: path: path to the file to write buf: the data to write offset: the byte offset at which the write should begin fh: file descriptor of the open file represented by path</p>
-<p>Returns: Returns the number of bytes written to the file starting at offset</p>
-<p>Note: VNFs can have special files where writing specific strings trigger a specific function. For example, writing 'activate' to the 'action' file of a VNF will start the VNF. VNF specific modules handle such special cases of writing. </p>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>/home/mfbari/works/WatNFV/nf.io/src/nfio.py</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jan 25 2016 11:16:56 for nf.io: A File System Abatraction for NFV Orchestration by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jan 25 2016 12:54:20 for nf.io: A File System Abatraction for NFV Orchestration by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

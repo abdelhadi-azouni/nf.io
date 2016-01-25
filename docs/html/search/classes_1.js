@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['docker',['Docker',['../classhypervisor_1_1docker__driver_1_1Docker.html',1,'hypervisor::docker_driver']]]
+  ['hypervisorbase',['HypervisorBase',['../classhypervisor_1_1hypervisor__base_1_1HypervisorBase.html',1,'hypervisor::hypervisor_base']]],
+  ['hypervisorfactory',['HypervisorFactory',['../classhypervisor_1_1hypervisor__factory_1_1HypervisorFactory.html',1,'hypervisor::hypervisor_factory']]]
 ];
