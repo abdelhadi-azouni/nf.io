@@ -71,7 +71,7 @@
         Please post any bugs reports or feature requests by creating an <a href="https://github.com/WatNFV/nf.io/issues" target="_blank">issue on Github</a>.
         <br /><br />
         <h3>Include New VNFs</h3>
-        <p>(Assume nf.io is mounted at NFIO_MOUNT and nf.io source is located at
+        (Assume nf.io is mounted at NFIO_MOUNT and nf.io source is located at
         NFIO_SRC.)
         To include a new VNF create a python module with the same name as the
         type of VNF and put the python file inside $NFIO_SRC/src/middleboxes
@@ -85,9 +85,9 @@
           <li> _read </li>
           <li> _write </li>
         </p>
-          <p>For details on the parameter list and semantics of these methods see the
+        For details on the parameter list and semantics of these methods see the
         middleboxes package documentation at
-        $NFIO_SRC/src/middleboxes/__init__.py</p>
+        $NFIO_SRC/src/middleboxes/__init__.py
 
         Once the module is placed inside $NFIO_SRC/src/middleboxes directory,
         create a directory corresponding to the new middlebox type under
