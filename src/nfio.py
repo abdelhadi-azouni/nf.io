@@ -18,7 +18,29 @@ import argparse
 
 class Nfio(Operations):
 
-    def __init__(self, root, mountpoint, hypervisor, module_root):
+    def __init__(self, root, mountpoint, hypervisor = 'Docker', module_root = 'middleboxes'):
+        """Instantiates a Nfio object.
+
+        Args:
+            root: The root directory of nfio file system. The root directory
+                stores persistent state about the system.
+            mountpoint: The mountpoint of nfio file system. The mountpoint is
+                required to intercept the file system calls via fuse. All the
+                file system calls for fuse mounted files/directories are
+                intercepted by libfuse and our provided implementation is
+                executed.
+            hypervisor: The type of hypervisor to use for deploying VNFs. The
+                default is to use Docker containers. However, we also plan to
+                add support for Libvirt.
+            module_root: Root directory of the middlebox modules. Each middlebox
+                provides it's own implementation of certain system calls in a
+                separate module. module_root points to the root of that module.
+                If nothing is provided a default of 'middleboxes' will be
+                assumed.
+        Returns:
+            Nothing. Mounts nf.io file system at the specified mountpoint and
+            creates a loop to act upon different file system calls.
+        """
         self.root = root
         self.mountpoint = mountpoint
         self.hypervisor = hypervisor
@@ -29,6 +51,18 @@ class Nfio(Operations):
     # =======
 
     def _full_path(self, partial):
+        """Returns the absolute path of a partially specified path.
+
+        Args:
+            partial: The partially specified path. e.g., nf-types/firewall
+                This partially specified path should be a relative path under
+                the mounted directory of nfio"
+        Returns:
+            The absolute path for the partially specified path. The absolute
+            path is in respect to nfio root directory. e.g., if partial is
+            nf-types/firewall and nfio root is /vnfsroot, then the return value
+            will be /vnfsroot/nf-types/firewall
+        """
         if partial.startswith("/"):
             partial = partial[1:]
         path = os.path.join(self.root, partial)
@@ -51,6 +85,27 @@ class Nfio(Operations):
         return os.chown(full_path, uid, gid)
 
     def getattr(self, path, fh=None):
+        """
+        Returns the file attributes of the file specified by path
+        Args:
+            path: Path of the file
+            fh: Open file handle to the file
+        Returns:
+            A dictionary containing file attributes. The dictionary contains the
+            following keys:
+                st_atime:   Last access time
+                st_ctime:   File creation time
+                st_gid:     Group id of the owner group
+                st_mode:    File access mode
+                st_mtime:   Last modification time
+                st_nlink:   Number of symbolic links to the file
+                st_size:    Size of the file in bytes
+                st_uid:     User id of the file owner
+        Note:
+            For special placeholder files for VNFs, st_size is set to a
+            constant 1000. This is to make sure read utilities such as cat work
+            for these special placeholder files.
+        """
         opcode = self.vnfs_ops.vnfs_get_opcode(path)
         return_dictionary = dict()
         if opcode == VNFSOperations.OP_NF:
@@ -100,6 +155,19 @@ class Nfio(Operations):
         return os.rmdir(full_path)
 
     def mkdir(self, path, mode):
+        """
+        The semantics have been redefined to create a new VNF instance when a
+        directory is created under a specific type of VNF directory.
+        
+        Args:
+            path: path of the directory to create. The path also represents the
+                name of the new VNF instance to be created.
+            mode: File access mode for the new directory.
+        Returns:
+            If path does not correspond to a directory under a specific VNF type
+            directory then errno.EPERM is returned. Otherwise the return code is
+            same as os.mkdir()'s return code.
+        """
         opcode = self.vnfs_ops.vnfs_get_opcode(path)
         if opcode == VNFSOperations.OP_NF:
             nf_type = self.vnfs_ops.vnfs_get_nf_type(path)
@@ -163,6 +231,27 @@ class Nfio(Operations):
         return os.open(full_path, os.O_WRONLY | os.O_CREAT, mode)
 
     def read(self, path, length, offset, fh):
+        """
+        Reads an open file. This nfio specific implementation parses path to see
+        if the read is from any VNF or not. In case the read is from a VNF, the
+        corresponding VNF module is loaded and the module's _read function is 
+        invoked to complete the read system call.
+
+        Args:
+            path: path represents the path of the file to read from
+            length: number of bytes to read from the file
+            offset: byte offset indicating the starting byte to read from
+            fh: file descriptor of the open file represented by path
+
+        Returns:
+            length bytes from offset byte of the file represented by fh and path
+
+        Notes:
+            VNFs can have special files which are placeholders for statistics
+            such as number of received/sent bytes etc. VNFs provide their own
+            implementation of read and handle reading of these special
+            placeholder files.
+        """
         full_path = self._full_path(path)
         opcode = self.vnfs_ops.vnfs_get_opcode(full_path)
         file_name = self.vnfs_ops.vnfs_get_file_name(full_path)
@@ -177,6 +266,27 @@ class Nfio(Operations):
         return os.read(fh, length)
 
     def write(self, path, buf, offset, fh):
+        """
+        Write to an open file. In this nfio specific implementation the path is
+        parsed to see if the write is for any specific VNF or not. If the write
+        is for any file under a VNF directory then the corresponding VNF module
+        is loaded and the module's _write function is invoked.
+
+        Args:
+            path: path to the file to write
+            buf: the data to write
+            offset: the byte offset at which the write should begin
+            fh: file descriptor of the open file represented by path
+
+        Returns:
+            Returns the number of bytes written to the file starting at offset
+
+        Note:
+            VNFs can have special files where writing specific strings trigger
+            a specific function. For example, writing 'activate' to the 'action'
+            file of a VNF will start the VNF. VNF specific modules handle such
+            special cases of writing.
+        """
         opcode = self.vnfs_ops.vnfs_get_opcode(path)
         full_path = self._full_path(path)
         file_name = self.vnfs_ops.vnfs_get_file_name(path)
