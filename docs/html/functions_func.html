@@ -8,6 +8,13 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -73,13 +80,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow4" class="tabs3">
     <ul class="tablist">
       <li><a href="#index__"><span>_</span></a></li>
-      <li><a href="#index_c"><span>c</span></a></li>
       <li><a href="#index_d"><span>d</span></a></li>
       <li><a href="#index_e"><span>e</span></a></li>
       <li><a href="#index_g"><span>g</span></a></li>
-      <li><a href="#index_i"><span>i</span></a></li>
       <li><a href="#index_m"><span>m</span></a></li>
-      <li><a href="#index_o"><span>o</span></a></li>
       <li><a href="#index_p"><span>p</span></a></li>
       <li><a href="#index_r"><span>r</span></a></li>
       <li><a href="#index_s"><span>s</span></a></li>
@@ -89,6 +93,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('functions_func.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -108,17 +126,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <h3><a class="anchor" id="index__"></a>- _ -</h3><ul>
 <li>__init__()
-: <a class="el" href="classfuse_1_1FUSE.html#a17d1d39eab4cdb800fa00d6bbc8f1897">fuse.FUSE</a>
-, <a class="el" href="classhypervisor_1_1docker__driver_1_1Docker.html#a95faee6439e35695f424c61763b4077e">hypervisor.docker_driver.Docker</a>
+: <a class="el" href="classhypervisor_1_1docker__driver_1_1Docker.html#a95faee6439e35695f424c61763b4077e">hypervisor.docker_driver.Docker</a>
 , <a class="el" href="classhypervisor_1_1hypervisor__factory_1_1HypervisorFactory.html#ab1691cc3620d76c0a266e0fd469548ad">hypervisor.hypervisor_factory.HypervisorFactory</a>
 , <a class="el" href="classnfio_1_1Nfio.html#a37d06beb4658927077f41fdfd237c2b1">nfio.Nfio</a>
-</li>
-</ul>
-
-
-<h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
-<li>create()
-: <a class="el" href="classfuse_1_1Operations.html#ab1b3f0e9731fc8b85187b162a1179b17">fuse.Operations</a>
 </li>
 </ul>
 
@@ -152,8 +162,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="classhypervisor_1_1hypervisor__base_1_1HypervisorBase.html#aa06a6d5c765f477edc9b2121aa1477f8">hypervisor.hypervisor_base.HypervisorBase</a>
 </li>
 <li>getattr()
-: <a class="el" href="classfuse_1_1Operations.html#a60cb99a093a1e504232d5c92ca5459ee">fuse.Operations</a>
-, <a class="el" href="classnfio_1_1Nfio.html#a46d186e9d92c1fea58a01ffc08ebb5dc">nfio.Nfio</a>
+: <a class="el" href="classnfio_1_1Nfio.html#a46d186e9d92c1fea58a01ffc08ebb5dc">nfio.Nfio</a>
 </li>
 <li>guest_status()
 : <a class="el" href="classhypervisor_1_1docker__driver_1_1Docker.html#ab81c6c5254944c666356f27cfa82dd55">hypervisor.docker_driver.Docker</a>
@@ -162,23 +171,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </ul>
 
 
-<h3><a class="anchor" id="index_i"></a>- i -</h3><ul>
-<li>init()
-: <a class="el" href="classfuse_1_1Operations.html#aa1201952b200806c3e34a805e370cb29">fuse.Operations</a>
-</li>
-</ul>
-
-
 <h3><a class="anchor" id="index_m"></a>- m -</h3><ul>
 <li>mkdir()
 : <a class="el" href="classnfio_1_1Nfio.html#a03f752db91f0335cf0f29d81bda84b66">nfio.Nfio</a>
-</li>
-</ul>
-
-
-<h3><a class="anchor" id="index_o"></a>- o -</h3><ul>
-<li>open()
-: <a class="el" href="classfuse_1_1Operations.html#ac14964908cb9f44dd6bb78d22205cd17">fuse.Operations</a>
 </li>
 </ul>
 
@@ -195,9 +190,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>read()
 : <a class="el" href="classnfio_1_1Nfio.html#aa96de630c8da283fe30851e8d7b378a3">nfio.Nfio</a>
 </li>
-<li>readdir()
-: <a class="el" href="classfuse_1_1Operations.html#ad88fad4a9a1f81c483dce93cc9924e20">fuse.Operations</a>
-</li>
 <li>restart()
 : <a class="el" href="classhypervisor_1_1docker__driver_1_1Docker.html#a9455c971d4a2824d7ef8b0786b2d754b">hypervisor.docker_driver.Docker</a>
 </li>
@@ -207,9 +199,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
 <li>start()
 : <a class="el" href="classhypervisor_1_1docker__driver_1_1Docker.html#ae22fe7316ede6ff4986ec8c911602e61">hypervisor.docker_driver.Docker</a>
-</li>
-<li>statfs()
-: <a class="el" href="classfuse_1_1Operations.html#a078245db67fbd0b7ff6073db68e8e215">fuse.Operations</a>
 </li>
 <li>stop()
 : <a class="el" href="classhypervisor_1_1docker__driver_1_1Docker.html#a24338352bbdd29ceda701bae00f256c4">hypervisor.docker_driver.Docker</a>
@@ -270,11 +259,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Mon Jan 25 2016 11:16:56 for nf.io: A File System Abatraction for NFV Orchestration by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.6
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Mon Jan 25 2016 13:41:05 for nf.io: A File System Abatraction for NFV Orchestration by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
 </body>
 </html>

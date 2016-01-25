@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['open',['open',['../classfuse_1_1Operations.html#ac14964908cb9f44dd6bb78d22205cd17',1,'fuse::Operations']]]
+  ['start',['start',['../classhypervisor_1_1docker__driver_1_1Docker.html#ae22fe7316ede6ff4986ec8c911602e61',1,'hypervisor::docker_driver::Docker']]],
+  ['stop',['stop',['../classhypervisor_1_1docker__driver_1_1Docker.html#a24338352bbdd29ceda701bae00f256c4',1,'hypervisor::docker_driver::Docker']]]
 ];
