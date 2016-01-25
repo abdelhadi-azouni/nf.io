@@ -1,8 +1,25 @@
+"""
+Check the documentation in __init__.py for more information on the methods in
+this module.
+"""
+
 from vnfs_operations import VNFSOperations
 import os
 
+"""
+special_files is a list of files specific to this VNF that requires special
+handling while reading. For example, if a read system call is issued for
+rx_bytes, then the VNF instance needs to be queried for the number of bytes it
+has received and that is returned as the read data.
+
+action_files contains a list of files that are used to represent different
+action on a VNF. For example, writing 'stop' to 'action' will stop a VNF
+instance.
+"""
+
 special_files = ['rx_bytes', 'tx_bytes', 'pkt_drops', 'status']
 action_files = ['action']
+
 
 def full_path(root, partial_path):
     if partial_path.startswith("/"):

@@ -4,6 +4,7 @@ import os
 special_files = ['rx_bytes', 'tx_bytes', 'pkt_drops', 'status']
 action_files = ['action']
 
+
 def full_path(root, partial_path):
     if partial_path.startswith("/"):
         partial_path = partial_path[1:]

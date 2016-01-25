@@ -8,7 +8,7 @@ from hypervisor_return_codes import *
 
 
 class Docker(HypervisorBase):
-    """Hypervisor driver for Docker. This class provides mothods for 
+    """Hypervisor driver for Docker. This class provides methods for 
         managing docker containers.
     """
     
@@ -69,7 +69,7 @@ class Docker(HypervisorBase):
             return_data['code'] = DOCKER_ERROR
             return_data['message'] = ex.message
 
-    def get_id(self, host, user, vnf_type, vnf_name):
+    def get_id(self, host, user, vnf_name):
         """Returns a container's ID.
         
         Args:
@@ -158,7 +158,7 @@ class Docker(HypervisorBase):
         return None, return_data['code'], return_data['message']
 
     def destroy(self, host, vnf_id, force=False):
-        """Destroyes a docker container.
+        """Destroys a docker container.
         """
         return_data = {'code': SUCCESS, 'message': ""}
         with self._error_handling(return_data):
