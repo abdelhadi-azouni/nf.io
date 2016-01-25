@@ -48,11 +48,11 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="demo.html">Demo</a></li>
+            <!--<li><a href="demo.html">Demo</a></li>-->
             <li><a href="get_started.html">Get Started</a></li>
             <li><a href="downloads.html">Downloads</a></li>
             <li><a href="developers.html">Developers</a></li>
-            <li><a href="credits.html">Credits</a><li>
+            <li><a href="credits.html">Credits</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -81,7 +81,7 @@
           </li>
           <li><strong>Option 2:&nbsp;</strong>Install from source
             <ul>
-              <li>Step 0: It is assumed that you are starting from a free Ubuntu installation. nf.io has been tested on ubuntu 14.04 and 15.04. It should run on other versions as long as the following dependencies are satisfied:
+              <li>Step 0: It is assumed that you are starting from a free Ubuntu installation. nf.io has been tested on Ubuntu 14.04 and 15.04. It should run on other versions as long as the following dependencies are satisfied:
                 <ul>
                   <li>python 2</li>
                   <li>FUSE 2.6.0 or above</li>
@@ -175,7 +175,7 @@
         <h3>Multi-host deployment</h3>
         <ul>
           <li>nf.io can be deployed on multiple hosts. One host will run the nfio.py program (nf.io-master) and the other hosts will run docker containers (nf.io-minions).</li>
-          <li>On each minion it is required to active Docker repote API call by the following commands:<br />
+          <li>On each minion it is required to active Docker remote API call by the following commands:<br />
             <code>sudo sed -i 's@.*DOCKER_OPTS=.*@DOCKER_OPTS="-H unix:///var/run/docker.sock -H tcp://0.0.0.0:4444"@g' /etc/default/docker</code><br />
             Then restart the Docker daemon<br />
             <code>sudo service docker restart</code>
