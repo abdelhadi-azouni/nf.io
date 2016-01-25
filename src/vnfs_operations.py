@@ -220,7 +220,7 @@ class VNFSOperations:
             nf_path)
         print "Stopping " + nf_instance_name
         cont_id, ret_code = self._hypervisor.get_id(
-            ip_address, getpass.getuser(), nf_type, nf_instance_name)
+            ip_address, getpass.getuser(), nf_instance_name)
         response, ret_code, ret_message = self._hypervisor.stop(
             ip_address, cont_id)
         return response
@@ -239,7 +239,7 @@ class VNFSOperations:
             nf_path)
         cont_id, ret_code = self._hypervisor.get_id(ip_address,
                                                     getpass.getuser(),
-                                                    nf_type, nf_instance_name)
+                                                    nf_instance_name)
         command = "ifconfig eth0 | grep -Eo 'RX bytes:[0-9]+' | cut -d':' -f 2"
         response = self._hypervisor.execute_in_guest(
             ip_address,
@@ -261,7 +261,7 @@ class VNFSOperations:
             nf_path)
         cont_id, ret_code = self._hypervisor.get_id(ip_address,
                                                     getpass.getuser(),
-                                                    nf_type, nf_instance_name)
+                                                    nf_instance_name)
         command = "ifconfig eth0 | grep -Eo 'TX bytes:[0-9]+' | cut -d':' -f 2"
         response = self._hypervisor.execute_in_guest(
             ip_address,
@@ -283,7 +283,7 @@ class VNFSOperations:
             nf_path)
         cont_id, ret_code = self._hypervisor.get_id(ip_address,
                                                     getpass.getuser(),
-                                                    nf_type, nf_instance_name)
+                                                    nf_instance_name)
         command = "ifconfig eth0 | grep -Eo 'RX .* dropped:[0-9]+' | cut -d':' -f 4"
         response = self._hypervisor.execute_in_guest(
             ip_address,
@@ -308,7 +308,7 @@ class VNFSOperations:
             nf_path)
         cont_id, ret_code = self._hypervisor.get_id(ip_address,
                                                     getpass.getuser(),
-                                                    nf_type, nf_instance_name)
+                                                    nf_instance_name)
         response, ret_code, ret_message = self._hypervisor.guest_status(
             ip_address, cont_id)
         return response

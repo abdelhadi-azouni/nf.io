@@ -33,7 +33,7 @@ class Docker(HypervisorBase):
             return_data['code'] = DOCKER_ERROR
             return_data['message'] = ex.message
 
-    def get_id(self, host, user, vnf_type, vnf_name):
+    def get_id(self, host, user, vnf_name):
         return_data = {'code': SUCCESS, 'message': ""}
         dcx = self._get_client(host)
         name = user + "-" + vnf_name
