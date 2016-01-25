@@ -1,0 +1,216 @@
+\hypertarget{classfuse_1_1Operations}{\section{fuse.\-Operations Class Reference}
+\label{classfuse_1_1Operations}\index{fuse.\-Operations@{fuse.\-Operations}}
+}
+
+
+This class should be subclassed and passed as an argument to \hyperlink{classfuse_1_1FUSE}{F\-U\-S\-E} on initialization.  
+
+
+Inheritance diagram for fuse.\-Operations\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classfuse_1_1Operations}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classfuse_1_1Operations_a09eca05c3940153e47449257c4dae57f}{def {\bfseries \-\_\-\-\_\-call\-\_\-\-\_\-}}\label{classfuse_1_1Operations_a09eca05c3940153e47449257c4dae57f}
+
+\item 
+\hypertarget{classfuse_1_1Operations_ac862a7abcf88d4815a9e609066674636}{def {\bfseries access}}\label{classfuse_1_1Operations_ac862a7abcf88d4815a9e609066674636}
+
+\item 
+\hypertarget{classfuse_1_1Operations_ac4bd3c5c23254d40aa5b50ece912d8cb}{def {\bfseries chmod}}\label{classfuse_1_1Operations_ac4bd3c5c23254d40aa5b50ece912d8cb}
+
+\item 
+\hypertarget{classfuse_1_1Operations_aa1ee7eb284c6b01a0462f59dd892821d}{def {\bfseries chown}}\label{classfuse_1_1Operations_aa1ee7eb284c6b01a0462f59dd892821d}
+
+\item 
+def \hyperlink{classfuse_1_1Operations_ab1b3f0e9731fc8b85187b162a1179b17}{create}
+\begin{DoxyCompactList}\small\item\em When raw\-\_\-fi is False (default case), fi is None and create should return a numerical file handle. \end{DoxyCompactList}\item 
+\hypertarget{classfuse_1_1Operations_adf7a979f2cde97c44bc28feaac9a9794}{def {\bfseries destroy}}\label{classfuse_1_1Operations_adf7a979f2cde97c44bc28feaac9a9794}
+
+\item 
+\hypertarget{classfuse_1_1Operations_a4362f7fcb3a3d6ace06c7bc113cfbf0c}{def {\bfseries flush}}\label{classfuse_1_1Operations_a4362f7fcb3a3d6ace06c7bc113cfbf0c}
+
+\item 
+\hypertarget{classfuse_1_1Operations_aa2b5a8b82cf35642cbe966346f335ef9}{def {\bfseries fsync}}\label{classfuse_1_1Operations_aa2b5a8b82cf35642cbe966346f335ef9}
+
+\item 
+\hypertarget{classfuse_1_1Operations_a0cc7a9f54e713e2650dff734eb91a550}{def {\bfseries fsyncdir}}\label{classfuse_1_1Operations_a0cc7a9f54e713e2650dff734eb91a550}
+
+\item 
+def \hyperlink{classfuse_1_1Operations_a60cb99a093a1e504232d5c92ca5459ee}{getattr}
+\begin{DoxyCompactList}\small\item\em Returns a dictionary with keys identical to the stat C structure of stat(2). \end{DoxyCompactList}\item 
+\hypertarget{classfuse_1_1Operations_a4b043b97d65d9d297f8bbc9d79e96ec6}{def {\bfseries getxattr}}\label{classfuse_1_1Operations_a4b043b97d65d9d297f8bbc9d79e96ec6}
+
+\item 
+def \hyperlink{classfuse_1_1Operations_aa1201952b200806c3e34a805e370cb29}{init}
+\begin{DoxyCompactList}\small\item\em Called on filesystem initialization. \end{DoxyCompactList}\item 
+\hypertarget{classfuse_1_1Operations_a7f80314da4bc5daf92ced6745685b47e}{def {\bfseries link}}\label{classfuse_1_1Operations_a7f80314da4bc5daf92ced6745685b47e}
+
+\item 
+\hypertarget{classfuse_1_1Operations_ae5c8da7b1b2e501dcf6779acb7674427}{def {\bfseries listxattr}}\label{classfuse_1_1Operations_ae5c8da7b1b2e501dcf6779acb7674427}
+
+\item 
+\hypertarget{classfuse_1_1Operations_ac996124e74a27657f7d290ba4df70bcb}{def {\bfseries mkdir}}\label{classfuse_1_1Operations_ac996124e74a27657f7d290ba4df70bcb}
+
+\item 
+\hypertarget{classfuse_1_1Operations_a62c63194cb89b7994d57caf237a08d44}{def {\bfseries mknod}}\label{classfuse_1_1Operations_a62c63194cb89b7994d57caf237a08d44}
+
+\item 
+def \hyperlink{classfuse_1_1Operations_ac14964908cb9f44dd6bb78d22205cd17}{open}
+\begin{DoxyCompactList}\small\item\em When raw\-\_\-fi is False (default case), open should return a numerical file handle. \end{DoxyCompactList}\item 
+\hypertarget{classfuse_1_1Operations_a37e30fe9a2a0ae964f3c4d420979ce14}{def {\bfseries opendir}}\label{classfuse_1_1Operations_a37e30fe9a2a0ae964f3c4d420979ce14}
+
+\item 
+\hypertarget{classfuse_1_1Operations_a15aa5b6291d1892e288c0dc7760b5396}{def {\bfseries read}}\label{classfuse_1_1Operations_a15aa5b6291d1892e288c0dc7760b5396}
+
+\item 
+def \hyperlink{classfuse_1_1Operations_ad88fad4a9a1f81c483dce93cc9924e20}{readdir}
+\begin{DoxyCompactList}\small\item\em Can return either a list of names, or a list of (name, attrs, offset) tuples. \end{DoxyCompactList}\item 
+\hypertarget{classfuse_1_1Operations_a9ea6a7f9d55481cbc7d0866e8911fa45}{def {\bfseries readlink}}\label{classfuse_1_1Operations_a9ea6a7f9d55481cbc7d0866e8911fa45}
+
+\item 
+\hypertarget{classfuse_1_1Operations_a44d7d97f3a549e56b107b47d0833a96a}{def {\bfseries release}}\label{classfuse_1_1Operations_a44d7d97f3a549e56b107b47d0833a96a}
+
+\item 
+\hypertarget{classfuse_1_1Operations_a36891761f9ef8942c72d1e7bec2e678d}{def {\bfseries releasedir}}\label{classfuse_1_1Operations_a36891761f9ef8942c72d1e7bec2e678d}
+
+\item 
+\hypertarget{classfuse_1_1Operations_ad1d3efbbb3e100b08893e3ec04c20730}{def {\bfseries removexattr}}\label{classfuse_1_1Operations_ad1d3efbbb3e100b08893e3ec04c20730}
+
+\item 
+\hypertarget{classfuse_1_1Operations_a0dbeced6cf9f9c9c43853b75abb04a75}{def {\bfseries rename}}\label{classfuse_1_1Operations_a0dbeced6cf9f9c9c43853b75abb04a75}
+
+\item 
+\hypertarget{classfuse_1_1Operations_aee30625a18d61f6ea862250a711e2b77}{def {\bfseries rmdir}}\label{classfuse_1_1Operations_aee30625a18d61f6ea862250a711e2b77}
+
+\item 
+\hypertarget{classfuse_1_1Operations_a649711b4f7e579f792a044d5ecf55284}{def {\bfseries setxattr}}\label{classfuse_1_1Operations_a649711b4f7e579f792a044d5ecf55284}
+
+\item 
+def \hyperlink{classfuse_1_1Operations_a078245db67fbd0b7ff6073db68e8e215}{statfs}
+\begin{DoxyCompactList}\small\item\em Returns a dictionary with keys identical to the statvfs C structure of statvfs(3). \end{DoxyCompactList}\item 
+\hypertarget{classfuse_1_1Operations_a41af9d6668eaf2677bba960a22db3e8e}{def {\bfseries symlink}}\label{classfuse_1_1Operations_a41af9d6668eaf2677bba960a22db3e8e}
+
+\item 
+\hypertarget{classfuse_1_1Operations_ad06ab5c8ef730d111b429f1687ac3846}{def {\bfseries truncate}}\label{classfuse_1_1Operations_ad06ab5c8ef730d111b429f1687ac3846}
+
+\item 
+\hypertarget{classfuse_1_1Operations_ab439c4c1af908aab40491b100acd0119}{def {\bfseries unlink}}\label{classfuse_1_1Operations_ab439c4c1af908aab40491b100acd0119}
+
+\item 
+\hypertarget{classfuse_1_1Operations_a45405970e34873591b129e78fe5d7779}{def {\bfseries utimens}}\label{classfuse_1_1Operations_a45405970e34873591b129e78fe5d7779}
+
+\item 
+\hypertarget{classfuse_1_1Operations_a09b2c8fb77204c808233dc74eb9bb0a6}{def {\bfseries write}}\label{classfuse_1_1Operations_a09b2c8fb77204c808233dc74eb9bb0a6}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classfuse_1_1Operations_ad12b01b16aea9506d94407500d4f0e8e}{{\bfseries bmap} = None}\label{classfuse_1_1Operations_ad12b01b16aea9506d94407500d4f0e8e}
+
+\item 
+\hypertarget{classfuse_1_1Operations_aad9e4abc84ae5f2def22429bf54a0dba}{{\bfseries lock} = None}\label{classfuse_1_1Operations_aad9e4abc84ae5f2def22429bf54a0dba}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class should be subclassed and passed as an argument to \hyperlink{classfuse_1_1FUSE}{F\-U\-S\-E} on initialization. 
+
+All operations should raise a \hyperlink{classfuse_1_1FuseOSError}{Fuse\-O\-S\-Error} exception on error.
+
+When in doubt of what an operation should do, check the \hyperlink{classfuse_1_1FUSE}{F\-U\-S\-E} header file or the corresponding system call man page. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classfuse_1_1Operations_ab1b3f0e9731fc8b85187b162a1179b17}{\index{fuse\-::\-Operations@{fuse\-::\-Operations}!create@{create}}
+\index{create@{create}!fuse::Operations@{fuse\-::\-Operations}}
+\subsubsection[{create}]{\setlength{\rightskip}{0pt plus 5cm}def fuse.\-Operations.\-create (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{path, }
+\item[{}]{mode, }
+\item[{}]{fi = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}}\label{classfuse_1_1Operations_ab1b3f0e9731fc8b85187b162a1179b17}
+
+
+When raw\-\_\-fi is False (default case), fi is None and create should return a numerical file handle. 
+
+When raw\-\_\-fi is True the file handle should be set directly by create and return 0. \hypertarget{classfuse_1_1Operations_a60cb99a093a1e504232d5c92ca5459ee}{\index{fuse\-::\-Operations@{fuse\-::\-Operations}!getattr@{getattr}}
+\index{getattr@{getattr}!fuse::Operations@{fuse\-::\-Operations}}
+\subsubsection[{getattr}]{\setlength{\rightskip}{0pt plus 5cm}def fuse.\-Operations.\-getattr (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{path, }
+\item[{}]{fh = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}}\label{classfuse_1_1Operations_a60cb99a093a1e504232d5c92ca5459ee}
+
+
+Returns a dictionary with keys identical to the stat C structure of stat(2). 
+
+st\-\_\-atime, st\-\_\-mtime and st\-\_\-ctime should be floats.
+
+N\-O\-T\-E\-: There is an incombatibility between Linux and Mac O\-S X concerning st\-\_\-nlink of directories. Mac O\-S X counts all files inside the directory, while Linux counts only the subdirectories. \hypertarget{classfuse_1_1Operations_aa1201952b200806c3e34a805e370cb29}{\index{fuse\-::\-Operations@{fuse\-::\-Operations}!init@{init}}
+\index{init@{init}!fuse::Operations@{fuse\-::\-Operations}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}def fuse.\-Operations.\-init (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{path}
+\end{DoxyParamCaption}
+)}}\label{classfuse_1_1Operations_aa1201952b200806c3e34a805e370cb29}
+
+
+Called on filesystem initialization. 
+
+(Path is always /) \begin{DoxyVerb}    Use it instead of __init__ if you start threads on initialization.\end{DoxyVerb}
+ \hypertarget{classfuse_1_1Operations_ac14964908cb9f44dd6bb78d22205cd17}{\index{fuse\-::\-Operations@{fuse\-::\-Operations}!open@{open}}
+\index{open@{open}!fuse::Operations@{fuse\-::\-Operations}}
+\subsubsection[{open}]{\setlength{\rightskip}{0pt plus 5cm}def fuse.\-Operations.\-open (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{path, }
+\item[{}]{flags}
+\end{DoxyParamCaption}
+)}}\label{classfuse_1_1Operations_ac14964908cb9f44dd6bb78d22205cd17}
+
+
+When raw\-\_\-fi is False (default case), open should return a numerical file handle. 
+
+When raw\-\_\-fi is True the signature of open becomes\-: open(self, path, fi)
+
+and the file handle should be set directly. \hypertarget{classfuse_1_1Operations_ad88fad4a9a1f81c483dce93cc9924e20}{\index{fuse\-::\-Operations@{fuse\-::\-Operations}!readdir@{readdir}}
+\index{readdir@{readdir}!fuse::Operations@{fuse\-::\-Operations}}
+\subsubsection[{readdir}]{\setlength{\rightskip}{0pt plus 5cm}def fuse.\-Operations.\-readdir (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{path, }
+\item[{}]{fh}
+\end{DoxyParamCaption}
+)}}\label{classfuse_1_1Operations_ad88fad4a9a1f81c483dce93cc9924e20}
+
+
+Can return either a list of names, or a list of (name, attrs, offset) tuples. 
+
+attrs is a dict as in getattr. \hypertarget{classfuse_1_1Operations_a078245db67fbd0b7ff6073db68e8e215}{\index{fuse\-::\-Operations@{fuse\-::\-Operations}!statfs@{statfs}}
+\index{statfs@{statfs}!fuse::Operations@{fuse\-::\-Operations}}
+\subsubsection[{statfs}]{\setlength{\rightskip}{0pt plus 5cm}def fuse.\-Operations.\-statfs (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{path}
+\end{DoxyParamCaption}
+)}}\label{classfuse_1_1Operations_a078245db67fbd0b7ff6073db68e8e215}
+
+
+Returns a dictionary with keys identical to the statvfs C structure of statvfs(3). 
+
+On Mac O\-S X f\-\_\-bsize and f\-\_\-frsize must be a power of 2 (minimum 512). 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/mfbari/works/\-Wat\-N\-F\-V/nf.\-io/src/fuse.\-py\end{DoxyCompactItemize}

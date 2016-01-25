@@ -1,0 +1,237 @@
+\hypertarget{classvnfs__operations_1_1VNFSOperations}{\section{vnfs\-\_\-operations.\-V\-N\-F\-S\-Operations Class Reference}
+\label{classvnfs__operations_1_1VNFSOperations}\index{vnfs\-\_\-operations.\-V\-N\-F\-S\-Operations@{vnfs\-\_\-operations.\-V\-N\-F\-S\-Operations}}
+}
+
+
+Provides a common set of operations for nfio.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classvnfs__operations_1_1VNFSOperations_a8aeb0c031c7f7b97e8544ed7d8c49b35}{def {\bfseries \-\_\-\-\_\-init\-\_\-\-\_\-}}\label{classvnfs__operations_1_1VNFSOperations_a8aeb0c031c7f7b97e8544ed7d8c49b35}
+
+\item 
+def \hyperlink{classvnfs__operations_1_1VNFSOperations_ae73c421b301cbda862896f9fe67a7941}{vnfs\-\_\-create\-\_\-vnf\-\_\-instance}
+\begin{DoxyCompactList}\small\item\em Create the file system structure for a V\-N\-F. \end{DoxyCompactList}\item 
+def \hyperlink{classvnfs__operations_1_1VNFSOperations_a3c0b706c40d09a2ed679aed33d37b5e9}{vnfs\-\_\-get\-\_\-opcode}
+\begin{DoxyCompactList}\small\item\em Determinse the type of operation based on the path. \end{DoxyCompactList}\item 
+def \hyperlink{classvnfs__operations_1_1VNFSOperations_a75430767bdb54f256059c588058b3323}{vnfs\-\_\-get\-\_\-nf\-\_\-type}
+\begin{DoxyCompactList}\small\item\em Parse the type of V\-N\-F from path. \end{DoxyCompactList}\item 
+def \hyperlink{classvnfs__operations_1_1VNFSOperations_a9461289b4af0fef0db381e5ec17a6cac}{vnfs\-\_\-get\-\_\-file\-\_\-name}
+\begin{DoxyCompactList}\small\item\em Return the name of the file represented by a path. \end{DoxyCompactList}\item 
+def \hyperlink{classvnfs__operations_1_1VNFSOperations_a464c0ebd7c574c62d76d352a3a59aec0}{vnfs\-\_\-is\-\_\-nf\-\_\-instance}
+\begin{DoxyCompactList}\small\item\em Determines if a path represents an nf instance directory. \end{DoxyCompactList}\item 
+def \hyperlink{classvnfs__operations_1_1VNFSOperations_a367f1d6fb6749b0a16af47381d43c874}{vnfs\-\_\-get\-\_\-instance\-\_\-configuration}
+\begin{DoxyCompactList}\small\item\em Return the configuration parameters related to a V\-N\-F instance. \end{DoxyCompactList}\item 
+def \hyperlink{classvnfs__operations_1_1VNFSOperations_a304bb0780682b050cdf9d43e3f279ead}{vnfs\-\_\-deploy\-\_\-nf}
+\begin{DoxyCompactList}\small\item\em Deploys a V\-N\-F instance. \end{DoxyCompactList}\item 
+def \hyperlink{classvnfs__operations_1_1VNFSOperations_a3c95617427fa157dbde8246a260546ed}{vnfs\-\_\-stop\-\_\-vnf}
+\begin{DoxyCompactList}\small\item\em Stops a V\-N\-F instance. \end{DoxyCompactList}\item 
+def \hyperlink{classvnfs__operations_1_1VNFSOperations_a27409856538f49f14a8506635ded95b7}{vnfs\-\_\-get\-\_\-rx\-\_\-bytes}
+\begin{DoxyCompactList}\small\item\em Reads the number of bytes received by a V\-N\-F instance. \end{DoxyCompactList}\item 
+def \hyperlink{classvnfs__operations_1_1VNFSOperations_ab4617f4573ef7d6c4106b0fdbf728022}{vnfs\-\_\-get\-\_\-tx\-\_\-bytes}
+\begin{DoxyCompactList}\small\item\em Reads the number of bytes sent by a V\-N\-F instance. \end{DoxyCompactList}\item 
+def \hyperlink{classvnfs__operations_1_1VNFSOperations_a05a7ab8ae7e8a2ab7502a1d4e0113144}{vnfs\-\_\-get\-\_\-pkt\-\_\-drops}
+\begin{DoxyCompactList}\small\item\em Reads the number of packets dropped by a V\-N\-F instance. \end{DoxyCompactList}\item 
+def \hyperlink{classvnfs__operations_1_1VNFSOperations_ac2787ee33d5944c39a07321e270bdcfd}{vnfs\-\_\-get\-\_\-status}
+\begin{DoxyCompactList}\small\item\em Get the status of a V\-N\-F instance, e.\-g., the V\-N\-F is running/suspended/stopped etc. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classvnfs__operations_1_1VNFSOperations_a88ae8c710ff0d9f76a72d2da2d736e34}{{\bfseries vnfs\-\_\-root}}\label{classvnfs__operations_1_1VNFSOperations_a88ae8c710ff0d9f76a72d2da2d736e34}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classvnfs__operations_1_1VNFSOperations_a4477fd75c80184251d2894d71e3dee5e}{int {\bfseries O\-P\-\_\-\-U\-N\-D\-E\-F\-I\-N\-E\-D} = 0x\-F\-F}\label{classvnfs__operations_1_1VNFSOperations_a4477fd75c80184251d2894d71e3dee5e}
+
+\item 
+\hypertarget{classvnfs__operations_1_1VNFSOperations_a1cde1da5a03e27b526f1a71e2a6244ff}{int {\bfseries O\-P\-\_\-\-N\-F} = 0x01}\label{classvnfs__operations_1_1VNFSOperations_a1cde1da5a03e27b526f1a71e2a6244ff}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Provides a common set of operations for nfio. 
+
+These operations act as a helper. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classvnfs__operations_1_1VNFSOperations_ae73c421b301cbda862896f9fe67a7941}{\index{vnfs\-\_\-operations\-::\-V\-N\-F\-S\-Operations@{vnfs\-\_\-operations\-::\-V\-N\-F\-S\-Operations}!vnfs\-\_\-create\-\_\-vnf\-\_\-instance@{vnfs\-\_\-create\-\_\-vnf\-\_\-instance}}
+\index{vnfs\-\_\-create\-\_\-vnf\-\_\-instance@{vnfs\-\_\-create\-\_\-vnf\-\_\-instance}!vnfs_operations::VNFSOperations@{vnfs\-\_\-operations\-::\-V\-N\-F\-S\-Operations}}
+\subsubsection[{vnfs\-\_\-create\-\_\-vnf\-\_\-instance}]{\setlength{\rightskip}{0pt plus 5cm}def vnfs\-\_\-operations.\-V\-N\-F\-S\-Operations.\-vnfs\-\_\-create\-\_\-vnf\-\_\-instance (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{path, }
+\item[{}]{mode}
+\end{DoxyParamCaption}
+)}}\label{classvnfs__operations_1_1VNFSOperations_ae73c421b301cbda862896f9fe67a7941}
+
+
+Create the file system structure for a V\-N\-F. 
+
+Args\-: path\-: path of the new V\-N\-F instance. mode\-: file creation mode for the new V\-N\-F instance directory.
+
+Returns\-: returns the return code of os.\-mkdir \hypertarget{classvnfs__operations_1_1VNFSOperations_a304bb0780682b050cdf9d43e3f279ead}{\index{vnfs\-\_\-operations\-::\-V\-N\-F\-S\-Operations@{vnfs\-\_\-operations\-::\-V\-N\-F\-S\-Operations}!vnfs\-\_\-deploy\-\_\-nf@{vnfs\-\_\-deploy\-\_\-nf}}
+\index{vnfs\-\_\-deploy\-\_\-nf@{vnfs\-\_\-deploy\-\_\-nf}!vnfs_operations::VNFSOperations@{vnfs\-\_\-operations\-::\-V\-N\-F\-S\-Operations}}
+\subsubsection[{vnfs\-\_\-deploy\-\_\-nf}]{\setlength{\rightskip}{0pt plus 5cm}def vnfs\-\_\-operations.\-V\-N\-F\-S\-Operations.\-vnfs\-\_\-deploy\-\_\-nf (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{nf\-\_\-path}
+\end{DoxyParamCaption}
+)}}\label{classvnfs__operations_1_1VNFSOperations_a304bb0780682b050cdf9d43e3f279ead}
+
+
+Deploys a V\-N\-F instance. 
+
+Args\-: nf\-\_\-path\-: path of the V\-N\-F instance.
+
+Returns\-: return codes are descirbed in hypervisor.\-hypervisor\-\_\-return\-\_\-codes module. \hypertarget{classvnfs__operations_1_1VNFSOperations_a9461289b4af0fef0db381e5ec17a6cac}{\index{vnfs\-\_\-operations\-::\-V\-N\-F\-S\-Operations@{vnfs\-\_\-operations\-::\-V\-N\-F\-S\-Operations}!vnfs\-\_\-get\-\_\-file\-\_\-name@{vnfs\-\_\-get\-\_\-file\-\_\-name}}
+\index{vnfs\-\_\-get\-\_\-file\-\_\-name@{vnfs\-\_\-get\-\_\-file\-\_\-name}!vnfs_operations::VNFSOperations@{vnfs\-\_\-operations\-::\-V\-N\-F\-S\-Operations}}
+\subsubsection[{vnfs\-\_\-get\-\_\-file\-\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}def vnfs\-\_\-operations.\-V\-N\-F\-S\-Operations.\-vnfs\-\_\-get\-\_\-file\-\_\-name (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{path}
+\end{DoxyParamCaption}
+)}}\label{classvnfs__operations_1_1VNFSOperations_a9461289b4af0fef0db381e5ec17a6cac}
+
+
+Return the name of the file represented by a path. 
+
+Args\-: path\-: the path of the file in concern
+
+Returns\-: returns the name of the file, i.\-e., last token after / in the path. \hypertarget{classvnfs__operations_1_1VNFSOperations_a367f1d6fb6749b0a16af47381d43c874}{\index{vnfs\-\_\-operations\-::\-V\-N\-F\-S\-Operations@{vnfs\-\_\-operations\-::\-V\-N\-F\-S\-Operations}!vnfs\-\_\-get\-\_\-instance\-\_\-configuration@{vnfs\-\_\-get\-\_\-instance\-\_\-configuration}}
+\index{vnfs\-\_\-get\-\_\-instance\-\_\-configuration@{vnfs\-\_\-get\-\_\-instance\-\_\-configuration}!vnfs_operations::VNFSOperations@{vnfs\-\_\-operations\-::\-V\-N\-F\-S\-Operations}}
+\subsubsection[{vnfs\-\_\-get\-\_\-instance\-\_\-configuration}]{\setlength{\rightskip}{0pt plus 5cm}def vnfs\-\_\-operations.\-V\-N\-F\-S\-Operations.\-vnfs\-\_\-get\-\_\-instance\-\_\-configuration (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{nf\-\_\-path}
+\end{DoxyParamCaption}
+)}}\label{classvnfs__operations_1_1VNFSOperations_a367f1d6fb6749b0a16af47381d43c874}
+
+
+Return the configuration parameters related to a V\-N\-F instance. 
+
+Args\-: nf\-\_\-path\-: path of the V\-N\-F instance. e.\-g., /mnt/vnfsmnt/firewall/fw-\/alpha
+
+Returns\-: A tuple representing the configuration of the V\-N\-F instance. The tuple is organized in the following order\-: nf\-\_\-instance\-\_\-name\-: name of the V\-N\-F instance. nf\-\_\-type\-: type of the V\-N\-F. ip\-\_\-address\-: I\-P address of the machine where this V\-N\-F will be deployed. image\-\_\-name\-: name of the V\-M/container image for that V\-N\-F. \hypertarget{classvnfs__operations_1_1VNFSOperations_a75430767bdb54f256059c588058b3323}{\index{vnfs\-\_\-operations\-::\-V\-N\-F\-S\-Operations@{vnfs\-\_\-operations\-::\-V\-N\-F\-S\-Operations}!vnfs\-\_\-get\-\_\-nf\-\_\-type@{vnfs\-\_\-get\-\_\-nf\-\_\-type}}
+\index{vnfs\-\_\-get\-\_\-nf\-\_\-type@{vnfs\-\_\-get\-\_\-nf\-\_\-type}!vnfs_operations::VNFSOperations@{vnfs\-\_\-operations\-::\-V\-N\-F\-S\-Operations}}
+\subsubsection[{vnfs\-\_\-get\-\_\-nf\-\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}def vnfs\-\_\-operations.\-V\-N\-F\-S\-Operations.\-vnfs\-\_\-get\-\_\-nf\-\_\-type (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{path}
+\end{DoxyParamCaption}
+)}}\label{classvnfs__operations_1_1VNFSOperations_a75430767bdb54f256059c588058b3323}
+
+
+Parse the type of V\-N\-F from path. 
+
+Args\-: path\-: the path of the file/directory on which some operation is being performed.
+
+Returns\-: Returns the type of V\-N\-F parsed from the path, e.\-g., if the path is /mnt/vnfsroot/nf-\/types/firewall/fw-\/alpha/action then returns firewall. \hypertarget{classvnfs__operations_1_1VNFSOperations_a3c0b706c40d09a2ed679aed33d37b5e9}{\index{vnfs\-\_\-operations\-::\-V\-N\-F\-S\-Operations@{vnfs\-\_\-operations\-::\-V\-N\-F\-S\-Operations}!vnfs\-\_\-get\-\_\-opcode@{vnfs\-\_\-get\-\_\-opcode}}
+\index{vnfs\-\_\-get\-\_\-opcode@{vnfs\-\_\-get\-\_\-opcode}!vnfs_operations::VNFSOperations@{vnfs\-\_\-operations\-::\-V\-N\-F\-S\-Operations}}
+\subsubsection[{vnfs\-\_\-get\-\_\-opcode}]{\setlength{\rightskip}{0pt plus 5cm}def vnfs\-\_\-operations.\-V\-N\-F\-S\-Operations.\-vnfs\-\_\-get\-\_\-opcode (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{path}
+\end{DoxyParamCaption}
+)}}\label{classvnfs__operations_1_1VNFSOperations_a3c0b706c40d09a2ed679aed33d37b5e9}
+
+
+Determinse the type of operation based on the path. 
+
+Args\-: path\-: path to the file/directory on which the operation is being performed
+
+Returns\-: If the file is under nf-\/types subdirectory in the nfio mount, then returns O\-P\-\_\-\-N\-F. Otherwise, returns O\-P\-\_\-\-U\-N\-D\-E\-F\-I\-N\-E\-D. \hypertarget{classvnfs__operations_1_1VNFSOperations_a05a7ab8ae7e8a2ab7502a1d4e0113144}{\index{vnfs\-\_\-operations\-::\-V\-N\-F\-S\-Operations@{vnfs\-\_\-operations\-::\-V\-N\-F\-S\-Operations}!vnfs\-\_\-get\-\_\-pkt\-\_\-drops@{vnfs\-\_\-get\-\_\-pkt\-\_\-drops}}
+\index{vnfs\-\_\-get\-\_\-pkt\-\_\-drops@{vnfs\-\_\-get\-\_\-pkt\-\_\-drops}!vnfs_operations::VNFSOperations@{vnfs\-\_\-operations\-::\-V\-N\-F\-S\-Operations}}
+\subsubsection[{vnfs\-\_\-get\-\_\-pkt\-\_\-drops}]{\setlength{\rightskip}{0pt plus 5cm}def vnfs\-\_\-operations.\-V\-N\-F\-S\-Operations.\-vnfs\-\_\-get\-\_\-pkt\-\_\-drops (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{nf\-\_\-path}
+\end{DoxyParamCaption}
+)}}\label{classvnfs__operations_1_1VNFSOperations_a05a7ab8ae7e8a2ab7502a1d4e0113144}
+
+
+Reads the number of packets dropped by a V\-N\-F instance. 
+
+Args\-: nf\-\_\-path\-: path of the V\-N\-F instance.
+
+Returns\-: returns the number of packets dropped by a V\-N\-F instance. \hypertarget{classvnfs__operations_1_1VNFSOperations_a27409856538f49f14a8506635ded95b7}{\index{vnfs\-\_\-operations\-::\-V\-N\-F\-S\-Operations@{vnfs\-\_\-operations\-::\-V\-N\-F\-S\-Operations}!vnfs\-\_\-get\-\_\-rx\-\_\-bytes@{vnfs\-\_\-get\-\_\-rx\-\_\-bytes}}
+\index{vnfs\-\_\-get\-\_\-rx\-\_\-bytes@{vnfs\-\_\-get\-\_\-rx\-\_\-bytes}!vnfs_operations::VNFSOperations@{vnfs\-\_\-operations\-::\-V\-N\-F\-S\-Operations}}
+\subsubsection[{vnfs\-\_\-get\-\_\-rx\-\_\-bytes}]{\setlength{\rightskip}{0pt plus 5cm}def vnfs\-\_\-operations.\-V\-N\-F\-S\-Operations.\-vnfs\-\_\-get\-\_\-rx\-\_\-bytes (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{nf\-\_\-path}
+\end{DoxyParamCaption}
+)}}\label{classvnfs__operations_1_1VNFSOperations_a27409856538f49f14a8506635ded95b7}
+
+
+Reads the number of bytes received by a V\-N\-F instance. 
+
+Args\-: nf\-\_\-path\-: path of the V\-N\-F instance.
+
+Returns\-: returns the number of bytes received by a V\-N\-F instance. \hypertarget{classvnfs__operations_1_1VNFSOperations_ac2787ee33d5944c39a07321e270bdcfd}{\index{vnfs\-\_\-operations\-::\-V\-N\-F\-S\-Operations@{vnfs\-\_\-operations\-::\-V\-N\-F\-S\-Operations}!vnfs\-\_\-get\-\_\-status@{vnfs\-\_\-get\-\_\-status}}
+\index{vnfs\-\_\-get\-\_\-status@{vnfs\-\_\-get\-\_\-status}!vnfs_operations::VNFSOperations@{vnfs\-\_\-operations\-::\-V\-N\-F\-S\-Operations}}
+\subsubsection[{vnfs\-\_\-get\-\_\-status}]{\setlength{\rightskip}{0pt plus 5cm}def vnfs\-\_\-operations.\-V\-N\-F\-S\-Operations.\-vnfs\-\_\-get\-\_\-status (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{nf\-\_\-path}
+\end{DoxyParamCaption}
+)}}\label{classvnfs__operations_1_1VNFSOperations_ac2787ee33d5944c39a07321e270bdcfd}
+
+
+Get the status of a V\-N\-F instance, e.\-g., the V\-N\-F is running/suspended/stopped etc. 
+
+Args\-: nf\-\_\-path\-: path of the V\-N\-F instance.
+
+Returns\-: Hypervisor specific status of the V\-N\-F. For example, if Docker is being used for V\-N\-F deployment then Docker specific container status message is returned. \hypertarget{classvnfs__operations_1_1VNFSOperations_ab4617f4573ef7d6c4106b0fdbf728022}{\index{vnfs\-\_\-operations\-::\-V\-N\-F\-S\-Operations@{vnfs\-\_\-operations\-::\-V\-N\-F\-S\-Operations}!vnfs\-\_\-get\-\_\-tx\-\_\-bytes@{vnfs\-\_\-get\-\_\-tx\-\_\-bytes}}
+\index{vnfs\-\_\-get\-\_\-tx\-\_\-bytes@{vnfs\-\_\-get\-\_\-tx\-\_\-bytes}!vnfs_operations::VNFSOperations@{vnfs\-\_\-operations\-::\-V\-N\-F\-S\-Operations}}
+\subsubsection[{vnfs\-\_\-get\-\_\-tx\-\_\-bytes}]{\setlength{\rightskip}{0pt plus 5cm}def vnfs\-\_\-operations.\-V\-N\-F\-S\-Operations.\-vnfs\-\_\-get\-\_\-tx\-\_\-bytes (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{nf\-\_\-path}
+\end{DoxyParamCaption}
+)}}\label{classvnfs__operations_1_1VNFSOperations_ab4617f4573ef7d6c4106b0fdbf728022}
+
+
+Reads the number of bytes sent by a V\-N\-F instance. 
+
+Args\-: nf\-\_\-path\-: path of the V\-N\-F instance.
+
+Returns\-: returns the number of bytes sent by a V\-N\-F instance. \hypertarget{classvnfs__operations_1_1VNFSOperations_a464c0ebd7c574c62d76d352a3a59aec0}{\index{vnfs\-\_\-operations\-::\-V\-N\-F\-S\-Operations@{vnfs\-\_\-operations\-::\-V\-N\-F\-S\-Operations}!vnfs\-\_\-is\-\_\-nf\-\_\-instance@{vnfs\-\_\-is\-\_\-nf\-\_\-instance}}
+\index{vnfs\-\_\-is\-\_\-nf\-\_\-instance@{vnfs\-\_\-is\-\_\-nf\-\_\-instance}!vnfs_operations::VNFSOperations@{vnfs\-\_\-operations\-::\-V\-N\-F\-S\-Operations}}
+\subsubsection[{vnfs\-\_\-is\-\_\-nf\-\_\-instance}]{\setlength{\rightskip}{0pt plus 5cm}def vnfs\-\_\-operations.\-V\-N\-F\-S\-Operations.\-vnfs\-\_\-is\-\_\-nf\-\_\-instance (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{path}
+\end{DoxyParamCaption}
+)}}\label{classvnfs__operations_1_1VNFSOperations_a464c0ebd7c574c62d76d352a3a59aec0}
+
+
+Determines if a path represents an nf instance directory. 
+
+Args\-: path\-: path of the file/directory in concern.
+
+Returns\-: True\-: if path represents an nf instance directory. For example, if path is /mnt/vnfsmnt/nf-\/types/firewall/fw-\/alpha then returns True.
+
+False\-: if the path does not represent an nf instance directory. For example, if path is /mnt/vnfsmnt/nf-\/types/firewall/fw-\/alpha/action then returns False. \hypertarget{classvnfs__operations_1_1VNFSOperations_a3c95617427fa157dbde8246a260546ed}{\index{vnfs\-\_\-operations\-::\-V\-N\-F\-S\-Operations@{vnfs\-\_\-operations\-::\-V\-N\-F\-S\-Operations}!vnfs\-\_\-stop\-\_\-vnf@{vnfs\-\_\-stop\-\_\-vnf}}
+\index{vnfs\-\_\-stop\-\_\-vnf@{vnfs\-\_\-stop\-\_\-vnf}!vnfs_operations::VNFSOperations@{vnfs\-\_\-operations\-::\-V\-N\-F\-S\-Operations}}
+\subsubsection[{vnfs\-\_\-stop\-\_\-vnf}]{\setlength{\rightskip}{0pt plus 5cm}def vnfs\-\_\-operations.\-V\-N\-F\-S\-Operations.\-vnfs\-\_\-stop\-\_\-vnf (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{nf\-\_\-path}
+\end{DoxyParamCaption}
+)}}\label{classvnfs__operations_1_1VNFSOperations_a3c95617427fa157dbde8246a260546ed}
+
+
+Stops a V\-N\-F instance. 
+
+Args\-: nf\-\_\-path\-: path of the V\-N\-F instance.
+
+Returns\-: return codes are described in hypervisor.\-hypervisor\-\_\-return\-\_\-codes module. 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/mfbari/works/\-Wat\-N\-F\-V/nf.\-io/src/vnfs\-\_\-operations.\-py\end{DoxyCompactItemize}
