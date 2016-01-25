@@ -71,33 +71,38 @@
         Please post any bugs reports or feature requests by creating an <a href="https://github.com/WatNFV/nf.io/issues" target="_blank">issue on Github</a>.
         <br /><br />
         <h3>Include New VNFs</h3>
-        (Assume nf.io is mounted at NFIO_MOUNT and nf.io source is located at
-        NFIO_SRC.)
-        To include a new VNF create a python module with the same name as the
-        type of VNF and put the python file inside $NFIO_SRC/src/middleboxes
-        directory. For example, if you want to integrate a middlebox of type
-        "my_new_middlebox", then create a python file named my_new_middlebox.py
-        and put it inside $NFIO_SRC/src/middleboxes directory.
-        my_new_middlebox.py should implement the following methods:
         <ul>
-          <li> _mkdir </li>
-          <li> _getattr </li>
-          <li> _read </li>
-          <li> _write </li>
+          <li> (Assume nf.io is mounted at NFIO_MOUNT and nf.io source is located at
+          NFIO_SRC.) To include a new VNF create a python module with the same name as the
+          type of VNF and put the python file inside
+          <code>$NFIO_SRC/src/middleboxes</code>
+          directory. For example, if you want to integrate a middlebox of type
+          <code>"my_new_middlebox"</code>, then create a python file named
+          <code>my_new_middlebox.py</code>
+          and put it inside <code>$NFIO_SRC/src/middleboxes</code> directory.
+          my_new_middlebox.py should implement the following methods:
+          <ul>
+            <li> <code>_mkdir</code> </li>
+            <li> <code>_getattr</code> </li>
+            <li> <code>_read</code> </li>
+            <li> <code>_write</code> </li>
+          </ul>
+          </li>
+          <li>
+          For details on the parameter list and semantics of these methods see the
+          middleboxes package documentation at
+          <code>$NFIO_SRC/src/middleboxes/__init__.py</code>.
+          </li>
+          <li>
+          Once the module is placed inside $NFIO_SRC/src/middleboxes directory,
+          create a directory corresponding to the new middlebox type under
+          <code>$NFIO_MOUNT/nf-types</code>. This newly created directory should have the same
+          name as the added python file, i.e., <code>my_new_middlebox</code> in this case. Once
+          the directory is created the new middlebox is integrated into nf.io. Now
+          instances of this new middlebox by can be created by creating instance
+          directories under <code>$NFIO_MOUNT/my_new_middlebox</code>.
+          <li/>
         </ul>
-        <br/>
-        For details on the parameter list and semantics of these methods see the
-        middleboxes package documentation at $NFIO_SRC/src/middleboxes/__init__.py.
-        <br/><br/>
-        Once the module is placed inside $NFIO_SRC/src/middleboxes directory,
-        create a directory corresponding to the new middlebox type under
-        $NFIO_MOUNT/nf-types. This newly created directory should have the same
-        name as the added python file, i.e., my_new_middlebox in this case. Once
-        the directory is created the new middlebox is integrated into nf.io. Now
-        create instances of this new middlebox by creating instance directory
-        under $NFIO_MOUNT/my_new_middlebox.
-        <br />
-        <br /><br />
       </div>
 
     </div> <!-- /container -->
