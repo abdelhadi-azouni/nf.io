@@ -48,11 +48,12 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="demo.html">Demo</a></li>
+            <!--<li><a href="demo.html">Demo</a></li>-->
             <li><a href="get_started.html">Get Started</a></li>
             <li><a href="downloads.html">Downloads</a></li>
+            <li><a href="docs/html/index.html" target="_blank">Documentation</a></li>
             <li><a href="developers.html">Developers</a></li>
-            <li><a href="credits.html">Credits</a><li>
+            <li><a href="credits.html">Credits</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -85,7 +86,7 @@
                 <ul>
                   <li>python 2</li>
                   <li>FUSE 2.6.0 or above</li>
-                  <li>Docker python client: <a href="https://github.com/docker/docker-py" target="_blank">docker-py</a></li>
+                  <li>Docker python client version 1.1.0: <a href="https://github.com/docker/docker-py/tree/1.1.0" target="_blank">docker-py</a></li>
                   <li>Docker remote API 1.15. Support for other versions will be added in the future.</li>
                 </ul>
               </li>
@@ -108,8 +109,8 @@
               <code> sudo addgroup &lt;username&gt; docker</code><br />
               Log out of the machine again and back in for this to take effect!
               </li>
-              <li>Step 5: Install the <a href="https://github.com/docker/docker-py" target="_blank">docker-py</a> client<br />
-              <code>sudo pip install docker-py</code><br />
+              <li>Step 5: Install the <a href="https://github.com/docker/docker-py" target="_blank">docker-py</a> client 1.1.0<br />
+              <code>sudo pip install docker-py==1.1.0</code><br />
               Run the following command to allow remote API calls<br />
               <code>sudo sed -i 's@.*DOCKER_OPTS=.*@DOCKER_OPTS="-H unix:///var/run/docker.sock -H tcp://0.0.0.0:4444"@g' /etc/default/docker</code><br />
               Restart the Docker daemon<br />
@@ -139,7 +140,7 @@
       	<h3>Running nf.io</h3>
       	<ul>
       	  <li>Inside the <code>nf.io/src</code> directory run the following command:<br />
-            <code>python nfio.py --root /vnfsroot --mountpoint /nfio</code>
+            <code>python nfio.py --nfio_root /vnfsroot --nfio_mount /nfio</code>
           </li>
         </ul>
       	
@@ -175,7 +176,7 @@
         <h3>Multi-host deployment</h3>
         <ul>
           <li>nf.io can be deployed on multiple hosts. One host will run the nfio.py program (nf.io-master) and the other hosts will run docker containers (nf.io-minions).</li>
-          <li>On each minion it is required to active Docker repote API call by the following commands:<br />
+          <li>On each minion it is required to active Docker remote API call by the following commands:<br />
             <code>sudo sed -i 's@.*DOCKER_OPTS=.*@DOCKER_OPTS="-H unix:///var/run/docker.sock -H tcp://0.0.0.0:4444"@g' /etc/default/docker</code><br />
             Then restart the Docker daemon<br />
             <code>sudo service docker restart</code>
