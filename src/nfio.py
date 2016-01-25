@@ -211,11 +211,11 @@ def nfio_main():
         description="nf.io File System for NFV Orchestration",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     arg_parser.add_argument(
-        '--root',
+        '--nfio_root',
         help='nf.io root',
         required=True)
     arg_parser.add_argument(
-        '--mountpoint',
+        '--nfio_mount',
         help='nf.io mount point',
         required=True)
     arg_parser.add_argument(
@@ -228,8 +228,8 @@ def nfio_main():
         default='middleboxes')
 
     args = arg_parser.parse_args()
-    root = args.root
-    mountpoint = args.mountpoint
+    root = args.nfio_root
+    mountpoint = args.nfio_mount
     hypervisor = args.hypervisor
     hypervisor_factory = hyp_factory.HypervisorFactory(hypervisor)
     module_root = args.middlebox_module_root
