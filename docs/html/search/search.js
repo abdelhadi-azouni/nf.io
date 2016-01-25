@@ -7,16 +7,14 @@
 
 var indexSectionsWithContent =
 {
-  0: "_deghlmnprsuvw",
-  1: "dhlnv",
-  2: "_degmprsuvw"
+  0: "dhlnv",
+  1: "dhlnv"
 };
 
 var indexSectionNames =
 {
   0: "all",
-  1: "classes",
-  2: "functions"
+  1: "classes"
 };
 
 function convertToId(search)
