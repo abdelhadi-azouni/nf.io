@@ -18,7 +18,12 @@ import argparse
 
 class Nfio(Operations):
 
-    def __init__(self, root, mountpoint, hypervisor = 'Docker', module_root = 'middleboxes'):
+    def __init__(
+            self,
+            root,
+            mountpoint,
+            hypervisor='Docker',
+            module_root='middleboxes'):
         """Instantiates a Nfio object.
 
         Args:
@@ -158,7 +163,7 @@ class Nfio(Operations):
         """
         The semantics have been redefined to create a new VNF instance when a
         directory is created under a specific type of VNF directory.
-        
+
         Args:
             path: path of the directory to create. The path also represents the
                 name of the new VNF instance to be created.
@@ -234,7 +239,7 @@ class Nfio(Operations):
         """
         Reads an open file. This nfio specific implementation parses path to see
         if the read is from any VNF or not. In case the read is from a VNF, the
-        corresponding VNF module is loaded and the module's _read function is 
+        corresponding VNF module is loaded and the module's _read function is
         invoked to complete the read system call.
 
         Args:
