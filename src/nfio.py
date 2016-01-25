@@ -327,11 +327,11 @@ def nfio_main():
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     arg_parser.add_argument(
         '--nfio_root',
-        help='nf.io root',
+        help='Absolute path of nf.io root',
         required=True)
     arg_parser.add_argument(
         '--nfio_mount',
-        help='nf.io mount point',
+        help='Absolute path of nf.io mount point',
         required=True)
     arg_parser.add_argument(
         '--hypervisor',
