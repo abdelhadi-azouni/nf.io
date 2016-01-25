@@ -4,7 +4,6 @@ import os
 special_files = ['rx_bytes', 'tx_bytes', 'pkt_drops', 'status']
 action_files = ['action']
 
-
 def full_path(root, partial_path):
     if partial_path.startswith("/"):
         partial_path = partial_path[1:]
@@ -74,10 +73,12 @@ def _write(root, path, buf, offset, fh):
     if file_name == "action":
         path_tokens = f_path.split("/")
         nf_path = "/".join(path_tokens[0:path_tokens.index("nf-types") + 3])
-        if buf == "activate":
+        if buf.rstrip("\n") == "activate":
             vnfs_ops.vnfs_deploy_nf(nf_path)
-        elif buf == "stop":
+        elif buf.rstrip("\n") == "stop":
             vnfs_ops.vnfs_stop_vnf(nf_path)
+        os.lseek(fh, offset, os.SEEK_SET)
+        os.write(fh, buf.rstrip("\n"))
         return len(buf)
     else:
         os.lseek(fh, offset, os.SEEK_SET)
