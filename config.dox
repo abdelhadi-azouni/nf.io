@@ -1051,7 +1051,7 @@ HTML_FOOTER            =
 # sheet that is used by each HTML page. It can be used to fine-tune the look of
 # the HTML output. If left blank doxygen will generate a default style sheet.
 # See also section "Doxygen usage" for information on how to generate the style
-# sheet that doxygen normally uses.
+# sheet that doxygen norally uses.
 # Note: It is recommended to use HTML_EXTRA_STYLESHEET instead of this tag, as
 # it is more robust and this tag (HTML_STYLESHEET) will in the future become
 # obsolete.

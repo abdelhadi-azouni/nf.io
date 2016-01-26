@@ -121,7 +121,7 @@
               </li>
               <li>Step 7: Create the initial directories for nf.io<br />
                   <code>sudo mkdir /vnfsroot</code><br />
-                  <code>sudo mkdir -p /vnfsroot/nf-types/fw</code><br />
+                  <code>sudo mkdir -p /vnfsroot/nf-types</code><br />
                   <code>sudo chown -R &lt;username&gt;:&lt;username&gt; /vnfsroot</code><br />
                   <code>sudo mkdir /nfio</code><br />
                   <code>sudo chown -R &lt;username&gt;:&lt;username&gt; /nfio</code><br />
@@ -133,6 +133,7 @@
         <h3>Build Docker images for VNFs</h3>
         <ul>
           <li>Step 1: Git clone the <a href="https://github.com/WatNFV/nf.io-docker-images" target="_blank">WatNFV/nf.io-docker-images</a> repository<br />
+          <i>Note: You can skip this step if you are using the downloaded VM image. However, please update the VNF image specifications by running <code>git pull</code> inside the directory <code>nf.io-docker-images</code> before going to step 2</i><br />
           <code> git clone https://github.com/WatNFV/nf.io-docker-images.git</code></li>
           <li>Step 2: <code>cd</code> to a VNF directory, e.g., <code>cd ufw</code> and build the docker image following the provided <a href="https://github.com/WatNFV/nf.io-docker-images/tree/master/ufw" target="_blank">directions</a>. These directions may differ for different VNF types, so, follow the directions provided in each VNF's own directory.
         </ul>
@@ -170,6 +171,12 @@
           </li>
           <li>Deploy and start the VNF<br />
             <code>echo -n 'activate' &gt; action</code>
+          </li>
+          <li>Get the current status of the VNF<br />
+            <code>cat status</code>
+          </li>
+          <li>Get the number of bytes tranferred by this VNF<br />
+            <code>cat stats/tx_bytes</code>
           </li>
         </ul>
         
