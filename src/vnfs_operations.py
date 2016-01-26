@@ -7,11 +7,14 @@ import sys
 import errno
 import time
 
+import logging
+
 import getpass
 import re
 from hypervisor import hypervisor_factory
 from hypervisor import hypervisor_return_codes as hrc
 
+logger = logging.getLogger(__name__)
 
 class VNFSOperations:
 
@@ -172,7 +175,7 @@ class VNFSOperations:
         nf_instance_name = self.vnfs_get_file_name(nf_path)
         nf_type = self.vnfs_get_nf_type(nf_path)
         ip_address = ''
-        print nf_path + '/machine/ip'
+        logger.debug(nf_path + '/machine/ip')
         with open(nf_path + '/machine/ip') as ip_fd:
             ip_address = ip_fd.readline().rstrip('\n')
         image_name = ''
@@ -193,16 +196,16 @@ class VNFSOperations:
         """
         nf_instance_name, nf_type, ip_address, image_name = self.vnfs_get_instance_configuration(
             nf_path)
-        print "Starting " + nf_instance_name + " of type " + nf_type + " at " + ip_address + " with image " + image_name
+        logger.info("Starting " + nf_instance_name + " of type " + nf_type + " at " + ip_address + " with image " + image_name)
         cont_id, deploy_ret_code, deploy_ret_msg = self._hypervisor.deploy(
             ip_address, getpass.getuser(), image_name, nf_instance_name)
-        print cont_id, deploy_ret_code, deploy_ret_msg
+        logger.debug(cont_id, deploy_ret_code, deploy_ret_msg)
         if deploy_ret_code == hrc.SUCCESS:
             start_response, start_ret_code, start_ret_msg = self._hypervisor.start(
                 ip_address, cont_id)
             return start_ret_code
         else:
-            print 'nf deployment failed'
+            logger.debug('nf deployment failed')
             return deploy_ret_code
 
     def vnfs_stop_vnf(self, nf_path):
@@ -218,7 +221,7 @@ class VNFSOperations:
         """
         nf_instance_name, nf_type, ip_address, image_name = self.vnfs_get_instance_configuration(
             nf_path)
-        print "Stopping " + nf_instance_name
+        logger.info("Stopping " + nf_instance_name)
         cont_id, ret_code = self._hypervisor.get_id(
             ip_address, getpass.getuser(), nf_instance_name)
         response, ret_code, ret_message = self._hypervisor.stop(

@@ -1,4 +1,6 @@
 import requests
+
+import logging
 from contextlib import contextmanager
 
 import docker
@@ -6,6 +8,7 @@ import docker
 from hypervisor_base import HypervisorBase
 from hypervisor_return_codes import *
 
+logger = logging.getLogger(__name__)
 
 class Docker(HypervisorBase):
     """Hypervisor driver for Docker. This class provides methods for 
@@ -63,11 +66,18 @@ class Docker(HypervisorBase):
         """
         try:
             yield
-        except (requests.exceptions.ConnectionError, requests.exceptions.Timeout) as ex:
-            return_data['code'] = CONNECTION_ERROR
-        except docker.errors.APIError as ex:
+        #except (requests.exceptions.ConnectionError, requests.exceptions.Timeout) as ex:
+        #    return_data['code'] = CONNECTION_ERROR
+        #    raise
+        #except docker.errors.APIError as ex:
+        #    return_data['code'] = DOCKER_ERROR
+        #    return_data['message'] = ex.message
+        #    raise
+        except Exception, ex:
             return_data['code'] = DOCKER_ERROR
             return_data['message'] = ex.message
+            logger.error(ex.message, exc_info=False)
+        
 
     def get_id(self, host, user, vnf_name):
         """Returns a container's ID.
@@ -85,8 +95,10 @@ class Docker(HypervisorBase):
         return_data = {'code': SUCCESS, 'message': ""}
         dcx = self._get_client(host)
         name = user + "-" + vnf_name
-        inspect_data = dcx.inspect_container(container=name)
-        return inspect_data['Id'], return_data
+        with self._error_handling(return_data):
+            inspect_data = dcx.inspect_container(container=name)
+            return inspect_data['Id'], return_data
+        return None, return_data
 
     def deploy(self, host, user, image_name, vnf_name):
         """Deploys a docker container.

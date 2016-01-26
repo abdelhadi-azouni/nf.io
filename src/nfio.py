@@ -6,6 +6,8 @@ import os
 import sys
 import errno
 
+import logging
+
 from fuse import FUSE, FuseOSError, Operations
 from hypervisor import hypervisor_factory as hyp_factory
 from vnfs_operations import VNFSOperations
@@ -14,7 +16,6 @@ import getpass
 import re
 import importlib
 import argparse
-
 
 class Nfio(Operations):
 
@@ -341,6 +342,10 @@ def nfio_main():
         '--middlebox_module_root',
         help='Module directory inside the source tree containing middlebox specific implementation of system calls',
         default='middleboxes')
+    arg_parser.add_argument(
+        '--log_level',
+        help='[debug|info|warning|error]',
+        default='info')
 
     args = arg_parser.parse_args()
     root = args.nfio_root
@@ -348,6 +353,19 @@ def nfio_main():
     hypervisor = args.hypervisor
     hypervisor_factory = hyp_factory.HypervisorFactory(hypervisor)
     module_root = args.middlebox_module_root
+
+    # set the logging level
+    LOG_LEVELS = {'debug':logging.DEBUG,
+                  'info':logging.INFO,
+                  'warning':logging.WARNING,
+                  'error':logging.ERROR,
+                  'critical':logging.CRITICAL,
+                 }
+    log_level = LOG_LEVELS.get(args.log_level, logging.INFO)
+    logging.basicConfig(level=log_level)
+    # suppress INFO log messages from the requests module
+    logging.getLogger("requests").setLevel(logging.WARNING)
+
     FUSE(
         Nfio(
             root,
