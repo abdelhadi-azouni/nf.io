@@ -69,6 +69,8 @@ class VNFSOperations:
                 default_file_mode)
         os.open(full_path + "/machine/vm.image", os.O_WRONLY | os.O_CREAT,
                 default_file_mode)
+        os.open(full_path + "/machine/vm.ip", os.O_WRONLY | os.O_CREAT,
+                default_file_mode)
         os.open(full_path + "/action", os.O_WRONLY | os.O_CREAT,
                 default_file_mode)
 
@@ -183,9 +185,9 @@ class VNFSOperations:
             image_name = img_fd.readline().rstrip('\n')
         return nf_instance_name, nf_type, ip_address, image_name
 
-    def vnfs_deploy_nf(self, nf_path):
+    def vnfs_deploy_nf(self, nf_path, is_privileged):
         """
-        Deploys a VNF instance.
+        Deploys and STARTS a VNF instance.
 
         Args:
             nf_path: path of the VNF instance.
@@ -198,7 +200,7 @@ class VNFSOperations:
             nf_path)
         logger.info("Starting " + nf_instance_name + " of type " + nf_type + " at " + ip_address + " with image " + image_name)
         cont_id, deploy_ret_code, deploy_ret_msg = self._hypervisor.deploy(
-            ip_address, getpass.getuser(), image_name, nf_instance_name)
+            ip_address, getpass.getuser(), image_name, nf_instance_name, is_privileged)
         logger.debug(cont_id, deploy_ret_code, deploy_ret_msg)
         if deploy_ret_code == hrc.SUCCESS:
             start_response, start_ret_code, start_ret_msg = self._hypervisor.start(
@@ -225,6 +227,26 @@ class VNFSOperations:
         cont_id, ret_code = self._hypervisor.get_id(
             ip_address, getpass.getuser(), nf_instance_name)
         response, ret_code, ret_message = self._hypervisor.stop(
+            ip_address, cont_id)
+        return response
+
+    def vnfs_start_vnf(self, nf_path):
+        """
+        Starts a deployed VNF instance.
+
+        Args:
+            nf_path: path of the VNF instance.
+
+        Returns:
+            return codes are described in hypervisor.hypervisor_return_codes
+            module.
+        """
+        nf_instance_name, nf_type, ip_address, image_name = self.vnfs_get_instance_configuration(
+            nf_path)
+        logger.info("Starting " + nf_instance_name)
+        cont_id, ret_code = self._hypervisor.get_id(
+            ip_address, getpass.getuser(), nf_instance_name)
+        response, ret_code, ret_message = self._hypervisor.start(
             ip_address, cont_id)
         return response
 
@@ -315,3 +337,25 @@ class VNFSOperations:
         response, ret_code, ret_message = self._hypervisor.guest_status(
             ip_address, cont_id)
         return response
+
+    def vnfs_get_ip(self, nf_path):
+        """
+        Get the status of a VNF instance, e.g., the VNF is
+        running/suspended/stopped etc.
+
+        Args:
+            nf_path: path of the VNF instance.
+
+        Returns:
+            Hypervisor specific status of the VNF. For example, if Docker is
+            being used for VNF deployment then Docker specific container status
+            message is returned.
+        """
+        nf_instance_name, nf_type, ip_address, image_name = self.vnfs_get_instance_configuration(
+            nf_path)
+        cont_ip, ret_code = self._hypervisor.get_ip(ip_address,
+                                                    getpass.getuser(),
+                                                    nf_instance_name)
+        logger.debug('cont_ip ' + cont_ip)
+        return cont_ip
+

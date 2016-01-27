@@ -100,7 +100,18 @@ class Docker(HypervisorBase):
             return inspect_data['Id'], return_data
         return None, return_data
 
-    def deploy(self, host, user, image_name, vnf_name):
+    def get_ip(self, host, user, vnf_name):
+        return_data = {'code': SUCCESS, 'message': ""}
+        dcx = self._get_client(host)
+        name = user + '-' + vnf_name
+        with self._error_handling(return_data):
+            inspect_data = dcx.inspect_container(container=name)
+            logger.debug('ip address read from container ' + 
+                   inspect_data['NetworkSettings']['IPAddress'])
+            return inspect_data['NetworkSettings']['IPAddress'].encode('ascii'), return_data
+        return None, return_data
+
+    def deploy(self, host, user, image_name, vnf_name, is_privileged=False):
         """Deploys a docker container.
 
         Args:
@@ -109,6 +120,8 @@ class Docker(HypervisorBase):
             user: name of the user who owns the VNF
             image_name: docker image name for the VNF
             vnf_name: name of the VNF instance
+            is_privileged: if True then the container is started in 
+                privileged mode
 
         Returns:
             If the operation is successful then returns a tuple 
@@ -125,10 +138,14 @@ class Docker(HypervisorBase):
         with self._error_handling(return_data):
             dcx = self._get_client(host)
             name = user + "-" + vnf_name
+            host_config = dict()
+            if is_privileged:
+              host_config['Privileged'] = True
             container = dcx.create_container(
                 image=image_name,
                 hostname=name,
-                name=name)
+                name=name,
+                host_config=host_config)
             if container['Warnings']:
                 return_data['message'] = " ".join(container['Warnings'])
             return container['Id'], return_data['code'], return_data['message']

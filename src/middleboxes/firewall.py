@@ -5,6 +5,7 @@ this module.
 
 from vnfs_operations import VNFSOperations
 import os
+import logging
 
 """
 special_files is a list of files specific to this VNF that requires special
@@ -17,9 +18,10 @@ action on a VNF. For example, writing 'stop' to 'action' will stop a VNF
 instance.
 """
 
-special_files = ['rx_bytes', 'tx_bytes', 'pkt_drops', 'status']
+special_files = ['rx_bytes', 'tx_bytes', 'pkt_drops', 'status', 'vm.ip']
 action_files = ['action']
 
+logger = logging.getLogger(__name__)
 
 def full_path(root, partial_path):
     if partial_path.startswith("/"):
@@ -48,7 +50,7 @@ def _getattr(root, path, fh=None):
     return_dictionary['st_size'] = st.st_size
     return_dictionary['st_uid'] = st.st_uid
     if file_name in special_files:
-        return_dictionary['st_size'] = 1000
+       return_dictionary['st_size'] = 1000
     return return_dictionary
 
 
@@ -77,6 +79,11 @@ def _read(root, path, length, offset, fh):
         ret_str = vnfs_ops.vnfs_get_status(nf_path)
         if offset >= len(ret_str):
             ret_str = ''
+    elif file_name == 'vm.ip':
+        ret_str = vnfs_ops.vnfs_get_ip(nf_path)
+        logger.debug('vm.ip ' + ret_str)
+        if offset >= len(ret_str):
+          ret_str = ''
     else:
         os.lseek(fh, offset, os.SEEK_SET)
         ret_str = os.read(fh, length)
@@ -91,9 +98,11 @@ def _write(root, path, buf, offset, fh):
         path_tokens = f_path.split("/")
         nf_path = "/".join(path_tokens[0:path_tokens.index("nf-types") + 3])
         if buf.rstrip("\n") == "activate":
-            vnfs_ops.vnfs_deploy_nf(nf_path)
+            vnfs_ops.vnfs_deploy_nf(nf_path, is_privileged=True)
         elif buf.rstrip("\n") == "stop":
             vnfs_ops.vnfs_stop_vnf(nf_path)
+        elif buf.rstrip("\n") == "start":
+            vnfs_ops.vnfs_start_vnf(nf_path)
         os.lseek(fh, offset, os.SEEK_SET)
         os.write(fh, buf.rstrip("\n"))
         return len(buf)
