@@ -100,6 +100,17 @@ class Docker(HypervisorBase):
             return inspect_data['Id'], return_data
         return None, return_data
 
+    def get_ip(self, host, user, vnf_name):
+        return_data = {'code': SUCCESS, 'message': ""}
+        dcx = self._get_client(host)
+        name = user + '-' + vnf_name
+        with self._error_handling(return_data):
+            inspect_data = dcx.inspect_container(container=name)
+            logger.debug('ip address read from container ' + 
+                   inspect_data['NetworkSettings']['IPAddress'])
+            return inspect_data['NetworkSettings']['IPAddress'].encode('ascii'), return_data
+        return None, return_data
+
     def deploy(self, host, user, image_name, vnf_name):
         """Deploys a docker container.
 

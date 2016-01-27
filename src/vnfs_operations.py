@@ -69,6 +69,8 @@ class VNFSOperations:
                 default_file_mode)
         os.open(full_path + "/machine/vm.image", os.O_WRONLY | os.O_CREAT,
                 default_file_mode)
+        os.open(full_path + "/machine/vm.ip", os.O_WRONLY | os.O_CREAT,
+                default_file_mode)
         os.open(full_path + "/action", os.O_WRONLY | os.O_CREAT,
                 default_file_mode)
 
@@ -315,3 +317,25 @@ class VNFSOperations:
         response, ret_code, ret_message = self._hypervisor.guest_status(
             ip_address, cont_id)
         return response
+
+    def vnfs_get_ip(self, nf_path):
+        """
+        Get the status of a VNF instance, e.g., the VNF is
+        running/suspended/stopped etc.
+
+        Args:
+            nf_path: path of the VNF instance.
+
+        Returns:
+            Hypervisor specific status of the VNF. For example, if Docker is
+            being used for VNF deployment then Docker specific container status
+            message is returned.
+        """
+        nf_instance_name, nf_type, ip_address, image_name = self.vnfs_get_instance_configuration(
+            nf_path)
+        cont_ip, ret_code = self._hypervisor.get_ip(ip_address,
+                                                    getpass.getuser(),
+                                                    nf_instance_name)
+        logger.debug('cont_ip ' + cont_ip)
+        return cont_ip
+

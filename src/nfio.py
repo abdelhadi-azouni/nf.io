@@ -17,6 +17,8 @@ import re
 import importlib
 import argparse
 
+logger = logging.getLogger(__name__)
+
 class Nfio(Operations):
 
     def __init__(
@@ -113,14 +115,20 @@ class Nfio(Operations):
             for these special placeholder files.
         """
         opcode = self.vnfs_ops.vnfs_get_opcode(path)
-        return_dictionary = dict()
         if opcode == VNFSOperations.OP_NF:
             nf_type = self.vnfs_ops.vnfs_get_nf_type(path)
             if len(nf_type) > 0:
-                mbox_module = importlib.import_module(
-                    self.module_root +
-                    "." +
-                    nf_type)
+                try:
+                    mbox_module = importlib.import_module(
+                        self.module_root +
+                        "." +
+                        nf_type)
+                except ImportError:
+                    logger.error('VNF module file missing. Add "' + nf_type 
+                        + '.py" under the directory ' + self.module_root)
+                    ## TODO: raise an custom exception and handle it in a OS 
+                    ## specific way
+                    raise OSError(errno.ENOSYS)
                 return mbox_module._getattr(self.root, path, fh)
         full_path = self._full_path(path)
         st = os.lstat(full_path)
