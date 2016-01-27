@@ -112,7 +112,8 @@
               <li>Step 5: Install the <a href="https://github.com/docker/docker-py" target="_blank">docker-py</a> client 1.1.0<br />
               <code>sudo pip install docker-py==1.1.0</code><br />
               Run the following command to allow remote API calls<br />
-              <code>sudo sed -i 's@.*DOCKER_OPTS=.*@DOCKER_OPTS="-H unix:///var/run/docker.sock -H tcp://0.0.0.0:4444"@g' /etc/default/docker</code><br />
+              <code>sudo sed -i 's@.*DOCKER_OPTS=.*@DOCKER_OPTS="--ipv6=true -H unix:///var/run/docker.sock -H tcp://0.0.0.0:4444"@g' /etc/default/docker</code><br />
+              <i>Note: we need to enable ipv6 network here as some VNFs (e.g., ufw) require ipv6 kernel modules.</i><br />
               Restart the Docker daemon<br />
               <code>sudo service docker restart</code>
               </li>
@@ -142,6 +143,33 @@
       	<ul>
       	  <li>Inside the <code>nf.io/src</code> directory run the following command:<br />
             <code>python nfio.py --nfio_root /vnfsroot --nfio_mount /nfio</code>
+          </li>
+          <li>Command line options for nfio.py can be seen by running the command<br />
+            <code>python nfio.py -h</code><br>
+              <pre>usage: nfio.py [-h] --nfio_root NFIO_ROOT --nfio_mount NFIO_MOUNT
+               [--hypervisor HYPERVISOR]
+               [--middlebox_module_root MIDDLEBOX_MODULE_ROOT]
+               [--log_level LOG_LEVEL]
+
+nf.io File System for NFV Orchestration
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --nfio_root NFIO_ROOT
+                        Absolute path of nf.io root (default: None)
+  --nfio_mount NFIO_MOUNT
+                        Absolute path of nf.io mount point (default: None)
+  --hypervisor HYPERVISOR
+                        Hypervisor to use for VNF deployment (Docker/Libvirt)
+                        (default: Docker)
+  --middlebox_module_root MIDDLEBOX_MODULE_ROOT
+                        Module directory inside the source tree containing
+                        middlebox specific implementation of system calls
+                        (default: middleboxes)
+  --log_level LOG_LEVEL
+                        [debug|info|warning|error] (default: info)
+
+            </pre>
           </li>
         </ul>
       	
@@ -178,13 +206,18 @@
           <li>Get the number of bytes tranferred by this VNF<br />
             <code>cat stats/tx_bytes</code>
           </li>
+          <li>login to the deployed VNF<br />
+            <code>ssh root@$(cat machine/vm.ip)</code><br />
+            The default password is <code>pass</code>
+          </li>
         </ul>
         
         <h3>Multi-host deployment</h3>
         <ul>
           <li>nf.io can be deployed on multiple hosts. One host will run the nfio.py program (nf.io-master) and the other hosts will run docker containers (nf.io-minions).</li>
           <li>On each minion it is required to active Docker remote API call by the following commands:<br />
-            <code>sudo sed -i 's@.*DOCKER_OPTS=.*@DOCKER_OPTS="-H unix:///var/run/docker.sock -H tcp://0.0.0.0:4444"@g' /etc/default/docker</code><br />
+            <code>sudo sed -i 's@.*DOCKER_OPTS=.*@DOCKER_OPTS="--ipv6=true -H unix:///var/run/docker.sock -H tcp://0.0.0.0:4444"@g' /etc/default/docker</code><br />
+              <i>Note: we need to enable ipv6 network here as some VNFs (e.g., ufw) require ipv6 kernel modules.</i><br />
             Then restart the Docker daemon<br />
             <code>sudo service docker restart</code>
           </li>
