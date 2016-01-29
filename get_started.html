@@ -195,16 +195,24 @@ optional arguments:
           <li>Provide the configurations required for deployment<br />
             <code>cd edge-ufw-1</code><br />
             <code>echo -n '127.0.0.1' &gt; machine/ip</code><br /> 
-            <code>echo -n 'firewall' &gt; machine/vm.image</code>
+            <code>echo -n 'firewall' &gt; machine/vm.image</code><br />
+            <i>Note: here <code>-n</code> is used with <code>echo</code> to avoid parsing issues with the <code>\n</code> character</i>.
           </li>
           <li>Deploy and start the VNF<br />
-            <code>echo -n 'activate' &gt; action</code>
+            <code>echo -n 'activate' &gt; action</code><br />
+            Other possibles actions are: <br />
+            <ul>
+              <li><code>stop</code>&nbsp; stops a running VNF</li>
+              <li><code>start</code>&nbsp; statrs a stopped VNF</li>
+              <li><code>destroy</code>&nbsp; destroys a running/stopped VNF</li>
+            </ul>
           </li>
           <li>Get the current status of the VNF<br />
-            <code>cat status</code>
+            <code>cat status && echo</code><br />
+            <i>Note: a <code>\n</code> is not returned after the status (or any read data) to enable command pipes</i>
           </li>
-          <li>Get the number of bytes tranferred by this VNF<br />
-            <code>cat stats/tx_bytes</code>
+          <li>Get the number of bytes transferred by this VNF<br />
+            <code>cat stats/tx_bytes && echo</code>
           </li>
           <li>login to the deployed VNF<br />
             <code>ssh root@$(cat machine/vm.ip)</code><br />
