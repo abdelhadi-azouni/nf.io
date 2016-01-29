@@ -183,6 +183,7 @@ class VNFSOperations:
         image_name = ''
         with open(nf_path + '/machine/vm.image') as img_fd:
             image_name = img_fd.readline().rstrip('\n')
+        logger.info("Instance name: " + nf_instance_name + ", type: " + nf_type + ", host-ip: " + ip_address + " VNF image: " + image_name)
         return nf_instance_name, nf_type, ip_address, image_name
 
     def vnfs_deploy_nf(self, nf_path, is_privileged):
@@ -199,7 +200,6 @@ class VNFSOperations:
         logger.info('Deploying new VNF at ' + nf_path)
         nf_instance_name, nf_type, ip_address, image_name = self.vnfs_get_instance_configuration(
             nf_path)
-        logger.info("Instance name: " + nf_instance_name + ", type: " + nf_type + ", host-ip: " + ip_address + " VNF image: " + image_name)
         cont_id, deploy_ret_code, deploy_ret_msg = self._hypervisor.deploy(
             ip_address, getpass.getuser(), image_name, nf_instance_name, is_privileged)
         logger.debug(cont_id, deploy_ret_code, deploy_ret_msg)
@@ -228,7 +228,6 @@ class VNFSOperations:
         logger.info("Stopping VNF at " + nf_path)
         nf_instance_name, nf_type, ip_address, image_name = self.vnfs_get_instance_configuration(
             nf_path)
-        logger.info("Instance name: " + nf_instance_name + ", type: " + nf_type + ", host-ip: " + ip_address + " VNF image: " + image_name)
         cont_id, ret_code = self._hypervisor.get_id(
             ip_address, getpass.getuser(), nf_instance_name)
         response, ret_code, ret_message = self._hypervisor.stop(
@@ -250,7 +249,6 @@ class VNFSOperations:
         logger.info("Starting VNF at " + nf_path)
         nf_instance_name, nf_type, ip_address, image_name = self.vnfs_get_instance_configuration(
             nf_path)
-        logger.info("Instance name: " + nf_instance_name + ", type: " + nf_type + ", host-ip: " + ip_address + " VNF image: " + image_name)
         cont_id, ret_code = self._hypervisor.get_id(
             ip_address, getpass.getuser(), nf_instance_name)
         response, ret_code, ret_message = self._hypervisor.start(
@@ -272,7 +270,6 @@ class VNFSOperations:
         logger.info("Destroying VNF at " + nf_path)
         nf_instance_name, nf_type, ip_address, image_name = self.vnfs_get_instance_configuration(
             nf_path)
-        logger.info("Instance name: " + nf_instance_name + ", type: " + nf_type + ", host-ip: " + ip_address + " VNF image: " + image_name)
         cont_id, ret_code = self._hypervisor.get_id(
             ip_address, getpass.getuser(), nf_instance_name)
         response, ret_code, ret_message = self._hypervisor.destroy(
@@ -289,6 +286,7 @@ class VNFSOperations:
         Returns:
             returns the number of bytes received by a VNF instance.
         """
+        logger.info('Reading rx_bytes at ' + nf_path)
         nf_instance_name, nf_type, ip_address, image_name = self.vnfs_get_instance_configuration(
             nf_path)
         cont_id, ret_code = self._hypervisor.get_id(ip_address,
@@ -299,6 +297,7 @@ class VNFSOperations:
             ip_address,
             cont_id,
             command)
+        logger.info('Successfully read rx_bytes')
         return response
 
     def vnfs_get_tx_bytes(self, nf_path):
@@ -311,6 +310,7 @@ class VNFSOperations:
         Returns:
             returns the number of bytes sent by a VNF instance.
         """
+        logger.info('Reading tx_bytes at ' + nf_path)
         nf_instance_name, nf_type, ip_address, image_name = self.vnfs_get_instance_configuration(
             nf_path)
         cont_id, ret_code = self._hypervisor.get_id(ip_address,
@@ -321,6 +321,7 @@ class VNFSOperations:
             ip_address,
             cont_id,
             command)
+        logger.info('Successfully read tx_bytes')
         return response
 
     def vnfs_get_pkt_drops(self, nf_path):
@@ -333,6 +334,7 @@ class VNFSOperations:
         Returns:
             returns the number of packets dropped by a VNF instance.
         """
+        logger.info('Reading pkt_drops at ' + nf_path)
         nf_instance_name, nf_type, ip_address, image_name = self.vnfs_get_instance_configuration(
             nf_path)
         cont_id, ret_code = self._hypervisor.get_id(ip_address,
@@ -343,6 +345,7 @@ class VNFSOperations:
             ip_address,
             cont_id,
             command)
+        logger.info('Successfully read pkt_drops')
         return response
 
     def vnfs_get_status(self, nf_path):
@@ -358,6 +361,7 @@ class VNFSOperations:
             being used for VNF deployment then Docker specific container status
             message is returned.
         """
+        logger.info('Reading status at ' + nf_path)
         nf_instance_name, nf_type, ip_address, image_name = self.vnfs_get_instance_configuration(
             nf_path)
         cont_id, ret_code = self._hypervisor.get_id(ip_address,
@@ -365,6 +369,7 @@ class VNFSOperations:
                                                     nf_instance_name)
         response, ret_code, ret_message = self._hypervisor.guest_status(
             ip_address, cont_id)
+        logger.info('Successfully read status')
         return response
 
     def vnfs_get_ip(self, nf_path):
@@ -380,11 +385,13 @@ class VNFSOperations:
             being used for VNF deployment then Docker specific container status
             message is returned.
         """
+        logger.info('Reading ip at ' + nf_path)
         nf_instance_name, nf_type, ip_address, image_name = self.vnfs_get_instance_configuration(
             nf_path)
         cont_ip, ret_code = self._hypervisor.get_ip(ip_address,
                                                     getpass.getuser(),
                                                     nf_instance_name)
         logger.debug('cont_ip ' + cont_ip)
+        logger.info('Successfully read ip')
         return cont_ip
 
