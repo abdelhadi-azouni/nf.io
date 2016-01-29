@@ -111,7 +111,7 @@ class Docker(HypervisorBase):
             return inspect_data['NetworkSettings']['IPAddress'].encode('ascii'), return_data
         return None, return_data
 
-    def deploy(self, host, user, image_name, vnf_name, is_privileged=False):
+    def deploy(self, host, user, image_name, vnf_name, is_privileged=True):
         """Deploys a docker container.
 
         Args:
@@ -151,7 +151,7 @@ class Docker(HypervisorBase):
             return container['Id'], return_data['code'], return_data['message']
         return None, return_data['code'], return_data['message']
 
-    def start(self, host, vnf_id):
+    def start(self, host, vnf_id, is_privileged=True):
         """Starts a docker container.
         """
         return_data = {'code': SUCCESS, 'message': ""}
@@ -160,7 +160,7 @@ class Docker(HypervisorBase):
             response = dcx.start(
                 container=vnf_id,
                 dns=self.__dns_list,
-                privileged=True)
+                privileged=is_privileged)
             return response, return_data['code'], return_data['message']
         return None, return_data['code'], return_data['message']
 

@@ -98,7 +98,7 @@ def _write(root, path, buf, offset, fh):
         path_tokens = f_path.split("/")
         nf_path = "/".join(path_tokens[0:path_tokens.index("nf-types") + 3])
         if buf.rstrip("\n") == "activate":
-            vnfs_ops.vnfs_deploy_nf(nf_path, is_privileged=True)
+            vnfs_ops.vnfs_deploy_nf(nf_path)
         elif buf.rstrip("\n") == "stop":
             vnfs_ops.vnfs_stop_vnf(nf_path)
         elif buf.rstrip("\n") == "start":
