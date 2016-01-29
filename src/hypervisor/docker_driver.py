@@ -204,7 +204,7 @@ class Docker(HypervisorBase):
             return response, return_data['code'], return_data['message']
         return None, return_data['code'], return_data['message']
 
-    def destroy(self, host, vnf_id, force=False):
+    def destroy(self, host, vnf_id, force=True):
         """Destroys a docker container.
         """
         return_data = {'code': SUCCESS, 'message': ""}

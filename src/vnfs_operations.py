@@ -250,6 +250,25 @@ class VNFSOperations:
             ip_address, cont_id)
         return response
 
+    def vnfs_destroy_vnf(self, nf_path):
+        """
+        Destroys a deployed VNF instance.
+
+        Args:
+            nf_path: path of the VNF instance.
+
+        Returns:
+            return codes are described in hypervisor.hypervisor_return_codes
+            module.
+        """
+        nf_instance_name, nf_type, ip_address, image_name = self.vnfs_get_instance_configuration(
+            nf_path)
+        logger.info("Destroying " + nf_instance_name)
+        cont_id, ret_code = self._hypervisor.get_id(
+            ip_address, getpass.getuser(), nf_instance_name)
+        response, ret_code, ret_message = self._hypervisor.destroy(
+            ip_address, cont_id)
+
     def vnfs_get_rx_bytes(self, nf_path):
         """
         Reads the number of bytes received by a VNF instance.
