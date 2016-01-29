@@ -47,7 +47,7 @@ class VNFSOperations:
         Returns:
             returns the return code of os.mkdir
         """
-
+        logger.info('Creating file/directory structure in ' + path)
         full_path = self._full_path(path)
         result = os.mkdir(full_path)
         default_file_mode = 0o644
@@ -82,7 +82,7 @@ class VNFSOperations:
                 default_file_mode)
         os.open(full_path + "/stats/pkt_drops", os.O_WRONLY | os.O_CREAT,
                 default_file_mode)
-
+        logger.info('Finished creating file/directory structure in ' + path)
         return result
 
     def vnfs_get_opcode(self, path):
@@ -196,15 +196,19 @@ class VNFSOperations:
             return codes are descirbed in hypervisor.hypervisor_return_codes
             module.
         """
+        logger.info('Deploying new VNF at ' + nf_path)
         nf_instance_name, nf_type, ip_address, image_name = self.vnfs_get_instance_configuration(
             nf_path)
-        logger.info("Starting " + nf_instance_name + " of type " + nf_type + " at " + ip_address + " with image " + image_name)
+        logger.info("Instance name: " + nf_instance_name + ", type: " + nf_type + ", host-ip: " + ip_address + " VNF image: " + image_name)
         cont_id, deploy_ret_code, deploy_ret_msg = self._hypervisor.deploy(
             ip_address, getpass.getuser(), image_name, nf_instance_name, is_privileged)
         logger.debug(cont_id, deploy_ret_code, deploy_ret_msg)
         if deploy_ret_code == hrc.SUCCESS:
+            logger.info('Starting the deployed VNF instance: ' + nf_instance_name)
             start_response, start_ret_code, start_ret_msg = self._hypervisor.start(
                 ip_address, cont_id)
+            logger.info('Instance: ' + nf_instance_name  + ' successfully deployed and started')
+            
             return start_ret_code
         else:
             logger.debug('nf deployment failed')
@@ -221,13 +225,15 @@ class VNFSOperations:
             return codes are described in hypervisor.hypervisor_return_codes
             module.
         """
+        logger.info("Stopping VNF at " + nf_path)
         nf_instance_name, nf_type, ip_address, image_name = self.vnfs_get_instance_configuration(
             nf_path)
-        logger.info("Stopping " + nf_instance_name)
+        logger.info("Instance name: " + nf_instance_name + ", type: " + nf_type + ", host-ip: " + ip_address + " VNF image: " + image_name)
         cont_id, ret_code = self._hypervisor.get_id(
             ip_address, getpass.getuser(), nf_instance_name)
         response, ret_code, ret_message = self._hypervisor.stop(
             ip_address, cont_id)
+        logger.info('Instance: ' + nf_instance_name + ' successfully stopped')
         return response
 
     def vnfs_start_vnf(self, nf_path):
@@ -241,13 +247,15 @@ class VNFSOperations:
             return codes are described in hypervisor.hypervisor_return_codes
             module.
         """
+        logger.info("Starting VNF at " + nf_path)
         nf_instance_name, nf_type, ip_address, image_name = self.vnfs_get_instance_configuration(
             nf_path)
-        logger.info("Starting " + nf_instance_name)
+        logger.info("Instance name: " + nf_instance_name + ", type: " + nf_type + ", host-ip: " + ip_address + " VNF image: " + image_name)
         cont_id, ret_code = self._hypervisor.get_id(
             ip_address, getpass.getuser(), nf_instance_name)
         response, ret_code, ret_message = self._hypervisor.start(
             ip_address, cont_id)
+        logger.info('Instance: ' + nf_instance_name + ' successfully started')
         return response
 
     def vnfs_destroy_vnf(self, nf_path):
@@ -261,13 +269,15 @@ class VNFSOperations:
             return codes are described in hypervisor.hypervisor_return_codes
             module.
         """
+        logger.info("Destroying VNF at " + nf_path)
         nf_instance_name, nf_type, ip_address, image_name = self.vnfs_get_instance_configuration(
             nf_path)
-        logger.info("Destroying " + nf_instance_name)
+        logger.info("Instance name: " + nf_instance_name + ", type: " + nf_type + ", host-ip: " + ip_address + " VNF image: " + image_name)
         cont_id, ret_code = self._hypervisor.get_id(
             ip_address, getpass.getuser(), nf_instance_name)
         response, ret_code, ret_message = self._hypervisor.destroy(
             ip_address, cont_id)
+        logger.info('Instance: ' + nf_instance_name + ' successfully destroyed')
 
     def vnfs_get_rx_bytes(self, nf_path):
         """
