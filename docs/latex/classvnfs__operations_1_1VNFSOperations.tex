@@ -30,6 +30,8 @@ def \hyperlink{classvnfs__operations_1_1VNFSOperations_a3c95617427fa157dbde8246a
 \begin{DoxyCompactList}\small\item\em Stops a V\-N\-F instance. \end{DoxyCompactList}\item 
 def \hyperlink{classvnfs__operations_1_1VNFSOperations_a1f88fc97d23ebfac8a99a71542ca5219}{vnfs\-\_\-start\-\_\-vnf}
 \begin{DoxyCompactList}\small\item\em Starts a deployed V\-N\-F instance. \end{DoxyCompactList}\item 
+def \hyperlink{classvnfs__operations_1_1VNFSOperations_a54389b0c8a5a740746816e3c99066685}{vnfs\-\_\-destroy\-\_\-vnf}
+\begin{DoxyCompactList}\small\item\em Destroys a deployed V\-N\-F instance. \end{DoxyCompactList}\item 
 def \hyperlink{classvnfs__operations_1_1VNFSOperations_a27409856538f49f14a8506635ded95b7}{vnfs\-\_\-get\-\_\-rx\-\_\-bytes}
 \begin{DoxyCompactList}\small\item\em Reads the number of bytes received by a V\-N\-F instance. \end{DoxyCompactList}\item 
 def \hyperlink{classvnfs__operations_1_1VNFSOperations_ab4617f4573ef7d6c4106b0fdbf728022}{vnfs\-\_\-get\-\_\-tx\-\_\-bytes}
@@ -83,8 +85,7 @@ Returns\-: returns the return code of os.\-mkdir \hypertarget{classvnfs__operati
 \subsubsection[{vnfs\-\_\-deploy\-\_\-nf}]{\setlength{\rightskip}{0pt plus 5cm}def vnfs\-\_\-operations.\-V\-N\-F\-S\-Operations.\-vnfs\-\_\-deploy\-\_\-nf (
 \begin{DoxyParamCaption}
 \item[{}]{self, }
-\item[{}]{nf\-\_\-path, }
-\item[{}]{is\-\_\-privileged}
+\item[{}]{nf\-\_\-path}
 \end{DoxyParamCaption}
 )}}\label{classvnfs__operations_1_1VNFSOperations_a304bb0780682b050cdf9d43e3f279ead}
 
@@ -93,7 +94,21 @@ Deploys and S\-T\-A\-R\-T\-S a V\-N\-F instance.
 
 Args\-: nf\-\_\-path\-: path of the V\-N\-F instance.
 
-Returns\-: return codes are descirbed in hypervisor.\-hypervisor\-\_\-return\-\_\-codes module. \hypertarget{classvnfs__operations_1_1VNFSOperations_a9461289b4af0fef0db381e5ec17a6cac}{\index{vnfs\-\_\-operations\-::\-V\-N\-F\-S\-Operations@{vnfs\-\_\-operations\-::\-V\-N\-F\-S\-Operations}!vnfs\-\_\-get\-\_\-file\-\_\-name@{vnfs\-\_\-get\-\_\-file\-\_\-name}}
+Returns\-: return codes are descirbed in hypervisor.\-hypervisor\-\_\-return\-\_\-codes module. \hypertarget{classvnfs__operations_1_1VNFSOperations_a54389b0c8a5a740746816e3c99066685}{\index{vnfs\-\_\-operations\-::\-V\-N\-F\-S\-Operations@{vnfs\-\_\-operations\-::\-V\-N\-F\-S\-Operations}!vnfs\-\_\-destroy\-\_\-vnf@{vnfs\-\_\-destroy\-\_\-vnf}}
+\index{vnfs\-\_\-destroy\-\_\-vnf@{vnfs\-\_\-destroy\-\_\-vnf}!vnfs_operations::VNFSOperations@{vnfs\-\_\-operations\-::\-V\-N\-F\-S\-Operations}}
+\subsubsection[{vnfs\-\_\-destroy\-\_\-vnf}]{\setlength{\rightskip}{0pt plus 5cm}def vnfs\-\_\-operations.\-V\-N\-F\-S\-Operations.\-vnfs\-\_\-destroy\-\_\-vnf (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{nf\-\_\-path}
+\end{DoxyParamCaption}
+)}}\label{classvnfs__operations_1_1VNFSOperations_a54389b0c8a5a740746816e3c99066685}
+
+
+Destroys a deployed V\-N\-F instance. 
+
+Args\-: nf\-\_\-path\-: path of the V\-N\-F instance.
+
+Returns\-: return codes are described in hypervisor.\-hypervisor\-\_\-return\-\_\-codes module. \hypertarget{classvnfs__operations_1_1VNFSOperations_a9461289b4af0fef0db381e5ec17a6cac}{\index{vnfs\-\_\-operations\-::\-V\-N\-F\-S\-Operations@{vnfs\-\_\-operations\-::\-V\-N\-F\-S\-Operations}!vnfs\-\_\-get\-\_\-file\-\_\-name@{vnfs\-\_\-get\-\_\-file\-\_\-name}}
 \index{vnfs\-\_\-get\-\_\-file\-\_\-name@{vnfs\-\_\-get\-\_\-file\-\_\-name}!vnfs_operations::VNFSOperations@{vnfs\-\_\-operations\-::\-V\-N\-F\-S\-Operations}}
 \subsubsection[{vnfs\-\_\-get\-\_\-file\-\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}def vnfs\-\_\-operations.\-V\-N\-F\-S\-Operations.\-vnfs\-\_\-get\-\_\-file\-\_\-name (
 \begin{DoxyParamCaption}

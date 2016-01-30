@@ -2,6 +2,7 @@ var searchData=
 [
   ['vnfs_5fcreate_5fvnf_5finstance',['vnfs_create_vnf_instance',['../classvnfs__operations_1_1VNFSOperations.html#ae73c421b301cbda862896f9fe67a7941',1,'vnfs_operations::VNFSOperations']]],
   ['vnfs_5fdeploy_5fnf',['vnfs_deploy_nf',['../classvnfs__operations_1_1VNFSOperations.html#a304bb0780682b050cdf9d43e3f279ead',1,'vnfs_operations::VNFSOperations']]],
+  ['vnfs_5fdestroy_5fvnf',['vnfs_destroy_vnf',['../classvnfs__operations_1_1VNFSOperations.html#a54389b0c8a5a740746816e3c99066685',1,'vnfs_operations::VNFSOperations']]],
   ['vnfs_5fget_5ffile_5fname',['vnfs_get_file_name',['../classvnfs__operations_1_1VNFSOperations.html#a9461289b4af0fef0db381e5ec17a6cac',1,'vnfs_operations::VNFSOperations']]],
   ['vnfs_5fget_5finstance_5fconfiguration',['vnfs_get_instance_configuration',['../classvnfs__operations_1_1VNFSOperations.html#a367f1d6fb6749b0a16af47381d43c874',1,'vnfs_operations::VNFSOperations']]],
   ['vnfs_5fget_5fip',['vnfs_get_ip',['../classvnfs__operations_1_1VNFSOperations.html#a482dc96295584a1ca84300f04d000f26',1,'vnfs_operations::VNFSOperations']]],

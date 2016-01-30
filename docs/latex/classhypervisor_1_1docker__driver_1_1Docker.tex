@@ -24,8 +24,7 @@ def \hyperlink{classhypervisor_1_1docker__driver_1_1Docker_aa6d1c57b5e6eb40c234a
 \item 
 def \hyperlink{classhypervisor_1_1docker__driver_1_1Docker_ab7550e8839169bb0c1ba08050709f1a7}{deploy}
 \begin{DoxyCompactList}\small\item\em Deploys a docker container. \end{DoxyCompactList}\item 
-\hypertarget{classhypervisor_1_1docker__driver_1_1Docker_ae22fe7316ede6ff4986ec8c911602e61}{def \hyperlink{classhypervisor_1_1docker__driver_1_1Docker_ae22fe7316ede6ff4986ec8c911602e61}{start}}\label{classhypervisor_1_1docker__driver_1_1Docker_ae22fe7316ede6ff4986ec8c911602e61}
-
+def \hyperlink{classhypervisor_1_1docker__driver_1_1Docker_ae22fe7316ede6ff4986ec8c911602e61}{start}
 \begin{DoxyCompactList}\small\item\em Starts a docker container. \end{DoxyCompactList}\item 
 \hypertarget{classhypervisor_1_1docker__driver_1_1Docker_a9455c971d4a2824d7ef8b0786b2d754b}{def \hyperlink{classhypervisor_1_1docker__driver_1_1Docker_a9455c971d4a2824d7ef8b0786b2d754b}{restart}}\label{classhypervisor_1_1docker__driver_1_1Docker_a9455c971d4a2824d7ef8b0786b2d754b}
 
@@ -83,7 +82,7 @@ Note\-: This method initializes a set of values for configuring \hyperlink{class
 \item[{}]{user, }
 \item[{}]{image\-\_\-name, }
 \item[{}]{vnf\-\_\-name, }
-\item[{}]{is\-\_\-privileged = {\ttfamily False}}
+\item[{}]{is\-\_\-privileged = {\ttfamily True}}
 \end{DoxyParamCaption}
 )}}\label{classhypervisor_1_1docker__driver_1_1Docker_ab7550e8839169bb0c1ba08050709f1a7}
 
@@ -106,9 +105,35 @@ Returns\-: If the operation is successful then returns a tuple consisting of the
 
 Returns a container's I\-D. 
 
-Args\-: host\-: I\-P address or hostname of the machine where the docker container is deployed user\-: name of the user who owns the V\-N\-F vnf\-\_\-type\-: type of the deployed V\-N\-F vnf\-\_\-name\-: name of the V\-N\-F instance whose I\-D is being queried
 
-Returns\-: \hyperlink{classhypervisor_1_1docker__driver_1_1Docker}{Docker} container I\-D. 
+\begin{DoxyParams}{Parameters}
+{\em host} & I\-P address or hostname of the machine where the docker container is deployed \\
+\hline
+{\em user} & name of the user who owns the V\-N\-F \\
+\hline
+{\em vnf\-\_\-type} & type of the deployed V\-N\-F \\
+\hline
+{\em vnf\-\_\-name} & name of the V\-N\-F instance whose I\-D is being queried\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classhypervisor_1_1docker__driver_1_1Docker}{Docker} container I\-D. 
+\end{DoxyReturn}
+\hypertarget{classhypervisor_1_1docker__driver_1_1Docker_ae22fe7316ede6ff4986ec8c911602e61}{\index{hypervisor\-::docker\-\_\-driver\-::\-Docker@{hypervisor\-::docker\-\_\-driver\-::\-Docker}!start@{start}}
+\index{start@{start}!hypervisor::docker_driver::Docker@{hypervisor\-::docker\-\_\-driver\-::\-Docker}}
+\subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}def hypervisor.\-docker\-\_\-driver.\-Docker.\-start (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{host, }
+\item[{}]{vnf\-\_\-id, }
+\item[{}]{is\-\_\-privileged = {\ttfamily True}}
+\end{DoxyParamCaption}
+)}}\label{classhypervisor_1_1docker__driver_1_1Docker_ae22fe7316ede6ff4986ec8c911602e61}
+
+
+Starts a docker container. 
+
+Args\-: 
 
 The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
 \item 

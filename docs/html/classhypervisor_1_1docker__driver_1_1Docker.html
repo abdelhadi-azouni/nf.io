@@ -122,9 +122,8 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>get_ip</b></td></tr>
 <tr class="memitem:ab7550e8839169bb0c1ba08050709f1a7"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhypervisor_1_1docker__driver_1_1Docker.html#ab7550e8839169bb0c1ba08050709f1a7">deploy</a></td></tr>
 <tr class="memdesc:ab7550e8839169bb0c1ba08050709f1a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deploys a docker container.  <a href="#ab7550e8839169bb0c1ba08050709f1a7">More...</a><br/></td></tr>
 <tr class="separator:ab7550e8839169bb0c1ba08050709f1a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae22fe7316ede6ff4986ec8c911602e61"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae22fe7316ede6ff4986ec8c911602e61"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhypervisor_1_1docker__driver_1_1Docker.html#ae22fe7316ede6ff4986ec8c911602e61">start</a></td></tr>
-<tr class="memdesc:ae22fe7316ede6ff4986ec8c911602e61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts a docker container. <br/></td></tr>
+<tr class="memitem:ae22fe7316ede6ff4986ec8c911602e61"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhypervisor_1_1docker__driver_1_1Docker.html#ae22fe7316ede6ff4986ec8c911602e61">start</a></td></tr>
+<tr class="memdesc:ae22fe7316ede6ff4986ec8c911602e61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts a docker container.  <a href="#ae22fe7316ede6ff4986ec8c911602e61">More...</a><br/></td></tr>
 <tr class="separator:ae22fe7316ede6ff4986ec8c911602e61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9455c971d4a2824d7ef8b0786b2d754b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9455c971d4a2824d7ef8b0786b2d754b"></a>
 def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhypervisor_1_1docker__driver_1_1Docker.html#a9455c971d4a2824d7ef8b0786b2d754b">restart</a></td></tr>
@@ -219,7 +218,7 @@ def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>is_privileged</em> = <code>False</code>&#160;</td>
+          <td class="paramname"><em>is_privileged</em> = <code>True</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -272,8 +271,57 @@ def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </div><div class="memdoc">
 
 <p>Returns a container's ID. </p>
-<p>Args: host: IP address or hostname of the machine where the docker container is deployed user: name of the user who owns the VNF vnf_type: type of the deployed VNF vnf_name: name of the VNF instance whose ID is being queried</p>
-<p>Returns: <a class="el" href="classhypervisor_1_1docker__driver_1_1Docker.html" title="Hypervisor driver for Docker. ">Docker</a> container ID. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">host</td><td>IP address or hostname of the machine where the docker container is deployed </td></tr>
+    <tr><td class="paramname">user</td><td>name of the user who owns the VNF </td></tr>
+    <tr><td class="paramname">vnf_type</td><td>type of the deployed VNF </td></tr>
+    <tr><td class="paramname">vnf_name</td><td>name of the VNF instance whose ID is being queried</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classhypervisor_1_1docker__driver_1_1Docker.html" title="Hypervisor driver for Docker. ">Docker</a> container ID. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae22fe7316ede6ff4986ec8c911602e61"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def hypervisor.docker_driver.Docker.start </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>host</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>vnf_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>is_privileged</em> = <code>True</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Starts a docker container. </p>
+<p>Args: </p>
 
 </div>
 </div>
@@ -286,7 +334,7 @@ def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>hypervisor</b></li><li class="navelem"><b>docker_driver</b></li><li class="navelem"><a class="el" href="classhypervisor_1_1docker__driver_1_1Docker.html">Docker</a></li>
-    <li class="footer">Generated on Fri Jan 29 2016 22:10:51 by
+    <li class="footer">Generated on Sat Jan 30 2016 18:42:50 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

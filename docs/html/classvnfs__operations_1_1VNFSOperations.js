@@ -3,6 +3,7 @@ var classvnfs__operations_1_1VNFSOperations =
     [ "__init__", "classvnfs__operations_1_1VNFSOperations.html#a8aeb0c031c7f7b97e8544ed7d8c49b35", null ],
     [ "vnfs_create_vnf_instance", "classvnfs__operations_1_1VNFSOperations.html#ae73c421b301cbda862896f9fe67a7941", null ],
     [ "vnfs_deploy_nf", "classvnfs__operations_1_1VNFSOperations.html#a304bb0780682b050cdf9d43e3f279ead", null ],
+    [ "vnfs_destroy_vnf", "classvnfs__operations_1_1VNFSOperations.html#a54389b0c8a5a740746816e3c99066685", null ],
     [ "vnfs_get_file_name", "classvnfs__operations_1_1VNFSOperations.html#a9461289b4af0fef0db381e5ec17a6cac", null ],
     [ "vnfs_get_instance_configuration", "classvnfs__operations_1_1VNFSOperations.html#a367f1d6fb6749b0a16af47381d43c874", null ],
     [ "vnfs_get_ip", "classvnfs__operations_1_1VNFSOperations.html#a482dc96295584a1ca84300f04d000f26", null ],
