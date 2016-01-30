@@ -56,6 +56,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
       <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -78,7 +79,7 @@ $(document).ready(function(){initNavTree('classhypervisor_1_1hypervisor__factory
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -96,6 +97,9 @@ $(document).ready(function(){initNavTree('classhypervisor_1_1hypervisor__factory
 <div class="title">hypervisor.hypervisor_factory.HypervisorFactory Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A singletone class for creating hypervisor driver objects.  
+ <a href="classhypervisor_1_1hypervisor__factory_1_1HypervisorFactory.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for hypervisor.hypervisor_factory.HypervisorFactory:</div>
 <div class="dyncontent">
@@ -107,18 +111,81 @@ Inheritance diagram for hypervisor.hypervisor_factory.HypervisorFactory:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab1691cc3620d76c0a266e0fd469548ad"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab1691cc3620d76c0a266e0fd469548ad"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>__init__</b></td></tr>
+<tr class="memitem:ab1691cc3620d76c0a266e0fd469548ad"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhypervisor_1_1hypervisor__factory_1_1HypervisorFactory.html#ab1691cc3620d76c0a266e0fd469548ad">__init__</a></td></tr>
+<tr class="memdesc:ab1691cc3620d76c0a266e0fd469548ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiates a <a class="el" href="classhypervisor_1_1hypervisor__factory_1_1HypervisorFactory.html" title="A singletone class for creating hypervisor driver objects. ">HypervisorFactory</a> object.  <a href="#ab1691cc3620d76c0a266e0fd469548ad">More...</a><br/></td></tr>
 <tr class="separator:ab1691cc3620d76c0a266e0fd469548ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ade4356e4251e644d580f8c1c53fc704e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ade4356e4251e644d580f8c1c53fc704e"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>get_hypervisor_instance</b></td></tr>
+<tr class="memitem:ade4356e4251e644d580f8c1c53fc704e"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhypervisor_1_1hypervisor__factory_1_1HypervisorFactory.html#ade4356e4251e644d580f8c1c53fc704e">get_hypervisor_instance</a></td></tr>
+<tr class="memdesc:ade4356e4251e644d580f8c1c53fc704e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the hypervisor driver nstance.  <a href="#ade4356e4251e644d580f8c1c53fc704e">More...</a><br/></td></tr>
 <tr class="separator:ade4356e4251e644d580f8c1c53fc704e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A singletone class for creating hypervisor driver objects. </p>
+<p>For an instantiation of nf.io there can be exactly one object of only one type of hyperviosr. HyervisorFactory takes care of the creation logic. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ab1691cc3620d76c0a266e0fd469548ad"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def hypervisor.hypervisor_factory.HypervisorFactory.__init__ </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>hypervisor_type</em> = <code>&quot;Docker&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Instantiates a <a class="el" href="classhypervisor_1_1hypervisor__factory_1_1HypervisorFactory.html" title="A singletone class for creating hypervisor driver objects. ">HypervisorFactory</a> object. </p>
+<p>Args: hypervisor_type: The type of hypervisor object to instantiate. Valid hypervisor types are 'Docker' and 'Libvirt' for the time being.</p>
+<p>Returns: Nothing. Initializaes the factory object.</p>
+<p>Note: If this factory class is instantiated multiple times with different types of hypervisor_type argument then it raises a ValueError.</p>
+<p>If this factory class is instantiated with a hypervisor type other than Docker or Libvirt it raises a TypeError. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ade4356e4251e644d580f8c1c53fc704e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">def hypervisor.hypervisor_factory.HypervisorFactory.get_hypervisor_instance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the hypervisor driver nstance. </p>
+<p>If the instance is not initialized then a RuntimeError is raised. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>/home/mfbari/works/WatNFV/nf.io/src/hypervisor/hypervisor_factory.py</li>
+<li>WatNFV/nf.io/src/hypervisor/hypervisor_factory.py</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -126,7 +193,7 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>get_hypervisor_instanc
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>hypervisor</b></li><li class="navelem"><b>hypervisor_factory</b></li><li class="navelem"><a class="el" href="classhypervisor_1_1hypervisor__factory_1_1HypervisorFactory.html">HypervisorFactory</a></li>
-    <li class="footer">Generated on Mon Jan 25 2016 17:59:22 by
+    <li class="footer">Generated on Fri Jan 29 2016 22:10:51 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

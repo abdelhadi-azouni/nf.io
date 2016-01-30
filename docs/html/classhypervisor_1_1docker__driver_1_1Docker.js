@@ -5,6 +5,7 @@ var classhypervisor_1_1docker__driver_1_1Docker =
     [ "destroy", "classhypervisor_1_1docker__driver_1_1Docker.html#a2ec2d8fe9b9e41e66e5939dd5440ecac", null ],
     [ "execute_in_guest", "classhypervisor_1_1docker__driver_1_1Docker.html#a59d42532a812e640504eb6dad7741049", null ],
     [ "get_id", "classhypervisor_1_1docker__driver_1_1Docker.html#aa6d1c57b5e6eb40c234af79445d5ccaa", null ],
+    [ "get_ip", "classhypervisor_1_1docker__driver_1_1Docker.html#aaecff717c2e84fd0b8bf735e5f9a1f70", null ],
     [ "guest_status", "classhypervisor_1_1docker__driver_1_1Docker.html#ab81c6c5254944c666356f27cfa82dd55", null ],
     [ "pause", "classhypervisor_1_1docker__driver_1_1Docker.html#a59333c78b7994d50b017f43e3a75d60a", null ],
     [ "restart", "classhypervisor_1_1docker__driver_1_1Docker.html#a9455c971d4a2824d7ef8b0786b2d754b", null ],
