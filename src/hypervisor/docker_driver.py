@@ -116,11 +116,11 @@ class Docker(HypervisorBase):
 
         Args:
             host: IP address or hostname of the machine where
-            the docker container is to be deployed
+                the docker container is to be deployed
             user: name of the user who owns the VNF
             image_name: docker image name for the VNF
             vnf_name: name of the VNF instance
-            is_privileged: if True then the container is started in 
+            is_privileged: if True then the container is deployed in 
                 privileged mode
 
         Returns:
@@ -155,6 +155,22 @@ class Docker(HypervisorBase):
         """Starts a docker container.
 
         Args:
+          host: IP address or hostname of the machine where 
+              the docker container is deployed
+          vnf_id: Docker container ID for the VNF
+          is_privileged: if True then the container is started in 
+            privileged mode
+
+        Returns:
+            If the operation is successful then returns a tuple 
+            consisting of the following values:
+                response: response from the docker-py client
+                return_code: SUCCESS
+                return_message: EMPTY in this case
+            otherwise returns the error as the following tuple:
+                None as the first value
+                return_code: one of the error codes defined in hypervisor_return_codes
+                return_message: detailed message for the return code
         """
         return_data = {'code': SUCCESS, 'message': ""}
         with self._error_handling(return_data):
@@ -168,6 +184,22 @@ class Docker(HypervisorBase):
 
     def restart(self, host, vnf_id):
         """Restarts a docker container.
+
+        Args:
+          host: IP address or hostname of the machine where 
+              the docker container is deployed
+          vnf_id: Docker container ID for the VNF
+
+        Returns:
+            If the operation is successful then returns a tuple 
+            consisting of the following values:
+                response: response from the docker-py client
+                return_code: SUCCESS
+                return_message: EMPTY in this case
+            otherwise returns the error as the following tuple:
+                None as the first value
+                return_code: one of the error codes defined in hypervisor_return_codes
+                return_message: detailed message for the return code
         """
         return_data = {'code': SUCCESS, 'message': ""}
         with self._error_handling(return_data):
@@ -178,6 +210,22 @@ class Docker(HypervisorBase):
 
     def stop(self, host, vnf_id):
         """Stops a docker container.
+
+        Args:
+          host: IP address or hostname of the machine where 
+              the docker container is deployed
+          vnf_id: Docker container ID for the VNF
+
+        Returns:
+            If the operation is successful then returns a tuple 
+            consisting of the following values:
+                response: response from the docker-py client
+                return_code: SUCCESS
+                return_message: EMPTY in this case
+            otherwise returns the error as the following tuple:
+                None as the first value
+                return_code: one of the error codes defined in hypervisor_return_codes
+                return_message: detailed message for the return code
         """
         return_data = {'code': SUCCESS, 'message': ""}
         with self._error_handling(return_data):
@@ -188,6 +236,22 @@ class Docker(HypervisorBase):
 
     def pause(self, host, vnf_id):
         """Pauses a docker container.
+
+        Args:
+          host: IP address or hostname of the machine where 
+              the docker container is deployed
+          vnf_id: Docker container ID for the VNF
+
+        Returns:
+            If the operation is successful then returns a tuple 
+            consisting of the following values:
+                response: response from the docker-py client
+                return_code: SUCCESS
+                return_message: EMPTY in this case
+            otherwise returns the error as the following tuple:
+                None as the first value
+                return_code: one of the error codes defined in hypervisor_return_codes
+                return_message: detailed message for the return code
         """
         return_data = {'code': SUCCESS, 'message': ""}
         with self._error_handling(return_data):
@@ -198,6 +262,22 @@ class Docker(HypervisorBase):
 
     def unpause(self, host, vnf_id):
         """Unpauses a docker container.
+
+        Args:
+          host: IP address or hostname of the machine where 
+              the docker container is deployed
+          vnf_id: Docker container ID for the VNF
+
+        Returns:
+            If the operation is successful then returns a tuple 
+            consisting of the following values:
+                response: response from the docker-py client
+                return_code: SUCCESS
+                return_message: EMPTY in this case
+            otherwise returns the error as the following tuple:
+                None as the first value
+                return_code: one of the error codes defined in hypervisor_return_codes
+                return_message: detailed message for the return code
         """
         return_data = {'code': SUCCESS, 'message': ""}
         with self._error_handling(return_data):
@@ -208,6 +288,22 @@ class Docker(HypervisorBase):
 
     def destroy(self, host, vnf_id, force=True):
         """Destroys a docker container.
+
+        Args:
+          host: IP address or hostname of the machine where 
+              the docker container is deployed
+          vnf_id: Docker container ID for the VNF
+
+        Returns:
+            If the operation is successful then returns a tuple 
+            consisting of the following values:
+                response: response from the docker-py client
+                return_code: SUCCESS
+                return_message: EMPTY in this case
+            otherwise returns the error as the following tuple:
+                None as the first value
+                return_code: one of the error codes defined in hypervisor_return_codes
+                return_message: detailed message for the return code
         """
         return_data = {'code': SUCCESS, 'message': ""}
         with self._error_handling(return_data):
@@ -218,6 +314,15 @@ class Docker(HypervisorBase):
 
     def execute_in_guest(self, host, vnf_id, cmd):
         """Executed commands inside a docker container.
+
+        Args:
+          host: IP address or hostname of the machine where 
+              the docker container is deployed
+          vnf_id: Docker container ID for the VNF
+          cmd: the command to execute inside the container
+
+        Returns:
+          The output of the command passes as cmd
         """
         return_data = {'code': SUCCESS, 'message': ""}
         with self._error_handling(return_data):
@@ -229,6 +334,22 @@ class Docker(HypervisorBase):
 
     def guest_status(self, host, vnf_id):
         """Returns the status of a docker container.
+
+        Args:
+          host: IP address or hostname of the machine where 
+              the docker container is deployed
+          vnf_id: Docker container ID for the VNF
+
+        Returns:
+            If the operation is successful then returns a tuple 
+            consisting of the following values:
+                state: current state of the docker container
+                return_code: SUCCESS
+                return_message: EMPTY in this case
+            otherwise returns the error as the following tuple:
+                Undefined as the first value
+                return_code: one of the error codes defined in hypervisor_return_codes
+                return_message: detailed message for the return code
         """
         return_data = {'code': SUCCESS, 'message': ""}
         states = {'Running', 'Paused', 'Restarting'}
