@@ -82,15 +82,13 @@ class Docker(HypervisorBase):
     def get_id(self, host, user, vnf_name):
         """Returns a container's ID.
         
-        Args:
-            host: IP address or hostname of the machine where
+          @param host IP address or hostname of the machine where
             the docker container is deployed
-            user: name of the user who owns the VNF
-            vnf_type: type of the deployed VNF
-            vnf_name: name of the VNF instance whose ID is being queried
+          @param user name of the user who owns the VNF
+          @param vnf_type type of the deployed VNF
+          @param vnf_name name of the VNF instance whose ID is being queried
           
-        Returns:
-            Docker container ID.
+          @return Docker container ID.
         """
         return_data = {'code': SUCCESS, 'message': ""}
         dcx = self._get_client(host)
