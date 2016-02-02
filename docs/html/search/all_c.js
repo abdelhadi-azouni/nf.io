@@ -1,5 +1,12 @@
 var searchData=
 [
+  ['vnfcommandexecutionerror',['VNFCommandExecutionError',['../classerrors_1_1VNFCommandExecutionError.html',1,'errors']]],
+  ['vnfcreateerror',['VNFCreateError',['../classerrors_1_1VNFCreateError.html',1,'errors']]],
+  ['vnfdeployerror',['VNFDeployError',['../classerrors_1_1VNFDeployError.html',1,'errors']]],
+  ['vnfdestroyerror',['VNFDestroyError',['../classerrors_1_1VNFDestroyError.html',1,'errors']]],
+  ['vnfnotfounderror',['VNFNotFoundError',['../classerrors_1_1VNFNotFoundError.html',1,'errors']]],
+  ['vnfpauseerror',['VNFPauseError',['../classerrors_1_1VNFPauseError.html',1,'errors']]],
+  ['vnfrestarterror',['VNFRestartError',['../classerrors_1_1VNFRestartError.html',1,'errors']]],
   ['vnfs_5fcreate_5fvnf_5finstance',['vnfs_create_vnf_instance',['../classvnfs__operations_1_1VNFSOperations.html#ae73c421b301cbda862896f9fe67a7941',1,'vnfs_operations::VNFSOperations']]],
   ['vnfs_5fdeploy_5fnf',['vnfs_deploy_nf',['../classvnfs__operations_1_1VNFSOperations.html#a304bb0780682b050cdf9d43e3f279ead',1,'vnfs_operations::VNFSOperations']]],
   ['vnfs_5fdestroy_5fvnf',['vnfs_destroy_vnf',['../classvnfs__operations_1_1VNFSOperations.html#a54389b0c8a5a740746816e3c99066685',1,'vnfs_operations::VNFSOperations']]],
@@ -15,5 +22,8 @@ var searchData=
   ['vnfs_5fis_5fnf_5finstance',['vnfs_is_nf_instance',['../classvnfs__operations_1_1VNFSOperations.html#a464c0ebd7c574c62d76d352a3a59aec0',1,'vnfs_operations::VNFSOperations']]],
   ['vnfs_5fstart_5fvnf',['vnfs_start_vnf',['../classvnfs__operations_1_1VNFSOperations.html#a1f88fc97d23ebfac8a99a71542ca5219',1,'vnfs_operations::VNFSOperations']]],
   ['vnfs_5fstop_5fvnf',['vnfs_stop_vnf',['../classvnfs__operations_1_1VNFSOperations.html#a3c95617427fa157dbde8246a260546ed',1,'vnfs_operations::VNFSOperations']]],
-  ['vnfsoperations',['VNFSOperations',['../classvnfs__operations_1_1VNFSOperations.html',1,'vnfs_operations']]]
+  ['vnfsoperations',['VNFSOperations',['../classvnfs__operations_1_1VNFSOperations.html',1,'vnfs_operations']]],
+  ['vnfstarterror',['VNFStartError',['../classerrors_1_1VNFStartError.html',1,'errors']]],
+  ['vnfstoperror',['VNFStopError',['../classerrors_1_1VNFStopError.html',1,'errors']]],
+  ['vnfunpauseerror',['VNFUnpauseError',['../classerrors_1_1VNFUnpauseError.html',1,'errors']]]
 ];

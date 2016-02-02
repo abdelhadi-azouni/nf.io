@@ -1,0 +1,241 @@
+\hypertarget{classhypervisor_1_1docker__driver_1_1DockerDriver}{\section{hypervisor.\-docker\-\_\-driver.\-Docker\-Driver Class Reference}
+\label{classhypervisor_1_1docker__driver_1_1DockerDriver}\index{hypervisor.\-docker\-\_\-driver.\-Docker\-Driver@{hypervisor.\-docker\-\_\-driver.\-Docker\-Driver}}
+}
+
+
+docker driver for nfio.  
+
+
+Inheritance diagram for hypervisor.\-docker\-\_\-driver.\-Docker\-Driver\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classhypervisor_1_1docker__driver_1_1DockerDriver}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_a0b9311d90850a8a145c2961654867f98}{\-\_\-\-\_\-init\-\_\-\-\_\-}
+\begin{DoxyCompactList}\small\item\em Instantiates a \hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver}{Docker\-Driver} object. \end{DoxyCompactList}\item 
+def \hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_aedbd13cb76524d01894fcae539444f1b}{get\-\_\-id}
+\begin{DoxyCompactList}\small\item\em Returns a container's I\-D. \end{DoxyCompactList}\item 
+\hypertarget{classhypervisor_1_1docker__driver_1_1DockerDriver_a56041a2a0afad5971b1fb5cb465b6ff6}{def {\bfseries get\-\_\-ip}}\label{classhypervisor_1_1docker__driver_1_1DockerDriver_a56041a2a0afad5971b1fb5cb465b6ff6}
+
+\item 
+def \hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_a9b0a6af05425f986bdc54495e9bd62c5}{deploy}
+\begin{DoxyCompactList}\small\item\em Deploys a docker container. \end{DoxyCompactList}\item 
+def \hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_afe2784b21c6ef7dbe01b1188a31e9444}{start}
+\begin{DoxyCompactList}\small\item\em Starts a docker container. \end{DoxyCompactList}\item 
+def \hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_abbb36db4303f0613d9013f3c2b9bfe84}{restart}
+\begin{DoxyCompactList}\small\item\em Restarts a docker container. \end{DoxyCompactList}\item 
+def \hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_ab88257e3bc4660c62cd070f8de62e5a6}{stop}
+\begin{DoxyCompactList}\small\item\em Stops a docker container. \end{DoxyCompactList}\item 
+def \hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_a9ffd3b0cb02e1f292a609e1d500e683f}{pause}
+\begin{DoxyCompactList}\small\item\em Pauses a docker container. \end{DoxyCompactList}\item 
+def \hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_a70f14b7780fadfd2944f1518d43a9029}{unpause}
+\begin{DoxyCompactList}\small\item\em Unpauses a docker container. \end{DoxyCompactList}\item 
+def \hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_ad66fd3d60fbee2760aa6b66d996eff3c}{destroy}
+\begin{DoxyCompactList}\small\item\em Destroys a docker container. \end{DoxyCompactList}\item 
+def \hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_a3df8e1aeea3e30e2fef5a5d41de08159}{execute\-\_\-in\-\_\-guest}
+\begin{DoxyCompactList}\small\item\em Executed commands inside a docker container. \end{DoxyCompactList}\item 
+def \hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_aabbac18594c9b6a4ee869846996c26ae}{guest\-\_\-status}
+\begin{DoxyCompactList}\small\item\em Returns the status of a docker container. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+docker driver for nfio. 
+
+This class provides methods for managing docker containers. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classhypervisor_1_1docker__driver_1_1DockerDriver_a0b9311d90850a8a145c2961654867f98}{\index{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver@{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver}!\-\_\-\-\_\-init\-\_\-\-\_\-@{\-\_\-\-\_\-init\-\_\-\-\_\-}}
+\index{\-\_\-\-\_\-init\-\_\-\-\_\-@{\-\_\-\-\_\-init\-\_\-\-\_\-}!hypervisor::docker_driver::DockerDriver@{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver}}
+\subsubsection[{\-\_\-\-\_\-init\-\_\-\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}def hypervisor.\-docker\-\_\-driver.\-Docker\-Driver.\-\_\-\-\_\-init\-\_\-\-\_\- (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classhypervisor_1_1docker__driver_1_1DockerDriver_a0b9311d90850a8a145c2961654867f98}
+
+
+Instantiates a \hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver}{Docker\-Driver} object. 
+
+\begin{DoxyNote}{Note}
+This method initializes a set of values for configuring the docker-\/py remote A\-P\-I client. \-\_\-\-\_\-port is the port number used for remote A\-P\-I invocation. \-\_\-\-\_\-version is the version number for the report A\-P\-I. \-\_\-\-\_\-dns\-\_\-list is the list of D\-N\-S server(s) used by each container. 
+\end{DoxyNote}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classhypervisor_1_1docker__driver_1_1DockerDriver_a9b0a6af05425f986bdc54495e9bd62c5}{\index{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver@{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver}!deploy@{deploy}}
+\index{deploy@{deploy}!hypervisor::docker_driver::DockerDriver@{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver}}
+\subsubsection[{deploy}]{\setlength{\rightskip}{0pt plus 5cm}def hypervisor.\-docker\-\_\-driver.\-Docker\-Driver.\-deploy (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{host, }
+\item[{}]{user, }
+\item[{}]{image\-\_\-name, }
+\item[{}]{vnf\-\_\-name, }
+\item[{}]{is\-\_\-privileged = {\ttfamily True}}
+\end{DoxyParamCaption}
+)}}\label{classhypervisor_1_1docker__driver_1_1DockerDriver_a9b0a6af05425f986bdc54495e9bd62c5}
+
+
+Deploys a docker container. 
+
+Args\-: host\-: I\-P address or hostname of the machine where the docker container is to be deployed user\-: name of the user who owns the V\-N\-F image\-\_\-name\-: docker image name for the V\-N\-F vnf\-\_\-name\-: name of the V\-N\-F instance is\-\_\-privileged\-: if True then the container is deployed in privileged mode
+
+Returns\-: If the operation is successful then returns a tuple consisting of the following values\-: container\-\_\-id\-: docker container id return\-\_\-code\-: S\-U\-C\-C\-E\-S\-S return\-\_\-message\-: E\-M\-P\-T\-Y in this case otherwise returns the error as the following tuple\-: None as the first value return\-\_\-code\-: one of the error codes defined in hypervisor\-\_\-return\-\_\-codes return\-\_\-message\-: detailed message for the return code \hypertarget{classhypervisor_1_1docker__driver_1_1DockerDriver_ad66fd3d60fbee2760aa6b66d996eff3c}{\index{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver@{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver}!destroy@{destroy}}
+\index{destroy@{destroy}!hypervisor::docker_driver::DockerDriver@{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver}}
+\subsubsection[{destroy}]{\setlength{\rightskip}{0pt plus 5cm}def hypervisor.\-docker\-\_\-driver.\-Docker\-Driver.\-destroy (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{host, }
+\item[{}]{vnf\-\_\-id, }
+\item[{}]{force = {\ttfamily True}}
+\end{DoxyParamCaption}
+)}}\label{classhypervisor_1_1docker__driver_1_1DockerDriver_ad66fd3d60fbee2760aa6b66d996eff3c}
+
+
+Destroys a docker container. 
+
+Args\-: host\-: I\-P address or hostname of the machine where the docker container is deployed vnf\-\_\-id\-: Docker container I\-D for the V\-N\-F
+
+Returns\-: If the operation is successful then returns a tuple consisting of the following values\-: response\-: response from the docker-\/py client return\-\_\-code\-: S\-U\-C\-C\-E\-S\-S return\-\_\-message\-: E\-M\-P\-T\-Y in this case otherwise returns the error as the following tuple\-: None as the first value return\-\_\-code\-: one of the error codes defined in hypervisor\-\_\-return\-\_\-codes return\-\_\-message\-: detailed message for the return code \hypertarget{classhypervisor_1_1docker__driver_1_1DockerDriver_a3df8e1aeea3e30e2fef5a5d41de08159}{\index{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver@{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver}!execute\-\_\-in\-\_\-guest@{execute\-\_\-in\-\_\-guest}}
+\index{execute\-\_\-in\-\_\-guest@{execute\-\_\-in\-\_\-guest}!hypervisor::docker_driver::DockerDriver@{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver}}
+\subsubsection[{execute\-\_\-in\-\_\-guest}]{\setlength{\rightskip}{0pt plus 5cm}def hypervisor.\-docker\-\_\-driver.\-Docker\-Driver.\-execute\-\_\-in\-\_\-guest (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{host, }
+\item[{}]{vnf\-\_\-id, }
+\item[{}]{cmd}
+\end{DoxyParamCaption}
+)}}\label{classhypervisor_1_1docker__driver_1_1DockerDriver_a3df8e1aeea3e30e2fef5a5d41de08159}
+
+
+Executed commands inside a docker container. 
+
+Args\-: host\-: I\-P address or hostname of the machine where the docker container is deployed vnf\-\_\-id\-: Docker container I\-D for the V\-N\-F cmd\-: the command to execute inside the container
+
+Returns\-: The output of the command passes as cmd \hypertarget{classhypervisor_1_1docker__driver_1_1DockerDriver_aedbd13cb76524d01894fcae539444f1b}{\index{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver@{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver}!get\-\_\-id@{get\-\_\-id}}
+\index{get\-\_\-id@{get\-\_\-id}!hypervisor::docker_driver::DockerDriver@{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver}}
+\subsubsection[{get\-\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}def hypervisor.\-docker\-\_\-driver.\-Docker\-Driver.\-get\-\_\-id (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{host, }
+\item[{}]{user, }
+\item[{}]{vnf\-\_\-name}
+\end{DoxyParamCaption}
+)}}\label{classhypervisor_1_1docker__driver_1_1DockerDriver_aedbd13cb76524d01894fcae539444f1b}
+
+
+Returns a container's I\-D. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em host} & I\-P address or hostname of the machine where the docker container is deployed \\
+\hline
+{\em user} & name of the user who owns the V\-N\-F \\
+\hline
+{\em vnf\-\_\-type} & type of the deployed V\-N\-F \\
+\hline
+{\em vnf\-\_\-name} & name of the V\-N\-F instance whose I\-D is being queried\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+docker container I\-D. 
+\end{DoxyReturn}
+\hypertarget{classhypervisor_1_1docker__driver_1_1DockerDriver_aabbac18594c9b6a4ee869846996c26ae}{\index{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver@{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver}!guest\-\_\-status@{guest\-\_\-status}}
+\index{guest\-\_\-status@{guest\-\_\-status}!hypervisor::docker_driver::DockerDriver@{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver}}
+\subsubsection[{guest\-\_\-status}]{\setlength{\rightskip}{0pt plus 5cm}def hypervisor.\-docker\-\_\-driver.\-Docker\-Driver.\-guest\-\_\-status (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{host, }
+\item[{}]{vnf\-\_\-id}
+\end{DoxyParamCaption}
+)}}\label{classhypervisor_1_1docker__driver_1_1DockerDriver_aabbac18594c9b6a4ee869846996c26ae}
+
+
+Returns the status of a docker container. 
+
+Args\-: host\-: I\-P address or hostname of the machine where the docker container is deployed vnf\-\_\-id\-: Docker container I\-D for the V\-N\-F
+
+Returns\-: If the operation is successful then returns a tuple consisting of the following values\-: state\-: current state of the docker container return\-\_\-code\-: S\-U\-C\-C\-E\-S\-S return\-\_\-message\-: E\-M\-P\-T\-Y in this case otherwise returns the error as the following tuple\-: Undefined as the first value return\-\_\-code\-: one of the error codes defined in hypervisor\-\_\-return\-\_\-codes return\-\_\-message\-: detailed message for the return code \hypertarget{classhypervisor_1_1docker__driver_1_1DockerDriver_a9ffd3b0cb02e1f292a609e1d500e683f}{\index{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver@{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver}!pause@{pause}}
+\index{pause@{pause}!hypervisor::docker_driver::DockerDriver@{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver}}
+\subsubsection[{pause}]{\setlength{\rightskip}{0pt plus 5cm}def hypervisor.\-docker\-\_\-driver.\-Docker\-Driver.\-pause (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{host, }
+\item[{}]{vnf\-\_\-id}
+\end{DoxyParamCaption}
+)}}\label{classhypervisor_1_1docker__driver_1_1DockerDriver_a9ffd3b0cb02e1f292a609e1d500e683f}
+
+
+Pauses a docker container. 
+
+Args\-: host\-: I\-P address or hostname of the machine where the docker container is deployed vnf\-\_\-id\-: Docker container I\-D for the V\-N\-F
+
+Returns\-: If the operation is successful then returns a tuple consisting of the following values\-: response\-: response from the docker-\/py client return\-\_\-code\-: S\-U\-C\-C\-E\-S\-S return\-\_\-message\-: E\-M\-P\-T\-Y in this case otherwise returns the error as the following tuple\-: None as the first value return\-\_\-code\-: one of the error codes defined in hypervisor\-\_\-return\-\_\-codes return\-\_\-message\-: detailed message for the return code \hypertarget{classhypervisor_1_1docker__driver_1_1DockerDriver_abbb36db4303f0613d9013f3c2b9bfe84}{\index{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver@{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver}!restart@{restart}}
+\index{restart@{restart}!hypervisor::docker_driver::DockerDriver@{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver}}
+\subsubsection[{restart}]{\setlength{\rightskip}{0pt plus 5cm}def hypervisor.\-docker\-\_\-driver.\-Docker\-Driver.\-restart (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{host, }
+\item[{}]{vnf\-\_\-id}
+\end{DoxyParamCaption}
+)}}\label{classhypervisor_1_1docker__driver_1_1DockerDriver_abbb36db4303f0613d9013f3c2b9bfe84}
+
+
+Restarts a docker container. 
+
+Args\-: host\-: I\-P address or hostname of the machine where the docker container is deployed vnf\-\_\-id\-: Docker container I\-D for the V\-N\-F
+
+Returns\-: If the operation is successful then returns a tuple consisting of the following values\-: response\-: response from the docker-\/py client return\-\_\-code\-: S\-U\-C\-C\-E\-S\-S return\-\_\-message\-: E\-M\-P\-T\-Y in this case otherwise returns the error as the following tuple\-: None as the first value return\-\_\-code\-: one of the error codes defined in hypervisor\-\_\-return\-\_\-codes return\-\_\-message\-: detailed message for the return code \hypertarget{classhypervisor_1_1docker__driver_1_1DockerDriver_afe2784b21c6ef7dbe01b1188a31e9444}{\index{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver@{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver}!start@{start}}
+\index{start@{start}!hypervisor::docker_driver::DockerDriver@{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver}}
+\subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}def hypervisor.\-docker\-\_\-driver.\-Docker\-Driver.\-start (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{host, }
+\item[{}]{vnf\-\_\-id, }
+\item[{}]{is\-\_\-privileged = {\ttfamily True}}
+\end{DoxyParamCaption}
+)}}\label{classhypervisor_1_1docker__driver_1_1DockerDriver_afe2784b21c6ef7dbe01b1188a31e9444}
+
+
+Starts a docker container. 
+
+Args\-: host\-: I\-P address or hostname of the machine where the docker container is deployed vnf\-\_\-id\-: Docker container I\-D for the V\-N\-F is\-\_\-privileged\-: if True then the container is started in privileged mode
+
+Returns\-: If the operation is successful then returns a tuple consisting of the following values\-: response\-: response from the docker-\/py client return\-\_\-code\-: S\-U\-C\-C\-E\-S\-S return\-\_\-message\-: E\-M\-P\-T\-Y in this case otherwise returns the error as the following tuple\-: None as the first value return\-\_\-code\-: one of the error codes defined in hypervisor\-\_\-return\-\_\-codes return\-\_\-message\-: detailed message for the return code \hypertarget{classhypervisor_1_1docker__driver_1_1DockerDriver_ab88257e3bc4660c62cd070f8de62e5a6}{\index{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver@{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver}!stop@{stop}}
+\index{stop@{stop}!hypervisor::docker_driver::DockerDriver@{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver}}
+\subsubsection[{stop}]{\setlength{\rightskip}{0pt plus 5cm}def hypervisor.\-docker\-\_\-driver.\-Docker\-Driver.\-stop (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{host, }
+\item[{}]{vnf\-\_\-id}
+\end{DoxyParamCaption}
+)}}\label{classhypervisor_1_1docker__driver_1_1DockerDriver_ab88257e3bc4660c62cd070f8de62e5a6}
+
+
+Stops a docker container. 
+
+Args\-: host\-: I\-P address or hostname of the machine where the docker container is deployed vnf\-\_\-id\-: Docker container I\-D for the V\-N\-F
+
+Returns\-: If the operation is successful then returns a tuple consisting of the following values\-: response\-: response from the docker-\/py client return\-\_\-code\-: S\-U\-C\-C\-E\-S\-S return\-\_\-message\-: E\-M\-P\-T\-Y in this case otherwise returns the error as the following tuple\-: None as the first value return\-\_\-code\-: one of the error codes defined in hypervisor\-\_\-return\-\_\-codes return\-\_\-message\-: detailed message for the return code \hypertarget{classhypervisor_1_1docker__driver_1_1DockerDriver_a70f14b7780fadfd2944f1518d43a9029}{\index{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver@{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver}!unpause@{unpause}}
+\index{unpause@{unpause}!hypervisor::docker_driver::DockerDriver@{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver}}
+\subsubsection[{unpause}]{\setlength{\rightskip}{0pt plus 5cm}def hypervisor.\-docker\-\_\-driver.\-Docker\-Driver.\-unpause (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{host, }
+\item[{}]{vnf\-\_\-id}
+\end{DoxyParamCaption}
+)}}\label{classhypervisor_1_1docker__driver_1_1DockerDriver_a70f14b7780fadfd2944f1518d43a9029}
+
+
+Unpauses a docker container. 
+
+Args\-: host\-: I\-P address or hostname of the machine where the docker container is deployed vnf\-\_\-id\-: Docker container I\-D for the V\-N\-F
+
+Returns\-: If the operation is successful then returns a tuple consisting of the following values\-: response\-: response from the docker-\/py client return\-\_\-code\-: S\-U\-C\-C\-E\-S\-S return\-\_\-message\-: E\-M\-P\-T\-Y in this case otherwise returns the error as the following tuple\-: None as the first value return\-\_\-code\-: one of the error codes defined in hypervisor\-\_\-return\-\_\-codes return\-\_\-message\-: detailed message for the return code 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/nfuser/nf.\-io/src/hypervisor/docker\-\_\-driver.\-py\end{DoxyCompactItemize}
