@@ -344,8 +344,8 @@ def nfio_main():
         required=True)
     arg_parser.add_argument(
         '--hypervisor',
-        help='Hypervisor to use for VNF deployment (Docker/Libvirt)',
-        default="Docker")
+        help='Hypervisor to use for VNF deployment (DockerDriver/Libvirt)',
+        default="DockerDriver")
     arg_parser.add_argument(
         '--middlebox_module_root',
         help='Module directory inside the source tree containing middlebox specific implementation of system calls',

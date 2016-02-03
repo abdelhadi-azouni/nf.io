@@ -6,7 +6,9 @@ this module.
 from vnfs_operations import VNFSOperations
 import os
 import logging
-
+import getpass
+import errno
+import errors
 """
 special_files is a list of files specific to this VNF that requires special
 handling while reading. For example, if a read system call is issued for
@@ -18,8 +20,12 @@ action on a VNF. For example, writing 'stop' to 'action' will stop a VNF
 instance.
 """
 
-special_files = ['rx_bytes', 'tx_bytes', 'pkt_drops', 'status', 'vm.ip']
-action_files = ['action']
+special_files = { 'rx_bytes':'rx_bytes', 
+                  'tx_bytes':'tx_bytes', 
+                  'pkt_drops':'pkt_drops', 
+                  'status':'status', 
+                  'vm.ip' : 'vm_ip',
+                  'action': 'action'}
 
 logger = logging.getLogger(__name__)
 
@@ -27,6 +33,26 @@ def full_path(root, partial_path):
     if partial_path.startswith("/"):
         partial_path = partial_path[1:]
     return os.path.join(root, partial_path)
+
+def get_nf_config(vnfs_ops, full_nf_path):
+    # nf_path for calling vnfs_op function
+    tokens = full_nf_path.encode('ascii').split('/')
+    last_index_to_keep = tokens.index('nf-types') + 3
+    nf_path = "/".join(tokens[0:last_index_to_keep])
+
+    # get info about nf
+    nf_instance_name, nf_type, host, nf_image_name = vnfs_ops.vnfs_get_instance_configuration(nf_path)
+    try:
+        nf_id = vnfs_ops._hypervisor.get_id(host, getpass.getuser(),
+            nf_instance_name)
+    except errors.VNFNotFoundError:
+        nf_id = None
+    return {'nf_id':nf_id,
+            'nf_image_name':nf_image_name,
+            'nf_instance_name':nf_instance_name,
+            'host':host,
+            'username':getpass.getuser()
+            }
 
 
 def _mkdir(root, path, mode):
@@ -59,31 +85,44 @@ def _read(root, path, length, offset, fh):
     vnfs_ops = VNFSOperations(root)
     file_name = vnfs_ops.vnfs_get_file_name(f_path)
     nf_path = ''
-    if file_name in special_files:
-        tokens = f_path.encode('ascii').split('/')
-        last_index_to_keep = tokens.index('nf-types') + 3
-        nf_path = "/".join(tokens[0:last_index_to_keep])
-    if file_name == "rx_bytes":
-        ret_str = vnfs_ops.vnfs_get_rx_bytes(nf_path)
+    ret_str = ''
+    if file_name in special_files and special_files[file_name]+'_read' in globals():
+
+        try:
+            nf_config = get_nf_config(vnfs_ops, f_path)
+            # call the custom read function
+            logger.info('Reading ' + file_name  + ' from ' + 
+                nf_config['nf_instance_name'] + '@' + nf_config['host'])
+            ret_str = globals()[special_files[file_name]+'_read'](vnfs_ops._hypervisor, 
+                nf_config)
+        except errors.HypervisorError, ex:
+            logger.debug('raised OSErro ' + str(ex.errno))
+            raise OSError(ex.errno, os.strerror(ex.errno))
+        logger.info('Successfully read ' + file_name + 
+            ' from ' + nf_config['nf_instance_name'] + '@' + nf_config['host'])
         if offset >= len(ret_str):
             ret_str = ''
-    elif file_name == 'tx_bytes':
-        ret_str = vnfs_ops.vnfs_get_tx_bytes(nf_path)
-        if offset >= len(ret_str):
-            ret_str = ''
-    elif file_name == 'pkt_drops':
-        ret_str = vnfs_ops.vnfs_get_pkt_drops(nf_path)
-        if offset >= len(ret_str):
-            ret_str = ''
-    elif file_name == 'status':
-        ret_str = vnfs_ops.vnfs_get_status(nf_path)
-        if offset >= len(ret_str):
-            ret_str = ''
-    elif file_name == 'vm.ip':
-        ret_str = vnfs_ops.vnfs_get_ip(nf_path)
-        logger.debug('vm.ip ' + ret_str)
-        if offset >= len(ret_str):
-          ret_str = ''
+    #if file_name == "rx_bytes":
+    #    ret_str = vnfs_ops.vnfs_get_rx_bytes(nf_path)
+    #    if offset >= len(ret_str):
+    #        ret_str = ''
+    #elif file_name == 'tx_bytes':
+    #    ret_str = vnfs_ops.vnfs_get_tx_bytes(nf_path)
+    #    if offset >= len(ret_str):
+    #        ret_str = ''
+    #elif file_name == 'pkt_drops':
+    #    ret_str = vnfs_ops.vnfs_get_pkt_drops(nf_path)
+    #    if offset >= len(ret_str):
+    #        ret_str = ''
+    #elif file_name == 'status':
+    #    ret_str = vnfs_ops.vnfs_get_status(nf_path)
+    #    if offset >= len(ret_str):
+    #        ret_str = ''
+    #elif file_name == 'vm.ip':
+    #    ret_str = vnfs_ops.vnfs_get_ip(nf_path)
+    #    logger.debug('vm.ip ' + ret_str)
+    #    if offset >= len(ret_str):
+    #      ret_str = ''
     else:
         os.lseek(fh, offset, os.SEEK_SET)
         ret_str = os.read(fh, length)
@@ -94,20 +133,106 @@ def _write(root, path, buf, offset, fh):
     f_path = full_path(root, path)
     vnfs_ops = VNFSOperations(root)
     file_name = vnfs_ops.vnfs_get_file_name(f_path)
-    if file_name == "action":
-        path_tokens = f_path.split("/")
-        nf_path = "/".join(path_tokens[0:path_tokens.index("nf-types") + 3])
-        if buf.rstrip("\n") == "activate":
-            vnfs_ops.vnfs_deploy_nf(nf_path)
-        elif buf.rstrip("\n") == "stop":
-            vnfs_ops.vnfs_stop_vnf(nf_path)
-        elif buf.rstrip("\n") == "start":
-            vnfs_ops.vnfs_start_vnf(nf_path)
-        elif buf.rstrip("\n") == "destroy":
-            vnfs_ops.vnfs_destroy_vnf(nf_path)
+    #if file_name == "action":
+    if file_name in special_files and special_files[file_name]+'_write' in globals():
+        try:
+            nf_config = get_nf_config(vnfs_ops, f_path)
+            # call the custom write function
+            logger.info('Writing to ' + file_name  + ' in ' + 
+                nf_config['nf_instance_name'] + '@' + nf_config['host'])
+            ret_str = globals()[special_files[file_name]+'_write'](vnfs_ops._hypervisor, 
+                nf_config, buf.rstrip("\n"))
+        except errors.HypervisorError, ex:
+            logger.debug('raised OSErro ' + str(ex.errno))
+            raise OSError(ex.errno, os.strerror(ex.errno))
+        logger.info('Successfully wrote ' + file_name + 
+            ' in ' + nf_config['nf_instance_name'] + '@' + nf_config['host'])
+
+        #if buf.rstrip("\n") == "activate":
+        #    try:
+        #        vnfs_ops.vnfs_deploy_nf(nf_path)
+        #    except errors.VNFCreateError:
+        #        #raise OSError(errno.EBUSY, os.strerror(errno.EBUSY))
+        #        raise OSError(747, 'Cannot create VNF')
+        #elif buf.rstrip("\n") == "stop":
+        #    vnfs_ops.vnfs_stop_vnf(nf_path)
+        #elif buf.rstrip("\n") == "start":
+        #    vnfs_ops.vnfs_start_vnf(nf_path)
+        #elif buf.rstrip("\n") == "destroy":
+        #    vnfs_ops.vnfs_destroy_vnf(nf_path)
         os.lseek(fh, offset, os.SEEK_SET)
         os.write(fh, buf.rstrip("\n"))
         return len(buf)
     else:
         os.lseek(fh, offset, os.SEEK_SET)
         return os.write(fh, buf)
+
+def rx_bytes_read(hypervisor_driver, nf_config):
+    command = "ifconfig eth0 | grep -Eo 'RX bytes:[0-9]+' | cut -d':' -f 2"
+    return hypervisor_driver.execute_in_guest(nf_config['host'], 
+              nf_config['nf_id'], command)
+
+def tx_bytes_read(hypervisor_driver, nf_config):
+    command = "ifconfig eth0 | grep -Eo 'TX bytes:[0-9]+' | cut -d':' -f 2"
+    return hypervisor_driver.execute_in_guest(nf_config['host'], 
+              nf_config['nf_id'], command)
+
+def pkt_drops_read(hypervisor_driver, nf_config):
+    command = "ifconfig eth0 | grep -Eo 'RX .* dropped:[0-9]+' | cut -d':' -f 4"
+    return hypervisor_driver.execute_in_guest(nf_config['host'], 
+              nf_config['nf_id'], command)
+
+def status_read(hypervisor_driver, nf_config):
+    return hypervisor_driver.guest_status(nf_config['host'], 
+              nf_config['nf_id'])
+
+def vm_ip_read(hypervisor_driver, nf_config):
+    return hypervisor_driver.get_ip(nf_config['host'], 
+              nf_config['nf_id'])
+
+def action_write(hypervisor_driver, nf_config, data):
+    if data == "activate":
+        logger.info('Deploying new VNF instance ' + nf_config['nf_instance_name'] +
+            ' @ ' + nf_config['host'])
+        nf_id = hypervisor_driver.deploy(nf_config['host'], nf_config['username'],
+            nf_config['nf_image_name'], nf_config['nf_instance_name'])
+        logger.info('VNF deployed, now starting VNF instance ' + 
+            nf_config['nf_instance_name'] + ' @ ' + nf_config['host'])
+        try:
+            hypervisor_driver.start(nf_config['host'], nf_id)
+            logger.info('Successfully started VNF instance ' + 
+                nf_config['nf_instance_name'] + ' @ ' + nf_config['host'])
+        except errors.VNFStartError:
+            logger.error('Attempt to start ' + nf_config['nf_instance_name'] +
+                '@' + nf_config['host'] + ' failed. Destroying depoyed VNF.')
+            try:
+                hypervisor_driver.destroy(nf_config['host'], nf_id)
+                logger.info('Successfully destroyed ' +
+                    nf_config['nf_instance_name'] + '@' + nf_config['host'])
+                # the VNF was deployed, but failed to start so...
+                raise errors.VNFDeploymentError
+            except errors.VNFDestroyError:
+              logger.error('Failed to destroy partially activated VNF instance ' +
+                  nf_config['nf_instance_name'] + '@' + nf_config['host'] + 
+                  '. VNF is in inconsistent state.')
+              raise errors.VNFDeployErrorWithInconsistentState
+    elif data == "stop":
+        logger.info('Stopping VNF instance ' +  nf_config['nf_instance_name'] + 
+            '@' + nf_config['host'])
+        hypervisor_driver.stop(nf_config['host'], nf_config['nf_id'])
+        logger.info(nf_config['nf_instance_name'] + '@' + nf_config['host'] +
+            ' successfully stopped')
+    elif data == "start":
+        logger.info('Starting VNF instance ' +  nf_config['nf_instance_name'] + 
+            '@' + nf_config['host'])
+        hypervisor_driver.start(nf_config['host'], nf_config['nf_id'])
+        logger.info(nf_config['nf_instance_name'] + '@' + nf_config['host'] +
+            ' successfully started')
+    elif data == "destroy":
+        logger.info('Destroying VNF instance ' +  nf_config['nf_instance_name'] + 
+            '@' + nf_config['host'])
+        hypervisor_driver.destroy(nf_config['host'], nf_config['nf_id'])
+        logger.info(nf_config['nf_instance_name'] + '@' + nf_config['host'] +
+            ' successfully destroyed')
+
+

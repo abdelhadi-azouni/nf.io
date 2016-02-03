@@ -1,4 +1,4 @@
-from docker_driver import Docker
+from docker_driver import DockerDriver
 from libvirt_driver import Libvirt
 
 
@@ -12,13 +12,13 @@ class HypervisorFactory(object):
     __hyp_instance = None
     __hyp_instance_type = None
 
-    def __init__(self, hypervisor_type="Docker"):
+    def __init__(self, hypervisor_type="DockerDriver"):
         """
         Instantiates a HypervisorFactory object.
 
         Args:
             hypervisor_type: The type of hypervisor object to instantiate. Valid
-                hypervisor types are 'Docker' and 'Libvirt' for the time being.
+                hypervisor types are 'DockerDriver' and 'Libvirt' for the time being.
 
         Returns:
             Nothing. Initializaes the factory object.
@@ -31,9 +31,9 @@ class HypervisorFactory(object):
             than Docker or Libvirt it raises a TypeError.
         """
         if not HypervisorFactory.__hyp_instance:
-            if hypervisor_type == "Docker":
+            if hypervisor_type == "DockerDriver":
                 HypervisorFactory.__hyp_instance_type = hypervisor_type
-                HypervisorFactory.__hyp_instance = Docker()
+                HypervisorFactory.__hyp_instance = DockerDriver()
             elif hypervisor_type == "Libvirt":
                 HypervisorFactory.__hyp_instance_type = hypervisor_type
                 HypervisorFactory.__hyp_instance = Libvirt()
