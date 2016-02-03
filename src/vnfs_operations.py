@@ -393,8 +393,7 @@ class VNFSOperations:
         nf_instance_name, nf_type, ip_address, image_name = self.vnfs_get_instance_configuration(
             nf_path)
         cont_ip = self._hypervisor.get_ip(ip_address,
-                                                    getpass.getuser(),
-                                                    nf_instance_name)
+            self._hypervisor.get_id(ip_address, getpass.getuser(), nf_instance_name))
         logger.debug('cont_ip ' + cont_ip)
         logger.info('Successfully read ip')
         return cont_ip

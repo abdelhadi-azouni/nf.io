@@ -78,6 +78,10 @@ def _write(root, path, buf, offset, fh):
             vnfs_ops.vnfs_deploy_nf(nf_path)
         elif buf.rstrip("\n") == "stop":
             vnfs_ops.vnfs_stop_vnf(nf_path)
+        elif buf.rstrip("\n") == "start":
+            vnfs_ops.vnfs_start_vnf(nf_path)
+        elif buf.rstrip("\n") == "destroy":
+            vnfs_ops.vnfs_destroy_vnf(nf_path)
         os.lseek(fh, offset, os.SEEK_SET)
         os.write(fh, buf.rstrip("\n"))
         return len(buf)
