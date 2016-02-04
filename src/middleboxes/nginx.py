@@ -184,7 +184,7 @@ def pkt_drops_read(hypervisor_driver, nf_config):
 
 """
 nginx specific
-"""
+
 def _start(hypervisor_driver, nf_config):
     command = "/user/bin nginx"
     return hypervisor_driver.execute_in_guest(nf_config['host'],
@@ -200,7 +200,6 @@ def _nginx_signal(hypervisor_driver, nf_config, signal):
               nf_config['nf_id'], command)
 
 
-"""
 """
 
 
