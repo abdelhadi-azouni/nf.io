@@ -42,24 +42,16 @@ def get_nf_config(vnfs_ops, full_nf_path):
 
     # get info about nf
     nf_instance_name, nf_type, host, nf_image_name = vnfs_ops.vnfs_get_instance_configuration(nf_path)
-    try:
-        nf_id = vnfs_ops._hypervisor.get_id(host, getpass.getuser(),
-            nf_instance_name)
-    except errors.VNFNotFoundError:
-        nf_id = None
-    return {'nf_id':nf_id,
-            'nf_image_name':nf_image_name,
+    return {'nf_image_name':nf_image_name,
             'nf_instance_name':nf_instance_name,
             'host':host,
             'username':getpass.getuser()
             }
 
-
 def _mkdir(root, path, mode):
     vnfs_ops = VNFSOperations(root)
     result = vnfs_ops.vnfs_create_vnf_instance(path, mode)
     return result
-
 
 def _getattr(root, path, fh=None):
     vnfs_ops = VNFSOperations(root)
@@ -79,7 +71,6 @@ def _getattr(root, path, fh=None):
        return_dictionary['st_size'] = 1000
     return return_dictionary
 
-
 def _read(root, path, length, offset, fh):
     f_path = full_path(root, path)
     vnfs_ops = VNFSOperations(root)
@@ -95,7 +86,7 @@ def _read(root, path, length, offset, fh):
                 nf_config['nf_instance_name'] + '@' + nf_config['host'])
             ret_str = globals()[special_files[file_name]+'_read'](vnfs_ops._hypervisor, 
                 nf_config)
-        except errors.HypervisorError, ex:
+        except errors.nfioError, ex:
             logger.debug('raised OSErro ' + str(ex.errno))
             raise OSError(ex.errno, os.strerror(ex.errno))
         logger.info('Successfully read ' + file_name + 
@@ -128,7 +119,6 @@ def _read(root, path, length, offset, fh):
         ret_str = os.read(fh, length)
     return ret_str
 
-
 def _write(root, path, buf, offset, fh):
     f_path = full_path(root, path)
     vnfs_ops = VNFSOperations(root)
@@ -142,7 +132,7 @@ def _write(root, path, buf, offset, fh):
                 nf_config['nf_instance_name'] + '@' + nf_config['host'])
             ret_str = globals()[special_files[file_name]+'_write'](vnfs_ops._hypervisor, 
                 nf_config, buf.rstrip("\n"))
-        except errors.HypervisorError, ex:
+        except errors.nfioError, ex:
             logger.debug('raised OSErro ' + str(ex.errno))
             raise OSError(ex.errno, os.strerror(ex.errno))
         logger.info('Successfully wrote ' + file_name + 
@@ -170,25 +160,25 @@ def _write(root, path, buf, offset, fh):
 def rx_bytes_read(hypervisor_driver, nf_config):
     command = "ifconfig eth0 | grep -Eo 'RX bytes:[0-9]+' | cut -d':' -f 2"
     return hypervisor_driver.execute_in_guest(nf_config['host'], 
-              nf_config['nf_id'], command)
+              nf_config['username'], nf_config['nf_instance_name'], command)
 
 def tx_bytes_read(hypervisor_driver, nf_config):
     command = "ifconfig eth0 | grep -Eo 'TX bytes:[0-9]+' | cut -d':' -f 2"
     return hypervisor_driver.execute_in_guest(nf_config['host'], 
-              nf_config['nf_id'], command)
+              nf_config['username'], nf_config['nf_instance_name'], command)
 
 def pkt_drops_read(hypervisor_driver, nf_config):
     command = "ifconfig eth0 | grep -Eo 'RX .* dropped:[0-9]+' | cut -d':' -f 4"
     return hypervisor_driver.execute_in_guest(nf_config['host'], 
-              nf_config['nf_id'], command)
+              nf_config['username'], nf_config['nf_instance_name'], command)
 
 def status_read(hypervisor_driver, nf_config):
     return hypervisor_driver.guest_status(nf_config['host'], 
-              nf_config['nf_id'])
+              nf_config['username'], nf_config['nf_instance_name'])
 
 def vm_ip_read(hypervisor_driver, nf_config):
     return hypervisor_driver.get_ip(nf_config['host'], 
-              nf_config['nf_id'])
+              nf_config['username'], nf_config['nf_instance_name'])
 
 def action_write(hypervisor_driver, nf_config, data):
     if data == "activate":
@@ -199,14 +189,14 @@ def action_write(hypervisor_driver, nf_config, data):
         logger.info('VNF deployed, now starting VNF instance ' + 
             nf_config['nf_instance_name'] + ' @ ' + nf_config['host'])
         try:
-            hypervisor_driver.start(nf_config['host'], nf_id)
+            hypervisor_driver.start(nf_config['host'], nf_config['username'], nf_config['nf_instance_name'])
             logger.info('Successfully started VNF instance ' + 
                 nf_config['nf_instance_name'] + ' @ ' + nf_config['host'])
         except errors.VNFStartError:
             logger.error('Attempt to start ' + nf_config['nf_instance_name'] +
                 '@' + nf_config['host'] + ' failed. Destroying depoyed VNF.')
             try:
-                hypervisor_driver.destroy(nf_config['host'], nf_id)
+                hypervisor_driver.destroy(nf_config['host'], nf_config['username'], nf_config['nf_instance_name'])
                 logger.info('Successfully destroyed ' +
                     nf_config['nf_instance_name'] + '@' + nf_config['host'])
                 # the VNF was deployed, but failed to start so...
@@ -219,19 +209,22 @@ def action_write(hypervisor_driver, nf_config, data):
     elif data == "stop":
         logger.info('Stopping VNF instance ' +  nf_config['nf_instance_name'] + 
             '@' + nf_config['host'])
-        hypervisor_driver.stop(nf_config['host'], nf_config['nf_id'])
+        hypervisor_driver.stop(nf_config['host'], nf_config['username'], 
+            nf_config['nf_instance_name'])
         logger.info(nf_config['nf_instance_name'] + '@' + nf_config['host'] +
             ' successfully stopped')
     elif data == "start":
         logger.info('Starting VNF instance ' +  nf_config['nf_instance_name'] + 
             '@' + nf_config['host'])
-        hypervisor_driver.start(nf_config['host'], nf_config['nf_id'])
+        hypervisor_driver.start(nf_config['host'], nf_config['username'], 
+            nf_config['nf_instance_name'])
         logger.info(nf_config['nf_instance_name'] + '@' + nf_config['host'] +
             ' successfully started')
     elif data == "destroy":
         logger.info('Destroying VNF instance ' +  nf_config['nf_instance_name'] + 
             '@' + nf_config['host'])
-        hypervisor_driver.destroy(nf_config['host'], nf_config['nf_id'])
+        hypervisor_driver.destroy(nf_config['host'], nf_config['username'], 
+            nf_config['nf_instance_name'])
         logger.info(nf_config['nf_instance_name'] + '@' + nf_config['host'] +
             ' successfully destroyed')
 

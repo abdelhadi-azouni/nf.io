@@ -373,6 +373,10 @@ def nfio_main():
     logging.basicConfig(level=log_level)
     # suppress INFO log messages from the requests module
     logging.getLogger("requests").setLevel(logging.WARNING)
+    logging.addLevelName( logging.WARNING, "\033[1;31m%s\033[1;0m" % logging.getLevelName(logging.WARNING))
+    logging.addLevelName( logging.ERROR, "\033[1;41m%s\033[1;0m" % logging.getLevelName(logging.ERROR))
+    FORMAT = "[%(filename)s:%(lineno)s - %(funcName)20s() ] %(message)s"
+    logging.basicConfig(format=FORMAT)
 
     FUSE(
         Nfio(

@@ -2,7 +2,13 @@
 @brief This module contains all the custom exceptions defined for nf.io
 """
 
-class HypervisorError(Exception):
+class nfioError(Exception):
+    pass
+
+class HypervisorError(nfioError):
+    pass
+
+class VNFConfigurationError(nfioError):
     pass
 
 class HypervisorConnectionError(HypervisorError):
@@ -52,4 +58,20 @@ class VNFUnpauseError(HypervisorError):
 class VNFDeployErrorWithInconsistentState(HypervisorError):
     def __init__(self):
         self.errno = 712
+
+class VNFImageNameIsEmptyError(VNFConfigurationError):
+    def __init__(self):
+        self.errno = 713
+
+class VNFHostNameIsEmptyError(VNFConfigurationError):
+    def __init__(self):
+        self.errno = 714
+
+class VNFNameIsEmptyError(VNFConfigurationError):
+    def __init__(self):
+        self.errno = 715
+
+class VNFNotRunningError(HypervisorError):
+    def __init__(self):
+        self.errno = 716
 

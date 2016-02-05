@@ -49,6 +49,32 @@ class DockerDriver(HypervisorBase):
             logger.error(ex.message, exc_info=False)
             raise nfioError
 
+    def isEmpty(self, string):
+        return string is None or string.strip() == ""
+
+    def validate_host(self, host):
+        if self.isEmpty(host):
+            raise errors.VNFHostNameIsEmptyError
+
+    def validate_image_name(self, image_name):
+        if self.isEmpty(image_name):
+            raise errors.VNFImageNameIsEmptyError
+
+    def validate_cont_name(self, cont_name):
+        if self.isEmpty(cont_name):
+            raise errors.VNFNameIsEmptyError
+        ## check to see if there is any container with name cont_name
+        #nameExists = False
+        #dcx = self._get_client(host)
+        #containers = dcx.containers()
+        #for container in containers:
+        #    for cont_name in container['Names']:
+        #        # docker container names includes a leading '/'!
+        #        if vnf_fullname == cont_name[1:].encode('ascii'):
+        #            nameExists = True
+        #if not nameExist:
+        #    raise errors.VNFNotFoundError
+
     def _get_client(self, host):
         """Returns a Docker client.
         
@@ -58,6 +84,7 @@ class DockerDriver(HypervisorBase):
         @return A docker client object that can be used to communicate 
             with the docker daemon on the host
         """
+        self.validate_host(host)
         with self._error_handling(errors.HypervisorConnectionError):
           return docker.Client(
             base_url="http://" +
@@ -65,6 +92,15 @@ class DockerDriver(HypervisorBase):
             ":" +
             self.__port,
             version=self.__version)
+
+    def lookupVNF(self, host, user, vnf_name):
+        self.validate_host(host)
+        vnf_fullname = user + '-' + vnf_name
+        self.validate_cont_name(vnf_fullname)
+        dcx = self._get_client(host)
+        with self._error_handling(errors.VNFNotFoundError):
+            inspect_data = dcx.inspect_container(container=vnf_fullname)
+            return dcx, vnf_fullname, inspect_data
 
     def get_id(self, host, user, vnf_name):
         """Returns a container's ID.
@@ -77,19 +113,12 @@ class DockerDriver(HypervisorBase):
           
           @return docker container ID.
         """
-        dcx = self._get_client(host)
-        vnf_fullname = user + "-" + vnf_name
-        with self._error_handling(errors.VNFNotFoundError):
-            inspect_data = dcx.inspect_container(container=vnf_fullname)
-            return inspect_data['Id']
+        dcx, vnf_fullname, inspect_data = self.lookupVNF(host, user, vnf_name)
+        return inspect_data['Id'].encode('ascii')
 
-    def get_ip(self, host, vnf_id):
-        dcx = self._get_client(host)
-        with self._error_handling(errors.VNFNotFoundError):
-            inspect_data = dcx.inspect_container(vnf_id)
-            logger.debug('ip address read from container ' + 
-                   inspect_data['NetworkSettings']['IPAddress'])
-            return inspect_data['NetworkSettings']['IPAddress'].encode('ascii')
+    def get_ip(self, host, user, vnf_name):
+        dcx, vnf_fullname, inspect_data = self.lookupVNF(host, user, vnf_name)
+        return inspect_data['NetworkSettings']['IPAddress'].encode('ascii')
 
     def deploy(self, host, user, image_name, vnf_name, is_privileged=True):
         """Deploys a docker container.
@@ -114,8 +143,11 @@ class DockerDriver(HypervisorBase):
                 return_code: one of the error codes defined in hypervisor_return_codes
                 return_message: detailed message for the return code
         """
+        self.validate_host(host)
+        self.validate_image_name(image_name)
+        vnf_fullname = user + '-' + vnf_name
+        self.validate_cont_name(vnf_fullname)
         dcx = self._get_client(host)
-        vnf_fullname = user + "-" + vnf_name
         host_config = dict()
         if is_privileged:
             host_config['Privileged'] = True
@@ -127,7 +159,7 @@ class DockerDriver(HypervisorBase):
                 host_config=host_config)
             return container['Id']
 
-    def start(self, host, vnf_id, is_privileged=True):
+    def start(self, host, user, vnf_name, is_privileged=True):
         """Starts a docker container.
 
         Args:
@@ -148,13 +180,13 @@ class DockerDriver(HypervisorBase):
                 return_code: one of the error codes defined in hypervisor_return_codes
                 return_message: detailed message for the return code
         """
-        dcx = self._get_client(host)
+        dcx, vnf_fullname, inspect_data = self.lookupVNF(host, user, vnf_name)
         with self._error_handling(errors.VNFStartError):
-            dcx.start(container=vnf_id,
+            dcx.start(container=vnf_fullname,
                 dns=self.__dns_list,
                 privileged=is_privileged)
 
-    def restart(self, host, vnf_id):
+    def restart(self, host, user, vnf_name):
         """Restarts a docker container.
 
         Args:
@@ -173,11 +205,11 @@ class DockerDriver(HypervisorBase):
                 return_code: one of the error codes defined in hypervisor_return_codes
                 return_message: detailed message for the return code
         """
-        dcx = self._get_client(host)
+        dcx, vnf_fullname, inspect_data = self.lookupVNF(host, user, vnf_name)
         with self._error_handling(errors.VNFRestartError):
-            dcx.restart(container=vnf_id)
+            dcx.restart(container=vnf_fullname)
 
-    def stop(self, host, vnf_id):
+    def stop(self, host, user, vnf_name):
         """Stops a docker container.
 
         Args:
@@ -196,11 +228,11 @@ class DockerDriver(HypervisorBase):
                 return_code: one of the error codes defined in hypervisor_return_codes
                 return_message: detailed message for the return code
         """
-        dcx = self._get_client(host)
+        dcx, vnf_fullname, inspect_data = self.lookupVNF(host, user, vnf_name)
         with self._error_handling(errors.VNFStopError):
-            dcx.stop(container=vnf_id)
+            dcx.stop(container=vnf_fullname)
 
-    def pause(self, host, vnf_id):
+    def pause(self, host, user, vnf_name):
         """Pauses a docker container.
 
         Args:
@@ -219,11 +251,11 @@ class DockerDriver(HypervisorBase):
                 return_code: one of the error codes defined in hypervisor_return_codes
                 return_message: detailed message for the return code
         """
-        dcx = self._get_client(host)
+        dcx, vnf_fullname, inspect_data = self.lookupVNF(host, user, vnf_name)
         with self._error_handling(errors.VNFPauseError):
-            dcx.pause(container=vnf_id)
+            dcx.pause(container=vnf_fullname)
 
-    def unpause(self, host, vnf_id):
+    def unpause(self, host, user, vnf_name):
         """Unpauses a docker container.
 
         Args:
@@ -242,11 +274,11 @@ class DockerDriver(HypervisorBase):
                 return_code: one of the error codes defined in hypervisor_return_codes
                 return_message: detailed message for the return code
         """
-        dcx = self._get_client(host)
+        dcx, vnf_fullname, inspect_data = self.lookupVNF(host, user, vnf_name)
         with self._error_handling(errors.VNFUnpauseError):
-            dcx.unpause(container=vnf_id)
+            dcx.unpause(container=vnf_fullname)
 
-    def destroy(self, host, vnf_id, force=True):
+    def destroy(self, host, user, vnf_name, force=True):
         """Destroys a docker container.
 
         Args:
@@ -265,11 +297,11 @@ class DockerDriver(HypervisorBase):
                 return_code: one of the error codes defined in hypervisor_return_codes
                 return_message: detailed message for the return code
         """
-        dcx = self._get_client(host)
+        dcx, vnf_fullname, inspect_data = self.lookupVNF(host, user, vnf_name)
         with self._error_handling(errors.VNFDestroyError):
-            dcx.remove_container(container=vnf_id, force=force)
+            dcx.remove_container(container=vnf_fullname, force=force)
 
-    def execute_in_guest(self, host, vnf_id, cmd):
+    def execute_in_guest(self, host, user, vnf_name, cmd):
         """Executed commands inside a docker container.
 
         Args:
@@ -281,14 +313,15 @@ class DockerDriver(HypervisorBase):
         Returns:
           The output of the command passes as cmd
         """
-        dcx = self._get_client(host)
+        dcx, vnf_fullname, inspect_data = self.lookupVNF(host, user, vnf_name)
+        if self.guest_status(host, user, vnf_name) != 'running':
+            raise errors.VNFNotRunningError
         with self._error_handling(errors.VNFCommandExecutionError):
-            response = dcx.execute(vnf_id, 
-                ["/bin/bash", "-c", cmd], 
-                stdout=True, stderr=False)
+            response = dcx.execute(vnf_fullname, 
+                ["/bin/bash", "-c", cmd], stdout=True, stderr=False)
             return response
 
-    def guest_status(self, host, vnf_id):
+    def guest_status(self, host, user, vnf_name):
         """Returns the status of a docker container.
 
         Args:
@@ -307,8 +340,5 @@ class DockerDriver(HypervisorBase):
                 return_code: one of the error codes defined in hypervisor_return_codes
                 return_message: detailed message for the return code
         """
-        states = {'Running', 'Paused', 'exited', 'Restarting'}
-        dcx = self._get_client(host)
-        with self._error_handling(errors.VNFNotFoundError):
-            response = dcx.inspect_container(vnf_id)
-            return response['State']['Status'].encode('ascii')
+        dcx, vnf_fullname, inspect_data = self.lookupVNF(host, user, vnf_name)
+        return inspect_data['State']['Status'].encode('ascii')

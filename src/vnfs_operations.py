@@ -234,9 +234,7 @@ class VNFSOperations:
         logger.info("Stopping VNF at " + nf_path)
         nf_instance_name, nf_type, ip_address, image_name = self.vnfs_get_instance_configuration(
             nf_path)
-        cont_id = self._hypervisor.get_id(
-            ip_address, getpass.getuser(), nf_instance_name)
-        self._hypervisor.stop(ip_address, cont_id)
+        self._hypervisor.stop(ip_address, getpass.getuser(), nf_instance_name )
         logger.info('Instance: ' + nf_instance_name + ' successfully stopped')
 
     def vnfs_start_vnf(self, nf_path):
@@ -253,9 +251,7 @@ class VNFSOperations:
         logger.info("Starting VNF at " + nf_path)
         nf_instance_name, nf_type, ip_address, image_name = self.vnfs_get_instance_configuration(
             nf_path)
-        cont_id = self._hypervisor.get_id(
-            ip_address, getpass.getuser(), nf_instance_name)
-        self._hypervisor.start(ip_address, cont_id)
+        self._hypervisor.start(ip_address, getpass.getuser(), nf_instance_name)
         logger.info('Instance: ' + nf_instance_name + ' successfully started')
 
     def vnfs_destroy_vnf(self, nf_path):
@@ -272,9 +268,7 @@ class VNFSOperations:
         logger.info("Destroying VNF at " + nf_path)
         nf_instance_name, nf_type, ip_address, image_name = self.vnfs_get_instance_configuration(
             nf_path)
-        cont_id = self._hypervisor.get_id(
-            ip_address, getpass.getuser(), nf_instance_name)
-        self._hypervisor.destroy(ip_address, cont_id)
+        self._hypervisor.destroy(ip_address, getpass.getuser(), nf_instance_name)
         logger.info('Instance: ' + nf_instance_name + ' successfully destroyed')
 
     def vnfs_get_rx_bytes(self, nf_path):
@@ -290,13 +284,10 @@ class VNFSOperations:
         logger.info('Reading rx_bytes at ' + nf_path)
         nf_instance_name, nf_type, ip_address, image_name = self.vnfs_get_instance_configuration(
             nf_path)
-        cont_id = self._hypervisor.get_id(ip_address,
-                                                    getpass.getuser(),
-                                                    nf_instance_name)
         command = "ifconfig eth0 | grep -Eo 'RX bytes:[0-9]+' | cut -d':' -f 2"
         response = self._hypervisor.execute_in_guest(
             ip_address,
-            cont_id,
+            getpass.getuser(), nf_instance_name,
             command)
         logger.info('Successfully read rx_bytes')
         return response
@@ -314,13 +305,10 @@ class VNFSOperations:
         logger.info('Reading tx_bytes at ' + nf_path)
         nf_instance_name, nf_type, ip_address, image_name = self.vnfs_get_instance_configuration(
             nf_path)
-        cont_id = self._hypervisor.get_id(ip_address,
-                                                    getpass.getuser(),
-                                                    nf_instance_name)
         command = "ifconfig eth0 | grep -Eo 'TX bytes:[0-9]+' | cut -d':' -f 2"
         response = self._hypervisor.execute_in_guest(
             ip_address,
-            cont_id,
+            getpass.getuser(), nf_instance_name,
             command)
         logger.info('Successfully read tx_bytes')
         return response
@@ -338,13 +326,10 @@ class VNFSOperations:
         logger.info('Reading pkt_drops at ' + nf_path)
         nf_instance_name, nf_type, ip_address, image_name = self.vnfs_get_instance_configuration(
             nf_path)
-        cont_id = self._hypervisor.get_id(ip_address,
-                                                    getpass.getuser(),
-                                                    nf_instance_name)
         command = "ifconfig eth0 | grep -Eo 'RX .* dropped:[0-9]+' | cut -d':' -f 4"
         response = self._hypervisor.execute_in_guest(
             ip_address,
-            cont_id,
+            getpass.getuser(), nf_instance_name,
             command)
         logger.info('Successfully read pkt_drops')
         return response
@@ -367,10 +352,8 @@ class VNFSOperations:
             nf_path)
         response = ''
         try:
-            nf_id = self._hypervisor.get_id(ip_address,
-                getpass.getuser(),
+            response = self._hypervisor.guest_status(ip_address, getpass.getuser(), 
                 nf_instance_name)
-            response = self._hypervisor.guest_status(ip_address, nf_id)
         except errors.VNFNotFoundError:
             logger.info('Instance: ' + nf_instance_name + ' does not exist')
         logger.info('Successfully read status')
@@ -392,8 +375,7 @@ class VNFSOperations:
         logger.info('Reading ip at ' + nf_path)
         nf_instance_name, nf_type, ip_address, image_name = self.vnfs_get_instance_configuration(
             nf_path)
-        cont_ip = self._hypervisor.get_ip(ip_address,
-            self._hypervisor.get_id(ip_address, getpass.getuser(), nf_instance_name))
+        cont_ip = self._hypervisor.get_ip(ip_address, getpass.getuser(), nf_instance_name)
         logger.debug('cont_ip ' + cont_ip)
         logger.info('Successfully read ip')
         return cont_ip
