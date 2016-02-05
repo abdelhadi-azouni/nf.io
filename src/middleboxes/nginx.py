@@ -182,6 +182,27 @@ def pkt_drops_read(hypervisor_driver, nf_config):
     return hypervisor_driver.execute_in_guest(nf_config['host'], 
               nf_config['nf_id'], command)
 
+"""
+nginx specific
+
+def _start(hypervisor_driver, nf_config):
+    command = "/user/bin nginx"
+    return hypervisor_driver.execute_in_guest(nf_config['host'],
+              nf_config['nf_id'], command)
+
+
+def _nginx_signal(hypervisor_driver, nf_config, signal):
+    if signal not in ["stop", "quit", "reload", 'reopen']:
+        logger.info("invalid signal")
+    else:
+        command = "nginx -s %s" % signal
+    return hypervisor_driver.execute_in_guest(nf_config['host'],
+              nf_config['nf_id'], command)
+
+
+"""
+
+
 def status_read(hypervisor_driver, nf_config):
     return hypervisor_driver.guest_status(nf_config['host'], 
               nf_config['nf_id'])
