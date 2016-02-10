@@ -125,6 +125,8 @@ class DockerDriver(HypervisorBase):
         return inspect_data['Id'].encode('ascii')
 
     def get_ip(self, host, user, vnf_name):
+        if self.guest_status(host, user, vnf_name) != 'running':
+            raise errors.VNFNotRunningError
         dcx, vnf_fullname, inspect_data = self.lookupVNF(host, user, vnf_name)
         return inspect_data['NetworkSettings']['IPAddress'].encode('ascii')
 

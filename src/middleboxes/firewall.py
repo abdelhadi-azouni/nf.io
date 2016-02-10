@@ -86,11 +86,12 @@ def _read(root, path, length, offset, fh):
                 nf_config['nf_instance_name'] + '@' + nf_config['host'])
             ret_str = globals()[special_files[file_name]+'_read'](vnfs_ops._hypervisor, 
                 nf_config)
+            logger.info('Successfully read ' + file_name + 
+                ' from ' + nf_config['nf_instance_name'] + '@' + nf_config['host'])
         except errors.nfioError, ex:
-            logger.debug('raised OSErro ' + str(ex.errno))
+            logger.error('Failed to read ' + file_name + 
+                ' from ' + nf_config['nf_instance_name'] + '@' + nf_config['host'])
             raise OSError(ex.errno, os.strerror(ex.errno))
-        logger.info('Successfully read ' + file_name + 
-            ' from ' + nf_config['nf_instance_name'] + '@' + nf_config['host'])
         if offset >= len(ret_str):
             ret_str = ''
     #if file_name == "rx_bytes":
@@ -132,11 +133,12 @@ def _write(root, path, buf, offset, fh):
                 nf_config['nf_instance_name'] + '@' + nf_config['host'])
             ret_str = globals()[special_files[file_name]+'_write'](vnfs_ops._hypervisor, 
                 nf_config, buf.rstrip("\n"))
+            logger.info('Successfully wrote ' + file_name + 
+                ' in ' + nf_config['nf_instance_name'] + '@' + nf_config['host'])
         except errors.nfioError, ex:
-            logger.debug('raised OSErro ' + str(ex.errno))
+            logger.error('Failed to write ' + file_name + 
+                ' in ' + nf_config['nf_instance_name'] + '@' + nf_config['host'])
             raise OSError(ex.errno, os.strerror(ex.errno))
-        logger.info('Successfully wrote ' + file_name + 
-            ' in ' + nf_config['nf_instance_name'] + '@' + nf_config['host'])
 
         #if buf.rstrip("\n") == "activate":
         #    try:
