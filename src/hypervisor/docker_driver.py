@@ -24,9 +24,10 @@ class DockerDriver(HypervisorBase):
       
         @note This method initializes a set of values for configuring 
             the docker-py remote API client. 
-            __port is the port number used for remote API invocation.
-            __version is the version number for the report API.
-            __dns_list is the list of DNS server(s) used by each container.
+
+        @property __port is the port number used for remote API invocation.
+        @property __version is the version number for the report API.
+        @property __dns_list is the list of DNS server(s) used by each container.
         """
         self.__port = '4444'
         self.__version = '1.15'
@@ -50,6 +51,13 @@ class DockerDriver(HypervisorBase):
             raise nfioError
 
     def isEmpty(self, string):
+        """
+        @brief checks whether a string is empty or None
+    
+        @param string input string
+      
+        @returns True if string is empty, otherwise False
+        """
         return string is None or string.strip() == ""
 
     def validate_host(self, host):
