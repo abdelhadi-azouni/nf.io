@@ -90,31 +90,11 @@ def _read(root, path, length, offset, fh):
                 ' from ' + nf_config['nf_instance_name'] + '@' + nf_config['host'])
         except errors.nfioError, ex:
             logger.error('Failed to read ' + file_name + 
-                ' from ' + nf_config['nf_instance_name'] + '@' + nf_config['host'])
-            raise OSError(ex.errno, os.strerror(ex.errno))
+                ' from ' + nf_config['nf_instance_name'] + '@' + nf_config['host'] +
+                ' : ' + ex.__class__.__name__)
+            #raise OSError(ex.errno, os.strerror(ex.errno))
         if offset >= len(ret_str):
             ret_str = ''
-    #if file_name == "rx_bytes":
-    #    ret_str = vnfs_ops.vnfs_get_rx_bytes(nf_path)
-    #    if offset >= len(ret_str):
-    #        ret_str = ''
-    #elif file_name == 'tx_bytes':
-    #    ret_str = vnfs_ops.vnfs_get_tx_bytes(nf_path)
-    #    if offset >= len(ret_str):
-    #        ret_str = ''
-    #elif file_name == 'pkt_drops':
-    #    ret_str = vnfs_ops.vnfs_get_pkt_drops(nf_path)
-    #    if offset >= len(ret_str):
-    #        ret_str = ''
-    #elif file_name == 'status':
-    #    ret_str = vnfs_ops.vnfs_get_status(nf_path)
-    #    if offset >= len(ret_str):
-    #        ret_str = ''
-    #elif file_name == 'vm.ip':
-    #    ret_str = vnfs_ops.vnfs_get_ip(nf_path)
-    #    logger.debug('vm.ip ' + ret_str)
-    #    if offset >= len(ret_str):
-    #      ret_str = ''
     else:
         os.lseek(fh, offset, os.SEEK_SET)
         ret_str = os.read(fh, length)
@@ -137,21 +117,9 @@ def _write(root, path, buf, offset, fh):
                 ' in ' + nf_config['nf_instance_name'] + '@' + nf_config['host'])
         except errors.nfioError, ex:
             logger.error('Failed to write ' + file_name + 
-                ' in ' + nf_config['nf_instance_name'] + '@' + nf_config['host'])
-            raise OSError(ex.errno, os.strerror(ex.errno))
-
-        #if buf.rstrip("\n") == "activate":
-        #    try:
-        #        vnfs_ops.vnfs_deploy_nf(nf_path)
-        #    except errors.VNFCreateError:
-        #        #raise OSError(errno.EBUSY, os.strerror(errno.EBUSY))
-        #        raise OSError(747, 'Cannot create VNF')
-        #elif buf.rstrip("\n") == "stop":
-        #    vnfs_ops.vnfs_stop_vnf(nf_path)
-        #elif buf.rstrip("\n") == "start":
-        #    vnfs_ops.vnfs_start_vnf(nf_path)
-        #elif buf.rstrip("\n") == "destroy":
-        #    vnfs_ops.vnfs_destroy_vnf(nf_path)
+                ' in ' + nf_config['nf_instance_name'] + '@' + nf_config['host'] +
+                ' : ' + ex.__class__.__name__)
+            #raise OSError(ex.errno, os.strerror(ex.errno))
         os.lseek(fh, offset, os.SEEK_SET)
         os.write(fh, buf.rstrip("\n"))
         return len(buf)

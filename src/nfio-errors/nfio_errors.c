@@ -36,8 +36,6 @@ char *nfio_errors[] =
     };
 
 void error(int status, int errnum, const char* message, ...) {
-    puts("test string");
-    printf("in my error: %d %d %s\n", status, errnum, message);
     if (abs(errnum) > 700) {
         printf("nfio-error: %s\n", nfio_errors[errnum-700]);
     }
@@ -47,7 +45,6 @@ void error(int status, int errnum, const char* message, ...) {
         
         char message_with_args[1024];
         vsnprintf(message_with_args, 1023, message, args);
-        printf("msg: %s\n", message_with_args);
         
         original_error_func_type original_error_func;
         original_error_func = (original_error_func_type)dlsym(RTLD_NEXT, 
@@ -57,7 +54,6 @@ void error(int status, int errnum, const char* message, ...) {
 }
 
 char *strerror(int errnum) {
-    printf("in my strerror %d\n", errnum);
     if (errnum > 700) {
         return nfio_errors[errnum-700];
     }
@@ -70,7 +66,6 @@ char *strerror(int errnum) {
 }
 
 char * strerror_r (int errnum, char *buf, size_t n) {
-    printf("in my strerror_r %d\n", errnum);
     if (errnum > 700) {
         int message_len = MIN(strlen(nfio_errors[errnum-700]), n);
         strncpy(buf, nfio_errors[errnum-700], message_len);
