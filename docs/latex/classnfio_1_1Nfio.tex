@@ -97,6 +97,13 @@ def \hyperlink{classnfio_1_1Nfio_a05cc0184ab93ef65958275c46e322137}{write}
 \end{DoxyCompactItemize}
 
 
+\subsection{Detailed Description}
+
+
+Definition at line 22 of file nfio.\-py.
+
+
+
 \subsection{Constructor \& Destructor Documentation}
 \hypertarget{classnfio_1_1Nfio_a37d06beb4658927077f41fdfd237c2b1}{\index{nfio\-::\-Nfio@{nfio\-::\-Nfio}!\-\_\-\-\_\-init\-\_\-\-\_\-@{\-\_\-\-\_\-init\-\_\-\-\_\-}}
 \index{\-\_\-\-\_\-init\-\_\-\-\_\-@{\-\_\-\-\_\-init\-\_\-\-\_\-}!nfio::Nfio@{nfio\-::\-Nfio}}
@@ -115,6 +122,21 @@ Instantiates a \hyperlink{classnfio_1_1Nfio}{Nfio} object.
 
 Args\-: root\-: The root directory of nfio file system. The root directory stores persistent state about the system. mountpoint\-: The mountpoint of nfio file system. The mountpoint is required to intercept the file system calls via fuse. All the file system calls for fuse mounted files/directories are intercepted by libfuse and our provided implementation is executed. hypervisor\-: The type of hypervisor to use for deploying V\-N\-Fs. The default is to use Docker containers. However, we also plan to add support for Libvirt. module\-\_\-root\-: Root directory of the middlebox modules. Each middlebox provides it's own implementation of certain system calls in a separate module. module\-\_\-root points to the root of that module. If nothing is provided a default of 'middleboxes' will be assumed. Returns\-: Nothing. Mounts nf.\-io file system at the specified mountpoint and creates a loop to act upon different file system calls. 
 
+Definition at line 52 of file nfio.\-py.
+
+
+\begin{DoxyCode}
+52 
+53             module\_root=\textcolor{stringliteral}{'middleboxes'}):
+54         self.\hyperlink{classnfio_1_1Nfio_aaebb8f6c5190c41a25e5415c56a5e6dd}{root} = root
+55         self.\hyperlink{classnfio_1_1Nfio_a89d8c89f78cdec45abb64091de093e8b}{mountpoint} = mountpoint
+56         self.\hyperlink{classnfio_1_1Nfio_a6ec5f975fcf5378e65352c2f8b4e59d4}{hypervisor} = hypervisor
+57         self.\hyperlink{classnfio_1_1Nfio_a844cfc22cc19b0a22059d3f4adeb3a0e}{vnfs\_ops} = \hyperlink{classvnfs__operations_1_1VNFSOperations}{VNFSOperations}(root)
+58         self.\hyperlink{classnfio_1_1Nfio_a7f13fbcef42434fff50bbe6f3f301e83}{module\_root} = module\_root
+
+\end{DoxyCode}
+
+
 \subsection{Member Function Documentation}
 \hypertarget{classnfio_1_1Nfio_a46d186e9d92c1fea58a01ffc08ebb5dc}{\index{nfio\-::\-Nfio@{nfio\-::\-Nfio}!getattr@{getattr}}
 \index{getattr@{getattr}!nfio::Nfio@{nfio\-::\-Nfio}}
@@ -129,7 +151,49 @@ Args\-: root\-: The root directory of nfio file system. The root directory store
 
 Returns the file attributes of the file specified by path Args\-: path\-: Path of the file fh\-: Open file handle to the file Returns\-: A dictionary containing file attributes. 
 
-The dictionary contains the following keys\-: st\-\_\-atime\-: Last access time st\-\_\-ctime\-: File creation time st\-\_\-gid\-: Group id of the owner group st\-\_\-mode\-: File access mode st\-\_\-mtime\-: Last modification time st\-\_\-nlink\-: Number of symbolic links to the file st\-\_\-size\-: Size of the file in bytes st\-\_\-uid\-: User id of the file owner Note\-: For special placeholder files for V\-N\-Fs, st\-\_\-size is set to a constant 1000. This is to make sure read utilities such as cat work for these special placeholder files. \hypertarget{classnfio_1_1Nfio_a03f752db91f0335cf0f29d81bda84b66}{\index{nfio\-::\-Nfio@{nfio\-::\-Nfio}!mkdir@{mkdir}}
+The dictionary contains the following keys\-: st\-\_\-atime\-: Last access time st\-\_\-ctime\-: File creation time st\-\_\-gid\-: Group id of the owner group st\-\_\-mode\-: File access mode st\-\_\-mtime\-: Last modification time st\-\_\-nlink\-: Number of symbolic links to the file st\-\_\-size\-: Size of the file in bytes st\-\_\-uid\-: User id of the file owner Note\-: For special placeholder files for V\-N\-Fs, st\-\_\-size is set to a constant 1000. This is to make sure read utilities such as cat work for these special placeholder files. 
+
+Definition at line 119 of file nfio.\-py.
+
+
+\begin{DoxyCode}
+119 
+120     \textcolor{keyword}{def }\hyperlink{classnfio_1_1Nfio_a46d186e9d92c1fea58a01ffc08ebb5dc}{getattr}(self, path, fh=None):
+121         opcode = self.vnfs\_ops.vnfs\_get\_opcode(path)
+122         \textcolor{keywordflow}{if} opcode == VNFSOperations.OP\_NF:
+123             nf\_type = self.vnfs\_ops.vnfs\_get\_nf\_type(path)
+124             \textcolor{keywordflow}{if} len(nf\_type) > 0:
+125                 \textcolor{keywordflow}{try}:
+126                     mbox\_module = importlib.import\_module(
+127                         self.\hyperlink{classnfio_1_1Nfio_a7f13fbcef42434fff50bbe6f3f301e83}{module\_root} +
+128                         \textcolor{stringliteral}{"."} +
+129                         nf\_type)
+130                 \textcolor{keywordflow}{except} ImportError:
+131                     logger.error(\textcolor{stringliteral}{'VNF module file missing. Add "'} + nf\_type 
+132                         + \textcolor{stringliteral}{'.py" under the directory '} + self.\hyperlink{classnfio_1_1Nfio_a7f13fbcef42434fff50bbe6f3f301e83}{module\_root})
+133                     \textcolor{comment}{## TODO: raise an custom exception and handle it in a OS }
+134                     \textcolor{comment}{## specific way}
+135                     \textcolor{keywordflow}{raise} OSError(errno.ENOSYS)
+136                 \textcolor{keywordflow}{return} mbox\_module.\_getattr(self.\hyperlink{classnfio_1_1Nfio_aaebb8f6c5190c41a25e5415c56a5e6dd}{root}, path, fh)
+137         full\_path = self.\hyperlink{classnfio_1_1Nfio_ab4c25ee90129e28ddc7c88ad113869de}{\_full\_path}(path)
+138         st = os.lstat(full\_path)
+139         file\_name = self.vnfs\_ops.vnfs\_get\_file\_name(full\_path)
+140         \textcolor{keywordflow}{return} dict(
+141             (key,
+142              \hyperlink{classnfio_1_1Nfio_a46d186e9d92c1fea58a01ffc08ebb5dc}{getattr}(
+143                  st,
+144                  key)) \textcolor{keywordflow}{for} key \textcolor{keywordflow}{in} (
+145                 \textcolor{stringliteral}{'st\_atime'},
+146                 \textcolor{stringliteral}{'st\_ctime'},
+147                 \textcolor{stringliteral}{'st\_gid'},
+148                 \textcolor{stringliteral}{'st\_mode'},
+149                 \textcolor{stringliteral}{'st\_mtime'},
+150                 \textcolor{stringliteral}{'st\_nlink'},
+151                 \textcolor{stringliteral}{'st\_size'},
+152                 \textcolor{stringliteral}{'st\_uid'}))
+
+\end{DoxyCode}
+\hypertarget{classnfio_1_1Nfio_a03f752db91f0335cf0f29d81bda84b66}{\index{nfio\-::\-Nfio@{nfio\-::\-Nfio}!mkdir@{mkdir}}
 \index{mkdir@{mkdir}!nfio::Nfio@{nfio\-::\-Nfio}}
 \subsubsection[{mkdir}]{\setlength{\rightskip}{0pt plus 5cm}def nfio.\-Nfio.\-mkdir (
 \begin{DoxyParamCaption}
@@ -142,7 +206,33 @@ The dictionary contains the following keys\-: st\-\_\-atime\-: Last access time 
 
 The semantics have been redefined to create a new V\-N\-F instance when a directory is created under a specific type of V\-N\-F directory. 
 
-Args\-: path\-: path of the directory to create. The path also represents the name of the new V\-N\-F instance to be created. mode\-: File access mode for the new directory. Returns\-: If path does not correspond to a directory under a specific V\-N\-F type directory then errno.\-E\-P\-E\-R\-M is returned. Otherwise the return code is same as os.\-mkdir()'s return code. \hypertarget{classnfio_1_1Nfio_aa96de630c8da283fe30851e8d7b378a3}{\index{nfio\-::\-Nfio@{nfio\-::\-Nfio}!read@{read}}
+Args\-: path\-: path of the directory to create. The path also represents the name of the new V\-N\-F instance to be created. mode\-: File access mode for the new directory. Returns\-: If path does not correspond to a directory under a specific V\-N\-F type directory then errno.\-E\-P\-E\-R\-M is returned. Otherwise the return code is same as os.\-mkdir()'s return code. 
+
+Definition at line 188 of file nfio.\-py.
+
+
+\begin{DoxyCode}
+188 
+189     \textcolor{keyword}{def }\hyperlink{classnfio_1_1Nfio_a03f752db91f0335cf0f29d81bda84b66}{mkdir}(self, path, mode):
+190         opcode = self.vnfs\_ops.vnfs\_get\_opcode(path)
+191         \textcolor{keywordflow}{if} opcode == VNFSOperations.OP\_NF:
+192             nf\_type = self.vnfs\_ops.vnfs\_get\_nf\_type(path)
+193             \textcolor{comment}{# Check if this directory is an instance directory or a type}
+194             \textcolor{comment}{# directory}
+195             path\_tokens = path.split(\textcolor{stringliteral}{"/"})
+196             \textcolor{keywordflow}{if} path\_tokens.index(\textcolor{stringliteral}{"nf-types"}) == len(path\_tokens) - 2:
+197                 \textcolor{keywordflow}{return} os.mkdir(self.\hyperlink{classnfio_1_1Nfio_ab4c25ee90129e28ddc7c88ad113869de}{\_full\_path}(path), mode)
+198             mbox\_module = importlib.import\_module(
+199                 self.\hyperlink{classnfio_1_1Nfio_a7f13fbcef42434fff50bbe6f3f301e83}{module\_root} +
+200                 \textcolor{stringliteral}{"."} +
+201                 nf\_type)
+202             result = mbox\_module.\_mkdir(self.\hyperlink{classnfio_1_1Nfio_aaebb8f6c5190c41a25e5415c56a5e6dd}{root}, path, mode)
+203         \textcolor{keywordflow}{elif} opcode == VNFSOperations.OP\_UNDEFINED:
+204             result = errno.EPERM
+205         \textcolor{keywordflow}{return} result
+
+\end{DoxyCode}
+\hypertarget{classnfio_1_1Nfio_aa96de630c8da283fe30851e8d7b378a3}{\index{nfio\-::\-Nfio@{nfio\-::\-Nfio}!read@{read}}
 \index{read@{read}!nfio::Nfio@{nfio\-::\-Nfio}}
 \subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}def nfio.\-Nfio.\-read (
 \begin{DoxyParamCaption}
@@ -163,7 +253,29 @@ Args\-: path\-: path represents the path of the file to read from length\-: numb
 
 Returns\-: length bytes from offset byte of the file represented by fh and path
 
-Notes\-: V\-N\-Fs can have special files which are placeholders for statistics such as number of received/sent bytes etc. V\-N\-Fs provide their own implementation of read and handle reading of these special placeholder files. \hypertarget{classnfio_1_1Nfio_a05cc0184ab93ef65958275c46e322137}{\index{nfio\-::\-Nfio@{nfio\-::\-Nfio}!write@{write}}
+Notes\-: V\-N\-Fs can have special files which are placeholders for statistics such as number of received/sent bytes etc. V\-N\-Fs provide their own implementation of read and handle reading of these special placeholder files. 
+
+Definition at line 273 of file nfio.\-py.
+
+
+\begin{DoxyCode}
+273 
+274     \textcolor{keyword}{def }\hyperlink{classnfio_1_1Nfio_aa96de630c8da283fe30851e8d7b378a3}{read}(self, path, length, offset, fh):
+275         full\_path = self.\hyperlink{classnfio_1_1Nfio_ab4c25ee90129e28ddc7c88ad113869de}{\_full\_path}(path)
+276         opcode = self.vnfs\_ops.vnfs\_get\_opcode(full\_path)
+277         file\_name = self.vnfs\_ops.vnfs\_get\_file\_name(full\_path)
+278         \textcolor{keywordflow}{if} opcode == self.vnfs\_ops.OP\_NF:
+279             nf\_type = self.vnfs\_ops.vnfs\_get\_nf\_type(path)
+280             mbox\_module = importlib.import\_module(
+281                 self.\hyperlink{classnfio_1_1Nfio_a7f13fbcef42434fff50bbe6f3f301e83}{module\_root} +
+282                 \textcolor{stringliteral}{"."} +
+283                 nf\_type)
+284             \textcolor{keywordflow}{return} mbox\_module.\_read(self.\hyperlink{classnfio_1_1Nfio_aaebb8f6c5190c41a25e5415c56a5e6dd}{root}, path, length, offset, fh)
+285         os.lseek(fh, offset, os.SEEK\_SET)
+286         \textcolor{keywordflow}{return} os.read(fh, length)
+
+\end{DoxyCode}
+\hypertarget{classnfio_1_1Nfio_a05cc0184ab93ef65958275c46e322137}{\index{nfio\-::\-Nfio@{nfio\-::\-Nfio}!write@{write}}
 \index{write@{write}!nfio::Nfio@{nfio\-::\-Nfio}}
 \subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}def nfio.\-Nfio.\-write (
 \begin{DoxyParamCaption}
@@ -185,6 +297,29 @@ Args\-: path\-: path to the file to write buf\-: the data to write offset\-: the
 Returns\-: Returns the number of bytes written to the file starting at offset
 
 Note\-: V\-N\-Fs can have special files where writing specific strings trigger a specific function. For example, writing 'activate' to the 'action' file of a V\-N\-F will start the V\-N\-F. V\-N\-F specific modules handle such special cases of writing. 
+
+Definition at line 309 of file nfio.\-py.
+
+
+\begin{DoxyCode}
+309 
+310     \textcolor{keyword}{def }\hyperlink{classnfio_1_1Nfio_a05cc0184ab93ef65958275c46e322137}{write}(self, path, buf, offset, fh):
+311         opcode = self.vnfs\_ops.vnfs\_get\_opcode(path)
+312         full\_path = self.\hyperlink{classnfio_1_1Nfio_ab4c25ee90129e28ddc7c88ad113869de}{\_full\_path}(path)
+313         file\_name = self.vnfs\_ops.vnfs\_get\_file\_name(path)
+314         \textcolor{keywordflow}{if} opcode == VNFSOperations.OP\_NF:
+315             nf\_type = self.vnfs\_ops.vnfs\_get\_nf\_type(full\_path)
+316             mbox\_module = importlib.import\_module(
+317                 self.\hyperlink{classnfio_1_1Nfio_a7f13fbcef42434fff50bbe6f3f301e83}{module\_root} +
+318                 \textcolor{stringliteral}{"."} +
+319                 nf\_type)
+320             \textcolor{keywordflow}{return} mbox\_module.\_write(self.\hyperlink{classnfio_1_1Nfio_aaebb8f6c5190c41a25e5415c56a5e6dd}{root}, path, buf, offset, fh)
+321 
+322         os.lseek(fh, offset, os.SEEK\_SET)
+323         \textcolor{keywordflow}{return} os.write(fh, buf)
+
+\end{DoxyCode}
+
 
 The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
 \item 

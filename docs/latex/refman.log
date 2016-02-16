@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.2.19)  16 FEB 2016 02:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.2.19)  16 FEB 2016 02:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1081,7 +1081,7 @@ Chapter 2.
 ]
 Chapter 3.
 (./classhypervisor_1_1docker__driver_1_1DockerDriver.tex
-<classhypervisor_1_1docker__driver_1_1DockerDriver.pdf, id=557, 501.875pt x 163
+<classhypervisor_1_1docker__driver_1_1DockerDriver.pdf, id=658, 501.875pt x 163
 .20976pt>
 File: classhypervisor_1_1docker__driver_1_1DockerDriver.pdf Graphic file (type 
 pdf)
@@ -1108,51 +1108,53 @@ LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
 (Font)              scaled to size 8.09995pt on input line 22.
  [5 <./classhypervisor_1_1docker__driver_1_1DockerDriver.pdf>]
 LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
-(Font)              scaled to size 8.99994pt on input line 62.
+(Font)              scaled to size 8.99994pt on input line 66.
 LaTeX Font Info:    Font shape `T1/phv/bc/it' in size <10> not available
-(Font)              Font shape `T1/phv/bc/sl' tried instead on input line 62.
+(Font)              Font shape `T1/phv/bc/sl' tried instead on input line 66.
 LaTeX Font Info:    Font shape `T1/phv/bc/sl' will be
-(Font)              scaled to size 8.99994pt on input line 62.
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 62.
+(Font)              scaled to size 8.99994pt on input line 66.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 66.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
 
 LaTeX Font Warning: Font shape `T1/pcr/bc/it' undefined
-(Font)              using `T1/pcr/m/n' instead on input line 62.
+(Font)              using `T1/pcr/m/n' instead on input line 66.
 
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 69.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 73.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 8.99994pt on input line 69.
+(Font)              scaled to size 8.99994pt on input line 73.
 
-Underfull \hbox (badness 10000) detected at line 80
+Underfull \hbox (badness 10000) detected at line 84
 [][][]
  []
 
-
-Underfull \hbox (badness 10000) detected at line 135
-[][][]
- []
-
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 6.29996pt on input line 92.
 [6]
-Underfull \hbox (badness 10000) detected at line 161
+Underfull \hbox (badness 10000) detected at line 177
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 187
+Underfull \hbox (badness 10000) detected at line 221
+[][][]
+ []
+
+[7]
+Underfull \hbox (badness 10000) detected at line 259
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 213
+Underfull \hbox (badness 10000) detected at line 299
 [][][]
  []
 
-[7]) (./classhypervisor_1_1hypervisor__base_1_1HypervisorBase.tex
-<classhypervisor_1_1hypervisor__base_1_1HypervisorBase.pdf, id=603, 501.875pt x
+[8] [9]) (./classhypervisor_1_1hypervisor__base_1_1HypervisorBase.tex
+<classhypervisor_1_1hypervisor__base_1_1HypervisorBase.pdf, id=766, 501.875pt x
  145.99544pt>
 File: classhypervisor_1_1hypervisor__base_1_1HypervisorBase.pdf Graphic file (t
 ype pdf)
@@ -1161,26 +1163,26 @@ Package pdftex.def Info: classhypervisor_1_1hypervisor__base_1_1HypervisorBase.
 pdf used on input line 12.
 (pdftex.def)             Requested size: 195.61559pt x 56.9055pt.
 
-[8 <./classhypervisor_1_1hypervisor__base_1_1HypervisorBase.pdf>] [9])
+[10 <./classhypervisor_1_1hypervisor__base_1_1HypervisorBase.pdf>] [11])
 (./classerrors_1_1HypervisorConnectionError.tex
-<classerrors_1_1HypervisorConnectionError.pdf, id=631, 501.875pt x 371.75888pt>
+<classerrors_1_1HypervisorConnectionError.pdf, id=799, 501.875pt x 371.75888pt>
 File: classerrors_1_1HypervisorConnectionError.pdf Graphic file (type pdf)
 <use classerrors_1_1HypervisorConnectionError.pdf>
 Package pdftex.def Info: classerrors_1_1HypervisorConnectionError.pdf used on i
 nput line 7.
 (pdftex.def)             Requested size: 153.64217pt x 113.81102pt.
-)
-(./classerrors_1_1HypervisorError.tex
-<classerrors_1_1HypervisorError.pdf, id=632, 501.875pt x 588.27782pt>
+ [12 <./classerrors_1_1HypervisorConnectionError.pdf>]) (./classerrors_1_1Hyper
+visorError.tex
+<classerrors_1_1HypervisorError.pdf, id=813, 501.875pt x 588.27782pt>
 File: classerrors_1_1HypervisorError.pdf Graphic file (type pdf)
 
 <use classerrors_1_1HypervisorError.pdf>
 Package pdftex.def Info: classerrors_1_1HypervisorError.pdf used on input line 
 7.
 (pdftex.def)             Requested size: 291.29446pt x 341.43306pt.
- [10 <./classerrors_1_1HypervisorConnectionError.pdf>])
+)
 (./classhypervisor_1_1hypervisor__factory_1_1HypervisorFactory.tex
-<classhypervisor_1_1hypervisor__factory_1_1HypervisorFactory.pdf, id=646, 501.8
+<classhypervisor_1_1hypervisor__factory_1_1HypervisorFactory.pdf, id=814, 501.8
 75pt x 132.07343pt>
 File: classhypervisor_1_1hypervisor__factory_1_1HypervisorFactory.pdf Graphic f
 ile (type pdf)
@@ -1189,14 +1191,14 @@ ile (type pdf)
 Package pdftex.def Info: classhypervisor_1_1hypervisor__factory_1_1HypervisorFa
 ctory.pdf used on input line 12.
 (pdftex.def)             Requested size: 216.23854pt x 56.9055pt.
- [11 <./classerrors_1_1HypervisorError.pdf> <./classhypervisor_1_1hypervisor__f
-actory_1_1HypervisorFactory.pdf>]
+ [13 <./classerrors_1_1HypervisorError.pdf>] [14 <./classhypervisor_1_1hypervis
+or__factory_1_1HypervisorFactory.pdf>]
 
 LaTeX Font Warning: Font shape `T1/pcr/bc/n' undefined
-(Font)              using `T1/pcr/m/n' instead on input line 60.
+(Font)              using `T1/pcr/m/n' instead on input line 89.
 
 ) (./classhypervisor_1_1libvirt__driver_1_1Libvirt.tex
-<classhypervisor_1_1libvirt__driver_1_1Libvirt.pdf, id=669, 501.875pt x 204.845
+<classhypervisor_1_1libvirt__driver_1_1Libvirt.pdf, id=844, 501.875pt x 204.845
 3pt>
 File: classhypervisor_1_1libvirt__driver_1_1Libvirt.pdf Graphic file (type pdf)
 
@@ -1205,63 +1207,62 @@ Package pdftex.def Info: classhypervisor_1_1libvirt__driver_1_1Libvirt.pdf used
  on input line 7.
 (pdftex.def)             Requested size: 139.41362pt x 56.9055pt.
 )
-(./classnfio_1_1Nfio.tex [12 <./classhypervisor_1_1libvirt__driver_1_1Libvirt.p
-df>] <classnfio_1_1Nfio.pdf, id=683, 501.875pt x 489.62924pt>
+(./classnfio_1_1Nfio.tex
+<classnfio_1_1Nfio.pdf, id=845, 501.875pt x 489.62924pt>
 File: classnfio_1_1Nfio.pdf Graphic file (type pdf)
 
 <use classnfio_1_1Nfio.pdf>
 Package pdftex.def Info: classnfio_1_1Nfio.pdf used on input line 7.
 (pdftex.def)             Requested size: 58.32321pt x 56.9055pt.
- [13 <./classnfio_1_1Nfio.pdf>] [14])
+ [15 <./classhypervisor_1_1libvirt__driver_1_1Libvirt.pdf> <./classnfio_1_1Nfio
+.pdf>] [16] [17] [18])
 (./classerrors_1_1nfioError.tex
-<classerrors_1_1nfioError.pdf, id=737, 501.875pt x 294.13892pt>
+<classerrors_1_1nfioError.pdf, id=940, 501.875pt x 294.13892pt>
 File: classerrors_1_1nfioError.pdf Graphic file (type pdf)
 
 <use classerrors_1_1nfioError.pdf>
 Package pdftex.def Info: classerrors_1_1nfioError.pdf used on input line 12.
 (pdftex.def)             Requested size: 398.3531pt x 233.45837pt.
-)
+ [19 <./classerrors_1_1nfioError.pdf>])
 (./classerrors_1_1VNFCommandExecutionError.tex
-<classerrors_1_1VNFCommandExecutionError.pdf, id=738, 501.875pt x 356.89334pt>
+<classerrors_1_1VNFCommandExecutionError.pdf, id=952, 501.875pt x 356.89334pt>
 File: classerrors_1_1VNFCommandExecutionError.pdf Graphic file (type pdf)
 
 <use classerrors_1_1VNFCommandExecutionError.pdf>
 Package pdftex.def Info: classerrors_1_1VNFCommandExecutionError.pdf used on in
 put line 7.
 (pdftex.def)             Requested size: 160.04424pt x 113.81102pt.
- [15 <./classerrors_1_1nfioError.pdf>]) (./classerrors_1_1VNFConfigurationError
-.tex
-<classerrors_1_1VNFConfigurationError.pdf, id=748, 501.875pt x 120.02843pt>
+)
+(./classerrors_1_1VNFConfigurationError.tex
+<classerrors_1_1VNFConfigurationError.pdf, id=953, 501.875pt x 120.02843pt>
 File: classerrors_1_1VNFConfigurationError.pdf Graphic file (type pdf)
 
 <use classerrors_1_1VNFConfigurationError.pdf>
 Package pdftex.def Info: classerrors_1_1VNFConfigurationError.pdf used on input
  line 7.
 (pdftex.def)             Requested size: 398.3531pt x 95.26784pt.
-)
+ [20 <./classerrors_1_1VNFCommandExecutionError.pdf> <./classerrors_1_1VNFConfi
+gurationError.pdf>])
 (./classerrors_1_1VNFCreateError.tex
-<classerrors_1_1VNFCreateError.pdf, id=749, 501.875pt x 524.8408pt>
+<classerrors_1_1VNFCreateError.pdf, id=972, 501.875pt x 524.8408pt>
 File: classerrors_1_1VNFCreateError.pdf Graphic file (type pdf)
 
 <use classerrors_1_1VNFCreateError.pdf>
 Package pdftex.def Info: classerrors_1_1VNFCreateError.pdf used on input line 7
 .
 (pdftex.def)             Requested size: 108.82764pt x 113.81102pt.
-
-Underfull \vbox (badness 1688) has occurred while \output is active []
-
- [16 <./classerrors_1_1VNFCommandExecutionError.pdf> <./classerrors_1_1VNFConfi
-gurationError.pdf>]) (./classerrors_1_1VNFDeployError.tex
-<classerrors_1_1VNFDeployError.pdf, id=768, 501.875pt x 518.06549pt>
+) (./classerrors_1_1VNFDeployError.tex
+<classerrors_1_1VNFDeployError.pdf, id=973, 501.875pt x 518.06549pt>
 File: classerrors_1_1VNFDeployError.pdf Graphic file (type pdf)
 
 <use classerrors_1_1VNFDeployError.pdf>
 Package pdftex.def Info: classerrors_1_1VNFDeployError.pdf used on input line 7
 .
 (pdftex.def)             Requested size: 110.25201pt x 113.81102pt.
-)
+ [21 <./classerrors_1_1VNFCreateError.pdf> <./classerrors_1_1VNFDeployError.pdf
+>])
 (./classerrors_1_1VNFDeployErrorWithInconsistentState.tex
-<classerrors_1_1VNFDeployErrorWithInconsistentState.pdf, id=769, 501.875pt x 29
+<classerrors_1_1VNFDeployErrorWithInconsistentState.pdf, id=992, 501.875pt x 29
 4.13892pt>
 File: classerrors_1_1VNFDeployErrorWithInconsistentState.pdf Graphic file (type
  pdf)
@@ -1269,48 +1270,46 @@ File: classerrors_1_1VNFDeployErrorWithInconsistentState.pdf Graphic file (type
 Package pdftex.def Info: classerrors_1_1VNFDeployErrorWithInconsistentState.pdf
  used on input line 7.
 (pdftex.def)             Requested size: 194.1912pt x 113.81102pt.
-
-[17 <./classerrors_1_1VNFCreateError.pdf> <./classerrors_1_1VNFDeployError.pdf>
-]) (./classerrors_1_1VNFDestroyError.tex
-<classerrors_1_1VNFDestroyError.pdf, id=793, 501.875pt x 505.0268pt>
+)
+(./classerrors_1_1VNFDestroyError.tex
+<classerrors_1_1VNFDestroyError.pdf, id=993, 501.875pt x 505.0268pt>
 File: classerrors_1_1VNFDestroyError.pdf Graphic file (type pdf)
 
 <use classerrors_1_1VNFDestroyError.pdf>
 Package pdftex.def Info: classerrors_1_1VNFDestroyError.pdf used on input line 
 7.
 (pdftex.def)             Requested size: 113.10078pt x 113.81102pt.
-)
-(./classerrors_1_1VNFHostNameIsEmptyError.tex [18 <./classerrors_1_1VNFDeployEr
-rorWithInconsistentState.pdf> <./classerrors_1_1VNFDestroyError.pdf>]
-<classerrors_1_1VNFHostNameIsEmptyError.pdf, id=816, 501.875pt x 373.48534pt>
+ [22 <./classerrors_1_1VNFDeployErrorWithInconsistentState.pdf>]) (./classerror
+s_1_1VNFHostNameIsEmptyError.tex
+<classerrors_1_1VNFHostNameIsEmptyError.pdf, id=1011, 501.875pt x 373.48534pt>
 File: classerrors_1_1VNFHostNameIsEmptyError.pdf Graphic file (type pdf)
 
 <use classerrors_1_1VNFHostNameIsEmptyError.pdf>
 Package pdftex.def Info: classerrors_1_1VNFHostNameIsEmptyError.pdf used on inp
 ut line 7.
 (pdftex.def)             Requested size: 152.92998pt x 113.81102pt.
-)
+ [23 <./classerrors_1_1VNFDestroyError.pdf> <./classerrors_1_1VNFHostNameIsEmpt
+yError.pdf>])
 (./classerrors_1_1VNFImageNameIsEmptyError.tex
-<classerrors_1_1VNFImageNameIsEmptyError.pdf, id=817, 501.875pt x 360.08527pt>
+<classerrors_1_1VNFImageNameIsEmptyError.pdf, id=1034, 501.875pt x 360.08527pt>
 File: classerrors_1_1VNFImageNameIsEmptyError.pdf Graphic file (type pdf)
-
 <use classerrors_1_1VNFImageNameIsEmptyError.pdf>
 Package pdftex.def Info: classerrors_1_1VNFImageNameIsEmptyError.pdf used on in
 put line 7.
 (pdftex.def)             Requested size: 158.62752pt x 113.81102pt.
 )
-(./classerrors_1_1VNFNameIsEmptyError.tex [19 <./classerrors_1_1VNFHostNameIsEm
-ptyError.pdf> <./classerrors_1_1VNFImageNameIsEmptyError.pdf>]
-<classerrors_1_1VNFNameIsEmptyError.pdf, id=841, 501.875pt x 420.4207pt>
+(./classerrors_1_1VNFNameIsEmptyError.tex
+<classerrors_1_1VNFNameIsEmptyError.pdf, id=1035, 501.875pt x 420.4207pt>
 File: classerrors_1_1VNFNameIsEmptyError.pdf Graphic file (type pdf)
 
 <use classerrors_1_1VNFNameIsEmptyError.pdf>
 Package pdftex.def Info: classerrors_1_1VNFNameIsEmptyError.pdf used on input l
 ine 7.
 (pdftex.def)             Requested size: 135.86032pt x 113.81102pt.
-)
+ [24 <./classerrors_1_1VNFImageNameIsEmptyError.pdf> <./classerrors_1_1VNFNameI
+sEmptyError.pdf>])
 (./classerrors_1_1VNFNotFoundError.tex
-<classerrors_1_1VNFNotFoundError.pdf, id=842, 501.875pt x 472.3547pt>
+<classerrors_1_1VNFNotFoundError.pdf, id=1055, 501.875pt x 472.3547pt>
 File: classerrors_1_1VNFNotFoundError.pdf Graphic file (type pdf)
 
 <use classerrors_1_1VNFNotFoundError.pdf>
@@ -1318,27 +1317,27 @@ Package pdftex.def Info: classerrors_1_1VNFNotFoundError.pdf used on input line
  7.
 (pdftex.def)             Requested size: 120.91959pt x 113.81102pt.
 )
-(./classerrors_1_1VNFNotRunningError.tex [20 <./classerrors_1_1VNFNameIsEmptyEr
-ror.pdf> <./classerrors_1_1VNFNotFoundError.pdf>]
-<classerrors_1_1VNFNotRunningError.pdf, id=865, 501.875pt x 446.10666pt>
+(./classerrors_1_1VNFNotRunningError.tex
+<classerrors_1_1VNFNotRunningError.pdf, id=1056, 501.875pt x 446.10666pt>
 File: classerrors_1_1VNFNotRunningError.pdf Graphic file (type pdf)
 
 <use classerrors_1_1VNFNotRunningError.pdf>
 Package pdftex.def Info: classerrors_1_1VNFNotRunningError.pdf used on input li
 ne 7.
 (pdftex.def)             Requested size: 128.03386pt x 113.81102pt.
-)
-(./classerrors_1_1VNFPauseError.tex
-<classerrors_1_1VNFPauseError.pdf, id=866, 501.875pt x 528.2937pt>
+ [25 <./classerrors_1_1VNFNotFoundError.pdf>]) (./classerrors_1_1VNFPauseError.
+tex
+<classerrors_1_1VNFPauseError.pdf, id=1075, 501.875pt x 528.2937pt>
 File: classerrors_1_1VNFPauseError.pdf Graphic file (type pdf)
 
 <use classerrors_1_1VNFPauseError.pdf>
 Package pdftex.def Info: classerrors_1_1VNFPauseError.pdf used on input line 7.
 
 (pdftex.def)             Requested size: 108.11543pt x 113.81102pt.
-) (./classerrors_1_1VNFRestartError.tex
-[21 <./classerrors_1_1VNFNotRunningError.pdf> <./classerrors_1_1VNFPauseError.p
-df>] <classerrors_1_1VNFRestartError.pdf, id=889, 501.875pt x 521.42802pt>
+ [26 <./classerrors_1_1VNFNotRunningError.pdf> <./classerrors_1_1VNFPauseError.
+pdf>])
+(./classerrors_1_1VNFRestartError.tex
+<classerrors_1_1VNFRestartError.pdf, id=1098, 501.875pt x 521.42802pt>
 File: classerrors_1_1VNFRestartError.pdf Graphic file (type pdf)
 
 <use classerrors_1_1VNFRestartError.pdf>
@@ -1346,42 +1345,48 @@ Package pdftex.def Info: classerrors_1_1VNFRestartError.pdf used on input line
 7.
 (pdftex.def)             Requested size: 109.53983pt x 113.81102pt.
 )
-(./classvnfs__operations_1_1VNFSOperations.tex [22 <./classerrors_1_1VNFRestart
-Error.pdf>]
-Underfull \hbox (badness 10000) detected at line 97
+(./classvnfs__operations_1_1VNFSOperations.tex [27 <./classerrors_1_1VNFRestart
+Error.pdf>] [28]
+Underfull \hbox (badness 10000) detected at line 148
 [][][]
  []
 
-[23] [24]
-Underfull \hbox (badness 10000) detected at line 284
+[29]
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 269.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 269.
+ [30] [31] [32] [33]
+Underfull \hbox (badness 10000) detected at line 585
 [][][]
  []
 
 ) (./classerrors_1_1VNFStartError.tex
-<classerrors_1_1VNFStartError.pdf, id=949, 501.875pt x 528.2937pt>
+<classerrors_1_1VNFStartError.pdf, id=1210, 501.875pt x 528.2937pt>
 File: classerrors_1_1VNFStartError.pdf Graphic file (type pdf)
 
 <use classerrors_1_1VNFStartError.pdf>
 Package pdftex.def Info: classerrors_1_1VNFStartError.pdf used on input line 7.
 
 (pdftex.def)             Requested size: 108.11543pt x 113.81102pt.
- [25]) (./classerrors_1_1VNFStopError.tex <classerrors_1_1VNFStopError.pdf, id=
-955, 501.875pt x 528.2937pt>
+) (./classerrors_1_1VNFStopError.tex
+<classerrors_1_1VNFStopError.pdf, id=1211, 501.875pt x 528.2937pt>
 File: classerrors_1_1VNFStopError.pdf Graphic file (type pdf)
 
 <use classerrors_1_1VNFStopError.pdf>
 Package pdftex.def Info: classerrors_1_1VNFStopError.pdf used on input line 7.
 (pdftex.def)             Requested size: 108.11543pt x 113.81102pt.
-) (./classerrors_1_1VNFUnpauseError.tex
-[26 <./classerrors_1_1VNFStartError.pdf> <./classerrors_1_1VNFStopError.pdf>]
-<classerrors_1_1VNFUnpauseError.pdf, id=978, 501.875pt x 489.62924pt>
+ [34 <./classerrors_1_1VNFStartError.pdf>]) (./classerrors_1_1VNFUnpauseError.t
+ex
+<classerrors_1_1VNFUnpauseError.pdf, id=1225, 501.875pt x 489.62924pt>
 File: classerrors_1_1VNFUnpauseError.pdf Graphic file (type pdf)
 
 <use classerrors_1_1VNFUnpauseError.pdf>
 Package pdftex.def Info: classerrors_1_1VNFUnpauseError.pdf used on input line 
 7.
 (pdftex.def)             Requested size: 116.6541pt x 113.81102pt.
-) [27 <./classerrors_1_1VNFUnpauseError.pdf>] (./refman.ind
+ [35 <./classerrors_1_1VNFStopError.pdf> <./classerrors_1_1VNFUnpauseError.pdf>
+]) [36] (./refman.ind
 Underfull \hbox (badness 10000) in paragraph at lines 4--6
 []| \T1/phv/m/n/10 hypervisor-::hypervisor-_-factory-::-Hypervisor-Factory,
  []
@@ -1391,9 +1396,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 71--73
 []| \T1/phv/m/n/10 hypervisor-::hypervisor-_-factory-::-Hypervisor-Factory,
  []
 
-[28
+[37
 
-] [29
+] [38
 
 ])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 171.
@@ -1402,7 +1407,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 171.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 171.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 171.
 Package rerunfilecheck Info: File `refman.out' has not changed.
-(rerunfilecheck)             Checksum: CF16DD2994FECE1B3D121E3AB5F8D575;15284.
+(rerunfilecheck)             Checksum: 8D1CD2F8C49F63616CB1C8638384D4F0;18617.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1410,24 +1415,60 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 171.
  ) 
 Here is how much of TeX's memory you used:
- 12775 strings out of 493109
- 193901 string characters out of 6135010
- 264347 words of memory out of 5000000
- 15711 multiletter control sequences out of 15000+600000
- 64259 words of font info for 76 fonts, out of 8000000 for 9000
+ 12858 strings out of 493109
+ 195679 string characters out of 6135010
+ 267352 words of memory out of 5000000
+ 15751 multiletter control sequences out of 15000+600000
+ 74682 words of font info for 99 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 48i,13n,43p,994b,528s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
-exlive/2014/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2
-014/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2014/tex
-mf-dist/fonts/type1/urw/helvetic/uhvb8ac.pfb></usr/local/texlive/2014/texmf-dis
-t/fonts/type1/urw/helvetic/uhvbo8ac.pfb></usr/local/texlive/2014/texmf-dist/fon
-ts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type
-1/urw/helvetic/uhvro8a.pfb>
-Output written on refman.pdf (35 pages, 210360 bytes).
+ 48i,13n,43p,992b,520s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{classvnfs__operations_1_1VNFSOperations_ac5bd7d7d
+ee80807e14bd3d4446603e32} has been referenced but does not exist, replaced by a
+ fixed one
+
+pdfTeX warning (dest): name{classnfio_1_1Nfio_ab4c25ee90129e28ddc7c88ad113869de
+} has been referenced but does not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{classhypervisor_1_1docker__driver_1_1DockerDriver_a
+85ff184ff6d720b8a8c3a95b43fde448} has been referenced but does not exist, repla
+ced by a fixed one
+
+pdfTeX warning (dest): name{classhypervisor_1_1docker__driver_1_1DockerDriver_a
+00df537b0c872efba4e3f9ec94fc0fdb} has been referenced but does not exist, repla
+ced by a fixed one
+
+pdfTeX warning (dest): name{classhypervisor_1_1docker__driver_1_1DockerDriver_a
+83b61a97d0622dcd28f5427228331066} has been referenced but does not exist, repla
+ced by a fixed one
+
+pdfTeX warning (dest): name{classhypervisor_1_1docker__driver_1_1DockerDriver_a
+f1985e434a8d28b4cc684794d3c6ff22} has been referenced but does not exist, repla
+ced by a fixed one
+
+pdfTeX warning (dest): name{classhypervisor_1_1docker__driver_1_1DockerDriver_a
+157a7d5fbac70a54f734d7accd390c52} has been referenced but does not exist, repla
+ced by a fixed one
+
+pdfTeX warning (dest): name{classhypervisor_1_1docker__driver_1_1DockerDriver_a
+8abd8619a1c911d9a88191e092899091} has been referenced but does not exist, repla
+ced by a fixed one
+
+pdfTeX warning (dest): name{classhypervisor_1_1docker__driver_1_1DockerDriver_a
+906b8d89bb01f1ba58c192d43fc6fe3e} has been referenced but does not exist, repla
+ced by a fixed one
+
+{/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/tex
+live/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texl
+ive/2014/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2014
+/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2014/texmf-
+dist/fonts/type1/urw/helvetic/uhvb8ac.pfb></usr/local/texlive/2014/texmf-dist/f
+onts/type1/urw/helvetic/uhvbo8ac.pfb></usr/local/texlive/2014/texmf-dist/fonts/
+type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/u
+rw/helvetic/uhvro8a.pfb>
+Output written on refman.pdf (44 pages, 249739 bytes).
 PDF statistics:
- 1189 PDF objects out of 1200 (max. 8388607)
- 1087 compressed objects within 11 object streams
- 283 named destinations out of 1000 (max. 500000)
- 777 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1463 PDF objects out of 1728 (max. 8388607)
+ 1348 compressed objects within 14 object streams
+ 321 named destinations out of 1000 (max. 500000)
+ 937 words of extra memory for PDF output out of 10000 (max. 10000000)
 

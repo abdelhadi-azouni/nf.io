@@ -8,75 +8,95 @@
 \contentsline {subsection}{\numberline {3.1.2}Member Function Documentation}{6}{subsection.3.1.2}
 \contentsline {subsubsection}{\numberline {3.1.2.1}deploy}{6}{subsubsection.3.1.2.1}
 \contentsline {subsubsection}{\numberline {3.1.2.2}destroy}{6}{subsubsection.3.1.2.2}
-\contentsline {subsubsection}{\numberline {3.1.2.3}execute\discretionary {-}{}{}\_\discretionary {-}{}{}in\discretionary {-}{}{}\_\discretionary {-}{}{}guest}{6}{subsubsection.3.1.2.3}
-\contentsline {subsubsection}{\numberline {3.1.2.4}get\discretionary {-}{}{}\_\discretionary {-}{}{}id}{6}{subsubsection.3.1.2.4}
+\contentsline {subsubsection}{\numberline {3.1.2.3}execute\discretionary {-}{}{}\_\discretionary {-}{}{}in\discretionary {-}{}{}\_\discretionary {-}{}{}guest}{7}{subsubsection.3.1.2.3}
+\contentsline {subsubsection}{\numberline {3.1.2.4}get\discretionary {-}{}{}\_\discretionary {-}{}{}id}{7}{subsubsection.3.1.2.4}
 \contentsline {subsubsection}{\numberline {3.1.2.5}get\discretionary {-}{}{}\_\discretionary {-}{}{}ip}{7}{subsubsection.3.1.2.5}
-\contentsline {subsubsection}{\numberline {3.1.2.6}guest\discretionary {-}{}{}\_\discretionary {-}{}{}status}{7}{subsubsection.3.1.2.6}
-\contentsline {subsubsection}{\numberline {3.1.2.7}pause}{7}{subsubsection.3.1.2.7}
-\contentsline {subsubsection}{\numberline {3.1.2.8}restart}{7}{subsubsection.3.1.2.8}
-\contentsline {subsubsection}{\numberline {3.1.2.9}start}{8}{subsubsection.3.1.2.9}
-\contentsline {subsubsection}{\numberline {3.1.2.10}stop}{8}{subsubsection.3.1.2.10}
-\contentsline {subsubsection}{\numberline {3.1.2.11}unpause}{8}{subsubsection.3.1.2.11}
-\contentsline {section}{\numberline {3.2}hypervisor.\discretionary {-}{}{}hypervisor\discretionary {-}{}{}\_\discretionary {-}{}{}base.\discretionary {-}{}{}Hypervisor\discretionary {-}{}{}Base Class Reference}{8}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Detailed Description}{9}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Member Function Documentation}{9}{subsection.3.2.2}
-\contentsline {subsubsection}{\numberline {3.2.2.1}deploy}{9}{subsubsection.3.2.2.1}
-\contentsline {subsubsection}{\numberline {3.2.2.2}destroy}{9}{subsubsection.3.2.2.2}
-\contentsline {subsubsection}{\numberline {3.2.2.3}execute\discretionary {-}{}{}\_\discretionary {-}{}{}in\discretionary {-}{}{}\_\discretionary {-}{}{}guest}{9}{subsubsection.3.2.2.3}
-\contentsline {subsubsection}{\numberline {3.2.2.4}get\discretionary {-}{}{}\_\discretionary {-}{}{}id}{9}{subsubsection.3.2.2.4}
-\contentsline {subsubsection}{\numberline {3.2.2.5}guest\discretionary {-}{}{}\_\discretionary {-}{}{}status}{10}{subsubsection.3.2.2.5}
-\contentsline {subsubsection}{\numberline {3.2.2.6}pause}{10}{subsubsection.3.2.2.6}
-\contentsline {section}{\numberline {3.3}errors.\discretionary {-}{}{}Hypervisor\discretionary {-}{}{}Connection\discretionary {-}{}{}Error Class Reference}{10}{section.3.3}
-\contentsline {section}{\numberline {3.4}errors.\discretionary {-}{}{}Hypervisor\discretionary {-}{}{}Error Class Reference}{10}{section.3.4}
-\contentsline {section}{\numberline {3.5}hypervisor.\discretionary {-}{}{}hypervisor\discretionary {-}{}{}\_\discretionary {-}{}{}factory.\discretionary {-}{}{}Hypervisor\discretionary {-}{}{}Factory Class Reference}{11}{section.3.5}
-\contentsline {subsection}{\numberline {3.5.1}Detailed Description}{12}{subsection.3.5.1}
-\contentsline {subsection}{\numberline {3.5.2}Constructor \& Destructor Documentation}{12}{subsection.3.5.2}
-\contentsline {subsubsection}{\numberline {3.5.2.1}\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}init\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}}{12}{subsubsection.3.5.2.1}
-\contentsline {subsection}{\numberline {3.5.3}Member Function Documentation}{12}{subsection.3.5.3}
-\contentsline {subsubsection}{\numberline {3.5.3.1}get\discretionary {-}{}{}\_\discretionary {-}{}{}hypervisor\discretionary {-}{}{}\_\discretionary {-}{}{}instance}{12}{subsubsection.3.5.3.1}
-\contentsline {section}{\numberline {3.6}hypervisor.\discretionary {-}{}{}libvirt\discretionary {-}{}{}\_\discretionary {-}{}{}driver.\discretionary {-}{}{}Libvirt Class Reference}{12}{section.3.6}
-\contentsline {section}{\numberline {3.7}nfio.\discretionary {-}{}{}Nfio Class Reference}{13}{section.3.7}
-\contentsline {subsection}{\numberline {3.7.1}Constructor \& Destructor Documentation}{14}{subsection.3.7.1}
-\contentsline {subsubsection}{\numberline {3.7.1.1}\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}init\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}}{14}{subsubsection.3.7.1.1}
-\contentsline {subsection}{\numberline {3.7.2}Member Function Documentation}{14}{subsection.3.7.2}
-\contentsline {subsubsection}{\numberline {3.7.2.1}getattr}{14}{subsubsection.3.7.2.1}
-\contentsline {subsubsection}{\numberline {3.7.2.2}mkdir}{14}{subsubsection.3.7.2.2}
-\contentsline {subsubsection}{\numberline {3.7.2.3}read}{14}{subsubsection.3.7.2.3}
-\contentsline {subsubsection}{\numberline {3.7.2.4}write}{14}{subsubsection.3.7.2.4}
-\contentsline {section}{\numberline {3.8}errors.\discretionary {-}{}{}nfio\discretionary {-}{}{}Error Class Reference}{15}{section.3.8}
-\contentsline {subsection}{\numberline {3.8.1}Detailed Description}{15}{subsection.3.8.1}
-\contentsline {section}{\numberline {3.9}errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Command\discretionary {-}{}{}Execution\discretionary {-}{}{}Error Class Reference}{15}{section.3.9}
-\contentsline {section}{\numberline {3.10}errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Configuration\discretionary {-}{}{}Error Class Reference}{16}{section.3.10}
-\contentsline {section}{\numberline {3.11}errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Create\discretionary {-}{}{}Error Class Reference}{16}{section.3.11}
-\contentsline {section}{\numberline {3.12}errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Deploy\discretionary {-}{}{}Error Class Reference}{17}{section.3.12}
-\contentsline {section}{\numberline {3.13}errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Deploy\discretionary {-}{}{}Error\discretionary {-}{}{}With\discretionary {-}{}{}Inconsistent\discretionary {-}{}{}State Class Reference}{18}{section.3.13}
-\contentsline {section}{\numberline {3.14}errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Destroy\discretionary {-}{}{}Error Class Reference}{18}{section.3.14}
-\contentsline {section}{\numberline {3.15}errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Host\discretionary {-}{}{}Name\discretionary {-}{}{}Is\discretionary {-}{}{}Empty\discretionary {-}{}{}Error Class Reference}{19}{section.3.15}
-\contentsline {section}{\numberline {3.16}errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Image\discretionary {-}{}{}Name\discretionary {-}{}{}Is\discretionary {-}{}{}Empty\discretionary {-}{}{}Error Class Reference}{19}{section.3.16}
-\contentsline {section}{\numberline {3.17}errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Name\discretionary {-}{}{}Is\discretionary {-}{}{}Empty\discretionary {-}{}{}Error Class Reference}{20}{section.3.17}
-\contentsline {section}{\numberline {3.18}errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Not\discretionary {-}{}{}Found\discretionary {-}{}{}Error Class Reference}{20}{section.3.18}
-\contentsline {section}{\numberline {3.19}errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Not\discretionary {-}{}{}Running\discretionary {-}{}{}Error Class Reference}{21}{section.3.19}
-\contentsline {section}{\numberline {3.20}errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Pause\discretionary {-}{}{}Error Class Reference}{21}{section.3.20}
-\contentsline {section}{\numberline {3.21}errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Restart\discretionary {-}{}{}Error Class Reference}{22}{section.3.21}
-\contentsline {section}{\numberline {3.22}vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}operations.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}S\discretionary {-}{}{}Operations Class Reference}{22}{section.3.22}
-\contentsline {subsection}{\numberline {3.22.1}Detailed Description}{23}{subsection.3.22.1}
-\contentsline {subsection}{\numberline {3.22.2}Member Function Documentation}{23}{subsection.3.22.2}
-\contentsline {subsubsection}{\numberline {3.22.2.1}vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}create\discretionary {-}{}{}\_\discretionary {-}{}{}vnf\discretionary {-}{}{}\_\discretionary {-}{}{}instance}{23}{subsubsection.3.22.2.1}
-\contentsline {subsubsection}{\numberline {3.22.2.2}vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}deploy\discretionary {-}{}{}\_\discretionary {-}{}{}nf}{23}{subsubsection.3.22.2.2}
-\contentsline {subsubsection}{\numberline {3.22.2.3}vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}destroy\discretionary {-}{}{}\_\discretionary {-}{}{}vnf}{24}{subsubsection.3.22.2.3}
-\contentsline {subsubsection}{\numberline {3.22.2.4}vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}file\discretionary {-}{}{}\_\discretionary {-}{}{}name}{24}{subsubsection.3.22.2.4}
-\contentsline {subsubsection}{\numberline {3.22.2.5}vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}instance\discretionary {-}{}{}\_\discretionary {-}{}{}configuration}{24}{subsubsection.3.22.2.5}
-\contentsline {subsubsection}{\numberline {3.22.2.6}vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}ip}{24}{subsubsection.3.22.2.6}
-\contentsline {subsubsection}{\numberline {3.22.2.7}vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}nf\discretionary {-}{}{}\_\discretionary {-}{}{}type}{24}{subsubsection.3.22.2.7}
-\contentsline {subsubsection}{\numberline {3.22.2.8}vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}opcode}{24}{subsubsection.3.22.2.8}
-\contentsline {subsubsection}{\numberline {3.22.2.9}vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}pkt\discretionary {-}{}{}\_\discretionary {-}{}{}drops}{24}{subsubsection.3.22.2.9}
-\contentsline {subsubsection}{\numberline {3.22.2.10}vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}rx\discretionary {-}{}{}\_\discretionary {-}{}{}bytes}{25}{subsubsection.3.22.2.10}
-\contentsline {subsubsection}{\numberline {3.22.2.11}vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}status}{25}{subsubsection.3.22.2.11}
-\contentsline {subsubsection}{\numberline {3.22.2.12}vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}tx\discretionary {-}{}{}\_\discretionary {-}{}{}bytes}{25}{subsubsection.3.22.2.12}
-\contentsline {subsubsection}{\numberline {3.22.2.13}vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}is\discretionary {-}{}{}\_\discretionary {-}{}{}nf\discretionary {-}{}{}\_\discretionary {-}{}{}instance}{25}{subsubsection.3.22.2.13}
-\contentsline {subsubsection}{\numberline {3.22.2.14}vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}start\discretionary {-}{}{}\_\discretionary {-}{}{}vnf}{25}{subsubsection.3.22.2.14}
-\contentsline {subsubsection}{\numberline {3.22.2.15}vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}stop\discretionary {-}{}{}\_\discretionary {-}{}{}vnf}{25}{subsubsection.3.22.2.15}
-\contentsline {section}{\numberline {3.23}errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Start\discretionary {-}{}{}Error Class Reference}{26}{section.3.23}
-\contentsline {section}{\numberline {3.24}errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Stop\discretionary {-}{}{}Error Class Reference}{26}{section.3.24}
-\contentsline {section}{\numberline {3.25}errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Unpause\discretionary {-}{}{}Error Class Reference}{27}{section.3.25}
-\contentsline {chapter}{Index}{28}{section*.44}
+\contentsline {subsubsection}{\numberline {3.1.2.6}guest\discretionary {-}{}{}\_\discretionary {-}{}{}status}{8}{subsubsection.3.1.2.6}
+\contentsline {subsubsection}{\numberline {3.1.2.7}pause}{8}{subsubsection.3.1.2.7}
+\contentsline {subsubsection}{\numberline {3.1.2.8}restart}{8}{subsubsection.3.1.2.8}
+\contentsline {subsubsection}{\numberline {3.1.2.9}start}{9}{subsubsection.3.1.2.9}
+\contentsline {subsubsection}{\numberline {3.1.2.10}stop}{9}{subsubsection.3.1.2.10}
+\contentsline {subsubsection}{\numberline {3.1.2.11}unpause}{9}{subsubsection.3.1.2.11}
+\contentsline {section}{\numberline {3.2}hypervisor.\discretionary {-}{}{}hypervisor\discretionary {-}{}{}\_\discretionary {-}{}{}base.\discretionary {-}{}{}Hypervisor\discretionary {-}{}{}Base Class Reference}{10}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Detailed Description}{10}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Member Function Documentation}{11}{subsection.3.2.2}
+\contentsline {subsubsection}{\numberline {3.2.2.1}deploy}{11}{subsubsection.3.2.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2.2}destroy}{11}{subsubsection.3.2.2.2}
+\contentsline {subsubsection}{\numberline {3.2.2.3}execute\discretionary {-}{}{}\_\discretionary {-}{}{}in\discretionary {-}{}{}\_\discretionary {-}{}{}guest}{11}{subsubsection.3.2.2.3}
+\contentsline {subsubsection}{\numberline {3.2.2.4}get\discretionary {-}{}{}\_\discretionary {-}{}{}id}{11}{subsubsection.3.2.2.4}
+\contentsline {subsubsection}{\numberline {3.2.2.5}guest\discretionary {-}{}{}\_\discretionary {-}{}{}status}{12}{subsubsection.3.2.2.5}
+\contentsline {subsubsection}{\numberline {3.2.2.6}pause}{12}{subsubsection.3.2.2.6}
+\contentsline {section}{\numberline {3.3}errors.\discretionary {-}{}{}Hypervisor\discretionary {-}{}{}Connection\discretionary {-}{}{}Error Class Reference}{12}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Detailed Description}{13}{subsection.3.3.1}
+\contentsline {section}{\numberline {3.4}errors.\discretionary {-}{}{}Hypervisor\discretionary {-}{}{}Error Class Reference}{13}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Detailed Description}{13}{subsection.3.4.1}
+\contentsline {section}{\numberline {3.5}hypervisor.\discretionary {-}{}{}hypervisor\discretionary {-}{}{}\_\discretionary {-}{}{}factory.\discretionary {-}{}{}Hypervisor\discretionary {-}{}{}Factory Class Reference}{13}{section.3.5}
+\contentsline {subsection}{\numberline {3.5.1}Detailed Description}{14}{subsection.3.5.1}
+\contentsline {subsection}{\numberline {3.5.2}Constructor \& Destructor Documentation}{14}{subsection.3.5.2}
+\contentsline {subsubsection}{\numberline {3.5.2.1}\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}init\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}}{14}{subsubsection.3.5.2.1}
+\contentsline {subsection}{\numberline {3.5.3}Member Function Documentation}{15}{subsection.3.5.3}
+\contentsline {subsubsection}{\numberline {3.5.3.1}get\discretionary {-}{}{}\_\discretionary {-}{}{}hypervisor\discretionary {-}{}{}\_\discretionary {-}{}{}instance}{15}{subsubsection.3.5.3.1}
+\contentsline {section}{\numberline {3.6}hypervisor.\discretionary {-}{}{}libvirt\discretionary {-}{}{}\_\discretionary {-}{}{}driver.\discretionary {-}{}{}Libvirt Class Reference}{15}{section.3.6}
+\contentsline {subsection}{\numberline {3.6.1}Detailed Description}{15}{subsection.3.6.1}
+\contentsline {section}{\numberline {3.7}nfio.\discretionary {-}{}{}Nfio Class Reference}{15}{section.3.7}
+\contentsline {subsection}{\numberline {3.7.1}Detailed Description}{16}{subsection.3.7.1}
+\contentsline {subsection}{\numberline {3.7.2}Constructor \& Destructor Documentation}{17}{subsection.3.7.2}
+\contentsline {subsubsection}{\numberline {3.7.2.1}\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}init\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}}{17}{subsubsection.3.7.2.1}
+\contentsline {subsection}{\numberline {3.7.3}Member Function Documentation}{17}{subsection.3.7.3}
+\contentsline {subsubsection}{\numberline {3.7.3.1}getattr}{17}{subsubsection.3.7.3.1}
+\contentsline {subsubsection}{\numberline {3.7.3.2}mkdir}{18}{subsubsection.3.7.3.2}
+\contentsline {subsubsection}{\numberline {3.7.3.3}read}{18}{subsubsection.3.7.3.3}
+\contentsline {subsubsection}{\numberline {3.7.3.4}write}{19}{subsubsection.3.7.3.4}
+\contentsline {section}{\numberline {3.8}errors.\discretionary {-}{}{}nfio\discretionary {-}{}{}Error Class Reference}{19}{section.3.8}
+\contentsline {subsection}{\numberline {3.8.1}Detailed Description}{20}{subsection.3.8.1}
+\contentsline {section}{\numberline {3.9}errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Command\discretionary {-}{}{}Execution\discretionary {-}{}{}Error Class Reference}{20}{section.3.9}
+\contentsline {subsection}{\numberline {3.9.1}Detailed Description}{20}{subsection.3.9.1}
+\contentsline {section}{\numberline {3.10}errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Configuration\discretionary {-}{}{}Error Class Reference}{20}{section.3.10}
+\contentsline {subsection}{\numberline {3.10.1}Detailed Description}{21}{subsection.3.10.1}
+\contentsline {section}{\numberline {3.11}errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Create\discretionary {-}{}{}Error Class Reference}{21}{section.3.11}
+\contentsline {subsection}{\numberline {3.11.1}Detailed Description}{21}{subsection.3.11.1}
+\contentsline {section}{\numberline {3.12}errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Deploy\discretionary {-}{}{}Error Class Reference}{21}{section.3.12}
+\contentsline {subsection}{\numberline {3.12.1}Detailed Description}{22}{subsection.3.12.1}
+\contentsline {section}{\numberline {3.13}errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Deploy\discretionary {-}{}{}Error\discretionary {-}{}{}With\discretionary {-}{}{}Inconsistent\discretionary {-}{}{}State Class Reference}{22}{section.3.13}
+\contentsline {subsection}{\numberline {3.13.1}Detailed Description}{22}{subsection.3.13.1}
+\contentsline {section}{\numberline {3.14}errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Destroy\discretionary {-}{}{}Error Class Reference}{22}{section.3.14}
+\contentsline {subsection}{\numberline {3.14.1}Detailed Description}{23}{subsection.3.14.1}
+\contentsline {section}{\numberline {3.15}errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Host\discretionary {-}{}{}Name\discretionary {-}{}{}Is\discretionary {-}{}{}Empty\discretionary {-}{}{}Error Class Reference}{23}{section.3.15}
+\contentsline {subsection}{\numberline {3.15.1}Detailed Description}{24}{subsection.3.15.1}
+\contentsline {section}{\numberline {3.16}errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Image\discretionary {-}{}{}Name\discretionary {-}{}{}Is\discretionary {-}{}{}Empty\discretionary {-}{}{}Error Class Reference}{24}{section.3.16}
+\contentsline {subsection}{\numberline {3.16.1}Detailed Description}{24}{subsection.3.16.1}
+\contentsline {section}{\numberline {3.17}errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Name\discretionary {-}{}{}Is\discretionary {-}{}{}Empty\discretionary {-}{}{}Error Class Reference}{24}{section.3.17}
+\contentsline {subsection}{\numberline {3.17.1}Detailed Description}{25}{subsection.3.17.1}
+\contentsline {section}{\numberline {3.18}errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Not\discretionary {-}{}{}Found\discretionary {-}{}{}Error Class Reference}{25}{section.3.18}
+\contentsline {subsection}{\numberline {3.18.1}Detailed Description}{25}{subsection.3.18.1}
+\contentsline {section}{\numberline {3.19}errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Not\discretionary {-}{}{}Running\discretionary {-}{}{}Error Class Reference}{25}{section.3.19}
+\contentsline {subsection}{\numberline {3.19.1}Detailed Description}{26}{subsection.3.19.1}
+\contentsline {section}{\numberline {3.20}errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Pause\discretionary {-}{}{}Error Class Reference}{26}{section.3.20}
+\contentsline {subsection}{\numberline {3.20.1}Detailed Description}{27}{subsection.3.20.1}
+\contentsline {section}{\numberline {3.21}errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Restart\discretionary {-}{}{}Error Class Reference}{27}{section.3.21}
+\contentsline {subsection}{\numberline {3.21.1}Detailed Description}{27}{subsection.3.21.1}
+\contentsline {section}{\numberline {3.22}vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}operations.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}S\discretionary {-}{}{}Operations Class Reference}{27}{section.3.22}
+\contentsline {subsection}{\numberline {3.22.1}Detailed Description}{28}{subsection.3.22.1}
+\contentsline {subsection}{\numberline {3.22.2}Member Function Documentation}{28}{subsection.3.22.2}
+\contentsline {subsubsection}{\numberline {3.22.2.1}vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}create\discretionary {-}{}{}\_\discretionary {-}{}{}vnf\discretionary {-}{}{}\_\discretionary {-}{}{}instance}{28}{subsubsection.3.22.2.1}
+\contentsline {subsubsection}{\numberline {3.22.2.2}vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}deploy\discretionary {-}{}{}\_\discretionary {-}{}{}nf}{29}{subsubsection.3.22.2.2}
+\contentsline {subsubsection}{\numberline {3.22.2.3}vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}destroy\discretionary {-}{}{}\_\discretionary {-}{}{}vnf}{30}{subsubsection.3.22.2.3}
+\contentsline {subsubsection}{\numberline {3.22.2.4}vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}file\discretionary {-}{}{}\_\discretionary {-}{}{}name}{30}{subsubsection.3.22.2.4}
+\contentsline {subsubsection}{\numberline {3.22.2.5}vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}instance\discretionary {-}{}{}\_\discretionary {-}{}{}configuration}{30}{subsubsection.3.22.2.5}
+\contentsline {subsubsection}{\numberline {3.22.2.6}vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}ip}{30}{subsubsection.3.22.2.6}
+\contentsline {subsubsection}{\numberline {3.22.2.7}vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}nf\discretionary {-}{}{}\_\discretionary {-}{}{}type}{31}{subsubsection.3.22.2.7}
+\contentsline {subsubsection}{\numberline {3.22.2.8}vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}opcode}{31}{subsubsection.3.22.2.8}
+\contentsline {subsubsection}{\numberline {3.22.2.9}vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}pkt\discretionary {-}{}{}\_\discretionary {-}{}{}drops}{31}{subsubsection.3.22.2.9}
+\contentsline {subsubsection}{\numberline {3.22.2.10}vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}rx\discretionary {-}{}{}\_\discretionary {-}{}{}bytes}{32}{subsubsection.3.22.2.10}
+\contentsline {subsubsection}{\numberline {3.22.2.11}vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}status}{32}{subsubsection.3.22.2.11}
+\contentsline {subsubsection}{\numberline {3.22.2.12}vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}tx\discretionary {-}{}{}\_\discretionary {-}{}{}bytes}{32}{subsubsection.3.22.2.12}
+\contentsline {subsubsection}{\numberline {3.22.2.13}vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}is\discretionary {-}{}{}\_\discretionary {-}{}{}nf\discretionary {-}{}{}\_\discretionary {-}{}{}instance}{33}{subsubsection.3.22.2.13}
+\contentsline {subsubsection}{\numberline {3.22.2.14}vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}start\discretionary {-}{}{}\_\discretionary {-}{}{}vnf}{33}{subsubsection.3.22.2.14}
+\contentsline {subsubsection}{\numberline {3.22.2.15}vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}stop\discretionary {-}{}{}\_\discretionary {-}{}{}vnf}{33}{subsubsection.3.22.2.15}
+\contentsline {section}{\numberline {3.23}errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Start\discretionary {-}{}{}Error Class Reference}{34}{section.3.23}
+\contentsline {subsection}{\numberline {3.23.1}Detailed Description}{34}{subsection.3.23.1}
+\contentsline {section}{\numberline {3.24}errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Stop\discretionary {-}{}{}Error Class Reference}{34}{section.3.24}
+\contentsline {subsection}{\numberline {3.24.1}Detailed Description}{35}{subsection.3.24.1}
+\contentsline {section}{\numberline {3.25}errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Unpause\discretionary {-}{}{}Error Class Reference}{35}{section.3.25}
+\contentsline {subsection}{\numberline {3.25.1}Detailed Description}{36}{subsection.3.25.1}
+\contentsline {chapter}{Index}{37}{section*.44}

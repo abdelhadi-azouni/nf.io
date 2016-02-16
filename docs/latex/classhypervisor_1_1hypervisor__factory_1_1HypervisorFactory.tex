@@ -29,6 +29,10 @@ A singletone class for creating hypervisor driver objects.
 
 For an instantiation of nf.\-io there can be exactly one object of only one type of hyperviosr. Hyervisor\-Factory takes care of the creation logic. 
 
+Definition at line 11 of file hypervisor\-\_\-factory.\-py.
+
+
+
 \subsection{Constructor \& Destructor Documentation}
 \hypertarget{classhypervisor_1_1hypervisor__factory_1_1HypervisorFactory_ab1691cc3620d76c0a266e0fd469548ad}{\index{hypervisor\-::hypervisor\-\_\-factory\-::\-Hypervisor\-Factory@{hypervisor\-::hypervisor\-\_\-factory\-::\-Hypervisor\-Factory}!\-\_\-\-\_\-init\-\_\-\-\_\-@{\-\_\-\-\_\-init\-\_\-\-\_\-}}
 \index{\-\_\-\-\_\-init\-\_\-\-\_\-@{\-\_\-\-\_\-init\-\_\-\-\_\-}!hypervisor::hypervisor_factory::HypervisorFactory@{hypervisor\-::hypervisor\-\_\-factory\-::\-Hypervisor\-Factory}}
@@ -50,6 +54,31 @@ Note\-: If this factory class is instantiated multiple times with different type
 
 If this factory class is instantiated with a hypervisor type other than Docker or Libvirt it raises a Type\-Error. 
 
+Definition at line 34 of file hypervisor\-\_\-factory.\-py.
+
+
+\begin{DoxyCode}
+34 
+35     \textcolor{keyword}{def }\hyperlink{classhypervisor_1_1hypervisor__factory_1_1HypervisorFactory_ab1691cc3620d76c0a266e0fd469548ad}{\_\_init\_\_}(self, hypervisor\_type="DockerDriver"):
+36         \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} HypervisorFactory.\_\_hyp\_instance:
+37             \textcolor{keywordflow}{if} hypervisor\_type == \textcolor{stringliteral}{"DockerDriver"}:
+38                 HypervisorFactory.\_\_hyp\_instance\_type = hypervisor\_type
+39                 HypervisorFactory.\_\_hyp\_instance = DockerDriver()
+40             \textcolor{keywordflow}{elif} hypervisor\_type == \textcolor{stringliteral}{"Libvirt"}:
+41                 HypervisorFactory.\_\_hyp\_instance\_type = hypervisor\_type
+42                 HypervisorFactory.\_\_hyp\_instance = Libvirt()
+43             \textcolor{keywordflow}{else}:
+44                 \textcolor{keywordflow}{raise} TypeError(
+45                     \textcolor{stringliteral}{"Invalid hypervisor type. Valid types are: Docker, Libvirt"})
+46         \textcolor{keywordflow}{elif} HypervisorFactory.\_\_hyp\_instance\_type != hypervisor\_type:
+47             \textcolor{keywordflow}{raise} ValueError(
+48                 \textcolor{stringliteral}{"An instantiation of type "} +
+49                 HypervisorFactory.\_\_hyp\_instance\_type +
+50                 \textcolor{stringliteral}{" already exists."})
+
+\end{DoxyCode}
+
+
 \subsection{Member Function Documentation}
 \hypertarget{classhypervisor_1_1hypervisor__factory_1_1HypervisorFactory_ade4356e4251e644d580f8c1c53fc704e}{\index{hypervisor\-::hypervisor\-\_\-factory\-::\-Hypervisor\-Factory@{hypervisor\-::hypervisor\-\_\-factory\-::\-Hypervisor\-Factory}!get\-\_\-hypervisor\-\_\-instance@{get\-\_\-hypervisor\-\_\-instance}}
 \index{get\-\_\-hypervisor\-\_\-instance@{get\-\_\-hypervisor\-\_\-instance}!hypervisor::hypervisor_factory::HypervisorFactory@{hypervisor\-::hypervisor\-\_\-factory\-::\-Hypervisor\-Factory}}
@@ -63,6 +92,19 @@ If this factory class is instantiated with a hypervisor type other than Docker o
 Returns the hypervisor driver nstance. 
 
 If the instance is not initialized then a Runtime\-Error is raised. 
+
+Definition at line 57 of file hypervisor\-\_\-factory.\-py.
+
+
+\begin{DoxyCode}
+57 
+58     \textcolor{keyword}{def }\hyperlink{classhypervisor_1_1hypervisor__factory_1_1HypervisorFactory_ade4356e4251e644d580f8c1c53fc704e}{get\_hypervisor\_instance}():
+59         \textcolor{keywordflow}{if} HypervisorFactory.\_\_hyp\_instance \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:
+60             \textcolor{keywordflow}{return} HypervisorFactory.\_\_hyp\_instance
+61         \textcolor{keywordflow}{else}:
+62             \textcolor{keywordflow}{raise} RuntimeError(\textcolor{stringliteral}{"Hypervisor not initialized."})
+\end{DoxyCode}
+
 
 The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
 \item 

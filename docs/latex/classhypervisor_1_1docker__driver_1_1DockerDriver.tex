@@ -47,6 +47,10 @@ docker driver for nfio.
 
 This class provides methods for managing docker containers. 
 
+Definition at line 20 of file docker\-\_\-driver.\-py.
+
+
+
 \subsection{Member Function Documentation}
 \hypertarget{classhypervisor_1_1docker__driver_1_1DockerDriver_a9b0a6af05425f986bdc54495e9bd62c5}{\index{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver@{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver}!deploy@{deploy}}
 \index{deploy@{deploy}!hypervisor::docker_driver::DockerDriver@{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver}}
@@ -80,6 +84,31 @@ Deploys a docker container.
 \begin{DoxyReturn}{Returns}
 docker container I\-D 
 \end{DoxyReturn}
+
+
+Definition at line 166 of file docker\-\_\-driver.\-py.
+
+
+\begin{DoxyCode}
+166 
+167     \textcolor{keyword}{def }\hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_a9b0a6af05425f986bdc54495e9bd62c5}{deploy}(self, host, user, image\_name, vnf\_name, is\_privileged=True):
+168         self.\hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_a906b8d89bb01f1ba58c192d43fc6fe3e}{\_validate\_host}(host)
+169         self.\hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_a8abd8619a1c911d9a88191e092899091}{\_validate\_image\_name}(image\_name)
+170         vnf\_fullname = user + \textcolor{stringliteral}{'-'} + vnf\_name
+171         self.\hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_a157a7d5fbac70a54f734d7accd390c52}{\_validate\_cont\_name}(vnf\_fullname)
+172         dcx = self.\hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_af1985e434a8d28b4cc684794d3c6ff22}{\_get\_client}(host)
+173         host\_config = dict()
+174         \textcolor{keywordflow}{if} is\_privileged:
+175             host\_config[\textcolor{stringliteral}{'Privileged'}] = \textcolor{keyword}{True}
+176         with self.\hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_a83b61a97d0622dcd28f5427228331066}{\_error\_handling}(\hyperlink{classerrors_1_1VNFDeployError}{errors.VNFDeployError}):
+177             container = dcx.create\_container(
+178                 image=image\_name,
+179                 hostname=host,
+180                 name=vnf\_fullname,
+181                 host\_config=host\_config)
+182             \textcolor{keywordflow}{return} container[\textcolor{stringliteral}{'Id'}]
+
+\end{DoxyCode}
 \hypertarget{classhypervisor_1_1docker__driver_1_1DockerDriver_ad66fd3d60fbee2760aa6b66d996eff3c}{\index{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver@{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver}!destroy@{destroy}}
 \index{destroy@{destroy}!hypervisor::docker_driver::DockerDriver@{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver}}
 \subsubsection[{destroy}]{\setlength{\rightskip}{0pt plus 5cm}def hypervisor.\-docker\-\_\-driver.\-Docker\-Driver.\-destroy (
@@ -106,6 +135,19 @@ Destroys a docker container.
 {\em force} & if set to False then a running V\-N\-F will not be destroyed. default is True \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line 267 of file docker\-\_\-driver.\-py.
+
+
+\begin{DoxyCode}
+267 
+268     \textcolor{keyword}{def }\hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_ad66fd3d60fbee2760aa6b66d996eff3c}{destroy}(self, host, user, vnf\_name, force=True):
+269         dcx, vnf\_fullname, inspect\_data = self.\hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_a00df537b0c872efba4e3f9ec94fc0fdb}{\_lookup\_vnf}(host, user, vnf\_name)
+270         with self.\hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_a83b61a97d0622dcd28f5427228331066}{\_error\_handling}(\hyperlink{classerrors_1_1VNFDestroyError}{errors.VNFDestroyError}):
+271             dcx.remove\_container(container=vnf\_fullname, force=force)
+
+\end{DoxyCode}
 \hypertarget{classhypervisor_1_1docker__driver_1_1DockerDriver_a3df8e1aeea3e30e2fef5a5d41de08159}{\index{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver@{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver}!execute\-\_\-in\-\_\-guest@{execute\-\_\-in\-\_\-guest}}
 \index{execute\-\_\-in\-\_\-guest@{execute\-\_\-in\-\_\-guest}!hypervisor::docker_driver::DockerDriver@{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver}}
 \subsubsection[{execute\-\_\-in\-\_\-guest}]{\setlength{\rightskip}{0pt plus 5cm}def hypervisor.\-docker\-\_\-driver.\-Docker\-Driver.\-execute\-\_\-in\-\_\-guest (
@@ -135,6 +177,24 @@ Executed commands inside a docker container.
 \begin{DoxyReturn}{Returns}
 The output of the command passes as cmd 
 \end{DoxyReturn}
+
+
+Definition at line 284 of file docker\-\_\-driver.\-py.
+
+
+\begin{DoxyCode}
+284 
+285     \textcolor{keyword}{def }\hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_a3df8e1aeea3e30e2fef5a5d41de08159}{execute\_in\_guest}(self, host, user, vnf\_name, cmd):
+286         dcx, vnf\_fullname, inspect\_data = self.\hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_a00df537b0c872efba4e3f9ec94fc0fdb}{\_lookup\_vnf}(host, user, vnf\_name)
+287         \textcolor{keywordflow}{if} self.\hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_aabbac18594c9b6a4ee869846996c26ae}{guest\_status}(host, user, vnf\_name) != \textcolor{stringliteral}{'running'}:
+288             \textcolor{keywordflow}{raise} \hyperlink{classerrors_1_1VNFNotRunningError}{errors.VNFNotRunningError}
+289         with self.\hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_a83b61a97d0622dcd28f5427228331066}{\_error\_handling}(\hyperlink{classerrors_1_1VNFCommandExecutionError}{errors.VNFCommandExecutionError}
+      ):
+290             response = dcx.execute(vnf\_fullname, 
+291                 [\textcolor{stringliteral}{"/bin/bash"}, \textcolor{stringliteral}{"-c"}, cmd], stdout=\textcolor{keyword}{True}, stderr=\textcolor{keyword}{False})
+292             \textcolor{keywordflow}{return} response
+
+\end{DoxyCode}
 \hypertarget{classhypervisor_1_1docker__driver_1_1DockerDriver_aedbd13cb76524d01894fcae539444f1b}{\index{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver@{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver}!get\-\_\-id@{get\-\_\-id}}
 \index{get\-\_\-id@{get\-\_\-id}!hypervisor::docker_driver::DockerDriver@{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver}}
 \subsubsection[{get\-\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}def hypervisor.\-docker\-\_\-driver.\-Docker\-Driver.\-get\-\_\-id (
@@ -161,6 +221,18 @@ Returns a container's I\-D.
 \begin{DoxyReturn}{Returns}
 docker container I\-D. 
 \end{DoxyReturn}
+
+
+Definition at line 130 of file docker\-\_\-driver.\-py.
+
+
+\begin{DoxyCode}
+130 
+131     \textcolor{keyword}{def }\hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_aedbd13cb76524d01894fcae539444f1b}{get\_id}(self, host, user, vnf\_name):
+132         dcx, vnf\_fullname, inspect\_data = self.\hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_a00df537b0c872efba4e3f9ec94fc0fdb}{\_lookup\_vnf}(host, user, vnf\_name)
+133         \textcolor{keywordflow}{return} inspect\_data[\textcolor{stringliteral}{'Id'}].encode(\textcolor{stringliteral}{'ascii'})
+
+\end{DoxyCode}
 \hypertarget{classhypervisor_1_1docker__driver_1_1DockerDriver_a56041a2a0afad5971b1fb5cb465b6ff6}{\index{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver@{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver}!get\-\_\-ip@{get\-\_\-ip}}
 \index{get\-\_\-ip@{get\-\_\-ip}!hypervisor::docker_driver::DockerDriver@{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver}}
 \subsubsection[{get\-\_\-ip}]{\setlength{\rightskip}{0pt plus 5cm}def hypervisor.\-docker\-\_\-driver.\-Docker\-Driver.\-get\-\_\-ip (
@@ -187,6 +259,20 @@ Returns a container's I\-P address.
 \begin{DoxyReturn}{Returns}
 docker container's I\-P. 
 \end{DoxyReturn}
+
+
+Definition at line 145 of file docker\-\_\-driver.\-py.
+
+
+\begin{DoxyCode}
+145 
+146     \textcolor{keyword}{def }\hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_a56041a2a0afad5971b1fb5cb465b6ff6}{get\_ip}(self, host, user, vnf\_name):
+147         \textcolor{keywordflow}{if} self.\hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_aabbac18594c9b6a4ee869846996c26ae}{guest\_status}(host, user, vnf\_name) != \textcolor{stringliteral}{'running'}:
+148             \textcolor{keywordflow}{raise} \hyperlink{classerrors_1_1VNFNotRunningError}{errors.VNFNotRunningError}
+149         dcx, vnf\_fullname, inspect\_data = self.\hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_a00df537b0c872efba4e3f9ec94fc0fdb}{\_lookup\_vnf}(host, user, vnf\_name)
+150         \textcolor{keywordflow}{return} inspect\_data[\textcolor{stringliteral}{'NetworkSettings'}][\textcolor{stringliteral}{'IPAddress'}].encode(\textcolor{stringliteral}{'ascii'})
+
+\end{DoxyCode}
 \hypertarget{classhypervisor_1_1docker__driver_1_1DockerDriver_aabbac18594c9b6a4ee869846996c26ae}{\index{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver@{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver}!guest\-\_\-status@{guest\-\_\-status}}
 \index{guest\-\_\-status@{guest\-\_\-status}!hypervisor::docker_driver::DockerDriver@{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver}}
 \subsubsection[{guest\-\_\-status}]{\setlength{\rightskip}{0pt plus 5cm}def hypervisor.\-docker\-\_\-driver.\-Docker\-Driver.\-guest\-\_\-status (
@@ -213,6 +299,17 @@ Returns the status of a docker container.
 \begin{DoxyReturn}{Returns}
 current state of the docker container 
 \end{DoxyReturn}
+
+
+Definition at line 304 of file docker\-\_\-driver.\-py.
+
+
+\begin{DoxyCode}
+304 
+305     \textcolor{keyword}{def }\hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_aabbac18594c9b6a4ee869846996c26ae}{guest\_status}(self, host, user, vnf\_name):
+306         dcx, vnf\_fullname, inspect\_data = self.\hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_a00df537b0c872efba4e3f9ec94fc0fdb}{\_lookup\_vnf}(host, user, vnf\_name)
+307         \textcolor{keywordflow}{return} inspect\_data[\textcolor{stringliteral}{'State'}][\textcolor{stringliteral}{'Status'}].encode(\textcolor{stringliteral}{'ascii'})
+\end{DoxyCode}
 \hypertarget{classhypervisor_1_1docker__driver_1_1DockerDriver_a9ffd3b0cb02e1f292a609e1d500e683f}{\index{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver@{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver}!pause@{pause}}
 \index{pause@{pause}!hypervisor::docker_driver::DockerDriver@{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver}}
 \subsubsection[{pause}]{\setlength{\rightskip}{0pt plus 5cm}def hypervisor.\-docker\-\_\-driver.\-Docker\-Driver.\-pause (
@@ -236,6 +333,19 @@ Pauses a docker container.
 {\em vnf\-\_\-name} & name of the V\-N\-F \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line 238 of file docker\-\_\-driver.\-py.
+
+
+\begin{DoxyCode}
+238 
+239     \textcolor{keyword}{def }\hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_a9ffd3b0cb02e1f292a609e1d500e683f}{pause}(self, host, user, vnf\_name):
+240         dcx, vnf\_fullname, inspect\_data = self.\hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_a00df537b0c872efba4e3f9ec94fc0fdb}{\_lookup\_vnf}(host, user, vnf\_name)
+241         with self.\hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_a83b61a97d0622dcd28f5427228331066}{\_error\_handling}(\hyperlink{classerrors_1_1VNFPauseError}{errors.VNFPauseError}):
+242             dcx.pause(container=vnf\_fullname)
+
+\end{DoxyCode}
 \hypertarget{classhypervisor_1_1docker__driver_1_1DockerDriver_abbb36db4303f0613d9013f3c2b9bfe84}{\index{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver@{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver}!restart@{restart}}
 \index{restart@{restart}!hypervisor::docker_driver::DockerDriver@{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver}}
 \subsubsection[{restart}]{\setlength{\rightskip}{0pt plus 5cm}def hypervisor.\-docker\-\_\-driver.\-Docker\-Driver.\-restart (
@@ -259,6 +369,19 @@ Restarts a docker container.
 {\em vnf\-\_\-name} & name of the V\-N\-F \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line 210 of file docker\-\_\-driver.\-py.
+
+
+\begin{DoxyCode}
+210 
+211     \textcolor{keyword}{def }\hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_abbb36db4303f0613d9013f3c2b9bfe84}{restart}(self, host, user, vnf\_name):
+212         dcx, vnf\_fullname, inspect\_data = self.\hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_a00df537b0c872efba4e3f9ec94fc0fdb}{\_lookup\_vnf}(host, user, vnf\_name)
+213         with self.\hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_a83b61a97d0622dcd28f5427228331066}{\_error\_handling}(\hyperlink{classerrors_1_1VNFRestartError}{errors.VNFRestartError}):
+214             dcx.restart(container=vnf\_fullname)
+
+\end{DoxyCode}
 \hypertarget{classhypervisor_1_1docker__driver_1_1DockerDriver_afe2784b21c6ef7dbe01b1188a31e9444}{\index{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver@{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver}!start@{start}}
 \index{start@{start}!hypervisor::docker_driver::DockerDriver@{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver}}
 \subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}def hypervisor.\-docker\-\_\-driver.\-Docker\-Driver.\-start (
@@ -285,6 +408,21 @@ Starts a docker container.
 {\em is\-\_\-privileged} & if True then the container is started in privileged mode \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line 194 of file docker\-\_\-driver.\-py.
+
+
+\begin{DoxyCode}
+194 
+195     \textcolor{keyword}{def }\hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_afe2784b21c6ef7dbe01b1188a31e9444}{start}(self, host, user, vnf\_name, is\_privileged=True):
+196         dcx, vnf\_fullname, inspect\_data = self.\hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_a00df537b0c872efba4e3f9ec94fc0fdb}{\_lookup\_vnf}(host, user, vnf\_name)
+197         with self.\hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_a83b61a97d0622dcd28f5427228331066}{\_error\_handling}(\hyperlink{classerrors_1_1VNFStartError}{errors.VNFStartError}):
+198             dcx.start(container=vnf\_fullname,
+199                 dns=self.\hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_a85ff184ff6d720b8a8c3a95b43fde448}{\_\_dns\_list},
+200                 privileged=is\_privileged)
+
+\end{DoxyCode}
 \hypertarget{classhypervisor_1_1docker__driver_1_1DockerDriver_ab88257e3bc4660c62cd070f8de62e5a6}{\index{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver@{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver}!stop@{stop}}
 \index{stop@{stop}!hypervisor::docker_driver::DockerDriver@{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver}}
 \subsubsection[{stop}]{\setlength{\rightskip}{0pt plus 5cm}def hypervisor.\-docker\-\_\-driver.\-Docker\-Driver.\-stop (
@@ -308,6 +446,19 @@ Stops a docker container.
 {\em vnf\-\_\-name} & name of the V\-N\-F \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line 224 of file docker\-\_\-driver.\-py.
+
+
+\begin{DoxyCode}
+224 
+225     \textcolor{keyword}{def }\hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_ab88257e3bc4660c62cd070f8de62e5a6}{stop}(self, host, user, vnf\_name):
+226         dcx, vnf\_fullname, inspect\_data = self.\hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_a00df537b0c872efba4e3f9ec94fc0fdb}{\_lookup\_vnf}(host, user, vnf\_name)
+227         with self.\hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_a83b61a97d0622dcd28f5427228331066}{\_error\_handling}(\hyperlink{classerrors_1_1VNFStopError}{errors.VNFStopError}):
+228             dcx.stop(container=vnf\_fullname)
+
+\end{DoxyCode}
 \hypertarget{classhypervisor_1_1docker__driver_1_1DockerDriver_a70f14b7780fadfd2944f1518d43a9029}{\index{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver@{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver}!unpause@{unpause}}
 \index{unpause@{unpause}!hypervisor::docker_driver::DockerDriver@{hypervisor\-::docker\-\_\-driver\-::\-Docker\-Driver}}
 \subsubsection[{unpause}]{\setlength{\rightskip}{0pt plus 5cm}def hypervisor.\-docker\-\_\-driver.\-Docker\-Driver.\-unpause (
@@ -331,6 +482,19 @@ Unpauses a docker container.
 {\em vnf\-\_\-name} & name of the V\-N\-F \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line 251 of file docker\-\_\-driver.\-py.
+
+
+\begin{DoxyCode}
+251 
+252     \textcolor{keyword}{def }\hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_a70f14b7780fadfd2944f1518d43a9029}{unpause}(self, host, user, vnf\_name):
+253         dcx, vnf\_fullname, inspect\_data = self.\hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_a00df537b0c872efba4e3f9ec94fc0fdb}{\_lookup\_vnf}(host, user, vnf\_name)
+254         with self.\hyperlink{classhypervisor_1_1docker__driver_1_1DockerDriver_a83b61a97d0622dcd28f5427228331066}{\_error\_handling}(\hyperlink{classerrors_1_1VNFUnpauseError}{errors.VNFUnpauseError}):
+255             dcx.unpause(container=vnf\_fullname)
+
+\end{DoxyCode}
 
 
 The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}

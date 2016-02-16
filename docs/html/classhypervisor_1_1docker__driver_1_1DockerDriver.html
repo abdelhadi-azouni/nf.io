@@ -33,6 +33,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -150,6 +151,8 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>__init__</b></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>docker driver for nfio. </p>
 <p>This class provides methods for managing docker containers. </p>
+
+<p>Definition at line <a class="el" href="docker__driver_8py_source.html#l00020">20</a> of file <a class="el" href="docker__driver_8py_source.html">docker_driver.py</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a9b0a6af05425f986bdc54495e9bd62c5"></a>
 <div class="memitem">
@@ -212,6 +215,33 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>__init__</b></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>docker container ID </dd></dl>
 
+<p>Definition at line <a class="el" href="docker__driver_8py_source.html#l00166">166</a> of file <a class="el" href="docker__driver_8py_source.html">docker_driver.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00166"></a><span class="lineno"><a class="line" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a9b0a6af05425f986bdc54495e9bd62c5">  166</a></span>&#160;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keyword">def </span><a class="code" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a9b0a6af05425f986bdc54495e9bd62c5">deploy</a>(self, host, user, image_name, vnf_name, is_privileged=True):</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        self.<a class="code" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a906b8d89bb01f1ba58c192d43fc6fe3e">_validate_host</a>(host)</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        self.<a class="code" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a8abd8619a1c911d9a88191e092899091">_validate_image_name</a>(image_name)</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        vnf_fullname = user + <span class="stringliteral">&#39;-&#39;</span> + vnf_name</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        self.<a class="code" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a157a7d5fbac70a54f734d7accd390c52">_validate_cont_name</a>(vnf_fullname)</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        dcx = self.<a class="code" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#af1985e434a8d28b4cc684794d3c6ff22">_get_client</a>(host)</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        host_config = dict()</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        <span class="keywordflow">if</span> is_privileged:</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;            host_config[<span class="stringliteral">&#39;Privileged&#39;</span>] = <span class="keyword">True</span></div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        with self.<a class="code" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a83b61a97d0622dcd28f5427228331066">_error_handling</a>(<a class="code" href="classerrors_1_1VNFDeployError.html">errors.VNFDeployError</a>):</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;            container = dcx.create_container(</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;                image=image_name,</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;                hostname=host,</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;                name=vnf_fullname,</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;                host_config=host_config)</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;            <span class="keywordflow">return</span> container[<span class="stringliteral">&#39;Id&#39;</span>]</div>
+</div>
+<div class="ttc" id="classhypervisor_1_1docker__driver_1_1DockerDriver_html_a83b61a97d0622dcd28f5427228331066"><div class="ttname"><a href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a83b61a97d0622dcd28f5427228331066">hypervisor.docker_driver.DockerDriver._error_handling</a></div><div class="ttdeci">def _error_handling</div><div class="ttdoc">convert docker-py exceptions to nfio exceptions </div><div class="ttdef"><b>Definition:</b> <a href="docker__driver_8py_source.html#l00049">docker_driver.py:49</a></div></div>
+<div class="ttc" id="classhypervisor_1_1docker__driver_1_1DockerDriver_html_a8abd8619a1c911d9a88191e092899091"><div class="ttname"><a href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a8abd8619a1c911d9a88191e092899091">hypervisor.docker_driver.DockerDriver._validate_image_name</a></div><div class="ttdeci">def _validate_image_name</div><div class="ttdef"><b>Definition:</b> <a href="docker__driver_8py_source.html#l00071">docker_driver.py:71</a></div></div>
+<div class="ttc" id="classhypervisor_1_1docker__driver_1_1DockerDriver_html_a906b8d89bb01f1ba58c192d43fc6fe3e"><div class="ttname"><a href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a906b8d89bb01f1ba58c192d43fc6fe3e">hypervisor.docker_driver.DockerDriver._validate_host</a></div><div class="ttdeci">def _validate_host</div><div class="ttdef"><b>Definition:</b> <a href="docker__driver_8py_source.html#l00067">docker_driver.py:67</a></div></div>
+<div class="ttc" id="classerrors_1_1VNFDeployError_html"><div class="ttname"><a href="classerrors_1_1VNFDeployError.html">errors.VNFDeployError</a></div><div class="ttdef"><b>Definition:</b> <a href="errors_8py_source.html#l00031">errors.py:31</a></div></div>
+<div class="ttc" id="classhypervisor_1_1docker__driver_1_1DockerDriver_html_af1985e434a8d28b4cc684794d3c6ff22"><div class="ttname"><a href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#af1985e434a8d28b4cc684794d3c6ff22">hypervisor.docker_driver.DockerDriver._get_client</a></div><div class="ttdeci">def _get_client</div><div class="ttdoc">Returns a Docker client. </div><div class="ttdef"><b>Definition:</b> <a href="docker__driver_8py_source.html#l00100">docker_driver.py:100</a></div></div>
+<div class="ttc" id="classhypervisor_1_1docker__driver_1_1DockerDriver_html_a157a7d5fbac70a54f734d7accd390c52"><div class="ttname"><a href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a157a7d5fbac70a54f734d7accd390c52">hypervisor.docker_driver.DockerDriver._validate_cont_name</a></div><div class="ttdeci">def _validate_cont_name</div><div class="ttdef"><b>Definition:</b> <a href="docker__driver_8py_source.html#l00075">docker_driver.py:75</a></div></div>
+<div class="ttc" id="classhypervisor_1_1docker__driver_1_1DockerDriver_html_a9b0a6af05425f986bdc54495e9bd62c5"><div class="ttname"><a href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a9b0a6af05425f986bdc54495e9bd62c5">hypervisor.docker_driver.DockerDriver.deploy</a></div><div class="ttdeci">def deploy</div><div class="ttdoc">Deploys a docker container. </div><div class="ttdef"><b>Definition:</b> <a href="docker__driver_8py_source.html#l00166">docker_driver.py:166</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ad66fd3d60fbee2760aa6b66d996eff3c"></a>
@@ -267,6 +297,18 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>__init__</b></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="docker__driver_8py_source.html#l00267">267</a> of file <a class="el" href="docker__driver_8py_source.html">docker_driver.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00267"></a><span class="lineno"><a class="line" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#ad66fd3d60fbee2760aa6b66d996eff3c">  267</a></span>&#160;</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <span class="keyword">def </span><a class="code" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#ad66fd3d60fbee2760aa6b66d996eff3c">destroy</a>(self, host, user, vnf_name, force=True):</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;        dcx, vnf_fullname, inspect_data = self.<a class="code" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a00df537b0c872efba4e3f9ec94fc0fdb">_lookup_vnf</a>(host, user, vnf_name)</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        with self.<a class="code" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a83b61a97d0622dcd28f5427228331066">_error_handling</a>(<a class="code" href="classerrors_1_1VNFDestroyError.html">errors.VNFDestroyError</a>):</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;            dcx.remove_container(container=vnf_fullname, force=force)</div>
+</div>
+<div class="ttc" id="classhypervisor_1_1docker__driver_1_1DockerDriver_html_ad66fd3d60fbee2760aa6b66d996eff3c"><div class="ttname"><a href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#ad66fd3d60fbee2760aa6b66d996eff3c">hypervisor.docker_driver.DockerDriver.destroy</a></div><div class="ttdeci">def destroy</div><div class="ttdoc">Destroys a docker container. </div><div class="ttdef"><b>Definition:</b> <a href="docker__driver_8py_source.html#l00267">docker_driver.py:267</a></div></div>
+<div class="ttc" id="classerrors_1_1VNFDestroyError_html"><div class="ttname"><a href="classerrors_1_1VNFDestroyError.html">errors.VNFDestroyError</a></div><div class="ttdef"><b>Definition:</b> <a href="errors_8py_source.html#l00035">errors.py:35</a></div></div>
+<div class="ttc" id="classhypervisor_1_1docker__driver_1_1DockerDriver_html_a83b61a97d0622dcd28f5427228331066"><div class="ttname"><a href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a83b61a97d0622dcd28f5427228331066">hypervisor.docker_driver.DockerDriver._error_handling</a></div><div class="ttdeci">def _error_handling</div><div class="ttdoc">convert docker-py exceptions to nfio exceptions </div><div class="ttdef"><b>Definition:</b> <a href="docker__driver_8py_source.html#l00049">docker_driver.py:49</a></div></div>
+<div class="ttc" id="classhypervisor_1_1docker__driver_1_1DockerDriver_html_a00df537b0c872efba4e3f9ec94fc0fdb"><div class="ttname"><a href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a00df537b0c872efba4e3f9ec94fc0fdb">hypervisor.docker_driver.DockerDriver._lookup_vnf</a></div><div class="ttdeci">def _lookup_vnf</div><div class="ttdef"><b>Definition:</b> <a href="docker__driver_8py_source.html#l00110">docker_driver.py:110</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a3df8e1aeea3e30e2fef5a5d41de08159"></a>
@@ -323,6 +365,24 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>__init__</b></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The output of the command passes as cmd </dd></dl>
 
+<p>Definition at line <a class="el" href="docker__driver_8py_source.html#l00284">284</a> of file <a class="el" href="docker__driver_8py_source.html">docker_driver.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00284"></a><span class="lineno"><a class="line" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a3df8e1aeea3e30e2fef5a5d41de08159">  284</a></span>&#160;</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <span class="keyword">def </span><a class="code" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a3df8e1aeea3e30e2fef5a5d41de08159">execute_in_guest</a>(self, host, user, vnf_name, cmd):</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        dcx, vnf_fullname, inspect_data = self.<a class="code" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a00df537b0c872efba4e3f9ec94fc0fdb">_lookup_vnf</a>(host, user, vnf_name)</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;        <span class="keywordflow">if</span> self.<a class="code" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#aabbac18594c9b6a4ee869846996c26ae">guest_status</a>(host, user, vnf_name) != <span class="stringliteral">&#39;running&#39;</span>:</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;            <span class="keywordflow">raise</span> <a class="code" href="classerrors_1_1VNFNotRunningError.html">errors.VNFNotRunningError</a></div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;        with self.<a class="code" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a83b61a97d0622dcd28f5427228331066">_error_handling</a>(<a class="code" href="classerrors_1_1VNFCommandExecutionError.html">errors.VNFCommandExecutionError</a>):</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;            response = dcx.execute(vnf_fullname, </div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;                [<span class="stringliteral">&quot;/bin/bash&quot;</span>, <span class="stringliteral">&quot;-c&quot;</span>, cmd], stdout=<span class="keyword">True</span>, stderr=<span class="keyword">False</span>)</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;            <span class="keywordflow">return</span> response</div>
+</div>
+<div class="ttc" id="classhypervisor_1_1docker__driver_1_1DockerDriver_html_a83b61a97d0622dcd28f5427228331066"><div class="ttname"><a href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a83b61a97d0622dcd28f5427228331066">hypervisor.docker_driver.DockerDriver._error_handling</a></div><div class="ttdeci">def _error_handling</div><div class="ttdoc">convert docker-py exceptions to nfio exceptions </div><div class="ttdef"><b>Definition:</b> <a href="docker__driver_8py_source.html#l00049">docker_driver.py:49</a></div></div>
+<div class="ttc" id="classhypervisor_1_1docker__driver_1_1DockerDriver_html_a00df537b0c872efba4e3f9ec94fc0fdb"><div class="ttname"><a href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a00df537b0c872efba4e3f9ec94fc0fdb">hypervisor.docker_driver.DockerDriver._lookup_vnf</a></div><div class="ttdeci">def _lookup_vnf</div><div class="ttdef"><b>Definition:</b> <a href="docker__driver_8py_source.html#l00110">docker_driver.py:110</a></div></div>
+<div class="ttc" id="classhypervisor_1_1docker__driver_1_1DockerDriver_html_a3df8e1aeea3e30e2fef5a5d41de08159"><div class="ttname"><a href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a3df8e1aeea3e30e2fef5a5d41de08159">hypervisor.docker_driver.DockerDriver.execute_in_guest</a></div><div class="ttdeci">def execute_in_guest</div><div class="ttdoc">Executed commands inside a docker container. </div><div class="ttdef"><b>Definition:</b> <a href="docker__driver_8py_source.html#l00284">docker_driver.py:284</a></div></div>
+<div class="ttc" id="classerrors_1_1VNFNotRunningError_html"><div class="ttname"><a href="classerrors_1_1VNFNotRunningError.html">errors.VNFNotRunningError</a></div><div class="ttdef"><b>Definition:</b> <a href="errors_8py_source.html#l00075">errors.py:75</a></div></div>
+<div class="ttc" id="classerrors_1_1VNFCommandExecutionError_html"><div class="ttname"><a href="classerrors_1_1VNFCommandExecutionError.html">errors.VNFCommandExecutionError</a></div><div class="ttdef"><b>Definition:</b> <a href="errors_8py_source.html#l00023">errors.py:23</a></div></div>
+<div class="ttc" id="classhypervisor_1_1docker__driver_1_1DockerDriver_html_aabbac18594c9b6a4ee869846996c26ae"><div class="ttname"><a href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#aabbac18594c9b6a4ee869846996c26ae">hypervisor.docker_driver.DockerDriver.guest_status</a></div><div class="ttdeci">def guest_status</div><div class="ttdoc">Returns the status of a docker container. </div><div class="ttdef"><b>Definition:</b> <a href="docker__driver_8py_source.html#l00304">docker_driver.py:304</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="aedbd13cb76524d01894fcae539444f1b"></a>
@@ -372,6 +432,15 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>__init__</b></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>docker container ID. </dd></dl>
 
+<p>Definition at line <a class="el" href="docker__driver_8py_source.html#l00130">130</a> of file <a class="el" href="docker__driver_8py_source.html">docker_driver.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#aedbd13cb76524d01894fcae539444f1b">  130</a></span>&#160;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keyword">def </span><a class="code" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#aedbd13cb76524d01894fcae539444f1b">get_id</a>(self, host, user, vnf_name):</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        dcx, vnf_fullname, inspect_data = self.<a class="code" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a00df537b0c872efba4e3f9ec94fc0fdb">_lookup_vnf</a>(host, user, vnf_name)</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        <span class="keywordflow">return</span> inspect_data[<span class="stringliteral">&#39;Id&#39;</span>].encode(<span class="stringliteral">&#39;ascii&#39;</span>)</div>
+</div>
+<div class="ttc" id="classhypervisor_1_1docker__driver_1_1DockerDriver_html_a00df537b0c872efba4e3f9ec94fc0fdb"><div class="ttname"><a href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a00df537b0c872efba4e3f9ec94fc0fdb">hypervisor.docker_driver.DockerDriver._lookup_vnf</a></div><div class="ttdeci">def _lookup_vnf</div><div class="ttdef"><b>Definition:</b> <a href="docker__driver_8py_source.html#l00110">docker_driver.py:110</a></div></div>
+<div class="ttc" id="classhypervisor_1_1docker__driver_1_1DockerDriver_html_aedbd13cb76524d01894fcae539444f1b"><div class="ttname"><a href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#aedbd13cb76524d01894fcae539444f1b">hypervisor.docker_driver.DockerDriver.get_id</a></div><div class="ttdeci">def get_id</div><div class="ttdoc">Returns a container&#39;s ID. </div><div class="ttdef"><b>Definition:</b> <a href="docker__driver_8py_source.html#l00130">docker_driver.py:130</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a56041a2a0afad5971b1fb5cb465b6ff6"></a>
@@ -421,6 +490,19 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>__init__</b></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>docker container's IP. </dd></dl>
 
+<p>Definition at line <a class="el" href="docker__driver_8py_source.html#l00145">145</a> of file <a class="el" href="docker__driver_8py_source.html">docker_driver.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00145"></a><span class="lineno"><a class="line" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a56041a2a0afad5971b1fb5cb465b6ff6">  145</a></span>&#160;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="keyword">def </span><a class="code" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a56041a2a0afad5971b1fb5cb465b6ff6">get_ip</a>(self, host, user, vnf_name):</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <span class="keywordflow">if</span> self.<a class="code" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#aabbac18594c9b6a4ee869846996c26ae">guest_status</a>(host, user, vnf_name) != <span class="stringliteral">&#39;running&#39;</span>:</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;            <span class="keywordflow">raise</span> <a class="code" href="classerrors_1_1VNFNotRunningError.html">errors.VNFNotRunningError</a></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        dcx, vnf_fullname, inspect_data = self.<a class="code" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a00df537b0c872efba4e3f9ec94fc0fdb">_lookup_vnf</a>(host, user, vnf_name)</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        <span class="keywordflow">return</span> inspect_data[<span class="stringliteral">&#39;NetworkSettings&#39;</span>][<span class="stringliteral">&#39;IPAddress&#39;</span>].encode(<span class="stringliteral">&#39;ascii&#39;</span>)</div>
+</div>
+<div class="ttc" id="classhypervisor_1_1docker__driver_1_1DockerDriver_html_a00df537b0c872efba4e3f9ec94fc0fdb"><div class="ttname"><a href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a00df537b0c872efba4e3f9ec94fc0fdb">hypervisor.docker_driver.DockerDriver._lookup_vnf</a></div><div class="ttdeci">def _lookup_vnf</div><div class="ttdef"><b>Definition:</b> <a href="docker__driver_8py_source.html#l00110">docker_driver.py:110</a></div></div>
+<div class="ttc" id="classhypervisor_1_1docker__driver_1_1DockerDriver_html_a56041a2a0afad5971b1fb5cb465b6ff6"><div class="ttname"><a href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a56041a2a0afad5971b1fb5cb465b6ff6">hypervisor.docker_driver.DockerDriver.get_ip</a></div><div class="ttdeci">def get_ip</div><div class="ttdoc">Returns a container&#39;s IP address. </div><div class="ttdef"><b>Definition:</b> <a href="docker__driver_8py_source.html#l00145">docker_driver.py:145</a></div></div>
+<div class="ttc" id="classerrors_1_1VNFNotRunningError_html"><div class="ttname"><a href="classerrors_1_1VNFNotRunningError.html">errors.VNFNotRunningError</a></div><div class="ttdef"><b>Definition:</b> <a href="errors_8py_source.html#l00075">errors.py:75</a></div></div>
+<div class="ttc" id="classhypervisor_1_1docker__driver_1_1DockerDriver_html_aabbac18594c9b6a4ee869846996c26ae"><div class="ttname"><a href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#aabbac18594c9b6a4ee869846996c26ae">hypervisor.docker_driver.DockerDriver.guest_status</a></div><div class="ttdeci">def guest_status</div><div class="ttdoc">Returns the status of a docker container. </div><div class="ttdef"><b>Definition:</b> <a href="docker__driver_8py_source.html#l00304">docker_driver.py:304</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="aabbac18594c9b6a4ee869846996c26ae"></a>
@@ -470,6 +552,14 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>__init__</b></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>current state of the docker container </dd></dl>
 
+<p>Definition at line <a class="el" href="docker__driver_8py_source.html#l00304">304</a> of file <a class="el" href="docker__driver_8py_source.html">docker_driver.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00304"></a><span class="lineno"><a class="line" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#aabbac18594c9b6a4ee869846996c26ae">  304</a></span>&#160;</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    <span class="keyword">def </span><a class="code" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#aabbac18594c9b6a4ee869846996c26ae">guest_status</a>(self, host, user, vnf_name):</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;        dcx, vnf_fullname, inspect_data = self.<a class="code" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a00df537b0c872efba4e3f9ec94fc0fdb">_lookup_vnf</a>(host, user, vnf_name)</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;        <span class="keywordflow">return</span> inspect_data[<span class="stringliteral">&#39;State&#39;</span>][<span class="stringliteral">&#39;Status&#39;</span>].encode(<span class="stringliteral">&#39;ascii&#39;</span>)</div>
+<div class="ttc" id="classhypervisor_1_1docker__driver_1_1DockerDriver_html_a00df537b0c872efba4e3f9ec94fc0fdb"><div class="ttname"><a href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a00df537b0c872efba4e3f9ec94fc0fdb">hypervisor.docker_driver.DockerDriver._lookup_vnf</a></div><div class="ttdeci">def _lookup_vnf</div><div class="ttdef"><b>Definition:</b> <a href="docker__driver_8py_source.html#l00110">docker_driver.py:110</a></div></div>
+<div class="ttc" id="classhypervisor_1_1docker__driver_1_1DockerDriver_html_aabbac18594c9b6a4ee869846996c26ae"><div class="ttname"><a href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#aabbac18594c9b6a4ee869846996c26ae">hypervisor.docker_driver.DockerDriver.guest_status</a></div><div class="ttdeci">def guest_status</div><div class="ttdoc">Returns the status of a docker container. </div><div class="ttdef"><b>Definition:</b> <a href="docker__driver_8py_source.html#l00304">docker_driver.py:304</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a9ffd3b0cb02e1f292a609e1d500e683f"></a>
@@ -518,6 +608,18 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>__init__</b></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="docker__driver_8py_source.html#l00238">238</a> of file <a class="el" href="docker__driver_8py_source.html">docker_driver.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00238"></a><span class="lineno"><a class="line" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a9ffd3b0cb02e1f292a609e1d500e683f">  238</a></span>&#160;</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    <span class="keyword">def </span><a class="code" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a9ffd3b0cb02e1f292a609e1d500e683f">pause</a>(self, host, user, vnf_name):</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;        dcx, vnf_fullname, inspect_data = self.<a class="code" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a00df537b0c872efba4e3f9ec94fc0fdb">_lookup_vnf</a>(host, user, vnf_name)</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;        with self.<a class="code" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a83b61a97d0622dcd28f5427228331066">_error_handling</a>(<a class="code" href="classerrors_1_1VNFPauseError.html">errors.VNFPauseError</a>):</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;            dcx.pause(container=vnf_fullname)</div>
+</div>
+<div class="ttc" id="classhypervisor_1_1docker__driver_1_1DockerDriver_html_a83b61a97d0622dcd28f5427228331066"><div class="ttname"><a href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a83b61a97d0622dcd28f5427228331066">hypervisor.docker_driver.DockerDriver._error_handling</a></div><div class="ttdeci">def _error_handling</div><div class="ttdoc">convert docker-py exceptions to nfio exceptions </div><div class="ttdef"><b>Definition:</b> <a href="docker__driver_8py_source.html#l00049">docker_driver.py:49</a></div></div>
+<div class="ttc" id="classhypervisor_1_1docker__driver_1_1DockerDriver_html_a00df537b0c872efba4e3f9ec94fc0fdb"><div class="ttname"><a href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a00df537b0c872efba4e3f9ec94fc0fdb">hypervisor.docker_driver.DockerDriver._lookup_vnf</a></div><div class="ttdeci">def _lookup_vnf</div><div class="ttdef"><b>Definition:</b> <a href="docker__driver_8py_source.html#l00110">docker_driver.py:110</a></div></div>
+<div class="ttc" id="classhypervisor_1_1docker__driver_1_1DockerDriver_html_a9ffd3b0cb02e1f292a609e1d500e683f"><div class="ttname"><a href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a9ffd3b0cb02e1f292a609e1d500e683f">hypervisor.docker_driver.DockerDriver.pause</a></div><div class="ttdeci">def pause</div><div class="ttdoc">Pauses a docker container. </div><div class="ttdef"><b>Definition:</b> <a href="docker__driver_8py_source.html#l00238">docker_driver.py:238</a></div></div>
+<div class="ttc" id="classerrors_1_1VNFPauseError_html"><div class="ttname"><a href="classerrors_1_1VNFPauseError.html">errors.VNFPauseError</a></div><div class="ttdef"><b>Definition:</b> <a href="errors_8py_source.html#l00051">errors.py:51</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="abbb36db4303f0613d9013f3c2b9bfe84"></a>
@@ -566,6 +668,18 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>__init__</b></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="docker__driver_8py_source.html#l00210">210</a> of file <a class="el" href="docker__driver_8py_source.html">docker_driver.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00210"></a><span class="lineno"><a class="line" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#abbb36db4303f0613d9013f3c2b9bfe84">  210</a></span>&#160;</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    <span class="keyword">def </span><a class="code" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#abbb36db4303f0613d9013f3c2b9bfe84">restart</a>(self, host, user, vnf_name):</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        dcx, vnf_fullname, inspect_data = self.<a class="code" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a00df537b0c872efba4e3f9ec94fc0fdb">_lookup_vnf</a>(host, user, vnf_name)</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;        with self.<a class="code" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a83b61a97d0622dcd28f5427228331066">_error_handling</a>(<a class="code" href="classerrors_1_1VNFRestartError.html">errors.VNFRestartError</a>):</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;            dcx.restart(container=vnf_fullname)</div>
+</div>
+<div class="ttc" id="classhypervisor_1_1docker__driver_1_1DockerDriver_html_a83b61a97d0622dcd28f5427228331066"><div class="ttname"><a href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a83b61a97d0622dcd28f5427228331066">hypervisor.docker_driver.DockerDriver._error_handling</a></div><div class="ttdeci">def _error_handling</div><div class="ttdoc">convert docker-py exceptions to nfio exceptions </div><div class="ttdef"><b>Definition:</b> <a href="docker__driver_8py_source.html#l00049">docker_driver.py:49</a></div></div>
+<div class="ttc" id="classhypervisor_1_1docker__driver_1_1DockerDriver_html_a00df537b0c872efba4e3f9ec94fc0fdb"><div class="ttname"><a href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a00df537b0c872efba4e3f9ec94fc0fdb">hypervisor.docker_driver.DockerDriver._lookup_vnf</a></div><div class="ttdeci">def _lookup_vnf</div><div class="ttdef"><b>Definition:</b> <a href="docker__driver_8py_source.html#l00110">docker_driver.py:110</a></div></div>
+<div class="ttc" id="classhypervisor_1_1docker__driver_1_1DockerDriver_html_abbb36db4303f0613d9013f3c2b9bfe84"><div class="ttname"><a href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#abbb36db4303f0613d9013f3c2b9bfe84">hypervisor.docker_driver.DockerDriver.restart</a></div><div class="ttdeci">def restart</div><div class="ttdoc">Restarts a docker container. </div><div class="ttdef"><b>Definition:</b> <a href="docker__driver_8py_source.html#l00210">docker_driver.py:210</a></div></div>
+<div class="ttc" id="classerrors_1_1VNFRestartError_html"><div class="ttname"><a href="classerrors_1_1VNFRestartError.html">errors.VNFRestartError</a></div><div class="ttdef"><b>Definition:</b> <a href="errors_8py_source.html#l00043">errors.py:43</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="afe2784b21c6ef7dbe01b1188a31e9444"></a>
@@ -621,6 +735,21 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>__init__</b></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="docker__driver_8py_source.html#l00194">194</a> of file <a class="el" href="docker__driver_8py_source.html">docker_driver.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00194"></a><span class="lineno"><a class="line" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#afe2784b21c6ef7dbe01b1188a31e9444">  194</a></span>&#160;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keyword">def </span><a class="code" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#afe2784b21c6ef7dbe01b1188a31e9444">start</a>(self, host, user, vnf_name, is_privileged=True):</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        dcx, vnf_fullname, inspect_data = self.<a class="code" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a00df537b0c872efba4e3f9ec94fc0fdb">_lookup_vnf</a>(host, user, vnf_name)</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        with self.<a class="code" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a83b61a97d0622dcd28f5427228331066">_error_handling</a>(<a class="code" href="classerrors_1_1VNFStartError.html">errors.VNFStartError</a>):</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;            dcx.start(container=vnf_fullname,</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;                dns=self.<a class="code" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a85ff184ff6d720b8a8c3a95b43fde448">__dns_list</a>,</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;                privileged=is_privileged)</div>
+</div>
+<div class="ttc" id="classhypervisor_1_1docker__driver_1_1DockerDriver_html_a83b61a97d0622dcd28f5427228331066"><div class="ttname"><a href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a83b61a97d0622dcd28f5427228331066">hypervisor.docker_driver.DockerDriver._error_handling</a></div><div class="ttdeci">def _error_handling</div><div class="ttdoc">convert docker-py exceptions to nfio exceptions </div><div class="ttdef"><b>Definition:</b> <a href="docker__driver_8py_source.html#l00049">docker_driver.py:49</a></div></div>
+<div class="ttc" id="classhypervisor_1_1docker__driver_1_1DockerDriver_html_a00df537b0c872efba4e3f9ec94fc0fdb"><div class="ttname"><a href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a00df537b0c872efba4e3f9ec94fc0fdb">hypervisor.docker_driver.DockerDriver._lookup_vnf</a></div><div class="ttdeci">def _lookup_vnf</div><div class="ttdef"><b>Definition:</b> <a href="docker__driver_8py_source.html#l00110">docker_driver.py:110</a></div></div>
+<div class="ttc" id="classhypervisor_1_1docker__driver_1_1DockerDriver_html_afe2784b21c6ef7dbe01b1188a31e9444"><div class="ttname"><a href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#afe2784b21c6ef7dbe01b1188a31e9444">hypervisor.docker_driver.DockerDriver.start</a></div><div class="ttdeci">def start</div><div class="ttdoc">Starts a docker container. </div><div class="ttdef"><b>Definition:</b> <a href="docker__driver_8py_source.html#l00194">docker_driver.py:194</a></div></div>
+<div class="ttc" id="classhypervisor_1_1docker__driver_1_1DockerDriver_html_a85ff184ff6d720b8a8c3a95b43fde448"><div class="ttname"><a href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a85ff184ff6d720b8a8c3a95b43fde448">hypervisor.docker_driver.DockerDriver.__dns_list</a></div><div class="ttdeci">__dns_list</div><div class="ttdef"><b>Definition:</b> <a href="docker__driver_8py_source.html#l00036">docker_driver.py:36</a></div></div>
+<div class="ttc" id="classerrors_1_1VNFStartError_html"><div class="ttname"><a href="classerrors_1_1VNFStartError.html">errors.VNFStartError</a></div><div class="ttdef"><b>Definition:</b> <a href="errors_8py_source.html#l00039">errors.py:39</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ab88257e3bc4660c62cd070f8de62e5a6"></a>
@@ -669,6 +798,18 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>__init__</b></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="docker__driver_8py_source.html#l00224">224</a> of file <a class="el" href="docker__driver_8py_source.html">docker_driver.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00224"></a><span class="lineno"><a class="line" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#ab88257e3bc4660c62cd070f8de62e5a6">  224</a></span>&#160;</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="keyword">def </span><a class="code" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#ab88257e3bc4660c62cd070f8de62e5a6">stop</a>(self, host, user, vnf_name):</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;        dcx, vnf_fullname, inspect_data = self.<a class="code" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a00df537b0c872efba4e3f9ec94fc0fdb">_lookup_vnf</a>(host, user, vnf_name)</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        with self.<a class="code" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a83b61a97d0622dcd28f5427228331066">_error_handling</a>(<a class="code" href="classerrors_1_1VNFStopError.html">errors.VNFStopError</a>):</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;            dcx.stop(container=vnf_fullname)</div>
+</div>
+<div class="ttc" id="classhypervisor_1_1docker__driver_1_1DockerDriver_html_a83b61a97d0622dcd28f5427228331066"><div class="ttname"><a href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a83b61a97d0622dcd28f5427228331066">hypervisor.docker_driver.DockerDriver._error_handling</a></div><div class="ttdeci">def _error_handling</div><div class="ttdoc">convert docker-py exceptions to nfio exceptions </div><div class="ttdef"><b>Definition:</b> <a href="docker__driver_8py_source.html#l00049">docker_driver.py:49</a></div></div>
+<div class="ttc" id="classhypervisor_1_1docker__driver_1_1DockerDriver_html_a00df537b0c872efba4e3f9ec94fc0fdb"><div class="ttname"><a href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a00df537b0c872efba4e3f9ec94fc0fdb">hypervisor.docker_driver.DockerDriver._lookup_vnf</a></div><div class="ttdeci">def _lookup_vnf</div><div class="ttdef"><b>Definition:</b> <a href="docker__driver_8py_source.html#l00110">docker_driver.py:110</a></div></div>
+<div class="ttc" id="classhypervisor_1_1docker__driver_1_1DockerDriver_html_ab88257e3bc4660c62cd070f8de62e5a6"><div class="ttname"><a href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#ab88257e3bc4660c62cd070f8de62e5a6">hypervisor.docker_driver.DockerDriver.stop</a></div><div class="ttdeci">def stop</div><div class="ttdoc">Stops a docker container. </div><div class="ttdef"><b>Definition:</b> <a href="docker__driver_8py_source.html#l00224">docker_driver.py:224</a></div></div>
+<div class="ttc" id="classerrors_1_1VNFStopError_html"><div class="ttname"><a href="classerrors_1_1VNFStopError.html">errors.VNFStopError</a></div><div class="ttdef"><b>Definition:</b> <a href="errors_8py_source.html#l00047">errors.py:47</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a70f14b7780fadfd2944f1518d43a9029"></a>
@@ -717,10 +858,22 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>__init__</b></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="docker__driver_8py_source.html#l00251">251</a> of file <a class="el" href="docker__driver_8py_source.html">docker_driver.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00251"></a><span class="lineno"><a class="line" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a70f14b7780fadfd2944f1518d43a9029">  251</a></span>&#160;</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    <span class="keyword">def </span><a class="code" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a70f14b7780fadfd2944f1518d43a9029">unpause</a>(self, host, user, vnf_name):</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        dcx, vnf_fullname, inspect_data = self.<a class="code" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a00df537b0c872efba4e3f9ec94fc0fdb">_lookup_vnf</a>(host, user, vnf_name)</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;        with self.<a class="code" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a83b61a97d0622dcd28f5427228331066">_error_handling</a>(<a class="code" href="classerrors_1_1VNFUnpauseError.html">errors.VNFUnpauseError</a>):</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;            dcx.unpause(container=vnf_fullname)</div>
+</div>
+<div class="ttc" id="classerrors_1_1VNFUnpauseError_html"><div class="ttname"><a href="classerrors_1_1VNFUnpauseError.html">errors.VNFUnpauseError</a></div><div class="ttdef"><b>Definition:</b> <a href="errors_8py_source.html#l00055">errors.py:55</a></div></div>
+<div class="ttc" id="classhypervisor_1_1docker__driver_1_1DockerDriver_html_a83b61a97d0622dcd28f5427228331066"><div class="ttname"><a href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a83b61a97d0622dcd28f5427228331066">hypervisor.docker_driver.DockerDriver._error_handling</a></div><div class="ttdeci">def _error_handling</div><div class="ttdoc">convert docker-py exceptions to nfio exceptions </div><div class="ttdef"><b>Definition:</b> <a href="docker__driver_8py_source.html#l00049">docker_driver.py:49</a></div></div>
+<div class="ttc" id="classhypervisor_1_1docker__driver_1_1DockerDriver_html_a00df537b0c872efba4e3f9ec94fc0fdb"><div class="ttname"><a href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a00df537b0c872efba4e3f9ec94fc0fdb">hypervisor.docker_driver.DockerDriver._lookup_vnf</a></div><div class="ttdeci">def _lookup_vnf</div><div class="ttdef"><b>Definition:</b> <a href="docker__driver_8py_source.html#l00110">docker_driver.py:110</a></div></div>
+<div class="ttc" id="classhypervisor_1_1docker__driver_1_1DockerDriver_html_a70f14b7780fadfd2944f1518d43a9029"><div class="ttname"><a href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a70f14b7780fadfd2944f1518d43a9029">hypervisor.docker_driver.DockerDriver.unpause</a></div><div class="ttdeci">def unpause</div><div class="ttdoc">Unpauses a docker container. </div><div class="ttdef"><b>Definition:</b> <a href="docker__driver_8py_source.html#l00251">docker_driver.py:251</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>WatNFV/nf.io/src/hypervisor/docker_driver.py</li>
+<li>WatNFV/nf.io/src/hypervisor/<a class="el" href="docker__driver_8py_source.html">docker_driver.py</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -728,7 +881,7 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>__init__</b></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>hypervisor</b></li><li class="navelem"><b>docker_driver</b></li><li class="navelem"><a class="el" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html">DockerDriver</a></li>
-    <li class="footer">Generated on Tue Feb 16 2016 02:38:36 by
+    <li class="footer">Generated on Tue Feb 16 2016 02:41:59 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

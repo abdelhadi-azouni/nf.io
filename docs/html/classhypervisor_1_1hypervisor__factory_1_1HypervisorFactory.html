@@ -33,6 +33,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -124,6 +125,8 @@ Static Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A singletone class for creating hypervisor driver objects. </p>
 <p>For an instantiation of nf.io there can be exactly one object of only one type of hyperviosr. HyervisorFactory takes care of the creation logic. </p>
+
+<p>Definition at line <a class="el" href="hypervisor__factory_8py_source.html#l00011">11</a> of file <a class="el" href="hypervisor__factory_8py_source.html">hypervisor_factory.py</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ab1691cc3620d76c0a266e0fd469548ad"></a>
 <div class="memitem">
@@ -155,6 +158,27 @@ Static Public Member Functions</h2></td></tr>
 <p>Note: If this factory class is instantiated multiple times with different types of hypervisor_type argument then it raises a ValueError.</p>
 <p>If this factory class is instantiated with a hypervisor type other than Docker or Libvirt it raises a TypeError. </p>
 
+<p>Definition at line <a class="el" href="hypervisor__factory_8py_source.html#l00034">34</a> of file <a class="el" href="hypervisor__factory_8py_source.html">hypervisor_factory.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classhypervisor_1_1hypervisor__factory_1_1HypervisorFactory.html#ab1691cc3620d76c0a266e0fd469548ad">   34</a></span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">def </span><a class="code" href="classhypervisor_1_1hypervisor__factory_1_1HypervisorFactory.html#ab1691cc3620d76c0a266e0fd469548ad">__init__</a>(self, hypervisor_type=&quot;DockerDriver&quot;):</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">if</span> <span class="keywordflow">not</span> HypervisorFactory.__hyp_instance:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            <span class="keywordflow">if</span> hypervisor_type == <span class="stringliteral">&quot;DockerDriver&quot;</span>:</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                HypervisorFactory.__hyp_instance_type = hypervisor_type</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                HypervisorFactory.__hyp_instance = DockerDriver()</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="keywordflow">elif</span> hypervisor_type == <span class="stringliteral">&quot;Libvirt&quot;</span>:</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                HypervisorFactory.__hyp_instance_type = hypervisor_type</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                HypervisorFactory.__hyp_instance = Libvirt()</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                <span class="keywordflow">raise</span> TypeError(</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                    <span class="stringliteral">&quot;Invalid hypervisor type. Valid types are: Docker, Libvirt&quot;</span>)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">elif</span> HypervisorFactory.__hyp_instance_type != hypervisor_type:</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordflow">raise</span> ValueError(</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                <span class="stringliteral">&quot;An instantiation of type &quot;</span> +</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                HypervisorFactory.__hyp_instance_type +</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                <span class="stringliteral">&quot; already exists.&quot;</span>)</div>
+</div>
+<div class="ttc" id="classhypervisor_1_1hypervisor__factory_1_1HypervisorFactory_html_ab1691cc3620d76c0a266e0fd469548ad"><div class="ttname"><a href="classhypervisor_1_1hypervisor__factory_1_1HypervisorFactory.html#ab1691cc3620d76c0a266e0fd469548ad">hypervisor.hypervisor_factory.HypervisorFactory.__init__</a></div><div class="ttdeci">def __init__</div><div class="ttdoc">Instantiates a HypervisorFactory object. </div><div class="ttdef"><b>Definition:</b> <a href="hypervisor__factory_8py_source.html#l00034">hypervisor_factory.py:34</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -182,10 +206,19 @@ Static Public Member Functions</h2></td></tr>
 <p>Returns the hypervisor driver nstance. </p>
 <p>If the instance is not initialized then a RuntimeError is raised. </p>
 
+<p>Definition at line <a class="el" href="hypervisor__factory_8py_source.html#l00057">57</a> of file <a class="el" href="hypervisor__factory_8py_source.html">hypervisor_factory.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="classhypervisor_1_1hypervisor__factory_1_1HypervisorFactory.html#ade4356e4251e644d580f8c1c53fc704e">   57</a></span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">def </span><a class="code" href="classhypervisor_1_1hypervisor__factory_1_1HypervisorFactory.html#ade4356e4251e644d580f8c1c53fc704e">get_hypervisor_instance</a>():</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">if</span> HypervisorFactory.__hyp_instance <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="keywordflow">return</span> HypervisorFactory.__hyp_instance</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keywordflow">raise</span> RuntimeError(<span class="stringliteral">&quot;Hypervisor not initialized.&quot;</span>)</div>
+<div class="ttc" id="classhypervisor_1_1hypervisor__factory_1_1HypervisorFactory_html_ade4356e4251e644d580f8c1c53fc704e"><div class="ttname"><a href="classhypervisor_1_1hypervisor__factory_1_1HypervisorFactory.html#ade4356e4251e644d580f8c1c53fc704e">hypervisor.hypervisor_factory.HypervisorFactory.get_hypervisor_instance</a></div><div class="ttdeci">def get_hypervisor_instance</div><div class="ttdoc">Returns the hypervisor driver nstance. </div><div class="ttdef"><b>Definition:</b> <a href="hypervisor__factory_8py_source.html#l00057">hypervisor_factory.py:57</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>WatNFV/nf.io/src/hypervisor/hypervisor_factory.py</li>
+<li>WatNFV/nf.io/src/hypervisor/<a class="el" href="hypervisor__factory_8py_source.html">hypervisor_factory.py</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -193,7 +226,7 @@ Static Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>hypervisor</b></li><li class="navelem"><b>hypervisor_factory</b></li><li class="navelem"><a class="el" href="classhypervisor_1_1hypervisor__factory_1_1HypervisorFactory.html">HypervisorFactory</a></li>
-    <li class="footer">Generated on Tue Feb 16 2016 02:38:37 by
+    <li class="footer">Generated on Tue Feb 16 2016 02:42:00 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
