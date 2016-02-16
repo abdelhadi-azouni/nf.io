@@ -110,14 +110,14 @@ Inheritance diagram for hypervisor.docker_driver.DockerDriver:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0b9311d90850a8a145c2961654867f98"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a0b9311d90850a8a145c2961654867f98">__init__</a></td></tr>
-<tr class="memdesc:a0b9311d90850a8a145c2961654867f98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiates a <a class="el" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html" title="docker driver for nfio. ">DockerDriver</a> object.  <a href="#a0b9311d90850a8a145c2961654867f98">More...</a><br/></td></tr>
+<tr class="memitem:a0b9311d90850a8a145c2961654867f98"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0b9311d90850a8a145c2961654867f98"></a>
+def&#160;</td><td class="memItemRight" valign="bottom"><b>__init__</b></td></tr>
 <tr class="separator:a0b9311d90850a8a145c2961654867f98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aedbd13cb76524d01894fcae539444f1b"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#aedbd13cb76524d01894fcae539444f1b">get_id</a></td></tr>
 <tr class="memdesc:aedbd13cb76524d01894fcae539444f1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a container's ID.  <a href="#aedbd13cb76524d01894fcae539444f1b">More...</a><br/></td></tr>
 <tr class="separator:aedbd13cb76524d01894fcae539444f1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56041a2a0afad5971b1fb5cb465b6ff6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a56041a2a0afad5971b1fb5cb465b6ff6"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>get_ip</b></td></tr>
+<tr class="memitem:a56041a2a0afad5971b1fb5cb465b6ff6"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a56041a2a0afad5971b1fb5cb465b6ff6">get_ip</a></td></tr>
+<tr class="memdesc:a56041a2a0afad5971b1fb5cb465b6ff6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a container's IP address.  <a href="#a56041a2a0afad5971b1fb5cb465b6ff6">More...</a><br/></td></tr>
 <tr class="separator:a56041a2a0afad5971b1fb5cb465b6ff6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b0a6af05425f986bdc54495e9bd62c5"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html#a9b0a6af05425f986bdc54495e9bd62c5">deploy</a></td></tr>
 <tr class="memdesc:a9b0a6af05425f986bdc54495e9bd62c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deploys a docker container.  <a href="#a9b0a6af05425f986bdc54495e9bd62c5">More...</a><br/></td></tr>
@@ -150,27 +150,7 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>get_ip</b></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>docker driver for nfio. </p>
 <p>This class provides methods for managing docker containers. </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a0b9311d90850a8a145c2961654867f98"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">def hypervisor.docker_driver.DockerDriver.__init__ </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>self</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Instantiates a <a class="el" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html" title="docker driver for nfio. ">DockerDriver</a> object. </p>
-<dl class="section note"><dt>Note</dt><dd>This method initializes a set of values for configuring the docker-py remote API client. __port is the port number used for remote API invocation. __version is the version number for the report API. __dns_list is the list of DNS server(s) used by each container. </dd></dl>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a9b0a6af05425f986bdc54495e9bd62c5"></a>
 <div class="memitem">
 <div class="memproto">
@@ -220,8 +200,17 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>get_ip</b></td></tr>
 </div><div class="memdoc">
 
 <p>Deploys a docker container. </p>
-<p>Args: host: IP address or hostname of the machine where the docker container is to be deployed user: name of the user who owns the VNF image_name: docker image name for the VNF vnf_name: name of the VNF instance is_privileged: if True then the container is deployed in privileged mode</p>
-<p>Returns: If the operation is successful then returns a tuple consisting of the following values: container_id: docker container id return_code: SUCCESS return_message: EMPTY in this case otherwise returns the error as the following tuple: None as the first value return_code: one of the error codes defined in hypervisor_return_codes return_message: detailed message for the return code </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">host</td><td>IP address or hostname of the machine where the docker container is to be deployed </td></tr>
+    <tr><td class="paramname">user</td><td>name of the user who owns the VNF </td></tr>
+    <tr><td class="paramname">image_name</td><td>docker image name for the VNF </td></tr>
+    <tr><td class="paramname">vnf_name</td><td>name of the VNF instance </td></tr>
+    <tr><td class="paramname">is_privileged</td><td>if True then the container is deployed in privileged mode</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>docker container ID </dd></dl>
 
 </div>
 </div>
@@ -245,7 +234,13 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>get_ip</b></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>vnf_id</em>, </td>
+          <td class="paramname"><em>user</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>vnf_name</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -262,8 +257,15 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>get_ip</b></td></tr>
 </div><div class="memdoc">
 
 <p>Destroys a docker container. </p>
-<p>Args: host: IP address or hostname of the machine where the docker container is deployed vnf_id: Docker container ID for the VNF</p>
-<p>Returns: If the operation is successful then returns a tuple consisting of the following values: response: response from the docker-py client return_code: SUCCESS return_message: EMPTY in this case otherwise returns the error as the following tuple: None as the first value return_code: one of the error codes defined in hypervisor_return_codes return_message: detailed message for the return code </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">host</td><td>IP address or hostname of the machine/VM where the docker container is deployed </td></tr>
+    <tr><td class="paramname">user</td><td>name of the user </td></tr>
+    <tr><td class="paramname">vnf_name</td><td>name of the VNF </td></tr>
+    <tr><td class="paramname">force</td><td>if set to False then a running VNF will not be destroyed. default is True </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -287,7 +289,13 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>get_ip</b></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>vnf_id</em>, </td>
+          <td class="paramname"><em>user</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>vnf_name</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -304,8 +312,16 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>get_ip</b></td></tr>
 </div><div class="memdoc">
 
 <p>Executed commands inside a docker container. </p>
-<p>Args: host: IP address or hostname of the machine where the docker container is deployed vnf_id: Docker container ID for the VNF cmd: the command to execute inside the container</p>
-<p>Returns: The output of the command passes as cmd </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">host</td><td>IP address or hostname of the machine/VM where the docker container is deployed </td></tr>
+    <tr><td class="paramname">user</td><td>name of the user </td></tr>
+    <tr><td class="paramname">vnf_name</td><td>name of the VNF </td></tr>
+    <tr><td class="paramname">cmd</td><td>the command to execute inside the container</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The output of the command passes as cmd </dd></dl>
 
 </div>
 </div>
@@ -350,12 +366,60 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>get_ip</b></td></tr>
   <table class="params">
     <tr><td class="paramname">host</td><td>IP address or hostname of the machine where the docker container is deployed </td></tr>
     <tr><td class="paramname">user</td><td>name of the user who owns the VNF </td></tr>
-    <tr><td class="paramname">vnf_type</td><td>type of the deployed VNF </td></tr>
     <tr><td class="paramname">vnf_name</td><td>name of the VNF instance whose ID is being queried</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>docker container ID. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a56041a2a0afad5971b1fb5cb465b6ff6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def hypervisor.docker_driver.DockerDriver.get_ip </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>host</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>user</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>vnf_name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a container's IP address. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">host</td><td>IP address or hostname of the machine where the docker container is deployed </td></tr>
+    <tr><td class="paramname">user</td><td>name of the user who owns the VNF </td></tr>
+    <tr><td class="paramname">vnf_name</td><td>name of the VNF instance whose ID is being queried</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>docker container's IP. </dd></dl>
 
 </div>
 </div>
@@ -379,7 +443,13 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>get_ip</b></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>vnf_id</em>&#160;</td>
+          <td class="paramname"><em>user</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>vnf_name</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -390,8 +460,15 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>get_ip</b></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the status of a docker container. </p>
-<p>Args: host: IP address or hostname of the machine where the docker container is deployed vnf_id: Docker container ID for the VNF</p>
-<p>Returns: If the operation is successful then returns a tuple consisting of the following values: state: current state of the docker container return_code: SUCCESS return_message: EMPTY in this case otherwise returns the error as the following tuple: Undefined as the first value return_code: one of the error codes defined in hypervisor_return_codes return_message: detailed message for the return code </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">host</td><td>IP address or hostname of the machine/VM where the docker container is deployed </td></tr>
+    <tr><td class="paramname">user</td><td>name of the user </td></tr>
+    <tr><td class="paramname">vnf_name</td><td>name of the VNF</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>current state of the docker container </dd></dl>
 
 </div>
 </div>
@@ -415,7 +492,13 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>get_ip</b></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>vnf_id</em>&#160;</td>
+          <td class="paramname"><em>user</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>vnf_name</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -426,8 +509,14 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>get_ip</b></td></tr>
 </div><div class="memdoc">
 
 <p>Pauses a docker container. </p>
-<p>Args: host: IP address or hostname of the machine where the docker container is deployed vnf_id: Docker container ID for the VNF</p>
-<p>Returns: If the operation is successful then returns a tuple consisting of the following values: response: response from the docker-py client return_code: SUCCESS return_message: EMPTY in this case otherwise returns the error as the following tuple: None as the first value return_code: one of the error codes defined in hypervisor_return_codes return_message: detailed message for the return code </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">host</td><td>IP address or hostname of the machine/VM where the docker container is deployed </td></tr>
+    <tr><td class="paramname">user</td><td>name of the user </td></tr>
+    <tr><td class="paramname">vnf_name</td><td>name of the VNF </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -451,7 +540,13 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>get_ip</b></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>vnf_id</em>&#160;</td>
+          <td class="paramname"><em>user</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>vnf_name</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -462,8 +557,14 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>get_ip</b></td></tr>
 </div><div class="memdoc">
 
 <p>Restarts a docker container. </p>
-<p>Args: host: IP address or hostname of the machine where the docker container is deployed vnf_id: Docker container ID for the VNF</p>
-<p>Returns: If the operation is successful then returns a tuple consisting of the following values: response: response from the docker-py client return_code: SUCCESS return_message: EMPTY in this case otherwise returns the error as the following tuple: None as the first value return_code: one of the error codes defined in hypervisor_return_codes return_message: detailed message for the return code </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">host</td><td>IP address or hostname of the machine/VM where the docker container is deployed </td></tr>
+    <tr><td class="paramname">user</td><td>name of the user </td></tr>
+    <tr><td class="paramname">vnf_name</td><td>name of the VNF </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -487,7 +588,13 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>get_ip</b></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>vnf_id</em>, </td>
+          <td class="paramname"><em>user</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>vnf_name</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -504,8 +611,15 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>get_ip</b></td></tr>
 </div><div class="memdoc">
 
 <p>Starts a docker container. </p>
-<p>Args: host: IP address or hostname of the machine where the docker container is deployed vnf_id: Docker container ID for the VNF is_privileged: if True then the container is started in privileged mode</p>
-<p>Returns: If the operation is successful then returns a tuple consisting of the following values: response: response from the docker-py client return_code: SUCCESS return_message: EMPTY in this case otherwise returns the error as the following tuple: None as the first value return_code: one of the error codes defined in hypervisor_return_codes return_message: detailed message for the return code </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">host</td><td>IP address or hostname of the machine/VM where the docker container is deployed </td></tr>
+    <tr><td class="paramname">user</td><td>name of the user </td></tr>
+    <tr><td class="paramname">vnf_name</td><td>name of the VNF </td></tr>
+    <tr><td class="paramname">is_privileged</td><td>if True then the container is started in privileged mode </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -529,7 +643,13 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>get_ip</b></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>vnf_id</em>&#160;</td>
+          <td class="paramname"><em>user</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>vnf_name</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -540,8 +660,14 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>get_ip</b></td></tr>
 </div><div class="memdoc">
 
 <p>Stops a docker container. </p>
-<p>Args: host: IP address or hostname of the machine where the docker container is deployed vnf_id: Docker container ID for the VNF</p>
-<p>Returns: If the operation is successful then returns a tuple consisting of the following values: response: response from the docker-py client return_code: SUCCESS return_message: EMPTY in this case otherwise returns the error as the following tuple: None as the first value return_code: one of the error codes defined in hypervisor_return_codes return_message: detailed message for the return code </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">host</td><td>IP address or hostname of the machine/VM where the docker container is deployed </td></tr>
+    <tr><td class="paramname">user</td><td>name of the user </td></tr>
+    <tr><td class="paramname">vnf_name</td><td>name of the VNF </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -565,7 +691,13 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>get_ip</b></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>vnf_id</em>&#160;</td>
+          <td class="paramname"><em>user</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>vnf_name</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -576,13 +708,19 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>get_ip</b></td></tr>
 </div><div class="memdoc">
 
 <p>Unpauses a docker container. </p>
-<p>Args: host: IP address or hostname of the machine where the docker container is deployed vnf_id: Docker container ID for the VNF</p>
-<p>Returns: If the operation is successful then returns a tuple consisting of the following values: response: response from the docker-py client return_code: SUCCESS return_message: EMPTY in this case otherwise returns the error as the following tuple: None as the first value return_code: one of the error codes defined in hypervisor_return_codes return_message: detailed message for the return code </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">host</td><td>IP address or hostname of the machine/VM where the docker container is deployed </td></tr>
+    <tr><td class="paramname">user</td><td>name of the user </td></tr>
+    <tr><td class="paramname">vnf_name</td><td>name of the VNF </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>/home/nfuser/nf.io/src/hypervisor/docker_driver.py</li>
+<li>WatNFV/nf.io/src/hypervisor/docker_driver.py</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -590,7 +728,7 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>get_ip</b></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>hypervisor</b></li><li class="navelem"><b>docker_driver</b></li><li class="navelem"><a class="el" href="classhypervisor_1_1docker__driver_1_1DockerDriver.html">DockerDriver</a></li>
-    <li class="footer">Generated on Mon Feb 1 2016 18:15:13 by
+    <li class="footer">Generated on Tue Feb 16 2016 02:38:36 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

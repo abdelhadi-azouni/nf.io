@@ -1,18 +1,25 @@
 var annotated =
 [
     [ "errors", null, [
+      [ "nfioError", "classerrors_1_1nfioError.html", null ],
       [ "HypervisorError", "classerrors_1_1HypervisorError.html", null ],
-      [ "HypervisorConnectionError", "classerrors_1_1HypervisorConnectionError.html", null ],
-      [ "VNFNotFoundError", "classerrors_1_1VNFNotFoundError.html", null ],
-      [ "VNFCommandExecutionError", "classerrors_1_1VNFCommandExecutionError.html", null ],
-      [ "VNFCreateError", "classerrors_1_1VNFCreateError.html", null ],
-      [ "VNFDeployError", "classerrors_1_1VNFDeployError.html", null ],
-      [ "VNFDestroyError", "classerrors_1_1VNFDestroyError.html", null ],
-      [ "VNFStartError", "classerrors_1_1VNFStartError.html", null ],
-      [ "VNFRestartError", "classerrors_1_1VNFRestartError.html", null ],
-      [ "VNFStopError", "classerrors_1_1VNFStopError.html", null ],
-      [ "VNFPauseError", "classerrors_1_1VNFPauseError.html", null ],
-      [ "VNFUnpauseError", "classerrors_1_1VNFUnpauseError.html", null ]
+      [ "VNFConfigurationError", "classerrors_1_1VNFConfigurationError.html", null ],
+      [ "HypervisorConnectionError", "classerrors_1_1HypervisorConnectionError.html", "classerrors_1_1HypervisorConnectionError" ],
+      [ "VNFNotFoundError", "classerrors_1_1VNFNotFoundError.html", "classerrors_1_1VNFNotFoundError" ],
+      [ "VNFCommandExecutionError", "classerrors_1_1VNFCommandExecutionError.html", "classerrors_1_1VNFCommandExecutionError" ],
+      [ "VNFCreateError", "classerrors_1_1VNFCreateError.html", "classerrors_1_1VNFCreateError" ],
+      [ "VNFDeployError", "classerrors_1_1VNFDeployError.html", "classerrors_1_1VNFDeployError" ],
+      [ "VNFDestroyError", "classerrors_1_1VNFDestroyError.html", "classerrors_1_1VNFDestroyError" ],
+      [ "VNFStartError", "classerrors_1_1VNFStartError.html", "classerrors_1_1VNFStartError" ],
+      [ "VNFRestartError", "classerrors_1_1VNFRestartError.html", "classerrors_1_1VNFRestartError" ],
+      [ "VNFStopError", "classerrors_1_1VNFStopError.html", "classerrors_1_1VNFStopError" ],
+      [ "VNFPauseError", "classerrors_1_1VNFPauseError.html", "classerrors_1_1VNFPauseError" ],
+      [ "VNFUnpauseError", "classerrors_1_1VNFUnpauseError.html", "classerrors_1_1VNFUnpauseError" ],
+      [ "VNFDeployErrorWithInconsistentState", "classerrors_1_1VNFDeployErrorWithInconsistentState.html", "classerrors_1_1VNFDeployErrorWithInconsistentState" ],
+      [ "VNFImageNameIsEmptyError", "classerrors_1_1VNFImageNameIsEmptyError.html", "classerrors_1_1VNFImageNameIsEmptyError" ],
+      [ "VNFHostNameIsEmptyError", "classerrors_1_1VNFHostNameIsEmptyError.html", "classerrors_1_1VNFHostNameIsEmptyError" ],
+      [ "VNFNameIsEmptyError", "classerrors_1_1VNFNameIsEmptyError.html", "classerrors_1_1VNFNameIsEmptyError" ],
+      [ "VNFNotRunningError", "classerrors_1_1VNFNotRunningError.html", "classerrors_1_1VNFNotRunningError" ]
     ] ],
     [ "hypervisor", null, [
       [ "docker_driver", null, [

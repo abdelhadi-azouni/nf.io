@@ -1,10 +1,16 @@
 var searchData=
 [
   ['vnfcommandexecutionerror',['VNFCommandExecutionError',['../classerrors_1_1VNFCommandExecutionError.html',1,'errors']]],
+  ['vnfconfigurationerror',['VNFConfigurationError',['../classerrors_1_1VNFConfigurationError.html',1,'errors']]],
   ['vnfcreateerror',['VNFCreateError',['../classerrors_1_1VNFCreateError.html',1,'errors']]],
   ['vnfdeployerror',['VNFDeployError',['../classerrors_1_1VNFDeployError.html',1,'errors']]],
+  ['vnfdeployerrorwithinconsistentstate',['VNFDeployErrorWithInconsistentState',['../classerrors_1_1VNFDeployErrorWithInconsistentState.html',1,'errors']]],
   ['vnfdestroyerror',['VNFDestroyError',['../classerrors_1_1VNFDestroyError.html',1,'errors']]],
+  ['vnfhostnameisemptyerror',['VNFHostNameIsEmptyError',['../classerrors_1_1VNFHostNameIsEmptyError.html',1,'errors']]],
+  ['vnfimagenameisemptyerror',['VNFImageNameIsEmptyError',['../classerrors_1_1VNFImageNameIsEmptyError.html',1,'errors']]],
+  ['vnfnameisemptyerror',['VNFNameIsEmptyError',['../classerrors_1_1VNFNameIsEmptyError.html',1,'errors']]],
   ['vnfnotfounderror',['VNFNotFoundError',['../classerrors_1_1VNFNotFoundError.html',1,'errors']]],
+  ['vnfnotrunningerror',['VNFNotRunningError',['../classerrors_1_1VNFNotRunningError.html',1,'errors']]],
   ['vnfpauseerror',['VNFPauseError',['../classerrors_1_1VNFPauseError.html',1,'errors']]],
   ['vnfrestarterror',['VNFRestartError',['../classerrors_1_1VNFRestartError.html',1,'errors']]],
   ['vnfs_5fcreate_5fvnf_5finstance',['vnfs_create_vnf_instance',['../classvnfs__operations_1_1VNFSOperations.html#ae73c421b301cbda862896f9fe67a7941',1,'vnfs_operations::VNFSOperations']]],

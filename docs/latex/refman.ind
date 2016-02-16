@@ -1,178 +1,268 @@
 \begin{theindex}
 
   \item {\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}init\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}}
-    \subitem {hypervisor\discretionary {-}{}{}::docker\discretionary {-}{}{}\_\discretionary {-}{}{}driver\discretionary {-}{}{}::\discretionary {-}{}{}Docker}, 
-		\hyperpage{6}
     \subitem {hypervisor\discretionary {-}{}{}::hypervisor\discretionary {-}{}{}\_\discretionary {-}{}{}factory\discretionary {-}{}{}::\discretionary {-}{}{}Hypervisor\discretionary {-}{}{}Factory}, 
-		\hyperpage{8}
+		\hyperpage{12}
     \subitem {nfio\discretionary {-}{}{}::\discretionary {-}{}{}Nfio}, 
-		\hyperpage{10}
+		\hyperpage{14}
 
   \indexspace
 
   \item {deploy}
-    \subitem {hypervisor\discretionary {-}{}{}::docker\discretionary {-}{}{}\_\discretionary {-}{}{}driver\discretionary {-}{}{}::\discretionary {-}{}{}Docker}, 
+    \subitem {hypervisor\discretionary {-}{}{}::docker\discretionary {-}{}{}\_\discretionary {-}{}{}driver\discretionary {-}{}{}::\discretionary {-}{}{}Docker\discretionary {-}{}{}Driver}, 
 		\hyperpage{6}
     \subitem {hypervisor\discretionary {-}{}{}::hypervisor\discretionary {-}{}{}\_\discretionary {-}{}{}base\discretionary {-}{}{}::\discretionary {-}{}{}Hypervisor\discretionary {-}{}{}Base}, 
-		\hyperpage{7}
+		\hyperpage{9}
   \item {destroy}
+    \subitem {hypervisor\discretionary {-}{}{}::docker\discretionary {-}{}{}\_\discretionary {-}{}{}driver\discretionary {-}{}{}::\discretionary {-}{}{}Docker\discretionary {-}{}{}Driver}, 
+		\hyperpage{6}
     \subitem {hypervisor\discretionary {-}{}{}::hypervisor\discretionary {-}{}{}\_\discretionary {-}{}{}base\discretionary {-}{}{}::\discretionary {-}{}{}Hypervisor\discretionary {-}{}{}Base}, 
-		\hyperpage{7}
+		\hyperpage{9}
 
   \indexspace
 
+  \item {errors.\discretionary {-}{}{}Hypervisor\discretionary {-}{}{}Connection\discretionary {-}{}{}Error}, 
+		\hyperpage{10}
+  \item {errors.\discretionary {-}{}{}Hypervisor\discretionary {-}{}{}Error}, 
+		\hyperpage{10}
+  \item {errors.\discretionary {-}{}{}nfio\discretionary {-}{}{}Error}, 
+		\hyperpage{15}
+  \item {errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Command\discretionary {-}{}{}Execution\discretionary {-}{}{}Error}, 
+		\hyperpage{15}
+  \item {errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Configuration\discretionary {-}{}{}Error}, 
+		\hyperpage{16}
+  \item {errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Create\discretionary {-}{}{}Error}, 
+		\hyperpage{16}
+  \item {errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Deploy\discretionary {-}{}{}Error}, 
+		\hyperpage{17}
+  \item {errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Deploy\discretionary {-}{}{}Error\discretionary {-}{}{}With\discretionary {-}{}{}Inconsistent\discretionary {-}{}{}State}, 
+		\hyperpage{18}
+  \item {errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Destroy\discretionary {-}{}{}Error}, 
+		\hyperpage{18}
+  \item {errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Host\discretionary {-}{}{}Name\discretionary {-}{}{}Is\discretionary {-}{}{}Empty\discretionary {-}{}{}Error}, 
+		\hyperpage{19}
+  \item {errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Image\discretionary {-}{}{}Name\discretionary {-}{}{}Is\discretionary {-}{}{}Empty\discretionary {-}{}{}Error}, 
+		\hyperpage{19}
+  \item {errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Name\discretionary {-}{}{}Is\discretionary {-}{}{}Empty\discretionary {-}{}{}Error}, 
+		\hyperpage{20}
+  \item {errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Not\discretionary {-}{}{}Found\discretionary {-}{}{}Error}, 
+		\hyperpage{20}
+  \item {errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Not\discretionary {-}{}{}Running\discretionary {-}{}{}Error}, 
+		\hyperpage{21}
+  \item {errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Pause\discretionary {-}{}{}Error}, 
+		\hyperpage{21}
+  \item {errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Restart\discretionary {-}{}{}Error}, 
+		\hyperpage{22}
+  \item {errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Start\discretionary {-}{}{}Error}, 
+		\hyperpage{26}
+  \item {errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Stop\discretionary {-}{}{}Error}, 
+		\hyperpage{26}
+  \item {errors.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}Unpause\discretionary {-}{}{}Error}, 
+		\hyperpage{27}
   \item {execute\discretionary {-}{}{}\_\discretionary {-}{}{}in\discretionary {-}{}{}\_\discretionary {-}{}{}guest}
+    \subitem {hypervisor\discretionary {-}{}{}::docker\discretionary {-}{}{}\_\discretionary {-}{}{}driver\discretionary {-}{}{}::\discretionary {-}{}{}Docker\discretionary {-}{}{}Driver}, 
+		\hyperpage{6}
     \subitem {hypervisor\discretionary {-}{}{}::hypervisor\discretionary {-}{}{}\_\discretionary {-}{}{}base\discretionary {-}{}{}::\discretionary {-}{}{}Hypervisor\discretionary {-}{}{}Base}, 
-		\hyperpage{7}
+		\hyperpage{9}
 
   \indexspace
 
   \item {get\discretionary {-}{}{}\_\discretionary {-}{}{}hypervisor\discretionary {-}{}{}\_\discretionary {-}{}{}instance}
     \subitem {hypervisor\discretionary {-}{}{}::hypervisor\discretionary {-}{}{}\_\discretionary {-}{}{}factory\discretionary {-}{}{}::\discretionary {-}{}{}Hypervisor\discretionary {-}{}{}Factory}, 
-		\hyperpage{9}
+		\hyperpage{12}
   \item {get\discretionary {-}{}{}\_\discretionary {-}{}{}id}
-    \subitem {hypervisor\discretionary {-}{}{}::docker\discretionary {-}{}{}\_\discretionary {-}{}{}driver\discretionary {-}{}{}::\discretionary {-}{}{}Docker}, 
+    \subitem {hypervisor\discretionary {-}{}{}::docker\discretionary {-}{}{}\_\discretionary {-}{}{}driver\discretionary {-}{}{}::\discretionary {-}{}{}Docker\discretionary {-}{}{}Driver}, 
 		\hyperpage{6}
     \subitem {hypervisor\discretionary {-}{}{}::hypervisor\discretionary {-}{}{}\_\discretionary {-}{}{}base\discretionary {-}{}{}::\discretionary {-}{}{}Hypervisor\discretionary {-}{}{}Base}, 
+		\hyperpage{9}
+  \item {get\discretionary {-}{}{}\_\discretionary {-}{}{}ip}
+    \subitem {hypervisor\discretionary {-}{}{}::docker\discretionary {-}{}{}\_\discretionary {-}{}{}driver\discretionary {-}{}{}::\discretionary {-}{}{}Docker\discretionary {-}{}{}Driver}, 
 		\hyperpage{7}
   \item {getattr}
     \subitem {nfio\discretionary {-}{}{}::\discretionary {-}{}{}Nfio}, 
-		\hyperpage{11}
+		\hyperpage{14}
   \item {guest\discretionary {-}{}{}\_\discretionary {-}{}{}status}
-    \subitem {hypervisor\discretionary {-}{}{}::hypervisor\discretionary {-}{}{}\_\discretionary {-}{}{}base\discretionary {-}{}{}::\discretionary {-}{}{}Hypervisor\discretionary {-}{}{}Base}, 
+    \subitem {hypervisor\discretionary {-}{}{}::docker\discretionary {-}{}{}\_\discretionary {-}{}{}driver\discretionary {-}{}{}::\discretionary {-}{}{}Docker\discretionary {-}{}{}Driver}, 
 		\hyperpage{7}
+    \subitem {hypervisor\discretionary {-}{}{}::hypervisor\discretionary {-}{}{}\_\discretionary {-}{}{}base\discretionary {-}{}{}::\discretionary {-}{}{}Hypervisor\discretionary {-}{}{}Base}, 
+		\hyperpage{9}
 
   \indexspace
 
-  \item {hypervisor.\discretionary {-}{}{}docker\discretionary {-}{}{}\_\discretionary {-}{}{}driver.\discretionary {-}{}{}Docker}, 
+  \item {hypervisor.\discretionary {-}{}{}docker\discretionary {-}{}{}\_\discretionary {-}{}{}driver.\discretionary {-}{}{}Docker\discretionary {-}{}{}Driver}, 
 		\hyperpage{5}
   \item {hypervisor.\discretionary {-}{}{}hypervisor\discretionary {-}{}{}\_\discretionary {-}{}{}base.\discretionary {-}{}{}Hypervisor\discretionary {-}{}{}Base}, 
-		\hyperpage{6}
-  \item {hypervisor.\discretionary {-}{}{}hypervisor\discretionary {-}{}{}\_\discretionary {-}{}{}factory.\discretionary {-}{}{}Hypervisor\discretionary {-}{}{}Factory}, 
 		\hyperpage{8}
+  \item {hypervisor.\discretionary {-}{}{}hypervisor\discretionary {-}{}{}\_\discretionary {-}{}{}factory.\discretionary {-}{}{}Hypervisor\discretionary {-}{}{}Factory}, 
+		\hyperpage{11}
   \item {hypervisor.\discretionary {-}{}{}libvirt\discretionary {-}{}{}\_\discretionary {-}{}{}driver.\discretionary {-}{}{}Libvirt}, 
-		\hyperpage{9}
-  \item {hypervisor\discretionary {-}{}{}::docker\discretionary {-}{}{}\_\discretionary {-}{}{}driver\discretionary {-}{}{}::\discretionary {-}{}{}Docker}
-    \subitem {\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}init\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}}, 
-		\hyperpage{6}
+		\hyperpage{12}
+  \item {hypervisor\discretionary {-}{}{}::docker\discretionary {-}{}{}\_\discretionary {-}{}{}driver\discretionary {-}{}{}::\discretionary {-}{}{}Docker\discretionary {-}{}{}Driver}
     \subitem {deploy}, \hyperpage{6}
+    \subitem {destroy}, \hyperpage{6}
+    \subitem {execute\discretionary {-}{}{}\_\discretionary {-}{}{}in\discretionary {-}{}{}\_\discretionary {-}{}{}guest}, 
+		\hyperpage{6}
     \subitem {get\discretionary {-}{}{}\_\discretionary {-}{}{}id}, 
 		\hyperpage{6}
-  \item {hypervisor\discretionary {-}{}{}::hypervisor\discretionary {-}{}{}\_\discretionary {-}{}{}base\discretionary {-}{}{}::\discretionary {-}{}{}Hypervisor\discretionary {-}{}{}Base}
-    \subitem {deploy}, \hyperpage{7}
-    \subitem {destroy}, \hyperpage{7}
-    \subitem {execute\discretionary {-}{}{}\_\discretionary {-}{}{}in\discretionary {-}{}{}\_\discretionary {-}{}{}guest}, 
-		\hyperpage{7}
-    \subitem {get\discretionary {-}{}{}\_\discretionary {-}{}{}id}, 
+    \subitem {get\discretionary {-}{}{}\_\discretionary {-}{}{}ip}, 
 		\hyperpage{7}
     \subitem {guest\discretionary {-}{}{}\_\discretionary {-}{}{}status}, 
 		\hyperpage{7}
-    \subitem {pause}, \hyperpage{8}
+    \subitem {pause}, \hyperpage{7}
+    \subitem {restart}, \hyperpage{7}
+    \subitem {start}, \hyperpage{8}
+    \subitem {stop}, \hyperpage{8}
+    \subitem {unpause}, \hyperpage{8}
+  \item {hypervisor\discretionary {-}{}{}::hypervisor\discretionary {-}{}{}\_\discretionary {-}{}{}base\discretionary {-}{}{}::\discretionary {-}{}{}Hypervisor\discretionary {-}{}{}Base}
+    \subitem {deploy}, \hyperpage{9}
+    \subitem {destroy}, \hyperpage{9}
+    \subitem {execute\discretionary {-}{}{}\_\discretionary {-}{}{}in\discretionary {-}{}{}\_\discretionary {-}{}{}guest}, 
+		\hyperpage{9}
+    \subitem {get\discretionary {-}{}{}\_\discretionary {-}{}{}id}, 
+		\hyperpage{9}
+    \subitem {guest\discretionary {-}{}{}\_\discretionary {-}{}{}status}, 
+		\hyperpage{9}
+    \subitem {pause}, \hyperpage{10}
   \item {hypervisor\discretionary {-}{}{}::hypervisor\discretionary {-}{}{}\_\discretionary {-}{}{}factory\discretionary {-}{}{}::\discretionary {-}{}{}Hypervisor\discretionary {-}{}{}Factory}
     \subitem {\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}init\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}}, 
-		\hyperpage{8}
+		\hyperpage{12}
     \subitem {get\discretionary {-}{}{}\_\discretionary {-}{}{}hypervisor\discretionary {-}{}{}\_\discretionary {-}{}{}instance}, 
-		\hyperpage{9}
+		\hyperpage{12}
 
   \indexspace
 
   \item {mkdir}
     \subitem {nfio\discretionary {-}{}{}::\discretionary {-}{}{}Nfio}, 
-		\hyperpage{11}
+		\hyperpage{14}
 
   \indexspace
 
-  \item {nfio.\discretionary {-}{}{}Nfio}, \hyperpage{9}
+  \item {nfio.\discretionary {-}{}{}Nfio}, \hyperpage{13}
   \item {nfio\discretionary {-}{}{}::\discretionary {-}{}{}Nfio}
     \subitem {\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}init\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}}, 
-		\hyperpage{10}
-    \subitem {getattr}, \hyperpage{11}
-    \subitem {mkdir}, \hyperpage{11}
-    \subitem {read}, \hyperpage{11}
-    \subitem {write}, \hyperpage{11}
+		\hyperpage{14}
+    \subitem {getattr}, \hyperpage{14}
+    \subitem {mkdir}, \hyperpage{14}
+    \subitem {read}, \hyperpage{14}
+    \subitem {write}, \hyperpage{14}
 
   \indexspace
 
   \item {pause}
+    \subitem {hypervisor\discretionary {-}{}{}::docker\discretionary {-}{}{}\_\discretionary {-}{}{}driver\discretionary {-}{}{}::\discretionary {-}{}{}Docker\discretionary {-}{}{}Driver}, 
+		\hyperpage{7}
     \subitem {hypervisor\discretionary {-}{}{}::hypervisor\discretionary {-}{}{}\_\discretionary {-}{}{}base\discretionary {-}{}{}::\discretionary {-}{}{}Hypervisor\discretionary {-}{}{}Base}, 
-		\hyperpage{8}
+		\hyperpage{10}
 
   \indexspace
 
   \item {read}
     \subitem {nfio\discretionary {-}{}{}::\discretionary {-}{}{}Nfio}, 
-		\hyperpage{11}
+		\hyperpage{14}
+  \item {restart}
+    \subitem {hypervisor\discretionary {-}{}{}::docker\discretionary {-}{}{}\_\discretionary {-}{}{}driver\discretionary {-}{}{}::\discretionary {-}{}{}Docker\discretionary {-}{}{}Driver}, 
+		\hyperpage{7}
+
+  \indexspace
+
+  \item {start}
+    \subitem {hypervisor\discretionary {-}{}{}::docker\discretionary {-}{}{}\_\discretionary {-}{}{}driver\discretionary {-}{}{}::\discretionary {-}{}{}Docker\discretionary {-}{}{}Driver}, 
+		\hyperpage{8}
+  \item {stop}
+    \subitem {hypervisor\discretionary {-}{}{}::docker\discretionary {-}{}{}\_\discretionary {-}{}{}driver\discretionary {-}{}{}::\discretionary {-}{}{}Docker\discretionary {-}{}{}Driver}, 
+		\hyperpage{8}
+
+  \indexspace
+
+  \item {unpause}
+    \subitem {hypervisor\discretionary {-}{}{}::docker\discretionary {-}{}{}\_\discretionary {-}{}{}driver\discretionary {-}{}{}::\discretionary {-}{}{}Docker\discretionary {-}{}{}Driver}, 
+		\hyperpage{8}
 
   \indexspace
 
   \item {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}create\discretionary {-}{}{}\_\discretionary {-}{}{}vnf\discretionary {-}{}{}\_\discretionary {-}{}{}instance}
     \subitem {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}operations\discretionary {-}{}{}::\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}S\discretionary {-}{}{}Operations}, 
-		\hyperpage{13}
+		\hyperpage{23}
   \item {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}deploy\discretionary {-}{}{}\_\discretionary {-}{}{}nf}
     \subitem {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}operations\discretionary {-}{}{}::\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}S\discretionary {-}{}{}Operations}, 
-		\hyperpage{13}
+		\hyperpage{23}
+  \item {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}destroy\discretionary {-}{}{}\_\discretionary {-}{}{}vnf}
+    \subitem {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}operations\discretionary {-}{}{}::\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}S\discretionary {-}{}{}Operations}, 
+		\hyperpage{23}
   \item {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}file\discretionary {-}{}{}\_\discretionary {-}{}{}name}
     \subitem {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}operations\discretionary {-}{}{}::\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}S\discretionary {-}{}{}Operations}, 
-		\hyperpage{13}
+		\hyperpage{24}
   \item {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}instance\discretionary {-}{}{}\_\discretionary {-}{}{}configuration}
     \subitem {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}operations\discretionary {-}{}{}::\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}S\discretionary {-}{}{}Operations}, 
-		\hyperpage{13}
+		\hyperpage{24}
+  \item {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}ip}
+    \subitem {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}operations\discretionary {-}{}{}::\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}S\discretionary {-}{}{}Operations}, 
+		\hyperpage{24}
   \item {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}nf\discretionary {-}{}{}\_\discretionary {-}{}{}type}
     \subitem {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}operations\discretionary {-}{}{}::\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}S\discretionary {-}{}{}Operations}, 
-		\hyperpage{13}
+		\hyperpage{24}
   \item {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}opcode}
     \subitem {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}operations\discretionary {-}{}{}::\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}S\discretionary {-}{}{}Operations}, 
-		\hyperpage{13}
+		\hyperpage{24}
   \item {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}pkt\discretionary {-}{}{}\_\discretionary {-}{}{}drops}
     \subitem {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}operations\discretionary {-}{}{}::\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}S\discretionary {-}{}{}Operations}, 
-		\hyperpage{13}
+		\hyperpage{24}
   \item {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}rx\discretionary {-}{}{}\_\discretionary {-}{}{}bytes}
     \subitem {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}operations\discretionary {-}{}{}::\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}S\discretionary {-}{}{}Operations}, 
-		\hyperpage{13}
+		\hyperpage{24}
   \item {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}status}
     \subitem {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}operations\discretionary {-}{}{}::\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}S\discretionary {-}{}{}Operations}, 
-		\hyperpage{14}
+		\hyperpage{25}
   \item {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}tx\discretionary {-}{}{}\_\discretionary {-}{}{}bytes}
     \subitem {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}operations\discretionary {-}{}{}::\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}S\discretionary {-}{}{}Operations}, 
-		\hyperpage{14}
+		\hyperpage{25}
   \item {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}is\discretionary {-}{}{}\_\discretionary {-}{}{}nf\discretionary {-}{}{}\_\discretionary {-}{}{}instance}
     \subitem {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}operations\discretionary {-}{}{}::\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}S\discretionary {-}{}{}Operations}, 
-		\hyperpage{14}
+		\hyperpage{25}
   \item {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}operations.\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}S\discretionary {-}{}{}Operations}, 
-		\hyperpage{12}
+		\hyperpage{22}
   \item {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}operations\discretionary {-}{}{}::\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}S\discretionary {-}{}{}Operations}
     \subitem {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}create\discretionary {-}{}{}\_\discretionary {-}{}{}vnf\discretionary {-}{}{}\_\discretionary {-}{}{}instance}, 
-		\hyperpage{13}
+		\hyperpage{23}
     \subitem {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}deploy\discretionary {-}{}{}\_\discretionary {-}{}{}nf}, 
-		\hyperpage{13}
+		\hyperpage{23}
+    \subitem {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}destroy\discretionary {-}{}{}\_\discretionary {-}{}{}vnf}, 
+		\hyperpage{23}
     \subitem {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}file\discretionary {-}{}{}\_\discretionary {-}{}{}name}, 
-		\hyperpage{13}
+		\hyperpage{24}
     \subitem {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}instance\discretionary {-}{}{}\_\discretionary {-}{}{}configuration}, 
-		\hyperpage{13}
+		\hyperpage{24}
+    \subitem {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}ip}, 
+		\hyperpage{24}
     \subitem {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}nf\discretionary {-}{}{}\_\discretionary {-}{}{}type}, 
-		\hyperpage{13}
+		\hyperpage{24}
     \subitem {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}opcode}, 
-		\hyperpage{13}
+		\hyperpage{24}
     \subitem {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}pkt\discretionary {-}{}{}\_\discretionary {-}{}{}drops}, 
-		\hyperpage{13}
+		\hyperpage{24}
     \subitem {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}rx\discretionary {-}{}{}\_\discretionary {-}{}{}bytes}, 
-		\hyperpage{13}
+		\hyperpage{24}
     \subitem {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}status}, 
-		\hyperpage{14}
+		\hyperpage{25}
     \subitem {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}tx\discretionary {-}{}{}\_\discretionary {-}{}{}bytes}, 
-		\hyperpage{14}
+		\hyperpage{25}
     \subitem {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}is\discretionary {-}{}{}\_\discretionary {-}{}{}nf\discretionary {-}{}{}\_\discretionary {-}{}{}instance}, 
-		\hyperpage{14}
+		\hyperpage{25}
+    \subitem {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}start\discretionary {-}{}{}\_\discretionary {-}{}{}vnf}, 
+		\hyperpage{25}
     \subitem {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}stop\discretionary {-}{}{}\_\discretionary {-}{}{}vnf}, 
-		\hyperpage{14}
+		\hyperpage{25}
+  \item {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}start\discretionary {-}{}{}\_\discretionary {-}{}{}vnf}
+    \subitem {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}operations\discretionary {-}{}{}::\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}S\discretionary {-}{}{}Operations}, 
+		\hyperpage{25}
   \item {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}stop\discretionary {-}{}{}\_\discretionary {-}{}{}vnf}
     \subitem {vnfs\discretionary {-}{}{}\_\discretionary {-}{}{}operations\discretionary {-}{}{}::\discretionary {-}{}{}V\discretionary {-}{}{}N\discretionary {-}{}{}F\discretionary {-}{}{}S\discretionary {-}{}{}Operations}, 
-		\hyperpage{14}
+		\hyperpage{25}
 
   \indexspace
 
   \item {write}
     \subitem {nfio\discretionary {-}{}{}::\discretionary {-}{}{}Nfio}, 
-		\hyperpage{11}
+		\hyperpage{14}
 
 \end{theindex}
