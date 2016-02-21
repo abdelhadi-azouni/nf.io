@@ -74,7 +74,8 @@ class VNFSOperations:
                 default_file_mode)
         os.open(full_path + "/action", os.O_WRONLY | os.O_CREAT,
                 default_file_mode)
-
+        os.open(full_path + "/command", os.O_WRONLY | os.O_CREAT,
+                default_file_mode)
         default_file_mode = 0o444
         os.mkdir(full_path + "/stats", mode)
         os.open(full_path + "/stats/rx_bytes", os.O_WRONLY | os.O_CREAT,
