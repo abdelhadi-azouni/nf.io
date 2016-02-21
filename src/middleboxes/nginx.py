@@ -126,22 +126,7 @@ def _write(root, path, buf, offset, fh):
     else:
         os.lseek(fh, offset, os.SEEK_SET)
         return os.write(fh, buf)
-"""
-nginx specific
-def _start(hypervisor_driver, nf_config):
-    command = "/user/bin nginx"
-    return hypervisor_driver.execute_in_guest(nf_config['host'],
-              nf_config['nf_id'], command)
-def _nginx_signal(hypervisor_driver, nf_config, signal):
-    if signal not in ["stop", "quit", "reload", 'reopen']:
-        logger.info("invalid signal")
-    else:
-        command = "nginx -s %s" % signal
-    return hypervisor_driver.execute_in_guest(nf_config['host'],
-              nf_config['nf_id'], command)
 
-
-"""
 
 def rx_bytes_read(hypervisor_driver, nf_config):
     command = "ifconfig eth0 | grep -Eo 'RX bytes:[0-9]+' | cut -d':' -f 2"
@@ -167,7 +152,32 @@ def vm_ip_read(hypervisor_driver, nf_config):
               nf_config['username'], nf_config['nf_instance_name'])
 
 
+"""
+nginx specific
+def _start(hypervisor_driver, nf_config):
+    command = "/user/bin nginx"
+    return hypervisor_driver.execute_in_guest(nf_config['host'],
+              nf_config['nf_id'], command)
+def _nginx_signal(hypervisor_driver, nf_config, signal):
+    if signal not in ["stop", "quit", "reload", 'reopen']:
+        logger.info("invalid signal")
+    else:
+        command = "nginx -s %s" % signal
+    return hypervisor_driver.execute_in_guest(nf_config['host'],
+              nf_config['nf_id'], command)
 
+
+
+
+def command_write(hypervisor_driver, nf_config, command):
+    if command == "start":
+        command = "/usr/bin nginx"
+    #try:
+    return hypervisor_driver.execute_in_guest(nf_config['host'],
+        nf_config['nf_id'], "nginx "+command)
+    #except ValueError:
+    #    logger.info('invalid command')
+"""
 
 def action_write(hypervisor_driver, nf_config, data):
     if data == "activate":
@@ -216,5 +226,11 @@ def action_write(hypervisor_driver, nf_config, data):
             nf_config['nf_instance_name'])
         logger.info(nf_config['nf_instance_name'] + '@' + nf_config['host'] +
             ' successfully destroyed')
+
+
+    elif data == "run-inginx":
+        return hypervisor_driver.execute_in_guest(nf_config['host'],
+        nf_config['nf_id'], "/usr/bin nginx")
+
 
 
