@@ -61,7 +61,7 @@ class VNFSOperations:
         os.mkdir(full_path + "/config", mode)
         os.open(full_path + "/config/boot.conf", os.O_WRONLY | os.O_CREAT,
                 default_file_mode)
-        os.open(full_path + "/config/nf.conf", os.O_WRONLY | os.O_CREAT,
+        os.open(full_path + "/config/nf_conf", os.O_WRONLY | os.O_CREAT,
                 default_file_mode)
         os.mkdir(full_path + "/machine", mode)
         os.open(full_path + "/machine/ip", os.O_WRONLY | os.O_CREAT,
