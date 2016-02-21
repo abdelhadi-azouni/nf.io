@@ -139,6 +139,8 @@ def _nginx_signal(hypervisor_driver, nf_config, signal):
         command = "nginx -s %s" % signal
     return hypervisor_driver.execute_in_guest(nf_config['host'],
               nf_config['nf_id'], command)
+
+
 """
 
 def rx_bytes_read(hypervisor_driver, nf_config):
@@ -163,6 +165,9 @@ def status_read(hypervisor_driver, nf_config):
 def vm_ip_read(hypervisor_driver, nf_config):
     return hypervisor_driver.get_ip(nf_config['host'],
               nf_config['username'], nf_config['nf_instance_name'])
+
+
+
 
 def action_write(hypervisor_driver, nf_config, data):
     if data == "activate":
