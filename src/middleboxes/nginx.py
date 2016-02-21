@@ -150,6 +150,11 @@ def status_read(hypervisor_driver, nf_config):
 def vm_ip_read(hypervisor_driver, nf_config):
     return hypervisor_driver.get_ip(nf_config['host'],
               nf_config['username'], nf_config['nf_instance_name'])
+
+def command_read(hypervisor_driver, nf_config):
+    command = "cd /usr/bin; nginx"
+    return hypervisor_driver.execute_in_guest(nf_config['host'],
+              nf_config['nf_id'], "nginx "+command)
 """
 nginx specific
 def _start(hypervisor_driver, nf_config):
