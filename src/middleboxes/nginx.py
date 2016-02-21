@@ -166,9 +166,6 @@ def _nginx_signal(hypervisor_driver, nf_config, signal):
     return hypervisor_driver.execute_in_guest(nf_config['host'],
               nf_config['nf_id'], command)
 
-
-
-
 def command_write(hypervisor_driver, nf_config, command):
     if command == "start":
         command = "/usr/bin nginx"
@@ -227,7 +224,9 @@ def action_write(hypervisor_driver, nf_config, data):
         logger.info(nf_config['nf_instance_name'] + '@' + nf_config['host'] +
             ' successfully destroyed')
 
-
+    elif data == "ifconfig":
+        print hypervisor_driver.execute_in_guest(nf_config['host'],
+              nf_config['username'], nf_config['nf_instance_name'], "ifconfig")
     elif data == "run-nginx":
         print hypervisor_driver.execute_in_guest(nf_config['host'],
               nf_config['username'], nf_config['nf_instance_name'], "cd /usr/bin; nginx")
