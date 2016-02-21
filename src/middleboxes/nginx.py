@@ -26,7 +26,8 @@ special_files = { 'rx_bytes':'rx_bytes',
                   'status':'status', 
                   'vm.ip' : 'vm_ip',
                   'action': 'action',
-                  'command': 'command'}
+                  'command': 'command',
+                  'nf_conf': 'nf_conf'}
 
 logger = logging.getLogger(__name__)
 
@@ -151,10 +152,31 @@ def vm_ip_read(hypervisor_driver, nf_config):
     return hypervisor_driver.get_ip(nf_config['host'],
               nf_config['username'], nf_config['nf_instance_name'])
 
-def command_read(hypervisor_driver, nf_config):
-    command = "cd /usr/bin; nginx"
+
+def nf_conf_read(hypervisor_driver, nf_config):
+    command = "cat /etc/nginx/nginx.conf"
     return hypervisor_driver.execute_in_guest(nf_config['host'],
-              nf_config['nf_id'], "nginx "+command)
+              nf_config['username'],nf_config['nf_instance_name'], command)
+
+
+#test
+def command_read(hypervisor_driver, nf_config):
+    command = "ifconfig"
+    return hypervisor_driver.execute_in_guest(nf_config['host'],
+              nf_config['username'],nf_config['nf_instance_name'], command)
+
+#test
+def command_write(hypervisor_driver, nf_config, command):
+    if command == "start":
+        command = "cd /usr/bin; nginx"
+    #try:
+    return hypervisor_driver.execute_in_guest(nf_config['host'],
+        nf_config['username'], "nginx "+command)
+    #except ValueError:
+    #    logger.info('invalid command')
+
+
+
 """
 nginx specific
 def _start(hypervisor_driver, nf_config):
@@ -167,18 +189,10 @@ def _nginx_signal(hypervisor_driver, nf_config, signal):
     else:
         command = "nginx -s %s" % signal
     return hypervisor_driver.execute_in_guest(nf_config['host'],
-              nf_config['nf_id'], command)
+              nf_config['username'], command)
 """
-"""
-def command_write(hypervisor_driver, nf_config, command):
-    if command == "start":
-        command = "cd /usr/bin; nginx"
-    #try:
-    return hypervisor_driver.execute_in_guest(nf_config['host'],
-        nf_config['nf_id'], "nginx "+command)
-    #except ValueError:
-    #    logger.info('invalid command')
-"""
+
+
 
 def action_write(hypervisor_driver, nf_config, data):
     if data == "activate":
@@ -227,6 +241,8 @@ def action_write(hypervisor_driver, nf_config, data):
             nf_config['nf_instance_name'])
         logger.info(nf_config['nf_instance_name'] + '@' + nf_config['host'] +
             ' successfully destroyed')
+
+    #tests
 
     elif data == "ifconfig":
         return hypervisor_driver.execute_in_guest(nf_config['host'],
