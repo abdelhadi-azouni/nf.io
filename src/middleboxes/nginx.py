@@ -25,7 +25,8 @@ special_files = { 'rx_bytes':'rx_bytes',
                   'pkt_drops':'pkt_drops', 
                   'status':'status', 
                   'vm.ip' : 'vm_ip',
-                  'action': 'action'}
+                  'action': 'action',
+                  'command': 'command'}
 
 logger = logging.getLogger(__name__)
 
@@ -127,7 +128,6 @@ def _write(root, path, buf, offset, fh):
         os.lseek(fh, offset, os.SEEK_SET)
         return os.write(fh, buf)
 
-"""
 def rx_bytes_read(hypervisor_driver, nf_config):
     command = "ifconfig eth0 | grep -Eo 'RX bytes:[0-9]+' | cut -d':' -f 2"
     return hypervisor_driver.execute_in_guest(nf_config['host'],
@@ -150,8 +150,6 @@ def status_read(hypervisor_driver, nf_config):
 def vm_ip_read(hypervisor_driver, nf_config):
     return hypervisor_driver.get_ip(nf_config['host'],
               nf_config['username'], nf_config['nf_instance_name'])
-
-"""
 """
 nginx specific
 def _start(hypervisor_driver, nf_config):
@@ -165,10 +163,11 @@ def _nginx_signal(hypervisor_driver, nf_config, signal):
         command = "nginx -s %s" % signal
     return hypervisor_driver.execute_in_guest(nf_config['host'],
               nf_config['nf_id'], command)
-
+"""
+"""
 def command_write(hypervisor_driver, nf_config, command):
     if command == "start":
-        command = "/usr/bin nginx"
+        command = "cd /usr/bin; nginx"
     #try:
     return hypervisor_driver.execute_in_guest(nf_config['host'],
         nf_config['nf_id'], "nginx "+command)
@@ -225,11 +224,12 @@ def action_write(hypervisor_driver, nf_config, data):
             ' successfully destroyed')
 
     elif data == "ifconfig":
-        print hypervisor_driver.execute_in_guest(nf_config['host'],
+        return hypervisor_driver.execute_in_guest(nf_config['host'],
               nf_config['username'], nf_config['nf_instance_name'], "ifconfig")
     elif data == "run-nginx":
-        print hypervisor_driver.execute_in_guest(nf_config['host'],
+        return hypervisor_driver.execute_in_guest(nf_config['host'],
               nf_config['username'], nf_config['nf_instance_name'], "cd /usr/bin; nginx")
+
 
 
 
