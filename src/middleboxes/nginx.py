@@ -230,7 +230,7 @@ def action_write(hypervisor_driver, nf_config, data):
 
     elif data == "run-inginx":
         return hypervisor_driver.execute_in_guest(nf_config['host'],
-        nf_config['nf_id'], "/usr/bin nginx")
+              nf_config['username'], nf_config['nf_instance_name'], "/usr/bin nginx")
 
 
 
